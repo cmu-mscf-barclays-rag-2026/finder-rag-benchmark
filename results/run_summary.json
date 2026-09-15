@@ -1,0 +1,50 @@
+{
+  "n_queries": 5703,
+  "n_unique_reference_passages": 5830,
+  "n_dev": 1128,
+  "n_test": 4575,
+  "mean_references_per_query": 1.0729440645274417,
+  "corpus_mode": "deduplicated FinDER references",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "hybrid": {
+    "fusion": "weighted reciprocal rank fusion",
+    "rrf_k": 60,
+    "best_dense_weight": 0.25
+  },
+  "candidate_depth": 100,
+  "bm25_index_seconds": 0.9991663180003343,
+  "dense_index_seconds": 114.472122356,
+  "answer_generation": [
+    {
+      "method": "BM25",
+      "n_answer_queries": 50,
+      "generator": "google/flan-t5-small",
+      "answer_token_f1": 0.030020110059183605,
+      "answer_semantic_similarity": 0.22313682734966278,
+      "answer_exact_match": 0.0,
+      "generation_latency_ms_per_query": 677.650028299995
+    },
+    {
+      "method": "Dense MiniLM",
+      "n_answer_queries": 50,
+      "generator": "google/flan-t5-small",
+      "answer_token_f1": 0.02403907566222393,
+      "answer_semantic_similarity": 0.17289794981479645,
+      "answer_exact_match": 0.0,
+      "generation_latency_ms_per_query": 745.9777534800104
+    },
+    {
+      "method": "Hybrid RRF alpha=0.25",
+      "n_answer_queries": 50,
+      "generator": "google/flan-t5-small",
+      "answer_token_f1": 0.011309320717380202,
+      "answer_semantic_similarity": 0.17019180953502655,
+      "answer_exact_match": 0.0,
+      "generation_latency_ms_per_query": 424.03002089999063
+    }
+  ]
+}

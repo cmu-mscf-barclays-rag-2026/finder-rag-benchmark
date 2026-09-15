@@ -1,0 +1,4 @@
+method,n_answer_queries,generator,answer_token_f1,answer_semantic_similarity,answer_exact_match,generation_latency_ms_per_query
+BM25,50,google/flan-t5-small,0.030020110059183605,0.22313682734966278,0.0,677.650028299995
+Dense MiniLM,50,google/flan-t5-small,0.02403907566222393,0.17289794981479645,0.0,745.9777534800104
+Hybrid RRF alpha=0.25,50,google/flan-t5-small,0.011309320717380202,0.17019180953502655,0.0,424.03002089999063

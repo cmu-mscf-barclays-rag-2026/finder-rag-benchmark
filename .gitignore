@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Model and embedding caches should never be committed.
+.cache/
+models/
+embeddings/
+
+# Presentation CSV and Markdown files are intentionally committed so the team
+# can read the latest comparison without rerunning the models.

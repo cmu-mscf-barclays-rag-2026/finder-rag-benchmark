@@ -1,0 +1,2 @@
+owner,method,n_queries,precision_at_k,recall_at_k,hit_rate_at_k,mrr_at_k,ndcg_at_k,latency_ms_per_query,answer_status
+C,Hybrid RRF alpha=0.25,4575,0.0643497267759563,0.3056102003642987,0.314535519125683,0.2205063752276866,0.2386241936678728,3.8719213026477286,pilot

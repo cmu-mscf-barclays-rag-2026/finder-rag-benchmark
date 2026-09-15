@@ -1,0 +1,5 @@
+paper_method,paper_ragas_context_recall
+BM25,11.68
+GTE,17.83
+multilingual E5,17.36
+E5-Mistral,25.95

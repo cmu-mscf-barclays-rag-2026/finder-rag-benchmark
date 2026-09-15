@@ -1,0 +1,8 @@
+{
+  "n_queries": 5703,
+  "n_unique_reference_passages": 5830,
+  "n_dev": 1128,
+  "n_test": 4575,
+  "mean_references_per_query": 1.0729440645274417,
+  "corpus_mode": "deduplicated FinDER references"
+}

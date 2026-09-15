@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "FinDER-5703",
+  "dataset_source": "Linq-AI-Research/FinDER",
+  "dataset_file": "data/train-00000-of-00001.parquet",
+  "dataset_sha256": "213395beb38a075dcc7b23f8e213ccbd2768df0f5c615479c33e10ce8cc267f1",
+  "query_field": "text",
+  "gold_evidence_field": "references",
+  "gold_answer_field": "answer",
+  "corpus_id": "finder-deduplicated-references-5830-v1",
+  "corpus_definition": "Whitespace-normalized, deduplicated union of all FinDER references",
+  "split_id": "sha1-mod5-dev-v1",
+  "split_definition": "dev when int(sha1(_id)[:8], 16) modulo 5 equals 0; test otherwise",
+  "dev_queries": 1128,
+  "test_queries": 4575,
+  "candidate_depth": 100,
+  "evaluation_k": [1, 3, 5, 10],
+  "primary_k": 5,
+  "latency_definition": "Mean retrieval milliseconds per query; index construction excluded",
+  "relevance_definition": "Exact passage ID membership in the query's FinDER references"
+}
