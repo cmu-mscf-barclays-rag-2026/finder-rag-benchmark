@@ -1,0 +1,29 @@
+{
+  "dataset_id": "FinDER-5703",
+  "dataset_source": "Linq-AI-Research/FinDER",
+  "dataset_content_sha256": "012b669f31043dfe88154cf4d1d4e431ac7e21b62bc6cfa1c273922a6b10df5c",
+  "corpus_definition": "whitespace-normalized deduplicated union of FinDER references",
+  "source_passages": 5830,
+  "split_id": "sha1-mod5-dev-v1",
+  "split_definition": "dev iff int(sha1(_id)[:8], 16) modulo 5 equals 0; test otherwise",
+  "dev_queries": 1128,
+  "test_queries": 4575,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_device": "cuda",
+  "similarity": "cosine (L2-normalized embeddings)",
+  "chunk_score_aggregation": "maximum chunk score per source passage",
+  "selection_rule": "maximum development F1@5; tie-break Recall@5, then fewer chunks",
+  "selected_config": {
+    "label": "size=500, overlap=75",
+    "chunk_size": 500,
+    "chunk_overlap": 75
+  },
+  "primary_k": 5,
+  "top_k_values": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "query_embedding_ms_per_query": 0.21211583377216275
+}
