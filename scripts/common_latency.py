@@ -114,6 +114,8 @@ def run(args):
     threshold=next(s for s in settings if s['family']=='threshold')
     mmr=next(s for s in settings if s['family']=='mmr')
     alpha=json.loads((ROOT/'results/run_summary.json').read_text())['hybrid']['best_dense_weight']
+    if alpha != 0.25 or threshold['threshold'] != 0.3 or mmr['lambda_mult'] != 1.0 or mmr['fetch_k'] != 10:
+        raise ValueError('Selected configurations changed; update method IDs and protocol before timing')
     def encode(query):
         return model.encode([query],normalize_embeddings=True,convert_to_numpy=True,show_progress_bar=False)
     def texts(ids): return [corpus[int(i)] for i in ids[:5]]
@@ -164,9 +166,9 @@ def run(args):
     lines=['# Controlled retrieval latency — all four workstreams','','One Mac, CPU only, the same 100 held-out questions, 3 warmup calls per method, and 5 randomly interleaved repetitions. Each method has 500 measurements.','',
         '| Method | Mean ms | Median ms | p95 ms |','| --- | ---: | ---: | ---: |']
     lines += [f"| {r['method_id']} | {r['mean_ms']:.3f} | {r['median_ms']:.3f} | {r['p95_ms']:.3f} |" for r in summary]
-    lines += ['', f'Index embeddings were prepared on {args.index_device} outside the timed region; the model was then moved to CPU. Measured from raw question to top-five evidence text, including query encoding where needed, search, source pooling, fusion/refinement, and text lookup. Indexing, downloads, and generation are excluded. All model calls use CPU with four intra-op threads and one inter-op thread; BLAS pools are limited to four threads.', '',
+    lines += ['', f'Index embeddings were prepared on {args.index_device} outside the timed region; the model was then moved to CPU. Measured from raw question to top-five evidence text, including query encoding where needed, search, source pooling, fusion/refinement, and text lookup. Indexing, downloads, and generation are excluded. All timed model calls use CPU with four intra-op threads and one inter-op thread; BLAS pools are limited to four threads.', '',
         'These measurements support a local comparison of these implementations and selected configurations, not a general claim about hardware or algorithm speed. A indexes 44,679 chunks while C/D index 5,830 whole passages; this is part of each selected method. B is Florence’s implementation, not the BM25 control inside C. Raw repetitions, query IDs, source commits, model revision, and package versions are retained. Retrieval scores in team_metrics remain the owners’ full-test results; this timing run is not a quality rerun.', '',
-        'Reproduce after running the shared BM25 benchmark: `python scripts/common_latency.py --model-cache PATH --cache PATH`. Download the pinned model revision first. The original mixed-hardware latencies remain in team_metrics for provenance and must not be used as a speed ranking.']
+        'Reproduce after running the shared BM25 benchmark: `python scripts/common_latency.py --index-device mps --model-cache PATH --cache PATH`. Download the pinned model revision first. The original mixed-hardware latencies remain in team_metrics for provenance and must not be used as a speed ranking.']
     (output/'report.md').write_text('\n'.join(lines)+'\n')
     print(json.dumps(summary,indent=2),flush=True)
 
