@@ -38,7 +38,7 @@ Run only the command for your own workstream:
 | Contributor | Command |
 | --- | --- |
 | Yuchen / Person 1 / dense | `git switch yuchenlu` |
-| Person 2 / BM25 | `git switch feature/person2-bm25` |
+| Florence / Person 2 / BM25 | `git switch feature/person2-bm25` |
 | Cheryl / Person 3 / hybrid | `git switch feature/person3-hybrid` |
 | Person 4 / threshold-MMR | `git switch finder-threshold-mmr` |
 
@@ -54,7 +54,7 @@ other workstreams reuse it; its inclusion is not a requirement to work on `main`
 
 ## Commit and publish your work
 
-For Person 2, for example:
+For Florence / Person 2, for example:
 
 ```bash
 git status

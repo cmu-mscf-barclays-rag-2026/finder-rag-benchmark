@@ -1,13 +1,14 @@
 {
-  "description": "Saved contribution snapshots used in the shared overview; no model runs were repeated.",
+  "description": "A/C/D quality snapshots plus Florence B shared-split rerun and a controlled same-machine timing study; teammate branches unchanged.",
   "contributions": {
     "A": {
       "branch": "yuchenlu",
       "commit": "bd5e7c35443c6eaa5a1f24ada240b2c5ffdb3eb1"
     },
     "B": {
+      "owner": "Florence / Person 2",
       "branch": "feature/person2-bm25",
-      "commit": "c27c30d11f804696c6d6969e6b7514118a15fb02"
+      "commit": "bd08621bc6d6986566b9bdefc571ba9b63325de7"
     },
     "C": {
       "branch": "feature/person3-hybrid",
@@ -32,9 +33,19 @@
     "latency": "CUDA query embedding plus retrieval; hardware/protocol differs from CPU submissions."
   },
   "b_bm25": {
-    "source_report": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/c27c30d11f804696c6d6969e6b7514118a15fb02/person2_bm25/RESULTS.md",
-    "in_shared_comparison": false,
-    "reason": "Seed-42 split has 1140 dev / 4563 test, unlike shared sha1-mod5-dev-v1 split (1128/4575). Overview quotes rounded report values."
+    "source_report": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/bc9a8ea63392d69fc687cacd091c918e03f48d4f/results/b_bm25_common/report.md",
+    "in_shared_comparison": true,
+    "split_id": "sha1-mod5-dev-v1",
+    "dev_queries": 1128,
+    "test_queries": 4575,
+    "selected_config": {
+      "k1": 1.6,
+      "b": 1.0
+    },
+    "selection": "shared-dev nDCG@5 then MRR@5; frozen before test",
+    "verification": "Exact passage membership and qrels matched to shared dataset; all k=1/3/5/10 metrics recomputed with existing team query_metrics; zero difference.",
+    "validation_file": "results/b_bm25_common/validation.json",
+    "historical_results": "person2_bm25/RESULTS.md"
   },
   "c_hybrid": {
     "source_metrics": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/2eaae55cb64312a1d99a3587204b30e1579962b7/team_metrics/c_hybrid_rrf.csv",
@@ -45,5 +56,14 @@
     "source_report": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/4013a25b33a7dc62845359941f062870c822f91a/D_RESULTS.md",
     "raw_metrics_sha256": "fe44798536f823bb5d15a0d61a0f2c7a4a3907379d42dd3688e6dcea408c7f6c",
     "import": "Unmodified owner CSV; latency is batch-average CPU timing, not repeated single-query measurements."
+  },
+  "controlled_latency": {
+    "report": "results/common_latency/report.md",
+    "manifest": "results/common_latency/manifest.json",
+    "raw": "results/common_latency/raw.csv",
+    "summary": "results/common_latency/summary.csv",
+    "scope": "Same Mac CPU, 100 held-out queries, 3 warmups, 5 shuffled repetitions; raw query to evidence text; untimed indexing on MPS.",
+    "separate_from_owner_latency_fields": true,
+    "source_commit": "bd08621bc6d6986566b9bdefc571ba9b63325de7"
   }
 }

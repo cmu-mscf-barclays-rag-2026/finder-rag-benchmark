@@ -27,7 +27,7 @@ sample, prompt, generator, context count, and token limit.
 | Owner | Submission | Status |
 | --- | --- | --- |
 | A / Yuchen | [a_dense.csv](a_dense.csv) | Adapted from held-out dense CSV after dataset-content and split verification; MRR/nDCG unreported |
-| B / Person 2 | No shared CSV yet | 4,563-query seed-42 test split; results are reported separately in the team overview |
+| B / Florence | [b_bm25.csv](b_bm25.csv) | Retuned on common dev split; 4,575 test queries; independently verified with the team evaluator |
 | C / Cheryl | [c_hybrid_rrf.csv](c_hybrid_rrf.csv) | Common 4,575-query split; answer scores remain pilot |
 | D / Kevin | [d_threshold_mmr.csv](d_threshold_mmr.csv) | Owner's unchanged CSV for selected threshold and MMR configurations |
 
@@ -43,7 +43,12 @@ was explicitly mapped into the common columns: `top_k` to `k`, `questions` to
 Its dataset/corpus/split identifiers were assigned only after checking its content
 fingerprint and corpus/split rules against the shared Parquet and configuration.
 
-B must use the shared corpus and exact hash split and repeat development selection
-before exporting a final shared result. Relabeling the current B results with the
-shared split identifier would be incorrect. Final answer evaluation is still
-pending across the team.
+Florence's current B export was rerun on the exact shared corpus and hash split.
+The older seed-42 scores remain in her historical report and are not relabeled.
+See [the rerun report](../results/b_bm25_common/report.md) and
+[verification](../results/b_bm25_common/validation.json).
+
+The owner CSV latency fields preserve the original run measurements. For the
+same-machine speed comparison use [latency_comparison.csv](../presentation/latency_comparison.csv),
+generated from 500 raw measurements per method under one protocol. Final answer
+evaluation is still pending across the team.

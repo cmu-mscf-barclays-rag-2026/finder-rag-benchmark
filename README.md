@@ -13,7 +13,7 @@ into `main` when the work is ready for integration.
 | Workstream | Owner | Development branch |
 | --- | --- | --- |
 | A — Dense retrieval | Yuchen / Person 1 | [`yuchenlu`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/yuchenlu) |
-| B — BM25, MRR/nDCG, keyword-versus-dense analysis | Person 2 | [`feature/person2-bm25`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/feature/person2-bm25) |
+| B — BM25, MRR/nDCG, keyword-versus-dense analysis | Florence / Person 2 | [`feature/person2-bm25`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/feature/person2-bm25) |
 | C — Hybrid retrieval | Cheryl / Person 3 | [`feature/person3-hybrid`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/feature/person3-hybrid) |
 | D — Threshold/MMR refinement and latency analysis | Kevin / Person 4 | [`finder-threshold-mmr`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/finder-threshold-mmr) |
 
@@ -47,7 +47,8 @@ results, caveats, and reproduction commands are preserved in
 [Part C: hybrid retrieval](docs/PART_C_HYBRID.md).
 
 Yuchen's app, dense evaluation, and chunking sweep are on `yuchenlu`.
-Person 2's standalone project is in `person2_bm25/` on `feature/person2-bm25`.
+Florence's standalone BM25 project is in `person2_bm25/` on both `main` and
+`feature/person2-bm25`, including the shared-split rerun and reproducible timing harness.
 Person D's additional code and results are on `finder-threshold-mmr`. A file added
 on a personal branch appears on `main` only after its changes are integrated.
 
@@ -68,24 +69,34 @@ on a personal branch appears on `main` only after its changes are integrated.
 
 See the [all-four team overview](presentation/team_overview.md) for methods,
 reported results, branch links, and integration status, and the
-[shared-split comparison](presentation/presentation_summary.md) for A/C/D.
+[shared-split comparison](presentation/presentation_summary.md) for all four workstreams.
 
 - **A / Yuchen:** dense MiniLM with development-selected 500-character chunks and
   75-character overlap, max-pooled back to source passages; Recall@5 = 0.2284.
-- **B / Person 2:** standalone BM25, MRR/nDCG, tuning, and error analysis; tuned
-  Recall@5 = 0.3111 on a different 4,563-query test split. It is reported separately.
+- **B / Florence (Person 2):** standalone BM25, MRR/nDCG, tuning, and error analysis;
+  retuned on the shared 1,128-query dev split to k1=1.6, b=1.0. Shared-test
+  Recall@5 = 0.3112 on all 4,575 test questions.
 - **C / Cheryl:** weighted hybrid RRF, development tuning, and pilot answer
   generation; shared-split Recall@5 = 0.3056.
 - **D / Kevin:** threshold and MMR sweeps, paired errors, and repeated latency
   measurements; selected configurations did not improve dense retrieval quality.
 
-`team_metrics/` now includes A, C, and D on the common 4,575-query split. A's
-unreported MRR/nDCG remain blank. B needs a rerun on the common split before a
-four-person ranking is valid. Timings use different hardware/protocols and are
-not a speed ranking; final answer comparisons are still pending.
+`team_metrics/` now includes **A, B, C, and D** on the common 4,575-query split.
+Florence's exported metrics were independently recomputed from saved rankings with
+the existing team evaluator; all cutoffs match exactly. A's unreported MRR/nDCG
+remain blank, and final answer evaluation is still pending.
+
+A new [controlled timing comparison](presentation/latency_comparison.csv) measures
+the selected methods on one Mac CPU, using the same 100 held-out questions,
+3 warmups, and 5 interleaved repetitions. Index construction is excluded. See
+[the timing report](results/common_latency/report.md) for details. These results
+support a comparison on this machine and protocol; original mixed-hardware timings
+remain provenance only, not a speed ranking.
 
 [Source commits and export provenance](team_metrics/provenance.json) identify
-exactly which saved artifacts were used. No experiment was rerun for this refresh.
+exactly which saved artifacts were used. Florence's shared-split BM25 evaluation
+and the controlled timing study were rerun; A/C/D quality scores are the owners'
+original saved results. Their branches are unchanged.
 
 ## Run the existing reference baseline
 
@@ -114,3 +125,32 @@ python scripts/aggregate_team_metrics.py --k 5
 
 The aggregator rejects mismatched dataset, corpus, or split identifiers. Final
 answer tables require a common answer protocol; pilot scores remain excluded.
+
+## Reproduce Florence's team submission and controlled timing
+
+Use Python 3.12 with an isolated environment, from the repository root:
+
+```bash
+python -m pip install -r requirements-timing.txt
+python person2_bm25/run_shared_benchmark.py
+```
+
+The BM25 runner verifies the dataset, corpus and qrels, retunes only on development
+queries, writes the frozen settings, and then evaluates test. It preserves the
+older seed-42 experiments as historical results.
+
+Download the pinned MiniLM revision into the model cache before the offline timing
+run (internet is needed only for installation/model download):
+
+```bash
+python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', revision='1110a243fdf4706b3f48f1d95db1a4f5529b4d41', device='cpu', cache_folder='.cache/models')"
+python scripts/common_latency.py --index-device mps
+python scripts/aggregate_team_metrics.py --k 5
+```
+
+`--index-device mps` uses an Apple GPU only for untimed index preparation; all
+measured queries use CPU. On other machines omit that option to prepare indexes
+on CPU. A CPU-prepared rerun may have small floating-point differences from the
+saved MPS-prepared indexes. Keep a full clone with the pinned A/D source commits
+available; the harness reads their retrieval functions without changing their
+branches.
