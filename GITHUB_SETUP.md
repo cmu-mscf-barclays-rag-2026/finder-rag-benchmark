@@ -37,13 +37,15 @@ Run only the command for your own workstream:
 
 | Contributor | Command |
 | --- | --- |
+| Yuchen / Person 1 / dense | `git switch yuchenlu` |
 | Person 2 / BM25 | `git switch feature/person2-bm25` |
 | Cheryl / Person 3 / hybrid | `git switch feature/person3-hybrid` |
 | Person 4 / threshold-MMR | `git switch finder-threshold-mmr` |
 
 Git can create a local tracking branch when the matching branch exists on `origin`.
-Person 1 keeps their existing workflow; confirm their branch name with them rather
-than creating or renaming it on their behalf.
+Yuchen's branch is `yuchenlu`. It has independent Git history from `main`, so
+coordinate its eventual code integration separately; do not force-push or blindly
+merge unrelated histories. The shared overview already includes its saved results.
 
 Cheryl's branch was created from her initial contribution on `main`, so the files
 initially look the same. That is expected. Future commits on her branch stay there
@@ -72,7 +74,9 @@ history to move old contributions between branches.
 
 ## Bring reviewed main changes into your branch
 
-With a clean working tree on your personal branch:
+For branches sharing main's history (B, C, and D), start with a clean working tree
+on your personal branch. Yuchen's independent-history branch needs a separate
+integration plan rather than this merge command:
 
 ```bash
 git fetch origin

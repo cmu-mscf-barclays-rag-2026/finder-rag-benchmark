@@ -106,13 +106,21 @@ def main() -> None:
 
     summary = f"""# FinDER retrieval comparison
 
-All rows passed the shared benchmark check for dataset, corpus, and split.
+This table covers the compatible CSV submissions currently in `team_metrics/`.
+See [the all-four team overview](team_overview.md) for every contribution,
+including results awaiting a compatible export. Source commits are recorded in
+[provenance.json](../team_metrics/provenance.json).
+
+All included rows passed the shared benchmark identifier checks for dataset,
+corpus, and split. This is a comparison of the included submissions, not a claim
+that every team member has a compatible result. Blank metrics are unreported, not zero.
+Latency values use different hardware/protocols and must not be ranked as speed.
 
 ## Primary comparison at K={args.k}
 
 {markdown_table}
 
-The highest Recall@{args.k} is **{best['method']}** at **{best['recall_at_k']:.4f}**.
+Among the included submissions, the highest Recall@{args.k} is **{best['method']}** at **{best['recall_at_k']:.4f}**.
 The same row has nDCG@{args.k} of **{best['ndcg_at_k']:.4f}** and mean retrieval
 latency of **{best['latency_ms_per_query']:.2f} ms/query** on the contributor's hardware.
 

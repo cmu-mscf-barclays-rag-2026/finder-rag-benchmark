@@ -12,14 +12,14 @@ into `main` when the work is ready for integration.
 
 | Workstream | Owner | Development branch |
 | --- | --- | --- |
-| A — Dense retrieval | Person 1 | Existing workflow unchanged; confirm branch name with its owner |
+| A — Dense retrieval | Yuchen / Person 1 | [`yuchenlu`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/yuchenlu) |
 | B — BM25, MRR/nDCG, keyword-versus-dense analysis | Person 2 | [`feature/person2-bm25`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/feature/person2-bm25) |
 | C — Hybrid retrieval | Cheryl / Person 3 | [`feature/person3-hybrid`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/feature/person3-hybrid) |
-| D — Threshold/MMR refinement and latency analysis | Person 4 | [`finder-threshold-mmr`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/finder-threshold-mmr) |
+| D — Threshold/MMR refinement and latency analysis | Kevin / Person 4 | [`finder-threshold-mmr`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/finder-threshold-mmr) |
 
-Person 1's branch was not present in the remote branch list when this guide was
-updated. No branch was created or renamed for Person 1, and Person 4's branch is
-unchanged.
+All four workstreams now have remote branches. Yuchen's branch has independent
+Git history; its saved results are included below, while its application code
+remains on that branch pending a separate integration.
 
 The initial commit included Cheryl's Part C implementation and results. These
 remain on `main` as the working reference baseline: Person D imports functions
@@ -46,6 +46,7 @@ initial reference implementation and Part C experiments. Their detailed methods,
 results, caveats, and reproduction commands are preserved in
 [Part C: hybrid retrieval](docs/PART_C_HYBRID.md).
 
+Yuchen's app, dense evaluation, and chunking sweep are on `yuchenlu`.
 Person 2's standalone project is in `person2_bm25/` on `feature/person2-bm25`.
 Person D's additional code and results are on `finder-threshold-mmr`. A file added
 on a personal branch appears on `main` only after its changes are integrated.
@@ -63,9 +64,28 @@ on a personal branch appears on `main` only after its changes are integrated.
   The existing FLAN-T5-small answer experiment is a pilot.
 - Report the contributor's hardware and latency measurement protocol.
 
-The current presentation tables contain the submissions available so far; they
-are not a completed four-person comparison. See the metric contract for the
-checks required before presenting a combined result.
+## Current contribution summary
+
+See the [all-four team overview](presentation/team_overview.md) for methods,
+reported results, branch links, and integration status, and the
+[shared-split comparison](presentation/presentation_summary.md) for A/C/D.
+
+- **A / Yuchen:** dense MiniLM with development-selected 500-character chunks and
+  75-character overlap, max-pooled back to source passages; Recall@5 = 0.2284.
+- **B / Person 2:** standalone BM25, MRR/nDCG, tuning, and error analysis; tuned
+  Recall@5 = 0.3111 on a different 4,563-query test split. It is reported separately.
+- **C / Cheryl:** weighted hybrid RRF, development tuning, and pilot answer
+  generation; shared-split Recall@5 = 0.3056.
+- **D / Kevin:** threshold and MMR sweeps, paired errors, and repeated latency
+  measurements; selected configurations did not improve dense retrieval quality.
+
+`team_metrics/` now includes A, C, and D on the common 4,575-query split. A's
+unreported MRR/nDCG remain blank. B needs a rerun on the common split before a
+four-person ranking is valid. Timings use different hardware/protocols and are
+not a speed ranking; final answer comparisons are still pending.
+
+[Source commits and export provenance](team_metrics/provenance.json) identify
+exactly which saved artifacts were used. No experiment was rerun for this refresh.
 
 ## Run the existing reference baseline
 

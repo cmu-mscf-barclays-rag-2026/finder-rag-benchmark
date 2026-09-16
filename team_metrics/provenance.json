@@ -1,0 +1,49 @@
+{
+  "description": "Saved contribution snapshots used in the shared overview; no model runs were repeated.",
+  "contributions": {
+    "A": {
+      "branch": "yuchenlu",
+      "commit": "bd5e7c35443c6eaa5a1f24ada240b2c5ffdb3eb1"
+    },
+    "B": {
+      "branch": "feature/person2-bm25",
+      "commit": "c27c30d11f804696c6d6969e6b7514118a15fb02"
+    },
+    "C": {
+      "branch": "feature/person3-hybrid",
+      "commit": "2eaae55cb64312a1d99a3587204b30e1579962b7"
+    },
+    "D": {
+      "branch": "finder-threshold-mmr",
+      "commit": "4013a25b33a7dc62845359941f062870c822f91a"
+    }
+  },
+  "a_dense": {
+    "source_metrics": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/bd5e7c35443c6eaa5a1f24ada240b2c5ffdb3eb1/results/task_a_test_metrics.csv",
+    "source_manifest": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/bd5e7c35443c6eaa5a1f24ada240b2c5ffdb3eb1/results/task_a_run_summary.json",
+    "raw_metrics_sha256": "ea4bdfaf6064ee1264e4f354a6f9e53114c7a6b601a8149f6b5ae76382fd7f1c",
+    "verified_dataset_content_sha256": "012b669f31043dfe88154cf4d1d4e431ac7e21b62bc6cfa1c273922a6b10df5c",
+    "verification": "Recomputed the source fingerprint from the shared Parquet using A dataset_fingerprint algorithm; checked nonempty references, corpus size 5830, and hash split counts 1128/4575.",
+    "missing_metrics": [
+      "mrr_at_k",
+      "ndcg_at_k",
+      "answer metrics"
+    ],
+    "latency": "CUDA query embedding plus retrieval; hardware/protocol differs from CPU submissions."
+  },
+  "b_bm25": {
+    "source_report": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/c27c30d11f804696c6d6969e6b7514118a15fb02/person2_bm25/RESULTS.md",
+    "in_shared_comparison": false,
+    "reason": "Seed-42 split has 1140 dev / 4563 test, unlike shared sha1-mod5-dev-v1 split (1128/4575). Overview quotes rounded report values."
+  },
+  "c_hybrid": {
+    "source_metrics": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/2eaae55cb64312a1d99a3587204b30e1579962b7/team_metrics/c_hybrid_rrf.csv",
+    "answer_status": "pilot"
+  },
+  "d_refinement": {
+    "source_metrics": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/4013a25b33a7dc62845359941f062870c822f91a/team_metrics/d_threshold_mmr.csv",
+    "source_report": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/4013a25b33a7dc62845359941f062870c822f91a/D_RESULTS.md",
+    "raw_metrics_sha256": "fe44798536f823bb5d15a0d61a0f2c7a4a3907379d42dd3688e6dcea408c7f6c",
+    "import": "Unmodified owner CSV; latency is batch-average CPU timing, not repeated single-query measurements."
+  }
+}
