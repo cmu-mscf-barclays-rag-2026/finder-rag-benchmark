@@ -1,3 +1,7 @@
+> Florence's earlier seed-42 error analysis is retained below. Current shared-split
+> metrics are in [the common-split report](../results/b_bm25_common/report.md);
+> do not compare historical per-query results across different splits.
+
 # Keyword retrieval versus dense retrieval
 
 ## What Person 2 should explain

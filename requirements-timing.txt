@@ -1,0 +1,11 @@
+# Reproduced with Python 3.12 on macOS ARM64; CPU timing only.
+numpy==1.26.4
+pandas==2.3.3
+pyarrow==24.0.0
+scipy==1.17.1
+scikit-learn==1.9.1
+torch==2.2.2
+sentence-transformers==3.4.1
+transformers==4.48.3
+langchain-text-splitters==0.3.8
+threadpoolctl==3.7.0

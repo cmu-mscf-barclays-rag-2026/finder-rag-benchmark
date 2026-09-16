@@ -1,5 +1,18 @@
 # Shared evaluation protocol / 团队统一评估约定
 
+## Current shared split
+
+Florence's team export uses the frozen `sha1-mod5-dev-v1` rule: a question is dev
+when `int(sha1(query_id)[:8], 16) % 5 == 0`; otherwise it is test. This yields
+1,128 dev / 4,575 test queries. The corpus and per-query relevance membership are
+verified against every row of the shared checksummed Parquet. Hashed document IDs
+are an internal representation of those same reference passages.
+
+`run_shared_benchmark.py` preserves the original nine-point parameter grid and
+selects on dev nDCG@5, then MRR@5. It writes the frozen settings before evaluating
+test. The original seeded-random protocol remains available only for reproducing
+historical local experiments; it is not labeled as the shared split.
+
 ## Person 2's scope
 
 **B: BM25 + MRR/nDCG + keyword-vs-dense analysis.** The additional common metrics

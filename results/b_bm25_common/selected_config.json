@@ -1,0 +1,11 @@
+{
+  "k1": 1.6,
+  "b": 1.0,
+  "selection": "dev nDCG@5, then MRR@5; ties retain first sorted grid entry",
+  "dev_ndcg": 0.24820049984965561,
+  "dev_mrr": 0.2333628841607565,
+  "split_id": "sha1-mod5-dev-v1",
+  "dev_query_fingerprint": "3e7abf0608d3c3c89b58121dabf7b589a92b9e1dbb5015d33f1d3e4a0d7c9968",
+  "test_query_fingerprint": "c388d6e3dc6c9b18b49cbeb358c4337ecc2d44eae2882d2d3b0f5e2c2d30aa4e",
+  "bundle_fingerprint": "cd347ea68a094fbfe43d3e3c3a6396cad0e9e8d9cc564b699f7c20ffa103d559"
+}

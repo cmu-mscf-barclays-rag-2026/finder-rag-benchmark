@@ -1,4 +1,30 @@
-# Verified Person 2 results
+# Florence / Person 2 results
+
+## Current shared-split submission
+
+The current team comparison uses 1,128 development and 4,575 test questions under
+`sha1-mod5-dev-v1`. The unchanged BM25 implementation was retuned on development
+queries before any test evaluation; the selected settings are **k1=1.6, b=1.0**.
+
+| Method | Test questions | P@5 | R@5 | MRR@5 | nDCG@5 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Default BM25 (1.2 / 0.75) | 4575 | 0.0635 | 0.3022 | 0.2297 | 0.2449 |
+| Dev-selected BM25 (1.6 / 1.0) | 4575 | 0.0655 | 0.3112 | 0.2340 | 0.2497 |
+
+See [the complete common-split report](../results/b_bm25_common/report.md),
+[dev sweep](../results/b_bm25_common/dev_sweep.csv),
+[verification](../results/b_bm25_common/validation.json), and
+[team CSV](../team_metrics/b_bm25.csv). All four cutoffs were independently
+recomputed with the existing shared metric function from saved top-10 rankings;
+the maximum absolute difference was zero.
+
+The older seed-42 results below are retained for provenance and must not be mixed
+with the current shared-split table. Their selected parameters need not agree
+because the development query sets differ. Answer generation remains unmeasured.
+
+---
+
+# Historical seed-42 results
 
 These are measured local experiments, not example scores. The synthetic demo is excluded.
 

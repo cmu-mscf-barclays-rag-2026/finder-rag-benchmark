@@ -61,10 +61,15 @@ def windows(text: str, size: int, overlap: int) -> list[tuple[int, int]]:
 
 
 def prepare_records(records: Iterable[dict], *, seed: int = 42, dev_fraction: float = 0.2,
-                    chunk_size: int = 0, overlap: int = 0, source: dict | None = None) -> dict:
+                    chunk_size: int = 0, overlap: int = 0, source: dict | None = None,
+                    split_protocol: str = "seeded-random-v1") -> dict:
     """Index reference text only, across ALL rows before selecting evaluation queries."""
     if not 0 < dev_fraction < 1:
         raise ValueError("dev_fraction must be between 0 and 1")
+    if split_protocol not in {"seeded-random-v1", "sha1-mod5-dev-v1"}:
+        raise ValueError("Unknown split protocol")
+    if split_protocol == "sha1-mod5-dev-v1" and dev_fraction != 0.2:
+        raise ValueError("The shared hash split fixes dev_fraction at 0.2")
     windows("validation", chunk_size, overlap)
     passages: dict[str, str] = {}
     queries: dict[str, dict] = {}
@@ -99,10 +104,16 @@ def prepare_records(records: Iterable[dict], *, seed: int = 42, dev_fraction: fl
         }
     if len(queries) < 2:
         raise ValueError("At least two queries are required for local dev/test partitions")
-    shuffled = sorted(queries)
-    random.Random(seed).shuffle(shuffled)
-    dev_count = max(1, min(len(shuffled) - 1, int(len(shuffled) * dev_fraction)))
-    dev_ids = set(shuffled[:dev_count])
+    if split_protocol == "sha1-mod5-dev-v1":
+        dev_ids = {qid for qid in queries if int(hashlib.sha1(qid.encode()).hexdigest()[:8], 16) % 5 == 0}
+        if not dev_ids or len(dev_ids) == len(queries):
+            raise ValueError("The shared hash split requires nonempty dev and test partitions")
+        dev_count = len(dev_ids)
+    else:
+        shuffled = sorted(queries)
+        random.Random(seed).shuffle(shuffled)
+        dev_count = max(1, min(len(shuffled) - 1, int(len(shuffled) * dev_fraction)))
+        dev_ids = set(shuffled[:dev_count])
     for query_id, query in queries.items():
         query["partition"] = "dev" if query_id in dev_ids else "test"
     corpus = []
@@ -124,6 +135,8 @@ def prepare_records(records: Iterable[dict], *, seed: int = 42, dev_fraction: fl
         "relevance": "binary_reference_membership" if not chunk_size else "binary_inherited_reference_membership",
         "seed": seed, "dev_fraction": dev_fraction,
     }
+    if split_protocol == "sha1-mod5-dev-v1":
+        protocol["split_id"] = split_protocol
     content = {"protocol": protocol, "corpus": corpus, "queries": query_list, "qrels": qrels}
     manifest = {
         **protocol, "fingerprint": digest(content), "source": source or {"kind": "local_records"},

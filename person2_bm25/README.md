@@ -1,9 +1,30 @@
-# Person 2 — FinDER BM25 + MRR / nDCG
+# Florence / Person 2 — FinDER BM25 + MRR / nDCG
 
 A standalone project for **Person 2 / B**: BM25 sparse retrieval, ranking metrics,
 and analysis of keyword retrieval versus dense retrieval. Everything lives in this
 folder within the shared `finder-rag-benchmark` repository. Person 2's work is
 developed on the `feature/person2-bm25` branch.
+
+## Team comparison: use the common split
+
+Florence's current team submission uses `sha1-mod5-dev-v1`: **1,128 development /
+4,575 test questions**, on the same 5,830 reference passages as A/C/D.
+From the repository root, with PyArrow and pandas installed, run:
+
+```bash
+python person2_bm25/run_shared_benchmark.py
+```
+
+This verifies the shared dataset, corpus and qrels, runs the nine-point grid only
+on development queries, freezes the selected configuration, evaluates test, and
+exports `team_metrics/b_bm25.csv`. The measured common-split run selected
+`k1=1.6, b=1.0`; see [the full report](../results/b_bm25_common/report.md).
+The original tokenizer/scorer and default control are unchanged.
+
+The lower-level CLI also supports `prepare --split-protocol sha1-mod5-dev-v1`.
+Its default remains the original seeded split so existing experiments do not
+silently change. The legacy instructions below reproduce that earlier split;
+they are not the current team submission.
 
 ## What you can submit
 
@@ -36,7 +57,7 @@ python3 -m unittest discover -s tests -v
 
 On Windows, use `py` or `python` instead of `python3`.
 
-## 2. Run the real FinDER benchmark
+## 2. Reproduce the earlier seed-42 experiment
 
 Python 3.11 is recommended for a fresh environment. Only PyArrow is needed to
 read the real dataset's Parquet file. No embedding model, LLM, or API key is needed.

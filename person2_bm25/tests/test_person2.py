@@ -88,6 +88,28 @@ class BM25Tests(unittest.TestCase):
 
 
 class SharedEvaluationTests(unittest.TestCase):
+    def test_team_hash_split_matches_fixed_ids_and_ignores_random_seed(self):
+        records = [{"_id": f"q{i}", "text": f"question {i}", "references": ["same evidence"]}
+                   for i in range(8)]
+        for seed in (0, 42, 99):
+            bundle = prepare_records(records, seed=seed, split_protocol="sha1-mod5-dev-v1")
+            self.assertEqual({q["query_id"] for q in select_queries(bundle, "dev")}, {"q1", "q4"})
+            self.assertEqual(bundle["manifest"]["dev_count"], 2)
+            self.assertEqual(bundle["manifest"]["test_count"], 6)
+            self.assertEqual(bundle["protocol"]["split_id"], "sha1-mod5-dev-v1")
+        reverse = prepare_records(reversed(records), split_protocol="sha1-mod5-dev-v1")
+        forward = prepare_records(records, split_protocol="sha1-mod5-dev-v1")
+        self.assertEqual(reverse["manifest"]["fingerprint"], forward["manifest"]["fingerprint"])
+
+    def test_team_split_rejects_misleading_fraction_and_empty_partition(self):
+        records = [{"_id": qid, "text": "question", "references": ["evidence"]} for qid in ("q0", "q2")]
+        with self.assertRaisesRegex(ValueError, "nonempty"):
+            prepare_records(records, split_protocol="sha1-mod5-dev-v1")
+        with self.assertRaisesRegex(ValueError, "fixes dev_fraction"):
+            prepare_records(records, split_protocol="sha1-mod5-dev-v1", dev_fraction=0.3)
+        with self.assertRaisesRegex(ValueError, "Unknown split"):
+            prepare_records(records, split_protocol="typo")
+
     def setUp(self):
         self.records = read_jsonl(DEMO)
         self.bundle = prepare_records(self.records)

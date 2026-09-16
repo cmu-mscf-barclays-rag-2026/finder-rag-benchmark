@@ -25,6 +25,8 @@ def parser() -> argparse.ArgumentParser:
     prepare.add_argument("--cache-dir", type=Path, default=Path("data/raw"))
     prepare.add_argument("--seed", type=int, default=42)
     prepare.add_argument("--dev-fraction", type=float, default=0.2)
+    prepare.add_argument("--split-protocol", choices=["seeded-random-v1", "sha1-mod5-dev-v1"],
+                         default="seeded-random-v1", help="Use sha1-mod5-dev-v1 for the team comparison")
     prepare.add_argument("--chunk-size", type=int, default=0, help="Characters; 0 keeps whole references")
     prepare.add_argument("--overlap", type=int, default=0, help="Characters")
     run = commands.add_parser("run", help="Evaluate BM25 at every requested k")
@@ -73,7 +75,8 @@ def execute(args: argparse.Namespace) -> None:
             print("Loading pinned FinDER snapshot...", flush=True)
             records, source = fetch_records(args.cache_dir)
         bundle = prepare_records(records, seed=args.seed, dev_fraction=args.dev_fraction,
-                                 chunk_size=args.chunk_size, overlap=args.overlap, source=source)
+                                 chunk_size=args.chunk_size, overlap=args.overlap, source=source,
+                                 split_protocol=args.split_protocol)
         save_bundle(bundle, args.output)
         print(json.dumps(bundle["manifest"], indent=2))
         return
