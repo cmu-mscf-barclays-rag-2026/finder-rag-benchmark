@@ -1,64 +1,106 @@
-# Put this work in the shared GitHub repository
+# Working in the shared team repository
 
-## When the team repository already exists
+Use this repository for all team contributions:
 
-Clone the existing repository and work on your own branch:
+https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark
+
+`main` holds the shared working baseline and reviewed contributions. Develop on
+your assigned branch, push to that branch, and use a pull request to integrate work.
+Do not create a separate personal GitHub repository for team submissions.
+
+## Clone once, or open your existing clone
 
 ```bash
-git clone <TEAM_REPOSITORY_URL>
-cd <TEAM_REPOSITORY_NAME>
-git switch -c feature/finder-hybrid-c
+git clone https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark.git
+cd finder-rag-benchmark
 ```
 
-Copy this complete folder into the cloned repository and name it
-`finder_benchmark`. Then run:
+If you already have this clone, open its folder in your editor. Check the repository
+and branch before editing or publishing:
 
 ```bash
-cd finder_benchmark
-python scripts/aggregate_team_metrics.py --k 5
-cd ..
+git remote -v
+git branch --show-current
+```
+
+`origin` should point to the shared repository above.
+
+## Switch to your existing personal branch
+
+First save and commit your current work before switching branches. Fetch branches:
+
+```bash
+git fetch origin
+```
+
+Run only the command for your own workstream:
+
+| Contributor | Command |
+| --- | --- |
+| Person 2 / BM25 | `git switch feature/person2-bm25` |
+| Cheryl / Person 3 / hybrid | `git switch feature/person3-hybrid` |
+| Person 4 / threshold-MMR | `git switch finder-threshold-mmr` |
+
+Git can create a local tracking branch when the matching branch exists on `origin`.
+Person 1 keeps their existing workflow; confirm their branch name with them rather
+than creating or renaming it on their behalf.
+
+Cheryl's branch was created from her initial contribution on `main`, so the files
+initially look the same. That is expected. Future commits on her branch stay there
+until integrated. The inherited reference implementation remains on `main` because
+other workstreams reuse it; its inclusion is not a requirement to work on `main`.
+
+## Commit and publish your work
+
+For Person 2, for example:
+
+```bash
 git status
-git add finder_benchmark
-git commit -m "Add FinDER hybrid retrieval benchmark"
-git push -u origin feature/finder-hybrid-c
+git add person2_bm25
+git commit -m "Describe the BM25 changes"
+git push -u origin feature/person2-bm25
 ```
 
-Open the GitHub repository in a browser. Use the **Compare & pull request**
-button, ask the team to review the changes, and merge after the checks pass.
+Other contributors stage their own changed files and push their own branch. Inspect
+`git status` and the staged diff first. Keep environments, credentials, and model
+caches out of commits. Do not edit another owner's metric CSV.
 
-## When the shared repository is completely empty
+On GitHub, open a pull request with **base: main** and **compare: your branch**.
+Have the team review the code and evaluation compatibility before merging. The
+initial shared baseline stays available throughout; do not force-push shared
+history to move old contributions between branches.
 
-Only in this case, open a terminal inside this folder and run:
+## Bring reviewed main changes into your branch
+
+With a clean working tree on your personal branch:
 
 ```bash
-git init
-git add .
-git commit -m "Add FinDER RAG benchmark"
-git branch -M main
-git remote add origin <TEAM_REPOSITORY_URL>
-git push -u origin main
+git fetch origin
+git merge origin/main
 ```
 
-## How each teammate submits results
+Resolve any conflicts, run the relevant checks, then push your branch. Merging
+`main` brings in shared updates without changing another contributor's branch.
 
-Each person keeps their detailed output in `results/` and exports their owned
-method into `team_metrics/`. Suggested filenames are:
+## Submit comparable results
+
+Each owner exports their method into `team_metrics/`. Suggested filenames are:
 
 - `a_dense.csv`
 - `b_bm25.csv`
 - `c_hybrid_rrf.csv`
 - `d_threshold_mmr.csv`
 
-After all four files are present, run:
+Follow [TEAM_METRICS_SPEC.md](TEAM_METRICS_SPEC.md) and
+[team_metrics/README.md](team_metrics/README.md). Check the actual dataset, corpus,
+and split before assigning identifiers; incompatible results need a common run,
+not relabeling.
+
+After compatible submissions are reviewed and integrated, rebuild tables:
 
 ```bash
 python scripts/aggregate_team_metrics.py --k 5
 ```
 
-The presentation files appear in `presentation/`. If the script reports mixed
-`dataset_id`, `corpus_id`, or `split_id`, the scores are not comparable. Fix
-the experimental setup before presenting them.
-
-Retrieval results go to `comparison_k5.csv`. Final answer results go to
-`answer_comparison.csv` only after all four methods use one shared answer
-protocol. Pilot answer scores are intentionally excluded from that table.
+Retrieval results go to `presentation/comparison_k5.csv`. Final answer comparisons
+require the same generator, prompt, sample, context rules, and protocol identifier.
