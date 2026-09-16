@@ -1,0 +1,93 @@
+{
+  "protocol_id": "cpu-single-query-top5-warm3-repeat5-sample100-seed42-v1",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "max_seq_length": 256,
+  "device": "cpu",
+  "index_device": "mps",
+  "threads": 4,
+  "torch_interop_threads": 1,
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 4,
+      "prefix": "libopenblas",
+      "filepath": "/private/tmp/finder-common-runtime/lib/python3.12/site-packages/numpy/.dylibs/libopenblas64_.0.dylib",
+      "version": "0.3.23.dev",
+      "threading_layer": "pthreads",
+      "architecture": "armv8"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 4,
+      "prefix": "libomp",
+      "filepath": "/private/tmp/finder-common-runtime/lib/python3.12/site-packages/functorch/.dylibs/libomp.dylib",
+      "version": null
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 4,
+      "prefix": "libomp",
+      "filepath": "/private/tmp/finder-common-runtime/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+      "version": null
+    }
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "processor": "arm",
+  "logical_cpus": 8,
+  "created_at": "2026-09-16T02:36:51.102238+00:00",
+  "python": "3.12.5",
+  "dataset_sha256": "213395beb38a075dcc7b23f8e213ccbd2768df0f5c615479c33e10ce8cc267f1",
+  "split_id": "sha1-mod5-dev-v1",
+  "query_sample": "random.Random(42).sample(sorted test query IDs, 100)",
+  "queries_sha256": "be8a30bd86dec9ebe8271b7e76a333d8892940bac0e1123552422782dfca2d9e",
+  "warmup": 3,
+  "repeats": 5,
+  "interleave_seed": 42,
+  "scope": "raw question to up to 5 evidence strings; includes tokenization/encoding/search/pooling/fusion/refinement/lookup; excludes index build, disk IO, generation",
+  "a_source_commit": "bd5e7c35443c6eaa5a1f24ada240b2c5ffdb3eb1",
+  "a_source_sha256": "837d5b9e86f69e6edd867d977381608d05cdb3e734f8b9ff749faf812d0c9565",
+  "d_source_commit": "4013a25b33a7dc62845359941f062870c822f91a",
+  "d_source_sha256": "c56c4ef36ceb3dfc715bd94e59f4cac4fc63358229aea073aa751f893d77c909",
+  "c_source_sha256": "846dc9b26953ebc01c71fd7874016d1ec53175a8fb7d43c1f4b3a2c27a67552f",
+  "b_source_sha256": "0d01ae1235e94b041cb4050eacac50c4c0ab967269bdcd9f8fd7bba42b2319ff",
+  "b_selected": {
+    "k1": 1.6,
+    "b": 1.0,
+    "selection": "dev nDCG@5, then MRR@5; ties retain first sorted grid entry",
+    "dev_ndcg": 0.24820049984965561,
+    "dev_mrr": 0.2333628841607565,
+    "split_id": "sha1-mod5-dev-v1",
+    "dev_query_fingerprint": "3e7abf0608d3c3c89b58121dabf7b589a92b9e1dbb5015d33f1d3e4a0d7c9968",
+    "test_query_fingerprint": "c388d6e3dc6c9b18b49cbeb358c4337ecc2d44eae2882d2d3b0f5e2c2d30aa4e",
+    "bundle_fingerprint": "cd347ea68a094fbfe43d3e3c3a6396cad0e9e8d9cc564b699f7c20ffa103d559"
+  },
+  "c_dense_weight": 0.25,
+  "d_threshold": {
+    "method_id": "d_threshold_0.3",
+    "family": "threshold",
+    "threshold": 0.3
+  },
+  "d_mmr": {
+    "method_id": "d_mmr_1.0_10",
+    "family": "mmr",
+    "lambda_mult": 1.0,
+    "fetch_k": 10
+  },
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "torch": "2.2.2",
+    "sentence-transformers": "3.4.1",
+    "transformers": "4.48.3",
+    "langchain-text-splitters": "0.3.8",
+    "pyarrow": "24.0.0",
+    "threadpoolctl": "3.7.0"
+  }
+}
