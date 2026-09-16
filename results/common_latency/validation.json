@@ -1,0 +1,11 @@
+{
+  "raw_measurements": 2500,
+  "methods": 5,
+  "queries_per_method": 100,
+  "repetitions": 5,
+  "all_queries_in_shared_test": true,
+  "identical_query_repeat_coverage": true,
+  "summary_recomputed_from_raw": true,
+  "timed_device": "cpu",
+  "index_preparation_device": "mps"
+}

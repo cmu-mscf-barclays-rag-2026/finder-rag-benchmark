@@ -93,17 +93,18 @@ def run(args):
     chunks,source_ids=a_namespace['split_source_corpus'](corpus,SimpleNamespace(chunk_size=500,chunk_overlap=75))
     assert len(chunks)==44679
     def cached_encode(texts, label):
-        fingerprint=hashlib.sha256(json.dumps([MODEL_REVISION,model.max_seq_length,texts],ensure_ascii=False).encode()).hexdigest()
+        fingerprint=hashlib.sha256(json.dumps([MODEL_REVISION,model.max_seq_length,args.index_device,texts],ensure_ascii=False).encode()).hexdigest()
         path=cache/f'{label}-{fingerprint}.npy'
         if path.exists():
             value=np.load(path); assert value.shape==(len(texts),384); return value
         print(f'Indexing {label}: {len(texts)} texts (excluded from timing)',flush=True)
-        value=model.encode(texts,batch_size=64,normalize_embeddings=True,convert_to_numpy=True,show_progress_bar=True)
+        value=model.encode(texts,batch_size=64,normalize_embeddings=True,convert_to_numpy=True,show_progress_bar=True,device=args.index_device)
         np.save(path,value); return value
     whole=cached_encode(corpus,'whole')
     chunk_embeddings=cached_encode(chunks,'chunks500-75')
+    model.to('cpu')
     if args.prepare_only:
-        print('CPU indexes cached; no latency measurements taken.',flush=True); return
+        print('Indexes cached; no latency measurements taken.',flush=True); return
     selected=json.loads((ROOT/'results/b_bm25_common/selected_config.json').read_text())
     bundle=load_bundle(ROOT/'person2_bm25/data/team_shared')
     b=BM25Retriever(bundle['corpus'],k1=selected['k1'],b=selected['b'])
@@ -150,7 +151,7 @@ def run(args):
             'mean_returned':statistics.fmean(row['returned'] for row in raw if row['method_id']==name)})
     write_csv(output/'summary.csv',summary)
     metadata={'protocol_id':PROTOCOL,'model':MODEL,'model_revision':MODEL_REVISION,'max_seq_length':model.max_seq_length,
-        'device':'cpu','threads':args.threads,'torch_interop_threads':1,'threadpools':threadpool_info(),
+        'device':'cpu','index_device':args.index_device,'threads':args.threads,'torch_interop_threads':1,'threadpools':threadpool_info(),
         'platform':platform.platform(),'machine':platform.machine(),'processor':platform.processor(),'logical_cpus':os.cpu_count(),
         'created_at':datetime.now(timezone.utc).isoformat(),'python':platform.python_version(),'dataset_sha256':cfg['dataset_sha256'],'split_id':cfg['split_id'],
         'query_sample':'random.Random(42).sample(sorted test query IDs, 100)','queries_sha256':hashlib.sha256((output/'queries.csv').read_bytes()).hexdigest(),
@@ -163,7 +164,7 @@ def run(args):
     lines=['# Controlled retrieval latency — all four workstreams','','One Mac, CPU only, the same 100 held-out questions, 3 warmup calls per method, and 5 randomly interleaved repetitions. Each method has 500 measurements.','',
         '| Method | Mean ms | Median ms | p95 ms |','| --- | ---: | ---: | ---: |']
     lines += [f"| {r['method_id']} | {r['mean_ms']:.3f} | {r['median_ms']:.3f} | {r['p95_ms']:.3f} |" for r in summary]
-    lines += ['', 'Measured from raw question to top-five evidence text, including query encoding where needed, search, source pooling, fusion/refinement, and text lookup. Indexing, downloads, and generation are excluded. All model calls use CPU with four intra-op threads and one inter-op thread; BLAS pools are limited to four threads.', '',
+    lines += ['', f'Index embeddings were prepared on {args.index_device} outside the timed region; the model was then moved to CPU. Measured from raw question to top-five evidence text, including query encoding where needed, search, source pooling, fusion/refinement, and text lookup. Indexing, downloads, and generation are excluded. All model calls use CPU with four intra-op threads and one inter-op thread; BLAS pools are limited to four threads.', '',
         'These measurements support a local comparison of these implementations and selected configurations, not a general claim about hardware or algorithm speed. A indexes 44,679 chunks while C/D index 5,830 whole passages; this is part of each selected method. B is Florence’s implementation, not the BM25 control inside C. Raw repetitions, query IDs, source commits, model revision, and package versions are retained. Retrieval scores in team_metrics remain the owners’ full-test results; this timing run is not a quality rerun.', '',
         'Reproduce after running the shared BM25 benchmark: `python scripts/common_latency.py --model-cache PATH --cache PATH`. Download the pinned model revision first. The original mixed-hardware latencies remain in team_metrics for provenance and must not be used as a speed ranking.']
     (output/'report.md').write_text('\n'.join(lines)+'\n')
@@ -174,6 +175,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--cache',default=str(ROOT/'.cache/common_latency'))
     parser.add_argument('--model-cache',default=str(ROOT/'.cache/models'))
+    parser.add_argument('--index-device',choices=['cpu','mps'],default='cpu')
     parser.add_argument('--threads',type=int,default=4)
     parser.add_argument('--prepare-only',action='store_true')
     args=parser.parse_args()

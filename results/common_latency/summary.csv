@@ -1,0 +1,6 @@
+method_id,protocol_id,queries,repeats,measurements,mean_ms,median_ms,p95_ms,mean_returned
+a_dense_minilm_500_75,cpu-single-query-top5-warm3-repeat5-sample100-seed42-v1,100,5,500,18.35404764744453,15.729603939689696,30.36829761695115,5.0
+b_bm25_tuned,cpu-single-query-top5-warm3-repeat5-sample100-seed42-v1,100,5,500,7.323260562494397,6.944083492271602,13.829210127005352,5.0
+hybrid_rrf_75bm25_25dense,cpu-single-query-top5-warm3-repeat5-sample100-seed42-v1,100,5,500,24.189141493290663,22.344958502799273,36.3009728549514,5.0
+d_threshold_0.3,cpu-single-query-top5-warm3-repeat5-sample100-seed42-v1,100,5,500,15.062466325704008,13.205708528403193,25.87647087057121,4.98
+d_mmr_1.0_10,cpu-single-query-top5-warm3-repeat5-sample100-seed42-v1,100,5,500,14.799716667970642,13.08910403167829,22.954020707402375,5.0
