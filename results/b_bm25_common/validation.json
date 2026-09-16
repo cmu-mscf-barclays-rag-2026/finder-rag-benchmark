@@ -1,0 +1,12 @@
+{
+  "check": "Recomputed all exported B metrics from committed top-10 rankings using the existing shared query_metrics implementation.",
+  "queries": 4575,
+  "cutoffs": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "max_absolute_difference": 0.0,
+  "all_query_ids_match_shared_test": true
+}
