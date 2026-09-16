@@ -1,0 +1,17 @@
+[
+  {
+    "method_id": "d_dense_control",
+    "family": "dense"
+  },
+  {
+    "method_id": "d_threshold_0.3",
+    "family": "threshold",
+    "threshold": 0.3
+  },
+  {
+    "method_id": "d_mmr_1.0_10",
+    "family": "mmr",
+    "lambda_mult": 1.0,
+    "fetch_k": 10
+  }
+]

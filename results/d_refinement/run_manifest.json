@@ -1,0 +1,43 @@
+{
+  "dataset_id": "FinDER-5703",
+  "corpus_id": "finder-deduplicated-references-5830-v1",
+  "split_id": "sha1-mod5-dev-v1",
+  "dataset_sha256": "213395beb38a075dcc7b23f8e213ccbd2768df0f5c615479c33e10ce8cc267f1",
+  "dev": 1128,
+  "test": 4575,
+  "corpus": 5830,
+  "candidate_depth": 100,
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "device": "cpu",
+  "threads": 4,
+  "python": "3.12.14",
+  "model_max_seq_length": 256,
+  "selected_configs": [
+    {
+      "method_id": "d_dense_control",
+      "family": "dense"
+    },
+    {
+      "method_id": "d_threshold_0.3",
+      "family": "threshold",
+      "threshold": 0.3
+    },
+    {
+      "method_id": "d_mmr_1.0_10",
+      "family": "mmr",
+      "lambda_mult": 1.0,
+      "fetch_k": 10
+    }
+  ],
+  "hybrid_dense_weight": 0.25,
+  "dense_top10_exact_agreement_with_C": 0.9873750657548659,
+  "team_latency_protocol": "Batch 128, all queries, encoding + cosine search + top100 + refinement; ms/query",
+  "interactive_latency_protocol": "100 fixed test queries (or requested count), warmup 3, repeats 3, raw query to top5 texts",
+  "packages": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "torch": "2.7.0",
+    "sentence-transformers": "4.1.0",
+    "transformers": "4.51.3"
+  }
+}
