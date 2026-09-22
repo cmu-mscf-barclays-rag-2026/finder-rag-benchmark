@@ -1,4 +1,5 @@
 import hashlib
+import math
 
 import numpy as np
 from langchain_core.documents import Document
@@ -8,6 +9,7 @@ from langchain_core.vectorstores import InMemoryVectorStore
 
 from rag import (
     FinDERRAG,
+    FinDERGraphRAG,
     RAGSettings,
     format_context,
     format_history,
@@ -22,6 +24,13 @@ from evaluate_dense import (
     query_metrics,
     rank_sources,
 )
+from evaluate_graph import evaluate_method
+from graph_rag import (
+    InterpretableDocumentGraph,
+    InterpretableGraphRetriever,
+    format_retrieval_explanations,
+)
+from legal_data import legal_records_to_documents, legal_records_to_questions
 
 
 def test_default_settings_are_local_and_need_no_api_key():
@@ -186,3 +195,124 @@ def test_chunk_scores_are_max_pooled_to_unique_sources():
     rankings, _ = rank_sources(queries, chunks, source_ids, source_count=2, depth=2)
 
     assert rankings.tolist() == [[0, 1]]
+
+
+def test_legal_records_keep_passage_ids_without_indexing_answers():
+    corpus = [
+        {
+            "id": "2.1-c1-s1",
+            "title": "Views",
+            "text": "A court inspection is called a view.",
+            "footnotes": "Evidence Act 2008 s 53.",
+        }
+    ]
+    qa = [
+        {
+            "id": 7,
+            "question": "What is the procedure called?",
+            "answer": "A view.",
+            "relevant_passage_id": "2.1-c1-s1",
+        }
+    ]
+
+    documents = legal_records_to_documents(corpus)
+    questions = legal_records_to_questions(qa)
+
+    assert documents[0].metadata["passage_id"] == "2.1-c1-s1"
+    assert "A view." not in documents[0].page_content
+    assert questions[0].relevant_passage_id == "2.1-c1-s1"
+
+
+def test_graph_expansion_explains_structural_path_and_score():
+    documents = [
+        Document(
+            page_content="The court may conduct a view.",
+            metadata={"passage_id": "2.1-c1-s1", "title": "Views"},
+        ),
+        Document(
+            page_content="Directions are required during the inspection.",
+            metadata={"passage_id": "2.1-c1-s2", "title": "Views"},
+        ),
+        Document(
+            page_content="An unrelated sentencing passage.",
+            metadata={"passage_id": "9.9-c1-s1", "title": "Sentencing"},
+        ),
+    ]
+    graph = InterpretableDocumentGraph(documents, max_neighbors=4)
+
+    result = graph.expand_seeds(
+        [("2.1-c1-s1", 1.0), ("9.9-c1-s1", 0.0)],
+        top_k=2,
+        graph_weight=0.5,
+    )
+
+    assert [item.metadata["passage_id"] for item in result.documents] == [
+        "2.1-c1-s1",
+        "2.1-c1-s2",
+    ]
+    assert result.explanations[1].relation == "sequence"
+    assert result.explanations[1].seed_id == "2.1-c1-s1"
+    assert result.explanations[1].graph_contribution == 0.5
+    assert "2.1-c1-s1 -> 2.1-c1-s2" in format_retrieval_explanations(
+        result.explanations
+    )
+
+
+def test_graph_metrics_include_mrr_ndcg_and_assisted_gold():
+    traces = [
+        InterpretableDocumentGraph(
+            [
+                Document(page_content="alpha", metadata={"passage_id": "a"}),
+                Document(page_content="beta", metadata={"passage_id": "b"}),
+            ]
+        ).expand_seeds([("a", 1.0), ("b", 0.5)], top_k=2).explanations
+    ]
+    metrics = evaluate_method(
+        method="graph",
+        rankings=[["a", "b"]],
+        gold_ids=["b"],
+        top_k_values=[2],
+        corpus_size=2,
+        latency_ms_per_query=1.0,
+        traces=traces,
+    )[0]
+
+    assert metrics.precision_at_k == 0.5
+    assert metrics.recall_at_k == 1.0
+    assert metrics.mrr_at_k == 0.5
+    assert metrics.ndcg_at_k == 1 / math.log2(3)
+    assert metrics.explanation_coverage == 1.0
+
+
+def test_end_to_end_graph_rag_returns_auditable_trace():
+    documents = [
+        Document(
+            page_content="Revenue increased by 20 percent.",
+            metadata={
+                "chunk_id": "r1:ref1:chunk1",
+                "row_id": "r1",
+                "reference_number": 1,
+                "reference_chunk_number": 1,
+            },
+        ),
+        Document(
+            page_content="Cybersecurity is a material risk.",
+            metadata={
+                "chunk_id": "r1:ref1:chunk2",
+                "row_id": "r1",
+                "reference_number": 1,
+                "reference_chunk_number": 2,
+            },
+        ),
+    ]
+    store = InMemoryVectorStore.from_documents(documents, embedding=TinyEmbeddings())
+    graph = InterpretableDocumentGraph(documents)
+    retriever = InterpretableGraphRetriever(store, graph, top_k=1, seed_k=2)
+    fake_model = RunnableLambda(lambda _: "Revenue increased by 20 percent [S1].")
+    engine = FinDERGraphRAG(retriever, fake_model)
+
+    response = engine.ask("How did revenue change?")
+
+    assert response.sources[0].metadata["chunk_id"] == "r1:ref1:chunk1"
+    assert response.retrieval_trace[0]["node_id"] == "r1:ref1:chunk1"
+    assert response.retrieval_trace[0]["evidence"]

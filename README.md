@@ -21,6 +21,11 @@ and dataset downloads need internet access; inference runs on your computer.
 - `results/task_a_report.md` — measured results and interpretation for Task A.
 - `tests/test_rag.py` — offline tests for document preparation and retrieval.
 
+- `graph_rag.py` - interpretable passage graph and dense-seed expansion.
+- `legal_data.py` - leakage-safe Legal RAG Bench loaders.
+- `evaluate_graph.py` - dense-versus-graph retrieval evaluation.
+- `GRAPH_RAG_README.md` - graph design, dataset comparison, metrics, and results.
+
 The benchmark answers are deliberately not indexed. Only FinDER's reference
 passages are searchable, avoiding answer leakage into the retrieval context.
 
@@ -112,6 +117,26 @@ This is an intentionally simple baseline. Natural next steps are persistent
 vector storage, retrieval evaluation against held-out questions, hybrid search,
 reranking, and streaming output. FinDER is licensed CC BY-NC 4.0; review its
 dataset card before commercial use.
+
+## Task B: interpretable graph RAG
+
+The app now offers an **Interpretable graph expansion** retrieval strategy. It
+starts from dense passage seeds, traverses one hop over explicit structural,
+citation, title-term, acronym, and rare-term edges, and shows why each source
+was selected together with its dense and graph score contributions.
+
+See [`GRAPH_RAG_README.md`](GRAPH_RAG_README.md) for the approach, FinDER versus
+Legal RAG Bench comparison, metric definitions, measured 100-question results,
+limitations, and reproduction commands. The full retrieval benchmark is:
+
+```powershell
+python evaluate_graph.py --device cpu --output-dir results
+```
+
+The first measured graph baseline is deliberately not the default: on Legal
+RAG Bench it slightly improves MRR@5 but reduces Hit/Recall@5 from 0.28 to 0.27.
+It is retained as an auditable baseline for safer query routing and graph-edge
+experiments.
 
 ## Task A: dense retrieval evaluation
 

@@ -65,6 +65,21 @@ with st.sidebar:
     )
     sample_size = st.slider("Dataset rows", 50, 1_000, 300, step=50)
     top_k = st.slider("Retrieved passages", 2, 8, 4)
+    retrieval_mode = st.selectbox(
+        "Retrieval strategy",
+        options=["dense", "graph"],
+        format_func=lambda value: (
+            "Dense MMR baseline" if value == "dense" else "Interpretable graph expansion"
+        ),
+    )
+    graph_seed_k = st.slider(
+        "Dense graph seeds",
+        min_value=top_k,
+        max_value=20,
+        value=max(top_k, 10),
+        disabled=retrieval_mode != "graph",
+        help="Graph mode expands one hop from this many dense seed passages.",
+    )
 
     st.divider()
     st.markdown(f"[View the FinDER dataset]({DATASET_URL})")
@@ -85,6 +100,8 @@ settings = RAGSettings(
         embedding_model.strip() or "sentence-transformers/all-MiniLM-L6-v2"
     ),
     embedding_device=embedding_device,
+    retrieval_mode=retrieval_mode,
+    graph_seed_k=graph_seed_k,
 )
 
 ollama_status = cached_ollama_status(settings.ollama_base_url, settings.chat_model)
@@ -108,6 +125,18 @@ for message in st.session_state.messages:
                 for index, source in enumerate(message["sources"], start=1):
                     st.markdown(f"**S{index} — {source['caption']}**")
                     st.caption(source["text"])
+        if message.get("retrieval_trace"):
+            with st.expander("Why these passages were retrieved"):
+                for item in message["retrieval_trace"]:
+                    st.markdown(
+                        f"**S{item['rank']}** `{item['relation']}` via "
+                        f"`{item['seed_id']}` - {', '.join(item['evidence'])}"
+                    )
+                    st.caption(
+                        f"dense contribution {item['dense_contribution']:.3f} + "
+                        f"graph contribution {item['graph_contribution']:.3f} = "
+                        f"{item['final_score']:.3f}"
+                    )
 
 question = st.chat_input(
     "Ask about a company, metric, filing, risk, or calculation...",
@@ -131,6 +160,11 @@ if question:
                     f"Indexed {stats['chunks']:,} chunks from "
                     f"{stats['references']:,} references."
                 )
+                if settings.retrieval_mode == "graph":
+                    status.write(
+                        f"Built {stats['graph_edges']:,} interpretable edges across "
+                        f"{stats['graph_nodes']:,} passage nodes."
+                    )
                 status.update(label="Searching and drafting an answer...", state="running")
                 response = engine.ask(question, history=prior_history)
                 status.update(label="Answer ready", state="complete", expanded=False)
@@ -145,11 +179,24 @@ if question:
                     serialised_sources.append(
                         {"caption": caption, "text": source.page_content}
                     )
+            if response.retrieval_trace:
+                with st.expander("Why these passages were retrieved"):
+                    for item in response.retrieval_trace:
+                        st.markdown(
+                            f"**S{item['rank']}** `{item['relation']}` via "
+                            f"`{item['seed_id']}` - {', '.join(item['evidence'])}"
+                        )
+                        st.caption(
+                            f"dense contribution {item['dense_contribution']:.3f} + "
+                            f"graph contribution {item['graph_contribution']:.3f} = "
+                            f"{item['final_score']:.3f}"
+                        )
             st.session_state.messages.append(
                 {
                     "role": "assistant",
                     "content": response.answer,
                     "sources": serialised_sources,
+                    "retrieval_trace": response.retrieval_trace,
                 }
             )
         except Exception as exc:

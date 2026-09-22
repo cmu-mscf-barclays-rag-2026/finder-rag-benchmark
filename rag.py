@@ -6,7 +6,7 @@ import json
 from collections import defaultdict
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Iterable, Sequence
 
 from datasets import load_dataset
@@ -18,6 +18,8 @@ from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_ollama import ChatOllama
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+from graph_rag import InterpretableDocumentGraph, InterpretableGraphRetriever
 
 
 DATASET_ID = "Linq-AI-Research/FinDER"
@@ -37,6 +39,9 @@ class RAGSettings:
     ollama_base_url: str = "http://localhost:11434"
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     embedding_device: str = "cpu"
+    retrieval_mode: str = "dense"
+    graph_seed_k: int = 10
+    graph_weight: float = 0.35
 
     def __post_init__(self) -> None:
         if self.sample_size < 1:
@@ -53,12 +58,19 @@ class RAGSettings:
             raise ValueError("ollama_base_url must start with http:// or https://")
         if self.embedding_device not in {"cpu", "cuda", "mps"}:
             raise ValueError("embedding_device must be cpu, cuda, or mps")
+        if self.retrieval_mode not in {"dense", "graph"}:
+            raise ValueError("retrieval_mode must be dense or graph")
+        if self.graph_seed_k < self.top_k:
+            raise ValueError("graph_seed_k must be at least top_k")
+        if not 0.0 <= self.graph_weight <= 1.0:
+            raise ValueError("graph_weight must be between 0 and 1")
 
 
 @dataclass
 class RAGResponse:
     answer: str
     sources: list[Document]
+    retrieval_trace: list[dict[str, Any]] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -251,10 +263,38 @@ class FinDERRAG:
         return RAGResponse(answer=answer, sources=sources)
 
 
+class FinDERGraphRAG:
+    """FinDER generation facade backed by explainable graph expansion."""
+
+    def __init__(self, retriever: InterpretableGraphRetriever, llm: Runnable) -> None:
+        self.retriever = retriever
+        self.chain = PROMPT | llm | StrOutputParser()
+
+    def ask(
+        self, question: str, history: Sequence[dict[str, str]] | None = None
+    ) -> RAGResponse:
+        question = question.strip()
+        if not question:
+            raise ValueError("Question cannot be empty")
+        retrieval = self.retriever.retrieve(question)
+        answer = self.chain.invoke(
+            {
+                "question": question,
+                "history": format_history(history or []),
+                "context": format_context(retrieval.documents),
+            }
+        )
+        return RAGResponse(
+            answer=answer,
+            sources=retrieval.documents,
+            retrieval_trace=[item.to_dict() for item in retrieval.explanations],
+        )
+
+
 def build_rag(
     settings: RAGSettings | None = None,
     records: Sequence[dict[str, Any]] | None = None,
-) -> tuple[FinDERRAG, dict[str, int]]:
+) -> tuple[FinDERRAG | FinDERGraphRAG, dict[str, int]]:
     """Build the local vector index and Ollama generation chain."""
 
     settings = settings or RAGSettings()
@@ -281,10 +321,24 @@ def build_rag(
         base_url=settings.ollama_base_url,
         temperature=0,
     )
-    engine = FinDERRAG(vector_store=vector_store, llm=llm, top_k=settings.top_k)
     stats = {
         "records": len(loaded_records),
         "references": len(documents),
         "chunks": len(chunks),
     }
+    if settings.retrieval_mode == "graph":
+        graph = InterpretableDocumentGraph(chunks)
+        retriever = InterpretableGraphRetriever(
+            vector_store,
+            graph,
+            top_k=settings.top_k,
+            seed_k=settings.graph_seed_k,
+            graph_weight=settings.graph_weight,
+        )
+        engine: FinDERRAG | FinDERGraphRAG = FinDERGraphRAG(retriever, llm)
+        stats["graph_nodes"] = graph.stats.nodes
+        stats["graph_edges"] = graph.stats.edges
+        stats["graph_concepts"] = graph.stats.concepts
+    else:
+        engine = FinDERRAG(vector_store=vector_store, llm=llm, top_k=settings.top_k)
     return engine, stats

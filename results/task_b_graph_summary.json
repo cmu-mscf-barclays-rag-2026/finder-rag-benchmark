@@ -1,0 +1,39 @@
+{
+  "dataset_id": "isaacus/legal-rag-bench",
+  "protocol": "official test corpus; fixed graph configuration; no label-based tuning",
+  "questions": 100,
+  "corpus_passages": 4876,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_device": "cpu",
+  "passage_representation": "title + benchmark passage text + footnotes",
+  "seed_k": 10,
+  "graph_weight": 0.35,
+  "graph": {
+    "nodes": 4876,
+    "edges": 25446,
+    "concepts": 8554,
+    "edges_by_relation": {
+      "same_title": 100,
+      "sequence": 4152,
+      "shared_acronym": 191,
+      "shared_citation": 6495,
+      "shared_term": 4921,
+      "shared_title_term": 9587
+    }
+  },
+  "graph_build_seconds": 3.1598641999880783,
+  "passage_embedding_seconds": 89.83479649999936,
+  "query_embedding_ms_per_query": 15.58235300006345,
+  "dense_search_ms_per_query": 0.07062499993480742,
+  "graph_expansion_ms_per_query": 0.16259200012427755,
+  "primary_k": 5,
+  "dense_hit_rate_at_5": 0.28,
+  "graph_hit_rate_at_5": 0.27,
+  "absolute_hit_rate_lift_at_5": -0.010000000000000009,
+  "query_level_comparison_at_5": {
+    "wins": 3,
+    "losses": 4,
+    "ties": 93
+  },
+  "warning": "Legal RAG Bench has one public test split. Do not tune graph parameters on these scores and report them as an unbiased final test."
+}
