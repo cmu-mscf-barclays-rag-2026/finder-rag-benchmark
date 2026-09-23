@@ -1,0 +1,8 @@
+{
+  "exhaustive_cases": 1440,
+  "ndcg_reference": "sklearn.metrics.ndcg_score",
+  "absolute_tolerance": 1e-12,
+  "status": "All cases passed",
+  "scope": "All 24 orderings of four passages, 15 nonempty gold sets, k=1..4",
+  "not_model_performance": true
+}

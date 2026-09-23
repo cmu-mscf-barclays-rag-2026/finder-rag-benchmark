@@ -1,0 +1,12 @@
+{
+  "dataset": "isaacus/legal-rag-bench",
+  "revision": "db0b31dc6d195ce9916897e1ac5e4e6209736c8a",
+  "corpus_unit": "original_passage",
+  "text_policy": "text_only",
+  "evaluation_ks": [1, 3, 5, 10],
+  "primary_k": 5,
+  "official_split": "test",
+  "team_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+  "team_dev_fraction": 0.2,
+  "split_seed": "legal-rag-team-v1"
+}

@@ -1,0 +1,33 @@
+{
+  "status": "Full dataset inspection and evaluator controls executed; no retrieval model benchmark.",
+  "revision": "db0b31dc6d195ce9916897e1ac5e4e6209736c8a",
+  "config": {
+    "dataset": "isaacus/legal-rag-bench",
+    "revision": "db0b31dc6d195ce9916897e1ac5e4e6209736c8a",
+    "corpus_unit": "original_passage",
+    "text_policy": "text_only",
+    "evaluation_ks": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "primary_k": 5,
+    "official_split": "test",
+    "team_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "team_dev_fraction": 0.2,
+    "split_seed": "legal-rag-team-v1"
+  },
+  "input_sha256": {
+    "corpus.jsonl": "3a3565bc5429f6cead90548e81f87352b449927e4be1cdd804c28d766bb9c246",
+    "qa.jsonl": "e3b869a4e293d081ec5f5b39c2058c8d27b36f611aa9f8275eb1877a7c8b38b0"
+  },
+  "code_sha256": {
+    "data.py": "64f87ad11cf12e86cd9926384f55a9fc8bb88c0a80954b4880e541cf148b035a",
+    "evaluation.py": "d11de9ea1a08e502004664cab68964852b77fee6eab9330483b75d744d2b7e51",
+    "profile.py": "610dd76c5216e9d57ce5f1337de7fbaa00baf8b5f7884cf2588b6dc5c42ef0da",
+    "timing.py": "da4f99b337363866549a4b2ecbc373b68b142675e4b322286f0f56add1cc47d8",
+    "__init__.py": "2cf2499e34af52267c35799cb187ec2b323d7b5a77e8e2e52c8957db10ed7edf",
+    "__main__.py": "81d80813a9043b1b36c592477a617c132da6744921b53ca591327ccf7c0638f1"
+  }
+}

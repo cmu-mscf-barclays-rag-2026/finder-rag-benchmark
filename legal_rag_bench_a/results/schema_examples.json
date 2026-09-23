@@ -1,0 +1,22 @@
+{
+  "corpus": {
+    "id": "str",
+    "title": "str",
+    "text": "str",
+    "footnotes": "str"
+  },
+  "query": {
+    "id": "str",
+    "question": "str",
+    "answer": "str",
+    "relevant_passage_id": "str",
+    "gold_ids": "list"
+  },
+  "link_example": {
+    "query_id": "1",
+    "gold_ids": [
+      "1.2-c2-s2"
+    ],
+    "resolved_passage_exists": true
+  }
+}

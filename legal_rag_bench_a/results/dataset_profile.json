@@ -1,0 +1,148 @@
+{
+  "dataset": "isaacus/legal-rag-bench",
+  "revision": "db0b31dc6d195ce9916897e1ac5e4e6209736c8a",
+  "computed_utc": "2026-09-23T01:12:33.127845+00:00",
+  "n_passages": 4876,
+  "n_queries": 100,
+  "n_id_derived_sections": 724,
+  "n_unique_gold_passages": 95,
+  "duplicate_text_rows": 218,
+  "n_passages_with_footnotes": 1907,
+  "single_gold_queries": 100,
+  "multi_gold_queries": 0,
+  "single_gold_fraction": 1.0,
+  "multi_gold_fraction": 0.0,
+  "gold_count_distribution": {
+    "1": 100
+  },
+  "length_unit": "Whitespace-delimited words; characters use Python len(str).",
+  "lengths": {
+    "passage_text_words": {
+      "count": 4876,
+      "min": 2,
+      "p25": 110.0,
+      "median": 209.0,
+      "p75": 310.0,
+      "p95": 382.0,
+      "max": 452,
+      "mean": 209.068293683347,
+      "total": 1019417
+    },
+    "passage_text_characters": {
+      "count": 4876,
+      "min": 10,
+      "p25": 665.0,
+      "median": 1216.0,
+      "p75": 1810.0,
+      "p95": 2280.25,
+      "max": 2715,
+      "mean": 1234.98605414274,
+      "total": 6021792
+    },
+    "id_derived_section_words": {
+      "count": 724,
+      "min": 77,
+      "p25": 375.0,
+      "median": 790.5,
+      "p75": 1887.25,
+      "p95": 4284.350000000001,
+      "max": 11424,
+      "mean": 1408.0345303867402,
+      "total": 1019417
+    },
+    "question_words": {
+      "count": 100,
+      "min": 4,
+      "p25": 35.75,
+      "median": 46.5,
+      "p75": 57.25,
+      "p95": 91.0,
+      "max": 162,
+      "mean": 49.1,
+      "total": 4910
+    },
+    "answer_words": {
+      "count": 100,
+      "min": 14,
+      "p25": 36.0,
+      "median": 49.5,
+      "p75": 60.25,
+      "p95": 80.19999999999999,
+      "max": 118,
+      "mean": 49.65,
+      "total": 4965
+    }
+  },
+  "team_split_counts": {
+    "test": 80,
+    "dev": 20
+  },
+  "official_split": "test (all questions); team split is an exploratory convention",
+  "schema": {
+    "corpus": {
+      "footnotes": {
+        "types": [
+          "NoneType",
+          "str"
+        ],
+        "missing": 0,
+        "null": 2969
+      },
+      "id": {
+        "types": [
+          "str"
+        ],
+        "missing": 0,
+        "null": 0
+      },
+      "text": {
+        "types": [
+          "str"
+        ],
+        "missing": 0,
+        "null": 0
+      },
+      "title": {
+        "types": [
+          "str"
+        ],
+        "missing": 0,
+        "null": 0
+      }
+    },
+    "qa": {
+      "answer": {
+        "types": [
+          "str"
+        ],
+        "missing": 0,
+        "null": 0
+      },
+      "id": {
+        "types": [
+          "int"
+        ],
+        "missing": 0,
+        "null": 0
+      },
+      "question": {
+        "types": [
+          "str"
+        ],
+        "missing": 0,
+        "null": 0
+      },
+      "relevant_passage_id": {
+        "types": [
+          "str"
+        ],
+        "missing": 0,
+        "null": 0
+      }
+    }
+  },
+  "source_sha256": {
+    "corpus.jsonl": "3a3565bc5429f6cead90548e81f87352b449927e4be1cdd804c28d766bb9c246",
+    "qa.jsonl": "e3b869a4e293d081ec5f5b39c2058c8d27b36f611aa9f8275eb1877a7c8b38b0"
+  }
+}
