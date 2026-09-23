@@ -20,6 +20,7 @@ from langchain_ollama import ChatOllama
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from graph_rag import InterpretableDocumentGraph, InterpretableGraphRetriever
+from standalone_graph import StandaloneGraphRetriever
 
 
 DATASET_ID = "Linq-AI-Research/FinDER"
@@ -58,9 +59,9 @@ class RAGSettings:
             raise ValueError("ollama_base_url must start with http:// or https://")
         if self.embedding_device not in {"cpu", "cuda", "mps"}:
             raise ValueError("embedding_device must be cpu, cuda, or mps")
-        if self.retrieval_mode not in {"dense", "graph"}:
-            raise ValueError("retrieval_mode must be dense or graph")
-        if self.graph_seed_k < self.top_k:
+        if self.retrieval_mode not in {"dense", "graph", "dense_graph"}:
+            raise ValueError("retrieval_mode must be dense, graph, or dense_graph")
+        if self.retrieval_mode == "dense_graph" and self.graph_seed_k < self.top_k:
             raise ValueError("graph_seed_k must be at least top_k")
         if not 0.0 <= self.graph_weight <= 1.0:
             raise ValueError("graph_weight must be between 0 and 1")
@@ -264,9 +265,12 @@ class FinDERRAG:
 
 
 class FinDERGraphRAG:
-    """FinDER generation facade backed by explainable graph expansion."""
+    """Citation-grounded generation from standalone or legacy graph retrieval."""
 
-    def __init__(self, retriever: InterpretableGraphRetriever, llm: Runnable) -> None:
+    def __init__(
+        self, retriever: StandaloneGraphRetriever | InterpretableGraphRetriever,
+        llm: Runnable,
+    ) -> None:
         self.retriever = retriever
         self.chain = PROMPT | llm | StrOutputParser()
 
@@ -277,6 +281,11 @@ class FinDERGraphRAG:
         if not question:
             raise ValueError("Question cannot be empty")
         retrieval = self.retriever.retrieve(question)
+        if not retrieval.documents:
+            return RAGResponse(
+                answer="The indexed sample does not contain enough matching evidence to answer this question.",
+                sources=[],
+            )
         answer = self.chain.invoke(
             {
                 "question": question,
@@ -295,7 +304,7 @@ def build_rag(
     settings: RAGSettings | None = None,
     records: Sequence[dict[str, Any]] | None = None,
 ) -> tuple[FinDERRAG | FinDERGraphRAG, dict[str, int]]:
-    """Build the local vector index and Ollama generation chain."""
+    """Build standalone graph retrieval (graph) or a vector-based baseline."""
 
     settings = settings or RAGSettings()
     ollama_status = check_ollama(settings.ollama_base_url, settings.chat_model)
@@ -310,12 +319,6 @@ def build_rag(
         raise ValueError("No reference passages were found in the selected records.")
     chunks = split_documents(documents, settings.chunk_size, settings.chunk_overlap)
 
-    embeddings = HuggingFaceEmbeddings(
-        model_name=settings.embedding_model,
-        model_kwargs={"device": settings.embedding_device},
-        encode_kwargs={"normalize_embeddings": True},
-    )
-    vector_store = InMemoryVectorStore.from_documents(chunks, embedding=embeddings)
     llm = ChatOllama(
         model=settings.chat_model,
         base_url=settings.ollama_base_url,
@@ -327,6 +330,20 @@ def build_rag(
         "chunks": len(chunks),
     }
     if settings.retrieval_mode == "graph":
+        # Return before any embedding model or vector store is instantiated.
+        standalone = StandaloneGraphRetriever(chunks, top_k=settings.top_k)
+        stats["graph_nodes"] = standalone.stats["passage_nodes"]
+        stats["graph_edges"] = standalone.stats["incidence_edges"] + standalone.stats["structural_edges"]
+        stats["graph_concepts"] = standalone.stats["concept_nodes"]
+        return FinDERGraphRAG(standalone, llm), stats
+
+    embeddings = HuggingFaceEmbeddings(
+        model_name=settings.embedding_model,
+        model_kwargs={"device": settings.embedding_device},
+        encode_kwargs={"normalize_embeddings": True},
+    )
+    vector_store = InMemoryVectorStore.from_documents(chunks, embedding=embeddings)
+    if settings.retrieval_mode == "dense_graph":
         graph = InterpretableDocumentGraph(chunks)
         retriever = InterpretableGraphRetriever(
             vector_store,

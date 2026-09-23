@@ -37,13 +37,46 @@ def source_caption(metadata: dict) -> str:
     )
 
 
+def show_trace(trace: list[dict]) -> None:
+    with st.expander("Why these passages were retrieved"):
+        for item in trace:
+            if "path" in item:
+                st.markdown(f"**S{item['rank']}** - graph score {item['final_score']:.6f}")
+                st.code(" -> ".join(item["path"]), language=None)
+                st.caption(
+                    "One connecting path is shown. The score sums incoming mass from "
+                    f"matched concepts ({item['matched_concept_contribution']:.6f}), "
+                    f"other concepts ({item['other_concept_contribution']:.6f}), and "
+                    f"adjacent passages ({item['structural_contribution']:.6f})."
+                )
+            else:
+                st.markdown(
+                    f"**S{item['rank']}** `{item['relation']}` via "
+                    f"`{item['seed_id']}` - {', '.join(item['evidence'])}"
+                )
+                st.caption(
+                    f"dense contribution {item['dense_contribution']:.3f} + "
+                    f"graph contribution {item['graph_contribution']:.3f} = "
+                    f"{item['final_score']:.3f}"
+                )
+
+
 st.title("FinDER Research Chat")
 st.caption(
-    "A free, local LangChain RAG chatbot using Hugging Face embeddings and Ollama."
+    "Local research chat with independent graph retrieval and cited source passages."
 )
 
 with st.sidebar:
     st.header("Local setup")
+    retrieval_mode = st.selectbox(
+        "Retrieval strategy",
+        options=["graph", "dense", "dense_graph"],
+        format_func=lambda value: {
+            "graph": "Standalone graph (no embeddings)",
+            "dense": "Dense MMR baseline",
+            "dense_graph": "Dense + graph (previous experiment)",
+        }[value],
+    )
     chat_model = st.text_input(
         "Ollama model", value=os.getenv("OLLAMA_MODEL", "llama3.2")
     )
@@ -56,36 +89,29 @@ with st.sidebar:
         value=os.getenv(
             "HF_EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
         ),
+        disabled=retrieval_mode == "graph",
     )
     embedding_device = st.selectbox(
         "Embedding device",
         options=["cpu", "cuda"],
         index=0 if os.getenv("HF_EMBEDDING_DEVICE", "cpu") == "cpu" else 1,
         help="Choose CUDA only if PyTorch can use your NVIDIA GPU.",
+        disabled=retrieval_mode == "graph",
     )
     sample_size = st.slider("Dataset rows", 50, 1_000, 300, step=50)
     top_k = st.slider("Retrieved passages", 2, 8, 4)
-    retrieval_mode = st.selectbox(
-        "Retrieval strategy",
-        options=["dense", "graph"],
-        format_func=lambda value: (
-            "Dense MMR baseline" if value == "dense" else "Interpretable graph expansion"
-        ),
-    )
-    graph_seed_k = st.slider(
-        "Dense graph seeds",
-        min_value=top_k,
-        max_value=20,
-        value=max(top_k, 10),
-        disabled=retrieval_mode != "graph",
-        help="Graph mode expands one hop from this many dense seed passages.",
-    )
+    graph_seed_k = max(top_k, 10)
+    if retrieval_mode == "dense_graph":
+        graph_seed_k = st.slider(
+            "Dense graph seeds", top_k, 20, graph_seed_k,
+            help="Only the previous dense + graph experiment uses dense seeds.",
+        )
 
     st.divider()
     st.markdown(f"[View the FinDER dataset]({DATASET_URL})")
     st.caption(
-        "First use downloads FinDER and the embedding model. After those downloads, "
-        "retrieval and generation run locally."
+        "First use downloads FinDER. Standalone graph retrieval needs no embedding "
+        "model; answers are generated locally with Ollama."
     )
     if st.button("Clear chat", use_container_width=True):
         st.session_state.messages = []
@@ -126,17 +152,7 @@ for message in st.session_state.messages:
                     st.markdown(f"**S{index} — {source['caption']}**")
                     st.caption(source["text"])
         if message.get("retrieval_trace"):
-            with st.expander("Why these passages were retrieved"):
-                for item in message["retrieval_trace"]:
-                    st.markdown(
-                        f"**S{item['rank']}** `{item['relation']}` via "
-                        f"`{item['seed_id']}` - {', '.join(item['evidence'])}"
-                    )
-                    st.caption(
-                        f"dense contribution {item['dense_contribution']:.3f} + "
-                        f"graph contribution {item['graph_contribution']:.3f} = "
-                        f"{item['final_score']:.3f}"
-                    )
+            show_trace(message["retrieval_trace"])
 
 question = st.chat_input(
     "Ask about a company, metric, filing, risk, or calculation...",
@@ -160,10 +176,11 @@ if question:
                     f"Indexed {stats['chunks']:,} chunks from "
                     f"{stats['references']:,} references."
                 )
-                if settings.retrieval_mode == "graph":
+                if settings.retrieval_mode in {"graph", "dense_graph"}:
                     status.write(
                         f"Built {stats['graph_edges']:,} interpretable edges across "
-                        f"{stats['graph_nodes']:,} passage nodes."
+                        f"{stats['graph_nodes']:,} passages and "
+                        f"{stats['graph_concepts']:,} concepts."
                     )
                 status.update(label="Searching and drafting an answer...", state="running")
                 response = engine.ask(question, history=prior_history)
@@ -180,17 +197,7 @@ if question:
                         {"caption": caption, "text": source.page_content}
                     )
             if response.retrieval_trace:
-                with st.expander("Why these passages were retrieved"):
-                    for item in response.retrieval_trace:
-                        st.markdown(
-                            f"**S{item['rank']}** `{item['relation']}` via "
-                            f"`{item['seed_id']}` - {', '.join(item['evidence'])}"
-                        )
-                        st.caption(
-                            f"dense contribution {item['dense_contribution']:.3f} + "
-                            f"graph contribution {item['graph_contribution']:.3f} = "
-                            f"{item['final_score']:.3f}"
-                        )
+                show_trace(response.retrieval_trace)
             st.session_state.messages.append(
                 {
                     "role": "assistant",

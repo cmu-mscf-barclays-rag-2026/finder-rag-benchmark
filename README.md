@@ -4,8 +4,8 @@ A small retrieval-augmented generation project built around the
 [FinDER financial reasoning dataset](https://huggingface.co/datasets/Linq-AI-Research/FinDER).
 It uses a fully local, zero-API-cost stack:
 
-- Hugging Face `sentence-transformers/all-MiniLM-L6-v2` embeddings
-- LangChain's in-memory vector store and MMR retrieval
+- Independent concept/passage graph retrieval with Personalized PageRank
+- Optional MiniLM embeddings and LangChain MMR for the dense baseline
 - Ollama with the local `llama3.2` 3B model for answer generation
 - Streamlit for the chat interface
 
@@ -21,10 +21,12 @@ and dataset downloads need internet access; inference runs on your computer.
 - `results/task_a_report.md` — measured results and interpretation for Task A.
 - `tests/test_rag.py` — offline tests for document preparation and retrieval.
 
-- `graph_rag.py` - interpretable passage graph and dense-seed expansion.
+- `standalone_graph.py` - independent graph retrieval with interpretable paths.
+- `evaluate_standalone_graph.py` - standalone graph evaluation and one-step ablation.
+- `graph_rag.py` - previous dense-seeded graph experiment.
 - `legal_data.py` - leakage-safe Legal RAG Bench loaders.
-- `evaluate_graph.py` - dense-versus-graph retrieval evaluation.
-- `GRAPH_RAG_README.md` - graph design, dataset comparison, metrics, and results.
+- `evaluate_graph.py` - previous dense-versus-dense-plus-graph evaluation.
+- `GRAPH_RAG_README.md` - standalone graph design, usage, and measured results.
 
 The benchmark answers are deliberately not indexed. Only FinDER's reference
 passages are searchable, avoiding answer leakage into the retrieval context.
@@ -71,9 +73,10 @@ With the same environment active and Ollama open:
 streamlit run app.py
 ```
 
-The sidebar shows whether Ollama and the selected model are ready. The first
-question takes longer while the FinDER sample and Hugging Face embedding model
-are downloaded and indexed. The index is then cached for the app process.
+The sidebar shows whether Ollama and the selected model are ready. The app
+defaults to standalone graph retrieval, which downloads FinDER and constructs
+a graph without an embedding model. Dense modes also download MiniLM. The
+retrieval index is cached for the app process.
 
 ## Configuration
 
@@ -90,7 +93,7 @@ Use `HF_EMBEDDING_DEVICE=cuda` only when your PyTorch installation can access an
 NVIDIA GPU. For a smaller language model on low-memory computers, first run
 `ollama pull llama3.2:1b`, then set `OLLAMA_MODEL=llama3.2:1b`.
 
-## How it works
+## How the original dense baseline works
 
 1. Download FinDER's `train` split and select a shuffled, repeatable sample.
 2. Convert each `references` passage into a LangChain document with metadata.
@@ -118,25 +121,25 @@ vector storage, retrieval evaluation against held-out questions, hybrid search,
 reranking, and streaming output. FinDER is licensed CC BY-NC 4.0; review its
 dataset card before commercial use.
 
-## Task B: interpretable graph RAG
+## Task B: independent graph RAG
 
-The app now offers an **Interpretable graph expansion** retrieval strategy. It
-starts from dense passage seeds, traverses one hop over explicit structural,
-citation, title-term, acronym, and rare-term edges, and shows why each source
-was selected together with its dense and graph score contributions.
+The app defaults to **Standalone graph (no embeddings)**. Questions attach
+directly to keyword nodes in a corpus graph. Personalized PageRank follows
+keyword/passage and structural edges to rank evidence. Each result includes a
+connecting path and a score breakdown before Ollama generates a cited answer.
 
-See [`GRAPH_RAG_README.md`](GRAPH_RAG_README.md) for the approach, FinDER versus
-Legal RAG Bench comparison, metric definitions, measured 100-question results,
-limitations, and reproduction commands. The full retrieval benchmark is:
+See [`GRAPH_RAG_README.md`](GRAPH_RAG_README.md) for usage and evaluation.
+The independent retrieval benchmark needs neither Ollama nor embeddings:
 
 ```powershell
-python evaluate_graph.py --device cpu --output-dir results
+python evaluate_standalone_graph.py --output-dir results
 ```
 
-The first measured graph baseline is deliberately not the default: on Legal
-RAG Bench it slightly improves MRR@5 but reduces Hit/Recall@5 from 0.28 to 0.27.
-It is retained as an auditable baseline for safer query routing and graph-edge
-experiments.
+On the 100-question Legal RAG Bench, standalone graph Recall@5 is 0.21,
+equal to its one-step concept-matching ablation. This simple version establishes
+independent graph retrieval but does not show an improvement from propagation.
+The previous dense + graph experiment remains available as `dense_graph`;
+its original results are preserved separately.
 
 ## Task A: dense retrieval evaluation
 

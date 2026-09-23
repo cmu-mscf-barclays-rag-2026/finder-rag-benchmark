@@ -1,0 +1,36 @@
+{
+  "dataset_id": "isaacus/legal-rag-bench",
+  "corpus_passages": 4876,
+  "questions": 100,
+  "corpus_sha256": "29179c722ce9ecb00c779fb6d0209228fd2a999ea88340d34f25d16d19191df4",
+  "query_sha256": "ecc9ad84b291ad4f8c858847d5189bad7e8d5fb670f419c5d9d49db49aa1baf2",
+  "retriever": "standalone concept/passage Personalized PageRank",
+  "embedding_model": null,
+  "dense_retrieval_used": false,
+  "settings": {
+    "restart_probability": 0.35,
+    "structural_mass": 0.15,
+    "title_weight": 2.0,
+    "max_term_df_fraction": 0.75,
+    "tolerance": 1e-09,
+    "max_iterations": 100
+  },
+  "graph": {
+    "passage_nodes": 4876,
+    "concept_nodes": 11136,
+    "total_nodes": 16012,
+    "incidence_edges": 326504,
+    "structural_edges": 4152,
+    "directed_transition_edges": 661312
+  },
+  "build_seconds": 0.8239152000023751,
+  "converged_queries": 100,
+  "unmatched_queries": 0,
+  "graph_vs_one_step_at_5": {
+    "win_ids": [],
+    "loss_ids": [],
+    "ties": 100
+  },
+  "protocol": "Exploratory public test evaluation. No parameter sweep or fitting to qrels. These questions were examined in prior experiments; this is not an unseen holdout.",
+  "timing": "Sequential CPU queries; includes concept matching, ranking, and explanation construction. Index building excluded."
+}

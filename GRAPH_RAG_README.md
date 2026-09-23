@@ -1,179 +1,133 @@
-# Task B: interpretable graph RAG
+# Independent graph RAG
 
-## Delivered design
+The current graph model works independently of dense retrieval. It needs no
+embedding model or vector database. The core implementation is
+[`standalone_graph.py`](standalone_graph.py).
 
-The implementation is a local passage graph layered on the existing dense
-retriever. It is intentionally deterministic and inspectable; it does not use
-an LLM to invent entities or relationships.
+## How it works
 
-1. Embed the query and retrieve 10 dense seed passages.
-2. Expand one hop over a sparse corpus graph.
-3. Score the union of seeds and neighbors with separate dense and graph score
-   contributions.
-4. Return the top passages, their source text, and an explanation containing
-   the seed node, traversed edge, edge evidence, and score decomposition.
-5. Give only the selected passages to the existing citation-constrained Ollama
-   answer generator.
+1. Create a node for each passage and each normalized keyword in the corpus.
+2. Connect a passage to the keywords it contains. Connect consecutive passages
+   from the same legal section or FinDER reference.
+3. Match the question's keywords directly to keyword nodes.
+4. Run Personalized PageRank from those nodes and return the top-ranked passages.
+5. Pass those passages to the existing local Ollama generator, which cites
+   its evidence with `[S1]`, `[S2]`, etc.
 
-The Streamlit sidebar now exposes `Dense MMR baseline` and `Interpretable graph
-expansion`. Graph explanations appear below the retrieved sources.
-
-## What the graph represents
-
-Each node is one retrievable passage or chunk. Edges are undirected and are
-built from corpus text and structure only.
-
-| Edge | Construction | Explanation shown to the user |
-|---|---|---|
-| `sequence` | Consecutive chunks in one FinDER reference, or consecutive Legal RAG Bench passages in one section | Source/reference and section ID |
-| `same_title` | Consecutive passages with the same normalized title | Shared title |
-| `shared_citation` | Exact shared Act or case citation | Citation text |
-| `shared_title_term` | Rare shared title token or bigram | Shared term |
-| `shared_acronym` | Rare shared uppercase acronym | Acronym |
-| `shared_term` | Rare shared corpus term | Term |
-
-Terms occurring in only one passage cannot connect nodes. Very common terms
-are also excluded. Each node keeps at most 20 concepts and 12 neighbors, which
-controls hubs and memory use. Structural and citation edges receive the highest
-priority. No question, answer, gold passage ID, or relevance judgment is used
-to build the graph.
-
-For seed score \(s\), edge weight \(w\), and graph weight \(a=0.35\):
+For example, a passage can be found through:
 
 ```text
-dense contribution = (1 - a) * min-max-normalized dense seed score
-graph contribution = a * normalized source-seed score * w
-final score = dense contribution + strongest one-hop graph contribution
+question: "alpha"
+    -> keyword: alpha
+    -> passage A (contains alpha and bridge)
+    -> keyword: bridge
+    -> passage B (contains bridge and evidence)
 ```
 
-This strongest-path rule makes every contribution attributable to one path.
-It is a transparent baseline, not a claim that one-hop propagation is the best
-graph-ranking algorithm.
+Passage B can be retrieved even though it does not contain "alpha".
+The unit tests verify this behavior. No dense scores or passage seeds enter
+this process. Here, "concept" means a normalized keyword; these are simple
+text relationships, not extracted factual triples.
 
-## Dataset choice
+## Scoring and interpretability
 
-The graph code accepts either project dataset. The measured graph comparison
-uses [Legal RAG Bench](https://huggingface.co/datasets/isaacus/legal-rag-bench)
-because its corpus exposes stable hierarchical passage IDs, titles, citations,
-and exact passage-level qrels.
+The random walk restarts at the matched query concepts with probability 0.35.
+Otherwise it follows graph edges. Passages with structural neighbors allocate
+15% of their outgoing probability to those neighbors; the rest goes to concepts.
+Concept-to-passage edges use log-scaled mention counts; passage-to-concept
+edges additionally use inverse document frequency to reduce common-term hubs.
+Title mentions receive weight 2 before log scaling. Keywords occurring in more
+than 75% of passages are excluded (a one-document corpus still works).
 
-| Property | FinDER | Legal RAG Bench |
-|---|---:|---:|
-| Domain | Financial reasoning | Victorian criminal law/procedure |
-| Queries | 5,703 | 100 |
-| Searchable passages | 5,830 deduplicated references | 4,876 benchmark passages |
-| Gold evidence | Usually one or more reference passages | Exactly one most-relevant passage ID |
-| Splits | Project-created frozen dev/test query split | One public `test` split only |
-| Passage preparation | Project chunks references | Authors already chunked to at most 512 Kanon tokens |
-| Best use here | Financial-domain validation and later entity graph | Fast, exact graph-retrieval comparison |
+Only passage nodes are returned. Each result includes its PageRank score,
+a connecting path, and score components from matched concepts, other concepts,
+and adjacent passages. The displayed path is one explanation of connectivity;
+the score includes all incoming contributions, not just that path. Scores are
+ranking weights, not calibrated probabilities of relevance.
 
-Legal RAG Bench questions are deliberately lexically dissimilar from the gold
-passages. Its authors use retrieval at `k=5` and define binary correctness,
-groundedness, and retrieval accuracy for end-to-end evaluation. The dataset card
-and paper describe 4,876 passages and 100 expert-written questions. The dataset
-card's YAML says CC BY-NC-SA 4.0 while its prose says CC BY-NC 4.0; confirm the
-intended license before redistribution.
+The tokenizer lowercases words, removes English stop words and possessives,
+and applies a small plural-normalization rule. Exact normalized keyword
+matching limits paraphrase and synonym handling. If no concepts match, the
+system returns no passages and abstains before generation.
 
-Important limitation: all 100 Legal RAG Bench questions are public test data.
-The committed graph configuration was fixed before reading labels and evaluated
-once. Do not tune it on these scores and then describe the result as an unbiased
-held-out test. FinDER's frozen development/test protocol remains the right place
-for parameter development.
+## Run it
 
-## Metrics
-
-### Retrieval metrics implemented
-
-- **Precision@k:** fraction of the `k` returned passages that are gold.
-- **Recall@k / Hit Rate@k:** fraction of questions whose single Legal RAG Bench
-  gold passage is returned. These are identical for this single-qrel dataset.
-- **MRR@k:** average reciprocal rank of the gold passage; sensitive to whether
-  evidence is near the top.
-- **nDCG@k:** logarithmically discounted gold-passage rank.
-- **Query-level wins/losses:** graph finds a gold passage missed by dense, or
-  drops one found by dense. This prevents a net score from hiding regressions.
-- **Explanation coverage:** fraction of results with a relation and evidence.
-- **Graph-influenced result fraction:** fraction receiving a one-hop score,
-  including dense seeds that also receive graph support.
-- **Graph-only result fraction:** fraction introduced outside the dense seed
-  set.
-- **Graph-path gold rate:** fraction of queries whose returned gold passage has
-  graph support. It is diagnostic and is not the same as a graph-only win.
-- **Latency:** query embedding + dense search, with graph traversal added only
-  to the graph method. Index construction is reported separately.
-
-With one gold passage, Precision@5 cannot exceed 0.20. Recall/Hit Rate, MRR, and
-nDCG are more useful primary metrics than raw Precision for this dataset.
-
-### End-to-end metrics recommended next
-
-To match the Legal RAG Bench methodology, add answer generation at temperature
-zero and judge each response for:
-
-- **Correctness:** the response entails the reference answer.
-- **Groundedness:** the response is supported by the retrieved passages,
-  irrespective of whether those passages are gold.
-- **Citation coverage:** supported factual claims divided by all factual claims.
-- **Failure decomposition:** hallucination first; otherwise retrieval error when
-  the answer is grounded but incorrect and the gold was absent; otherwise
-  reasoning error when the answer is grounded but incorrect and gold was
-  present.
-
-For the finance project, also stratify metrics by lookup, numeric, table,
-comparison, multi-document, long-context, and reasoning-heavy query types.
-
-## Measured 100-question result
-
-The comparison uses the same local MiniLM embeddings for both methods. Titles,
-passage text, and footnotes are embedded. Graph construction uses no labels.
-
-| Method | P@5 | Recall/Hit@5 | MRR@5 | nDCG@5 | Latency/query |
-|---|---:|---:|---:|---:|---:|
-| Dense cosine | 0.056 | 0.28 | 0.1560 | 0.1870 | 15.653 ms |
-| Dense + graph | 0.054 | 0.27 | 0.1587 | 0.1869 | 15.816 ms |
-
-At `k=5`, the graph has 3 query-level wins, 4 losses, and 93 ties. It improves
-MRR slightly but decreases gold-passage coverage by one percentage point. Graph
-traversal adds about 0.163 ms/query and explanation coverage is 100%.
-
-This is a useful negative result: the current graph is interpretable and cheap,
-but it does not yet outperform dense retrieval. The 85.6% graph-influenced and
-17.4% graph-only result rates at `k=5` suggest expansion is too aggressive. The
-next experiment should require multi-edge corroboration or route only
-relationship/multi-hop questions to graph retrieval. It should be developed on
-FinDER development IDs or a new Legal RAG Bench development set, not the 100
-public test labels.
-
-The graph contains 4,876 nodes, 25,446 edges, and 8,554 retained concepts. It
-took 3.16 seconds to build on the measured machine; passage embedding took 89.83
-seconds on CPU.
-
-## Reproduce
+From this directory, run:
 
 ```powershell
-python -m pip install -r requirements-dev.txt
-python -m pytest -q
-
-# Quick pipeline check; not a reportable benchmark
-python evaluate_graph.py --query-sample-size 10 --device cpu --output-dir tmp/task_b_smoke
-
-# Fixed full public-test evaluation
-python evaluate_graph.py --device cpu --output-dir results
-
-# Run the FinDER chatbot and choose Interpretable graph expansion
-streamlit run app.py
+.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-Outputs:
+The app defaults to **Standalone graph (no embeddings)**. Embedding settings
+are disabled in that mode. Ollama is needed for answer generation, but not
+for graph construction or retrieval.
 
-- `results/task_b_graph_metrics.csv`: dense and graph metrics at k = 1, 3, 5, 10
-- `results/task_b_graph_summary.json`: protocol, graph size, timing, and wins/losses
-- `results/task_b_graph_traces.jsonl`: per-query dense ranking, graph ranking, and explanations
-- `results/task_b_graph_report.md`: compact measured-results report
+Programmatic FinDER usage:
 
-## Sources
+```python
+from rag import RAGSettings, build_rag
 
-- [Legal RAG Bench dataset card](https://huggingface.co/datasets/isaacus/legal-rag-bench)
-- [Legal RAG Bench paper](https://arxiv.org/abs/2603.01710)
-- [Isaacus methodology article](https://isaacus.com/blog/legal-rag-bench)
+engine, stats = build_rag(RAGSettings(retrieval_mode="graph"))
+response = engine.ask("How did revenue change?")
+print(response.answer)
+print(response.retrieval_trace)
+```
 
+The `graph` build path returns before constructing any embedding model or
+vector store. An integration test makes both constructors fail if called and
+verifies that graph retrieval and cited generation still succeed.
+
+## Evaluation
+
+The independent retriever was evaluated on all 4,876 passages and 100 questions
+from [Legal RAG Bench](https://huggingface.co/datasets/isaacus/legal-rag-bench).
+Only corpus text, titles, and document structure enter the graph. Questions,
+answers, and relevance labels never create graph edges.
+
+The control uses the exact same query-to-concept links but stops after one
+concept-to-passage step. Comparing this control with the full walk isolates
+the effect of further graph propagation.
+
+| Method | Precision@5 | Recall / Hit@5 | MRR@5 | nDCG@5 |
+|---|---:|---:|---:|---:|
+| One-step concept matching | 0.042 | 0.21 | 0.1295 | 0.1488 |
+| Independent graph PageRank | 0.042 | 0.21 | 0.1192 | 0.1415 |
+
+There are no top-5 hit wins or losses against the one-step control on these
+100 queries. The graph is functional and independent; this basic configuration
+does not demonstrate an advantage from further propagation on this benchmark.
+This is an exploratory public-test result, not an unseen holdout or a claim
+about answer correctness.
+
+The graph has 4,876 passage nodes, 11,136 keyword nodes, 326,504 passage-keyword
+edges, and 4,152 structural edges. All 100 queries converged. Explanation
+coverage is 100%; this measures trace availability, not answer grounding.
+Building took 0.82 seconds and graph retrieval including explanations averaged
+55.25 ms per query on the measured CPU.
+
+```powershell
+.venv\Scripts\python.exe evaluate_standalone_graph.py
+.venv\Scripts\python.exe -m pytest -q
+```
+
+Metrics at k = 1, 3, 5, 10, configuration, corpus fingerprints, and per-query
+paths are saved to:
+
+- [standalone_graph_metrics.csv](results/standalone_graph_metrics.csv)
+- [standalone_graph_summary.json](results/standalone_graph_summary.json)
+- [standalone_graph_traces.jsonl](results/standalone_graph_traces.jsonl)
+
+Recall/Hit measures gold-passage coverage; MRR and nDCG measure its rank.
+Because each question has one gold passage, Precision@5 equals Recall@5 / 5.
+Generation correctness and citation grounding are not evaluated by this script.
+
+## Previous experiment
+
+The earlier dense-seeded graph remains available as `retrieval_mode="dense_graph"`
+and is explicitly labeled **Dense + graph (previous experiment)** in the app.
+Its evaluator is `evaluate_graph.py` and its results remain in
+[`results/task_b_graph_report.md`](results/task_b_graph_report.md).
+Those results concern a different algorithm. The independent graph does not
+consume its rankings, embeddings, or scores.
+
+The app's other mode is `dense`, the original MMR baseline.
