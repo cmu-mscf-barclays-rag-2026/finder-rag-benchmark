@@ -1,0 +1,35 @@
+{
+  "dataset": "isaacus/legal-rag-bench",
+  "license": "CC BY-NC-SA 4.0",
+  "n_passages": 4876,
+  "n_questions": 100,
+  "gold_passages_per_question": 1,
+  "official_splits": [
+    "test"
+  ],
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "hybrid": {
+    "fusion": "weighted reciprocal rank fusion",
+    "rrf_k": 60,
+    "candidate_dense_weights": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "fold_selected_dense_weights": [
+      0.5,
+      0.25,
+      0.5,
+      0.25,
+      0.5
+    ],
+    "evaluation": "deterministic five-fold out-of-fold weight selection"
+  },
+  "bm25_index_seconds": 0.5740118700000494,
+  "dense_index_seconds": 0.012098071999957938,
+  "important_limitation": "The current dataset labels one most-relevant passage per question; it does not directly evaluate multi-evidence completeness."
+}

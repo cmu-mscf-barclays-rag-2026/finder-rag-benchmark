@@ -1,0 +1,3 @@
+comparison,hybrid_hit_rate_at_5,baseline_hit_rate_at_5,absolute_difference,bootstrap_95_ci_low,bootstrap_95_ci_high,hybrid_only_hits,baseline_only_hits,mcnemar_exact_p
+Hybrid alpha=0.25 vs BM25,0.36,0.31,0.04999999999999999,0.0,0.10000000000000003,6,1,0.125
+Hybrid alpha=0.25 vs Dense,0.36,0.29,0.07,-0.030000000000000027,0.17000000000000004,18,11,0.26493089646101
