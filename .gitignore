@@ -10,6 +10,8 @@ Thumbs.db
 .cache/
 models/
 embeddings/
+data/legal_rag_bench/*.jsonl
+data/legal_rag_bench/*.npy
 
 # Presentation CSV and Markdown files are intentionally committed so the team
 # can read the latest comparison without rerunning the models.
