@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "corpus_parents_checked_per_size": 4876,
+  "sizes_including_special_tokens": [
+    128,
+    256
+  ],
+  "chunks_per_size": [
+    15250,
+    8508
+  ],
+  "checks": [
+    "all chunks fit actual tokenizer input limit",
+    "union of chunk offsets covers every parent completely",
+    "source text slices preserved"
+  ],
+  "regression_tests_passed": 7
+}

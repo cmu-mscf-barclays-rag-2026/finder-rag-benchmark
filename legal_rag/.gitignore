@@ -1,0 +1,6 @@
+data/
+__pycache__/
+# Large source excerpts and pending answer prompts can be regenerated locally.
+results/**/retrievals.jsonl
+results/**/generation_inputs.jsonl
+results/**/answer_review.csv

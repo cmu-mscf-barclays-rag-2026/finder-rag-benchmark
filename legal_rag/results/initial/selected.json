@@ -1,0 +1,26 @@
+{
+  "bm25": {
+    "config_id": "bm25_s0_k0.8_b1.0",
+    "method": "bm25",
+    "chunk_size": 0,
+    "k1": 0.8,
+    "b": 1.0,
+    "bm25_weight": ""
+  },
+  "dense": {
+    "config_id": "dense_s128",
+    "method": "dense",
+    "chunk_size": 128,
+    "k1": "",
+    "b": "",
+    "bm25_weight": ""
+  },
+  "hybrid": {
+    "config_id": "hybrid_s128_w0.25",
+    "method": "hybrid",
+    "chunk_size": 128,
+    "k1": 0.8,
+    "b": 0.25,
+    "bm25_weight": 0.25
+  }
+}

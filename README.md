@@ -4,6 +4,16 @@ Shared repository for the four-person FinDER retrieval benchmark. The team compa
 dense retrieval, BM25, hybrid retrieval, and threshold/MMR refinement under a common
 data and evaluation protocol.
 
+## Legal RAG Bench — Florence's next experiment
+
+Florence's BM25 and hybrid work on `isaacus/legal-rag-bench` is in
+[legal_rag/README.md](legal_rag/README.md), alongside a dense comparison baseline.
+See the [initial held-out retrieval results](legal_rag/results/initial/report.md).
+This experiment has its own corpus, internal 20/80 question split, parameter sweep,
+and reproducible metric checks; its scores must not be combined with FinDER scores.
+Answer-correctness and groundedness evaluation are prepared but remain unmeasured
+until an answer-generating model is selected.
+
 ## Main and personal branches
 
 `main` is the shared, working starting point and the destination for reviewed team

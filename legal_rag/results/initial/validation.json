@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "held_out_queries": 80,
+  "rankings_checked": 240,
+  "per_query_metric_rows_checked": 1200,
+  "summary_rows_checked": 15,
+  "latency_measurements_checked": 720,
+  "checks": [
+    "gold-text split isolation",
+    "complete query/method coverage",
+    "exact source slices",
+    "independent character-set coverage",
+    "first-hit reciprocal/log rank",
+    "aggregate means",
+    "development-only selection",
+    "input and code fingerprints",
+    "answer prompt schema"
+  ]
+}

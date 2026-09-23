@@ -1,0 +1,4 @@
+method,n_queries,top5_hits,rank_6_to_100,absent_from_top100,top100_hits,recall_at_100,pool_hits,fusion_dropped_gold_from_pool
+bm25,80,30,23,27,53,0.6625,53,0
+dense,80,23,38,19,61,0.7625,61,0
+hybrid,80,32,29,19,61,0.7625,65,4

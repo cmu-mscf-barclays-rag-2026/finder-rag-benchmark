@@ -1,0 +1,4 @@
+comparison,n_queries,hit5_difference,paired_bootstrap_95pct_low,paired_bootstrap_95pct_high
+hybrid minus bm25,80,0.025,-0.07407407407407407,0.12345679012345678
+hybrid minus dense,80,0.1125,0.04938271604938271,0.1875
+bm25 minus dense,80,0.0875,-0.01282051282051282,0.1927710843373494

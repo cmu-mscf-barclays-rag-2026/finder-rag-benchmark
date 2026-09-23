@@ -1,0 +1,54 @@
+{
+  "dataset": "isaacus/legal-rag-bench",
+  "dataset_revision": "db0b31dc6d195ce9916897e1ac5e4e6209736c8a",
+  "sha256": {
+    "corpus.jsonl": "3a3565bc5429f6cead90548e81f87352b449927e4be1cdd804c28d766bb9c246",
+    "qa.jsonl": "e3b869a4e293d081ec5f5b39c2058c8d27b36f611aa9f8275eb1877a7c8b38b0"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "model_max_seq_length": 256,
+  "query_truncation_count": 0,
+  "corpus_count": 4876,
+  "unique_texts": 4658,
+  "dev_count": 20,
+  "test_count": 80,
+  "split": "group-gold-text-shuffle42-20pct-v1",
+  "selection": "dev nDCG@5, then MRR@5, then Recall@5, then grid order",
+  "chunk_audit": [
+    {
+      "chunk_size": 0,
+      "chunks": 4876,
+      "dense_truncated_chunks": 2684
+    },
+    {
+      "chunk_size": 128,
+      "chunks": 15250,
+      "dense_truncated_chunks": 0
+    },
+    {
+      "chunk_size": 256,
+      "chunks": 8508,
+      "dense_truncated_chunks": 0
+    }
+  ],
+  "chunk_overlap": "floor(0.2 * content token budget)",
+  "retrieved_unit": "chunk; single gold parent; repeated children get no extra rank credit",
+  "rrf_c": 60,
+  "candidate_depth": 100,
+  "device": "cpu",
+  "threads": 4,
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.12.5 (v3.12.5:ff3bc82f7c9, Aug  7 2024, 05:32:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "code_sha256": "2cb7531f0bfb749619d1079fcc246085344200fbc53fc59bc46cb7fa4f795f81",
+  "bm25_sha256": "0d01ae1235e94b041cb4050eacac50c4c0ab967269bdcd9f8fd7bba42b2319ff",
+  "packages": {
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "sentence-transformers": "3.4.1",
+    "transformers": "4.48.3",
+    "tokenizers": "0.21.4"
+  },
+  "latency": "3 warmups per method, 3 shuffled interleaved repeats of all test queries; includes query embedding, search and fusion, excludes model/index construction and metrics",
+  "answer_correctness": "not evaluated; no generator selected"
+}
