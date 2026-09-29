@@ -1,0 +1,368 @@
+[
+  {
+    "id": "1.1-c1",
+    "section_id": "1.1",
+    "title": "1.1 Introductory Remarks",
+    "text": "# 1.1 Introductory Remarks\n\n\n\n1. A number of studies into the jury system have suggested that it is highly beneficial for the judge to provide the jury with information at the beginning of a trial, to assist them in performing their role.[^1]\n\n2. It is suggested that \"the process of being empanelled as a member of the jury can be a thoroughly confusing experience\", and that the provision of basic information by the judge at the beginning of the trial can help jurors to \"settle into their task\".[^2]\n\n3. The following types of information have been seen to be of assistance to jurors:\n\n\n\n- Information about the importance of jury duty;\n\n- Information about the roles of the judge, jury and counsel;\n\n- Information about the nature of the trial process and about the characteristics of the adversary system;\n\n- Instructions concerning the onus and standard of proof and the right of each accused to separate consideration of his or her case;\n\n- An introduction to other common concepts that will be used throughout the trial, such as inferences;\n\n- Guidance about how to assess witnesses and evidence;\n\n- Information about matters such as note-taking and asking questions;\n\n- Procedural suggestions about matters such as electing a foreperson, arranging a discussion format and deliberation procedures;\n\n- Information about the secrecy and anonymity of jury deliberations;\n\n- Information about the court and about any local facilities available to jurors.\n\n4. While the Juries Commissioner provides some of this information to jurors prior to the trial, it has been suggested that it is also advantageous for the judge to address these matters when jurors are beginning to focus more clearly on their jury service.[^3]\n\n5. Studies have shown that jurors who are given such information by the judge at the beginning of a trial are better able to follow the evidence presented in court, and to apply the law to the facts of the case during deliberations.[^4]\n\n6. This is supported by research in cognitive psychology, which has shown that the more information a person has, the better able that person is to frame the information that he or she is about to receive. This enhances recall and aids in the interpretation of ambiguous material. It also leads to greater levels of juror satisfaction.[^5]\n\n7. One study has even shown that a judge’s instructions may *only* have an effect on the jury’s decision when delivered at the commencement of the trial.[^6] It is suggested that this is because jurors will usually have already assessed the evidence by the time the judge delivers his or her final charge, and will not be able to retrospectively evaluate and judge the evidence in accordance with instructions which are first given at that late stage.[^7]\n\n8. It is therefore desirable to provide the jury with information such as that outlined above at the outset of the trial, and again in summary form during the judge’s final charge (see, e.g. *R v PZG* [2007] VSCA 54). Judges may also wish to give a charge welcoming potential jurors prior to empanelment. Part 1 of this Book contains a number of suggested directions for use at the beginning of a trial.\n\n9. It is also desirable to give the jury a short break immediately after they have been empanelled and charged, to allow them to orient themselves as a group and familiarise themselves with their surroundings.\n\n10. If a judge is concerned about addressing matters that may not arise during the trial, he or she should warn the jury that the preliminary instructions may touch on issues which are not essential to their decision. In the judge’s final charge, he or she should deliver revised instructions, advising the jury of any changes that have occurred since giving the preliminary instructions.[^8]\n\n\n\nLast updated: 15 June 2007",
+    "child_ids": [
+      "1.1-c1-s1",
+      "1.1-c1-s2"
+    ],
+    "child_spans": [
+      {
+        "child_id": "1.1-c1-s1",
+        "start_char": 0,
+        "end_char": 1459
+      },
+      {
+        "child_id": "1.1-c1-s2",
+        "start_char": 1461,
+        "end_char": 3798
+      }
+    ],
+    "footnote_variants": [
+      {
+        "text": "[^1]: See, e.g. Parliament of Victoria Law Reform Committee, *Jury Service in Victoria*, Final Report (1991); New South Wales Law Reform Commission, [*Criminal Procedure: The Jury in a Criminal Trial*](../customXml/item1.xml) (Report No 48, March 1986); New Zealand Law Commission, [*Juries in Criminal Trials*](../customXml/item2.xml) (Report No 69, 2001); Law Reform Commission of Canada, [*The Jury*](../customXml/item3.xml) (Report No 16, 1982); Royal Commission on Criminal Justice, [*Report*](../customXml/item4.xml)* *(1993); Lord Justice Auld, [*Review of the Criminal Courts of England and Wales*](numbering.xml) (Report, September 2001). See also *R v PZG* [2007] VSCA 54.\n[^2]: Parliament of Victoria Law Reform Committee, *Jury Service in Victoria*, Final Report (1991).\n[^3]: Lord Justice Auld, [Review of the Criminal Courts of England and Wales](styles.xml) (Report, September 2001).\n[^4]: Parliament of Victoria Law Reform Committee, *Jury Service in Victoria*, Final Report (1991).\n[^5]: Ibid.\n[^6]: SM Kassin and LS Wrightsman, ‘On the Requirements of Proof: The Timing of Judicial Instruction and Mock Juror Verdicts’ (1979) 37(10) *Journal of Personality and Social Psychology* 1877.\n[^7]: New South Wales Law Reform Commission, *Criminal Procedure: The Jury in a Criminal Trial*, Discussion Paper 12 (1985).\n[^8]: Ibid.",
+        "child_ids": [
+          "1.1-c1-s1",
+          "1.1-c1-s2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1.2-c2",
+    "section_id": "1.2",
+    "title": "1.2 Excusing Jurors",
+    "text": "## Excusing Jurors\n\n1. After providing the jury panel with this information, the court must ask whether any people on the panel seek to be excused from jury service on the trial (*Juries Act 2000 *s 32(2)). The court may excuse a potential juror if it is satisfied that the person:\n\n1. Will not be able to consider the case impartially; or\n\n2. Is unable to serve for any other reasons (*Juries Act 2000* s 32(3)).\n\n2. Before the panel is assembled, the Juries Commissioner will have provided prospective jurors with information about the expected length of the trial and sitting hours, and invited applications to defer jury service on the basis of matter such as child care responsibilities, travel commitments, employment issues and health issues that may interfere with jury service.[^2] Many of these applications are dealt with administratively by the Juries Commissioner, and so it is expected that judges will receive few applications to be excused on the basis of personal circumstances.\n\n3. It is not necessary to excuse a person who has had a particular life experience (e.g. a victim of a sexual offence) from serving on a jury in a trial which concerns matters to which that experience is relevant (e.g. a sexual offence trial). It should not be assumed that such a person is any more likely to be prejudiced than other jurors (*R v Goodall* (2007) 15 VR 673, [3], [29]–[31]).\n\n4. If it is anticipated that a number of documents will be provided to the jury during the trial, the judge may wish to inform jurors of this prior to seeking excuses. This will allow jurors who have difficulty reading to seek to be excused from jury service.\n\n5. If it becomes apparent to a judge when taking a juror’s oath or affirmation that there are particular difficulties that may restrict his or her capacity to serve as a juror (such as difficulties with English or certain physical conditions), the judge may wish to excuse the juror.\n\n6. Jurors should be allowed to make their application for excusal in writing, as they might reasonably wish to keep the reasons for their application confidential. It is at the judge’s discretion whether or not to allow the defence to see any written application provided by a juror (*R v Lewis *(2000) 1 VR 290).\n\n7. There is no absolute right of an accused person to be told the ground on which a prospective member of the jury applies to be excused from serving or, if the application is refused, the ground of the refusal (*R v Lewis *(2000) 1 VR 290).\n\n8. There is also no requirement for a judge to hear and determine applications for excusal in public. However, it is generally desirable to exercise the judge’s power to excuse jurors in open court, to demonstrate publicly the seriousness with which the court regards a citizen’s obligation to serve as a juror, and the trouble that the court takes in deciding whether a person summoned ought to be excused (*R v Lewis *(2000) 1 VR 290).\n\nLast updated: 11 July 2018",
+    "child_ids": [
+      "1.2-c2-s1",
+      "1.2-c2-s2",
+      "1.2-c2-s3",
+      "1.2-c2-s4"
+    ],
+    "child_spans": [
+      {
+        "child_id": "1.2-c2-s1",
+        "start_char": 0,
+        "end_char": 18
+      },
+      {
+        "child_id": "1.2-c2-s2",
+        "start_char": 20,
+        "end_char": 2249
+      },
+      {
+        "child_id": "1.2-c2-s3",
+        "start_char": 2251,
+        "end_char": 2931
+      },
+      {
+        "child_id": "1.2-c2-s4",
+        "start_char": 2933,
+        "end_char": 2959
+      }
+    ],
+    "footnote_variants": [
+      {
+        "text": "[^2]: Ibid.",
+        "child_ids": [
+          "1.2-c2-s1",
+          "1.2-c2-s2",
+          "1.2-c2-s3",
+          "1.2-c2-s4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4.12-c7",
+    "section_id": "4.12",
+    "title": "4.12 When to Give an Identification Evidence Warning",
+    "text": "## When to Give an Identification Evidence Warning\n\n\n\n1. Part 3 of the* Jury Directions Act 2015* governs the circumstances in which a judge may need to warn the jury about the potential unreliability of identification evidence.\n\n2. The overall effect of the scheme (as outlined below) is that a warning must usually be given in relation to identification evidence if the prosecution or defence counsel requests a warning or if the judge considers that there are substantial and compelling reasons for giving the warning despite the absence of a request (*Jury Directions Act 2015* ss 15, 16).\n\n3. See 3.1 Directions Under Jury Directions Act 2015 for information on when directions are required under this residual obligation.\n\n\n\n## When is a Warning under Jury Directions Act 2015 s 36 Required?\n\n\n\n4. The prosecution or defence counsel may request that the trial judge direct the jury on identification evidence. Such a request must be in accordance with* Jury Directions Act 2015* s 12 (*Jury Directions Act 2015* s 36(1)).\n\n5. Counsel making such a request must specify the significant matters which may make the evidence unreliable (*Jury Directions Act 2015* s 36(2)).\n\n6. Once a party has made such a request, the trial judge must give a direction in respect of identification evidence, unless there are good reasons for not doing so (*Jury Directions Act 2015* s 15).\n\n7. Further, a trial judge must give a direction in respect of identification evidence if he or she considers that there are substantial and compelling reasons to do so, despite the absence of a request (*Jury Directions Act 2015* s 16).\n\n8. When giving a direction in respect of identification evidence, the trial judge must:\n\n\n\n- warn the jury of the need to exercise caution when determining whether to accept the evidence and the weight to be given to it; and\n\n- inform the jury of the significant matters that he or she considers may make the evidence unreliable; and\n\n- inform the jury that:\n\n- a witness may honestly believe that his or her evidence is accurate when the witness is, in fact, mistaken; and\n\n- the mistaken evidence of a witness may be convincing; and\n\n- if relevant, inform the jury that a number of witnesses may all be mistaken; and\n\n- if relevant, inform the jury that mistaken identification evidence has resulted in innocent people being convicted (*Jury Directions Act 2015* s 36(3)).\n\n### What is a \"Significant\" Matter?\n\n\n\n9. The* Jury Directions Act 2015* does not define what a \"significant\" matter is for the purposes of directions in respect of identification evidence. The matters which are significant will depend on the facts of the case and may include:\n\n\n\n- the circumstances of the sighting\n\n- whether the person was known to the witness\n\n- the time that elapsed between the sighting and the reporting to police\n\n- any differences between the description of the person and their actual appearance.[^6]\n\n\n\n10. The party requesting the direction must also specify the significant matters that may make the evidence unreliable. The role of the judge is to determine which of those matters are significant, and then direct the jury accordingly. Unless there are substantial and compelling reasons to do so, a judge does not need to add further matters which he or she considers significant (see* Jury Directions Act 2015* ss 15, 16).\n\n\n\n### Substantial and Compelling Reasons for a Warning\n\n\n\n11. In some cases, there may be substantial and compelling reasons for a judge to give an identification evidence warning even where such a direction is not sought by the parties (*Jury Directions Act 2015* s 16).\n\n12. It is suggested that there will be \"substantial and compelling\" reasons for giving a direction in the following circumstances:\n\n\n\n- the judge considers that the direction is open on the evidence;\n\n- identification evidence is a matter which the judge considers is in issue in the trial. It is possible, although very unlikely, that a judge may draw such a conclusion even where defence counsel indicates that he or she does not consider it to be in issue (e.g. if defence counsel makes a fundamental error regarding what is or is not in issue and this has not been addressed during discussions with the trial judge);\n\n- identification evidence is a significant issue in the case. If it is a minor issue or only concerns a small portion of the evidence in the trial, it is unlikely that the reasons for giving an identification evidence direction would be substantial and compelling. On the other hand, if identification evidence is central to the issues in dispute, the direction is more likely to be necessary under the residual obligation; and\n\n- the reasons for giving the identification direction must substantially outweigh the reasons for not giving the direction. In applying the test, the judge must do more than merely weigh the reasons for giving the direction. He or she must also consider the reasons for not giving the direction.[^7]\n\n\n\n## Factors affecting whether a direction is required\n\n13. The following sections describe common law principles regarding when identification evidence directions are necessary. These principles may provide guidance on when a judge should suggest that counsel request a warning.\n\n\n\n### Positive Identification Evidence\n\n\n\n14. At common law, a warning about positive identification evidence may be necessary where:\n\n\n\n- the evidence represents any significant part of the proof of guilt of an offence; and\n\n- the reliability of the identification is disputed (*Domican v R* (1992) 173 CLR 555; *R v Burchielli *[1981] VR 611;* Festa v R* (2001) 208 CLR 593; *Dhanhoa v R* (2003) 217 CLR 1).\n\n15. A warning may be needed if the issue of identification is \"fairly and squarely raised as an issue\". This was for a judge to decide, in light of the circumstances of the case (*R v MacKay *[1985] VR 623; *Sindoni v R* [2011] VSCA 195).\n\n16. It was unclear whether, at common law, a direction was required if the evidence was not disputed, but the judge considered that there was some evidence which cast doubt on the identification (compare *R v Courtnell* [1990] Crim LR 115 (CA) and *R v Bath* [1990] Crim LR 716 (CA).\n\n17. The warning may be necessary in relation to direct and circumstantial positive identification evidence (*Festa v R *(2001) 208 CLR 593).\n\n18. If the disputed identification evidence forms a significant part of the proof of guilt, a warning may need to be given even if a conviction could not be based on that evidence alone (e.g. if it is a purely circumstantial evidence, requiring other evidence to support it) (*R v Crupi* (1995) 86 A Crim R 229).\n\n19. The need for a warning is not removed by the existence of other evidence on which the accused could be convicted. The judge should assume that the jury may decide to convict solely on the basis of the identification evidence (*Domican v R* (1992) 173 CLR 555; *Festa v R *(2001) 208 CLR 593).\n\n20. Even if there is other important evidence, if the jury could not convict without the identification evidence the judge may need to give a strong warning (*R v Clune* [1982] VR 1).\n\n21. A warning may be needed even if there is more than one identifying witness, as experience has shown that mistakes can occur where two or more witnesses have made positive identifications (*R v Burchielli *[1981] VLR 611).\n\n22. Even if the principal or sole defence goes to the credibility of the identifying witness (e.g. if the defence alleges that the identification evidence is fabricated, and the trial is conducted on that basis), it may be necessary to warn the jury about the dangers of identification evidence. This is due to the possibility that the jury will reject the defence argument. In such circumstances, the jury will then need to consider whether the identification evidence is reliable, and so will need to know about the potential dangers inherent in such evidence (*Sindoni v R* [2011] VSCA 195. But see *R v Courtnell* [1990] Crim LR 115; *Shand v R* [1996] 1 WLR 67).\n\n### Recognition Evidence\n\n23. At common law, it was not always necessary to direct the jury about the dangers of acting on recognition evidence (see, e.g.* R v Wright* (No.2) [1968] VR 174; *Arthurs v Attorney-General for Northern Ireland* (1970) 55 Cr App R 161;* R v Marijancevic *(1993) 70 A Crim R 272;* Peck v Western Australia* [2005] WASCA 20; *R v Lovett* [2006] VSCA 5; *R v Spero* (2006) 13 VR 225).\n\n24. Although a direction was not always necessary, there were circumstances in which the opportunity of the identifying witness to recognise a suspect was so limited, or the witness’s familiarity with a suspect was of such a short duration, that a full *Domican* direction was required (*R v Spero* (2006) 13 VR 225. See also *R v Boardman* [1969] VR 151; *R v Turnbull* [1977] QB 224;* WSJ v R* [2010] VSCA 339; *Sindoni v R* [2011] VSCA 195).\n\n25. Whether a direction is necessary in a particular case will depend on all of the relevant circumstances, including:\n\n1. the degree of familiarity of the witness with the accused;\n\n1. the circumstances in which the accused was previously seen by the witness or known to the witness; and\n\n2. the circumstances in which the accused is alleged to have been seen by the witness at or about the time of the crime (R v Carr (2000) 117 A Crim R 272; Smith v The State of Western Australia [2005] WASCA 19; R v Spero (2006) 13 VR 225; R v Defrutos [2008] VSCA 55; WSJ v R [2010] VSCA 339; Sindoni v R [2011] VSCA 195).\n\n26. If the witness is very familiar with the person observed, there was an extended opportunity for observation, and the circumstances of the observation were such that there was little likelihood that the difficulties inherent in the identification process would lead to misrecognition, a direction may not need to be given (see, e.g. *R v Carr* (2000) 117 A Crim R 272; *R v Lovett* [2006] VSCA 5; *R v Spero* (2006) 13 VR 225;* WSJ v R* [2010] VSCA 339).\n\n### Similarity Evidence\n\n27. In *R v Benz* (1989) 168 CLR 110, Mason CJ and Dawson J held that it is the unreliability of human recollection as a basis for recognition that produces the need for a warning about positive identification evidence. In the case of similarity evidence, there is no such recognition (the witness simply describes characteristics of the offender, or notes resemblances between the accused and the offender, but does not positively identify the accused as the offender), so there is no need for a warning (see also *Festa v R* (2001) 208 CLR 593 (McHugh J); *R v Marijancevic *(1993) 70 A Crim R 272; *R v Hassan *[2004] VSC 84. But cf. *R v Benz *(1989) 168 CLR 110 (Deane J); *Festa v R* (2001) 208 CLR 593 (Hayne and Kirby JJ)).\n\n28. While there has been some debate about the need for a warning in relation to similarity evidence, the most recent cases in the area follow the judgment of Justice McHugh in *Festa v R* (2001) 208 CLR 593, holding that a direction is not always necessary in relation to such evidence (see, e.g. *R v Cavkic *(No 2) (2009) 28 VR 341; *R v Debs *[2005] VSCA 66; *R v Campbell* [2007] VSCA 189. But cf. *Festa v R* (2001) 208 CLR 593 (Hayne J); *R v Theos* (1996) 89 A Crim R 486 (Vic CA)).\n\n29. Although a direction may not always be required, it may be necessary to provide some kind of direction depending on the circumstances (*Festa v R *(2001) 208 CLR 593; *R v Debs* [2005] VSCA 66; *R v Campbell* [2007] VSCA 189).\n\n30. For example, if a witness claims that the facial features of the accused are similar to those of the offender, it may be appropriate to give a direction (*Festa v R* (2001) 208 CLR 593 (McHugh J)).\n\n31. A direction will usually not be necessary where the evidence is of similarity between inanimate objects rather than people (*R v Cavkic (No 2)* (2009) 28 VR 341).\n\n### Comparison Evidence\n\n\n\n32. Comparisons can be undertaken in three ways:\n\n1. by the jury comparing people or items which do not require particular knowledge or expertise to compare;\n\n3. by witnesses comparing people or items about which they have greater knowledge than the jury, but which do not require particular expertise to compare; and\n\n4. by witnesses comparing items about which they have particular expertise.\n\n33. Only the first two types of comparison listed above are classified as \"comparison evidence\". Evidence comparing items about which a witness has particular expertise (e.g. fingerprints) should be treated as \"opinion evidence\" rather than \"comparison evidence\" (see 4.13.1 General Principles of Opinion Evidence). There is no need to give a direction about the dangers of identification or comparison evidence in such cases (*R v Kotzmann* [1999] 2 VR 123).\n\n\n\n### Comparisons Undertaken by the Jury\n\n34. It is not always necessary to direct a jury which has been invited to make a comparison of two people or items about the dangers of making such a comparison (*R v Kotzmann* [1999] 2 VR 123).\n\n35. As the jury is not required to rely on their memory of a fleeting observation when making such a comparison, a direction about the dangers which arise from weaknesses in human perception and recollection will not be relevant (*Nguyen v R* (2002) 26 WAR 59).\n\n36. While there may be problems resulting from matters such as a lack of clarity or an inadequate quantity of material for comparison, these difficulties will usually be obvious to juries who are well equipped to make allowances for such matters (*R v Kotzmann* [1999] 2 VR 123).\n\n37. However, there may be circumstances in which it is necessary to give the jury directions about how to assess the evidence, and about the potential difficulties or dangers in making a comparison. For example, if the jury may too readily conclude that a voice on a tape matches the voice of the accused, due to similar foreign accents, a direction may be required about the risks of making such a misidentification, and the consequent miscarriage of justice that could arise (see, e.g. *Bulejcik v R* (1996) 185 CLR 375;* Nguyen v R* (2002) 26 WAR 59).\n\n38. A direction may need to be given if the jury is asked to compare a person seen in a photograph or film taken during the crime with the accused (see, e.g.* R v Theos* (1996) 89 A Crim R 486 (Vic CA)).\n\n39. If the jury is not asked to perform such a comparison, either explicitly or implicitly, it may not be necessary to give a direction. Mere speculation that they may make such a comparison is not sufficient to require a direction to be given (*R v Phong* (2005) 12 VR 17; [2005] VSCA 149).\n\n\n\n### Comparisons Undertaken by Non-Expert Witnesses\n\n40. It is not always necessary to direct the jury about the dangers of a witness’s evidence comparing people or items about which they have greater knowledge than the jury, but which do not require particular expertise to compare (e.g. that the gait of a person seen in video footage matches that of a person the witness knows well) (*R v Kotzmann* [1999] 2 VR 123; *Nguyen v R* (2002) 26 WAR 59).\n\n41. However, as with comparisons made by the jury, there may be circumstances in which it is necessary to give the jury directions about how to assess the witness’s evidence, and about the potential difficulties or dangers in making a comparison (see, e.g. *Bulejcik v R* (1996) 185 CLR 375; *Nguyen v R* (2002) 26 WAR 59; *R v Theos* (1996) 89 A Crim R 486 (Vic CA)).\n\n\n\n## Directions in Respect of Picture Identification Evidence\n\n\n\n42. The directions specified under *Jury Directions Act 2015* s 36 do not affect any other statutory obligation to instruct the jury about identification evidence, where the direction does not relate to the unreliability of the evidence (*Jury Directions Act 2015* s 37).\n\n43. Under* Evidence Act 2008 *s 115(7), if picture identification evidence adduced by the prosecutor is admitted into evidence, the trial judge must, on the request of the accused:\n\n\n\n- if the picture of the accused was made after the accused was taken into custody in relation to the relevant offence/s – inform the jury that the picture was made after the accused was taken into that custody; or\n\n- otherwise – warn the jury that it must not assume that the accused has a criminal record or has previously been charged with an offence (*Evidence Act 2008 *s 115(7)).\n\n\n\n## No Set Formula for Charge\n\n44. While an identification warning must contain the mandatory matters set out in s 36, the trial judge is not required to adopt any particular form of words when giving the warning (*Jury Directions Act 2015* s 6).\n\n45. The charge must be cogent, effective and cover those matters necessary for the particular case. It must be tailored to the circumstances of the case (*R v Burchielli* [1981] VR 611;* Domican v R* (1992) 173 CLR 555; *Festa v R* (2001) 208 CLR 593; *R v Campbell* [2007] VSCA 189).\n\n46. The strength of any necessary warning will depend to a large degree upon the extent to which the prosecution case relies on the identification evidence (*R v Clune* [1982] VR 1).\n\n47. Not every matter needs to be referred to in every case – but the direction needs to be adequate, and must refer to the significant matters identified by the party requesting the warning which may make the evidence unreliable (*Jury Directions Act 2015* s 36; *R v Burchielli* [1981] VR 611).\n\n48. The judge must be careful that the directions do not rob the identification evidence of all probative value (*Festa v R *(2001) 208 CLR 593).\n\n49. In fairness to the party adducing the evidence, the judge may make it clear that the warning is given because of the nature of the evidence, and that he or she is not expressing a personal opinion about it (*R v Stewart* (2001) 52 NSWLR 301).\n\n50. At common law, it was recognised that a judge could tell the jury that \"sometimes identification evidence is obviously correct, accurate and reliable\". This direction did not impermissibly dilute the force of the warning (*Milkins v R* [2011] VSCA 93). It will be a matter for individual judges whether this statement is added to the statutory directions under the* Jury Directions Act 2015*.\n\n\n\n## Obligation to Give Directions With Judicial Authority\n\n51. At common law, judges were required to give the directions with judicial authority (*Domican v R *(1992) 173 CLR 555; *Pinta v R *[1999] WASCA 125). It is not sufficient for the judge to merely refer to a submission about the matter made by counsel when addressing the jury. The warning must come from the judge, with the authority of the judge being used to impress the significance of the matter on the jury (*R v TJF* [2001] NSWCCA 127; *R v Yates* [2002] NSWCCA 520; *R v Sullivan* [2003] NSWCCA 100).\n\n52. The language of the Jury Directions Act 2015 draws a distinction between the obligation to “warn” the jury of the need for caution in determining whether to accept the evidence and the weight to be given to it, and the obligation to “inform” the jury of the other matters specified in s 36(3), such as the significant matters that may make the evidence unreliable, and the possibility that a witness is honest, but mistaken. It is unclear whether this narrows the scope of the common law obligation to give directions on identification evidence with judicial authority (see *Audsley v R* [2018] VSCA 162, [54], [67] and compare *Burchielli v R* [1981] VR 611 and *R v Mendoza* [2007] VSCA 120).\n\n\n\n## Need for Caution\n\n53. *The Jury Directions Act 2015* requires the jury to be warned that there is a need for caution before accepting identification evidence, and in determining the weight to be given to such evidence, once it is accepted (*Jury Directions Act 201*5 s 36(3)(a)).\n\n54. This differs from the position under the *Evidence Act 2008*, which required the jury to be warned that there is a \"special\" need for caution (*Evidence Act 2008* ss 116, 165; *R v Clarke* (1997) 97 A Crim R 414).\n\n55. Courts have previously noted that trial judges need to exercise care to ensure that any warnings which he or she gives do not render the identification evidence of no probative value (see* Festa v R *(2001) 208 CLR 593; *R v Clarke* (1993) 71 A Crim R 58).[^8]\n\n\n\n## Multiple Witnesses\n\n\n\n56. If multiple witnesses give identification evidence, the jury should be told that a number of such witnesses can all be mistaken (*Jury Directions Act 2015 *s 36(3)(d); *R v Turnbull* [1977] QB 224; *R v Burchielli *[1981] VR 611).\n\n57. It may be necessary to warn a jury that two unsatisfactory or defective identifications do not necessarily support one another. However, there was debate over whether this direction was appropriate at common law (see* R v Burchielli* [1981] VR 611;* R v Dickson* [1983] 1 VR 227; *R v Haidley and Alford* [1984] VR 229 (Young CJ and Kaye J); *R v Secombe* [2010] VSCA 58. But cf. *R v Weeder* (1980) 71 Cr App R 228; *R v Haidley and Alford *[1984] VR 229 (Brooking J); *R v Callaghan* (2001) 4 VR 79).\n\n58. If multiple witnesses give similarity evidence, the judge should usually instruct the jury against aggregating that evidence to establish identity. Similarity evidence cannot establish identity. Even if multiple people give similarity evidence, all that does is make it more likely that the accused resembles the offender (*R v Clune* (No 2) [1996] 1 VR 1).\n\n## Potential Causes of Unreliability\n\n\n\n59. In giving an identification evidence warning pursuant to* Jury Directions Act 2015* s 36, the judge will need to inform the jury about the general causes of unreliability which are significant (*Jury Directions Act 2015* s 36).\n\n60. The purpose of this part of the direction is to inform the jury of matters which may be outside their general experience and understanding. Those matters need be stated only with such detail as is required to achieve that purpose (*Kanaan v R* [2006] NSWCCA 109).\n\n61. The jury should be warned about matters that may cause the identification evidence to be unreliable (as opposed to matters that necessarily made that evidence unreliable) (*R v Riscuta* [2003] NSWCCA 6).\n\n62. The matters that may cause identification evidence to be unreliable generally differ depending on the:\n\n\n\n- the type of evidence given (e.g. positive identification evidence, recognition evidence or similarity evidence);\n\n- the identification process used (e.g. identification parade, photo board identification or dock identification);\n\n- the mode of identification (e.g. visual, aural or tactile);\n\n- the subject matter identified (e.g. a person or an object).\n\n\n\n63. In rare circumstances, expert evidence about particular dangers associated with certain types of identification evidence may be admissible (see, e.g. *R v Dupas* [2011] VSC 180).\n\n64. The general dangers associated with particular types of identification evidence are examined below.\n\n\n\n## General Dangers of Positive Identification Evidence\n\n\n\n65. Positive identification evidence is seen to be \"notoriously uncertain\" due to the number of variables upon which it depends. These include:\n\n\n\n- the extent of the opportunity for making the observation;\n\n- the circumstances in which the observation was made;\n\n- the difficulties a person may have in recognising a person they observed only fleetingly, some time in the past;\n\n- the vagaries of human perception and recollection; and\n\n- the tendency of the mind to respond to suggestions (*Alexander v R* (1981) 145 CLR 395).\n\n66. Despite these uncertainties, identification evidence is seen to be particularly seductive, especially as it is often given by witnesses who appear honest and convincing. Judicial experience has shown that such witnesses can be mistaken (*R v Burchielli* [1981] VLR 611; *Domican v R* (1992) 173 CLR 555; *Festa v R* (2001) 208 CLR 593).\n\n67. This risk arises because of the way in which evidence of identification depends on the witness receiving, recording and accurately recalling a subjective impression on the mind (*R v Dickson* [1983] 1 VR 227).\n\n68. At common law, judges often told the jury that it is essential to distinguish between honesty and accuracy, and not to assume the latter because of a belief in the former (*R v Dickson *[1983] 1 VR 227).\n\n69. Section 36 of the* Jury Directions Act 2015* focuses on the reliability of identification evidence, rather than the credibility of the witness giving the evidence. A witness can be credible but mistaken (see, e.g. *R v Tran* [2002] VSCA 29).\n\n\n\n## General Dangers of Recognition Evidence\n\n70. The traditional identification warning was developed in relation to witnesses who were previously unfamiliar with the person identified. Many of the dangers identified in that context may not be relevant to recognition cases (*R v Burchielli* [1981] VR 611; *R v Marijancevic* (1993) 70 A Crim R 272;* R v Conci* [2005] VSCA 173; *R v Spero* (2006) 13 VR 225; *R v Trudgett* (2007) 70 NSWLR 696).\n\n71. For example, the difficulties associated with the identification process will generally not exist in relation to recognition evidence, as there is ordinarily no need for a formal identification process (such as an identification parade) (see, e.g.* R v Lovett* [2006] VSCA 5; *R v Spero* (2006) 13 VR 225;* R v Kelly* [2002] WASCA 134).\n\n72. However, although recognition evidence may be more reliable than evidence identifying a stranger, mistakes in recognition of close relatives and friends are still sometimes made (*R v Boardman *[1969] VR 151; *R v Turnbull* [1977] QB 224;* R v Brotherton* (1992) 29 NSWLR 95).\n\n73. Such mistakes can arise because the difficulties surrounding the observation of a crime can be just as great when observing a familiar person as an unfamiliar person (*R v Lovett* [2006] VSCA 5).\n\n74. There is also a possibility of jumping to a conclusion as to the identity of the offender, if they resemble a known person (*R v Lovett* [2006] VSCA 5).\n\n75. Despite the potential unreliability of recognition evidence, there is a danger that witnesses will propound their conclusions with force and conviction (*R v Trudgett* (2007) 70 NSWLR 696).\n\n76. Furthermore, recognition evidence is likely to be given special weight by a jury, even where its reliability is dubious (*R v Trudgett* (2007) 70 NSWLR 696).\n\n77. The amount of care and the nature of the direction will vary according to the familiarity of the witness with the person identified (*Davies and Cody* (1937) 57 CLR 170; *R v Marijancevic* (1993) 70 A Crim R 272).\n\n## General Dangers of Similarity Evidence\n\n78. The general dangers identified in a similarity evidence warning will depend on the nature of the evidence. The charge should be tailored to the case, and should not be a mere recitation of the suggested directions (*Festa v R* (2001) 208 CLR 593).\n\n79. If the evidence is very weak (e.g. I saw a man wearing a red shirt), it may only be necessary to point to whatever difficulties the defence asserts the witness may have had in observing and accurately recollecting the event (*Festa v R* (2001) 208 CLR 593 (Hayne J)).\n\n80. If the evidence is of facial similarities between the accused and the offender, the same dangers may arise as in the case of positive identification evidence (*Festa v R* (2001) 208 CLR 593 (McHugh J)).\n\n81. In warning the jury about the need for caution in determining whether to accept the evidence and the weight to be given to it, the judge may need to point out that evidence of similarity, if accepted, only shows consistency of appearance between the accused and the offender. It is not evidence that positively identifies the accused (*Festa v R* (2001) 208 CLR 593 (Gleeson CJ); *R v Morgan* [2009] VSCA 225).\n\n82. It may also be appropriate to warn the jury against taking the step from accepting that there is a similarity between the accused and the offender, to positively identifying the accused due to this similarity (see* R v Benz* (1989) 168 CLR 110 (Deane J)).\n\n83. It may also be desirable to direct the jury that evidence of similarity is not sufficient, by itself, to entitle them to convict. The judge may need to point out the limited role that can be played by such evidence (*R v Morgan* [2009] VSCA 225;* R v Athuai* [2005] VSC 192).\n\n84. If the judge gives directions about the limited weight of similarity evidence, the judge may need to distinguish that part of the direction from any directions about the weight to give to any positive identification evidence (see* Festa v R* (2001) 208 CLR 593 (McHugh J); *R v Camilleri* (2001) 127 A Crim R 290; *R v Morgan* [2009] VSCA 225).\n\n85. If evidence can be interpreted as either positive identification evidence or as similarity evidence, it is for the jury to determine how that evidence should be treated. In such a case, the judge should:\n\n- explain the distinction between positive identification evidence and similarity evidence;\n\n- explain the limited utility of similarity evidence; and\n\n- warn the jury that they cannot treat the evidence as positive identification evidence unless satisfied that the witness meant to identify the accused as the offender, as opposed to simply noting similarities between the accused and the offender (*R v Hackett* [2006] VSCA 138. See also* R v Fahad* [2004] VSCA 28).\n\n\n\n86. However, if it is clear that the evidence should be treated in a particular way (e.g. that it is positive identification evidence rather than similarity evidence), the judge must instruct the jury accordingly. In the absence of any ambiguity, it is not for the jury to work out for themselves whether a piece of evidence is to be treated as positive identification evidence or similarity evidence (see, e.g. *R v Theos *(1996) 89 A Crim R 486 (Vic CA)).\n\n87. While not technically incorrect, judges should avoid using the term \"identification evidence\" when charging the jury about similarity evidence. The terms \"similarity evidence\" or \"resemblance evidence\" are preferable (see, e.g. *R v Razzak* [2004] NSWCCA 62).\n\n\n\n## General Dangers of Comparison Evidence\n\n88. The dangers posed by comparison evidence differ from those posed by other types of identification evidence. For example, in relation to voice comparisons, instead of being concerned with matters such as familiarity with the voice or the distinctiveness of the voice, issues such as whether the quality and quantity of the material is sufficient to enable a useful comparison to be made will be more important (*Bulejcik v R* (1996) 185 CLR 375).\n\n89. Very careful and strong directions will often be called for in the case of voice comparisons (*Bulejcik v R* (1996) 185 CLR 375 (Toohey and Gaudron JJ)).[^9]\n\n90. Where a jury is asked to make a comparison between a recorded voice and the voice of the accused, the direction will explain the difficulty in making such a comparison (*Bulejcik v R* (1996) 185 CLR 375 (Toohey and Gaudron JJ); *Nguyen v R *(2002) 26 WAR 59; *R v Madigan* [2005] NSWCCA 170).\n\n91. In relation to voice comparison, the similarity in circumstances in which the voices were spoken or recorded, and the number of similar words used, are likely to be significant matters which go to the determination of whether the evidence is reliable (*Bulejcik v R* (1996) 185 CLR 375).\n\n92. The jury may need to consider whether there is a distinction between a live voice heard in court and a recorded voice (*R v Madigan* [2005] NSWCCA 170).\n\n93. If the jury is asked to compare voices with foreign accents, they should be told of the difficulties involved in distinguishing between two such voices with which they are not familiar. In the absence of such a direction, the jury might too readily conclude that a foreign accent on a tape is that of the accused where the accents are similar (*Bulejcik v R* (1996) 185 CLR 375 (Toohey and Gaudron JJ)).\n\n\n\n### General Dangers of Photographic Identification Evidence\n\n\n\n94. Identification from a photograph may be unreliable due to the differences between photographic representations and nature:\n\n- photographs are two-dimensional, static and limited (*Alexander v R* (1981) 145 CLR 395;* Roser v R *(2001) 24 WAR 254;* R v Campbell* [2007] VSCA 189);\n\n- photographs do not depict manner of moving, posture, variety of facial expression, complexion, body size, body shape, colouring, nor many other subtle physical characteristics that an actual sighting conveys to the mind (*Roser v R* (2001) 24 WAR 254);\n\n- photographs may be black and white (*Alexander v R* (1981) 145 CLR 395);\n\n- photographs often provide a clear and well-lit picture of the subject in circumstances very different from the initial observation (*Alexander v R* (1981) 145 CLR 395; *R v Campbell *[2007] VSCA 189);\n\n- photographs may hazily resemble the person seen, and lead to a false identification (*Roser v R* (2001) 24 WAR 254; *R v Campbell* [2007] VSCA 189);\n\n- photographs may be digitally edited without the jury or anyone else realizing.\n\n95. In addition, the presentation of a group of photographs to an identifying witness may place that witness under some subconscious pressure to pick out a photograph of a suspect who looks like the offender, notwithstanding that the witness is unable to positively identify the subject of the photograph as the offender (*R v Campbell* [2007] VSCA 189;* Pitkin v R* (1995) 130 ALR 35).\n\n96. The accused may also be disadvantaged by the process of photo board identification. In most cases, he or she will not have been present for the identification, and so will not have first hand information about the way in which the witness identified the photograph (cf. identification parades). The accused must therefore rely on cross-examination of witnesses for knowledge about the conditions of the identification, and what safeguards against error were taken (*Alexander v R* (1981) 145 CLR 395; *R v Clarke* (1997) 97 A Crim R 414 (NSW SC); *Roser v R* (2001) 24 WAR 254; *R v Campbell* [2007] VSCA 189).\n\n97. A judge may have good reasons for not warning the jury about some of the deficiencies of photo board identification where the accused has refused to participate in an identification parade. For example, it may not be appropriate to direct the jury about the problems arising from the accused’s absence from the identification process, or to instruct the jury about the differences between the two processes of identification (see *R v Campbell* [2007] VSCA 189).\n\n\n\n## General Dangers of Single Suspect, Court and Dock Identification\n\n98. If the accused was identified in circumstances where the witness was presented with a single suspect, this so greatly increases the liability to mistake as to make it extremely dangerous to assign any probative value to the identification evidence (*R v Burchielli* [1981] VR 611).\n\n99. Similar dangers attend an identification in the precincts of the court. At common law, it was considered not sufficient to avoid discussing the issue out of a wish to avoid emphasising the identification (*R v Bedford* (1986) 5 NSWLR 711;* Festa v R *(2001) 208 CLR 593 (Kirby J)).\n\n100. If a dock identification takes place,[^10] the jury may be warned that it is of no probative value (as the witness will inevitably point out the person who is on trial), and that it has only been done as a formality (in order to complete the picture and to avoid any speculation as to why it was not done) (see, e.g. *Jamal v R* (2000) 182 ALR 307; *Alexander v R* (1981) 145 CLR 395; *R v Burchielli *[1981] VR 611).[^11]\n\n101. The risks associated with dock identification do not necessarily apply to identification of chattels in court. For example, provided that the witness is not asked leading questions, he or she will usually not feel compelled to positively identify any particular chattel in the same way that he or she may feel compelled to positively identify the accused (*Evans v R* (2007) 235 CLR 521).\n\n\n\n## General Dangers of Voice Identification\n\n\n\n102. The risk of mistake in identifying a voice is seen to be at least as great as that involved in visual identification (*Festa v R* (2001) 208 CLR 593; *Li v R* (2003) 139 A Crim R 281).\n\n103. Some factors that may be relevant in relation to the voice identification process include:\n\n- the enhanced difficulty of identifying voices (cf. faces);\n\n- the risk that a person may have sought to disguise his or her voice;\n\n- the fact that voices can vary depending on the purpose for which they are being used;\n\n- the clarity with which the voice was heard on the relevant occasions;\n\n- the witness’s familiarity with the voice;\n\n- the distinctiveness of the voice;\n\n- the possibility of mistaking one accented voice for another (*R v Callaghan* (2001) 4 VR 79; see also *Bulejcik v R* (1996) 185 CLR 375; *Festa v R* (2001) 208 CLR 593; *R v Madigan *[2005] NSWCCA 170;* R v E J Smith* (1986) 7 NSWLR 444; *R v Brownlowe* (1986) 7 NSWLR 46).\n\n\n\n104. The jury should be told to allow for the possibility that an offender may have sought to disguise his or her voice (*R v E J Smith* (1986) 7 NSWLR 444;* R v Brownlowe* (1986) 7 NSWLR 461).\n\n105. The jury should be told that mistakes can be made even in the voice recognition of close friends and relatives (*R v Brotherton* (1992) 29 NSWLR 95; *R v Turnbull* [1977] QB 224; *R v Bueti *(1997) 70 SASR 370;* R v Madigan* [2005] NSWCCA 170).\n\n106. The jury should not be told that voice identification is less reliable if a witness cannot describe the basis on which a match is made (e.g. by describing the intonation, rapidity of speech and cadence). Voice identification may be accurate even though a person is unable to analyse and explain the characteristics of the voice (*Nguyen v R* (2002) 26 WAR 59).\n\n\n\n## General Dangers of Negative Identification Evidence\n\n\n\n107. Many of the causes of unreliability which apply in the context of positive identification evidence also apply to negative identification evidence. For example, just as positive identification evidence may be affected by confusion and displacement, or contaminated by conversations after the event, so may negative identification evidence (*Ilioski v R* [2006] NSWCCA 164).\n\n108. Some matters which may affect the reliability of negative identification evidence include:\n\n- whether the witness knew the person identified;\n\n- the duration of the circumstances in which the identification occurred;\n\n- whether it is possible that the observer was unconsciously influenced by publicity; and\n\n- the quality of the image used to make the identification and whether that was a good likeness of the relevant person (see, e.g. *R v Rose* (2002) 55 NSWLR 701).\n\n\n\n109. If a direction is given, it will not be relevant to inform the jury that mistaken identification evidence has resulted in innocent people being convicted (*Jury Directions Act 2015* s 36; *R v Rose* (2002) 55 NSWLR 701).\n\n110. However, in most cases where negative identification evidence is adduced the jury should be instructed about how the burden and standard of proof operates in relation to this evidence (*Kanaan v R* [2006] NSWCCA 109; *Mule v R* [2002] WASCA 101; *R v Johnson* (2004) 89 SASR 294). This requires that the judge:\n\n\n\n- emphasise that the jury has to be satisfied beyond reasonable doubt that it was the accused who committed the offence charged; and\n\n- make it clear that the jury cannot be satisfied beyond reasonable doubt that the crime was committed by the accused if there remains a reasonable possibility that the crime was committed by someone else.\n\n\n\n111. It was suggested in *Kanaan v R* [2006] NSWCCA 109 that an appropriate direction would be that \"the Crown must remove or eliminate any possibility that the crime was committed by someone else, as well as satisfy you, on the evidence on which it relies, that beyond reasonable doubt the accused committed the offence\" (see also* Ilioski v R* [2006] NSWCCA 164).\n\n112. Although this formulation was suggested by the Court, it was made clear that no specific formula is required. All that is needed is for the judge to make it clear to the jury that there cannot be proof beyond reasonable doubt if there remains a reasonable possibility that the accused is not guilty (*Kanaan v R* [2006] NSWCCA 109;* Ilioski v R* [2006] NSWCCA 164).\n\n113. The precise content of the direction will depend on the type of negative identification evidence adduced. For example:\n\n- where a witness positively identifies a person as the offender who is not the accused, the judge may give modest directions about the need for caution when assessing the evidence, the circumstances of the identification and that witnesses may be honest but mistaken;\n\n- where there is contradictory identification evidence, the judge will need to be direct the jury on the need for caution in assessing the evidence, contrast the different circumstances of the two witnesses, the risk of mistaken identification evidence and the interaction between positive and negative identification evidence (see below);\n\n- where the witness has failed to identify the accused, then identification evidence directions are no likely to be appropriate and the judge should instead refer to the failure to identify as a matter casting doubt on the prosecution case.\n\n\n\n114. In all cases however, the judge must remind the jury that the prosecution bears the onus of proof and that the accused does not need to prove the negative identification evidence. Instead, the evidence is a factor that, depending on the jury’s view of the evidence, may raise a reasonable doubt about the prosecution’s case.\n\n\n\n### Directions where Positive and Negative Identification Evidence are Adduced\n\n\n\n115. Where both negative and positive identification evidence is adduced, the judge may need to direct the jury about the relationship between the two types of evidence. In particular, the judge may need to direct the jury about:\n\n\n\n- the impact the negative identification evidence has on the positive identification evidence; and\n\n- the relationship between the positive and negative identification evidence warnings.\n\n\n\n116. The existence of contradictory, negative identification evidence, may be a significant matter which makes the positive identification evidence unreliable (see *Beresi v R* [2004] WASCA 67; *Mule v R* [2002] WASCA 101).\n\n117. Similarly, the failure of a witness to select the accused from a previous photoboard or identification parade may cast doubt on the reliability of the subsequent identification (see *Beresi v R* [2004] WASCA 67).\n\n118. The best approach for a judge to take in directing the jury on the relationship between the warnings will depend on the circumstances of the case:\n\n\n\n- in some cases it will be convenient for the judge to set out separately the reasons for the warnings for each category of identification evidence;\n\n- in other cases it will be disadvantageous to the accused to have all of the reasons for the warnings given twice – once for the positive identification evidence and once for the negative identification evidence (*Kanaan v R* [2006] NSWCCA 109).\n\n### Specific Causes of Unreliability\n\n119. In addition to general dangers about particular forms of evidence, the judge will also need to inform the jury about any specific causes of unreliability which are significant (*Jury Directions Act 2015* s 36).\n\n120. These specific matters should be identified as part of the warning about identification evidence, and rather than in some other part of the judge’s directions (*R v Bint & Butterworth* 19/7/1996 CA SA).\n\n121. If matters referred to by counsel reasonably can be regarded as significant matters undermining the reliability of the identification evidence, the judge must inform the jury of those matters (*Jury Directions Act* 2015 s 36(3)(b). See also *Domican v R* (1992) 173 CLR 555; *R v Dupas* (2009) 28 VR 380).\n\n122. It is insufficient for a judge to simply put a number of questions to the jury to consider, without relating them to the particular circumstances of the case (*R v Ryan* 3/8/1995 CA Vic).\n\n123. The judge may point out significant matters supporting an identification, as long as the weaknesses are also highlighted (*Jury Directions Act 2015 *s 36(3)(b); *R v Fox (No 2)* [2000] 1 Qd R 640. See also *R v Davies* (2005) 11 VR 314).\n\n124. Even if a matter of significance would be obvious to the jury, it should be identified (*Ilioski v R* [2006] NSWCCA 164).\n\n125. However, a judge is only required to direct the jury about matters concerning the reliability of identification evidence. The identification evidence direction does not address matters such as bias or motives to lie (*Ilioski v R* [2006] NSWCCA 164).[^12]\n\n126. Judges need not identify every possible weakness in the particular identification evidence in the case. He or she is only required to identify any weakness which is significant. On this basis, a judge must not overlook any evidence the jury may regard as having some cogency, which would be favourable to the accused in the resolution of the identification issue (*Jury Directions Act 2015* s 36(3)(b); *R v Bint & Butterworth* 19/7/1996 CA SA).\n\n127. The fact that there is evidence that tends to support an identification does not diminish the importance of the direction as to identification. In some circumstances it may actually increase the need for caution (*WSJ v R* [2010] VSCA 339).\n\n### Specific Factors Affecting the Reliability of Identification Evidence\n\n\n\n128. Factors affecting the reliability of identification evidence in a particular case include:\n\n\n\n- the opportunity to observe the person subsequently identified;\n\n- the nature of the relationship between the witness and the person identified;\n\n- the length of time between the incident and the identification; and\n\n- the nature and circumstances of the identification (*Domican v R *(1992) 173 CLR 555).\n\n\n\n129. Factors that may be relevant to the initial observation include:\n\n\n\n- the length of opportunity for making the observation (*R v Clune* [1982] VR 1; *Domican v R *(1992) 173 CLR 555);\n\n- the position of the witness and the person identified (*R v Clune* [1982] VR 1; *R v Dickson *[1983] 1 VR 227);\n\n- the distance of the witness from the person identified (*R v Turnbull *[1977] QB 224);\n\n- the lighting and weather (*R v Clune *[1982] VR 1;* R v Dickson* [1983] 1 VR 227);\n\n- any impairments to the observation, such as passing people or traffic (*R v Turnbull* [1977] QB 224);\n\n- the exposure of the witness to stress or fear (*R v Clune* [1982] VR 1; *R v Dickson* [1983] 1 VR 227. But see *Winmar v Western Australia* (2007) 35 WAR 159);\n\n- whether the witness was influenced by drugs or alcohol, or by other factors such as fatigue (*Peck v Western Australia* [2005] WASCA 20);\n\n- whether the circumstances were such as to cause the witness to be left with an impression of the features of the offender (*R v Clune* [1982] VR 1).\n\n\n\n130. Factors that may be relevant to the nature of the relationship between the witness and the person observed include:\n\n\n\n- whether the witness was previously acquainted with the person observed (*Domican v R* (1992) 173 CLR 555);\n\n- how well the witness knew the observed person (*R v Carr* (2000) 117 A Crim R 272);\n\n- the circumstances of any previous acquaintance (*R v Carr* (2000) 117 A Crim R 272).\n\n\n\n131. Factors that may be relevant to the identification process include:\n\n- the length of time between the incident and the identification (*R v Clune* [1982] VR 1; *Domican v R* (1992) 173 CLR 555;* R v Dupas* (2009) 28 VR 380);\n\n- the absence of an identification parade and the general conduct of the identification process (*R v Preston* [1961] VR 761; *R v Clune* [1982] VR 1; *R v Burchielli *[1981] VR 611);\n\n- whether the witness had heard a description of the suspect given before attempting an identification (*R v Ryan* 3/8/1995 CA Vic);\n\n- any imbalances in the identification process (such as only one of the suspects having a moustache, or having only one non-custodial photograph to choose from) (*R v Clune* [1982] VR 1);\n\n- whether the witness was encouraged to identify a particular person in any way (*R v Davies* (2005) 11 VR 314);\n\n- whether there were any witnesses to the identification process (*Alexander v R* (1981) 145 CLR 395; *Roser v R* (2001) 24 WAR 254).\n\n\n\n132. Other factors that may be relevant to the issue include:\n\n\n\n- the perceptiveness of the witness (*R v Clune* [1982] VR 1;* R v Dickson *[1983] 1 VR 227);\n\n- the dangers of cross-racial identification (*R v Dodd* (2002) 135 A Crim R 32);\n\n- errors in describing the offender prior to the identification (*R v Turnbull* [1977] QB 224;* R v Vincec* (1990) 50 A Crim R 203 (Vic CA));\n\n- evidence which points to a person other than the accused being the offender (*R v Fahad* [2004] VSCA 28);[^13]\n\n- incentives to cooperate with the police (*R v Theos* (1996) 89 A Crim R 486 (Vic CA));\n\n- in the case of object identification, the commonness of the object identified (*R v Theos* (1996) 89 A Crim R 486 (Vic CA)).\n\n133. There is no immutable principle requiring the discussion of any particular one of these matters – it will depend on the circumstances. This is, however, subject to the requirement that a judge inform the jury of the significant matters which specified by the party requesting an identification evidence direction, unless there are good reasons for not doing so (*Jury Directions Act 2015* ss 15, 36; see also *R v Dodd* (2002) 135 A Crim R 32).\n\n\n\n## The Displacement Effect\n\n\n\n134. One specific cause of unreliability that a judge may need to direct the jury about is the \"displacement effect\" (see, e.g. *Alexander v R* (1981) 145 CLR 395; *Roser v R* (2001) 24 WAR 254;* DPP v Douglas Jensen* [2006] VSC 179; *R v Dupas* (2009) 28 VR 380).\n\n135. The \"displacement effect\" can occur when a witness initially identifies a person from a photograph, and then subsequently identifies the same person at an identification parade. In such circumstances, the witness’s memory of the photograph viewed may displace his or her memory of the original sighting of the offender. Any subsequent face-to-face identification may be tainted as a result of this \"displacement effect\", as the witness may unwittingly compare the accused with the remembered photograph, rather than with his or her memory of the original sighting (*Alexander v R* (1981) 145 CLR 395; *Roser v R* (2001) 24 WAR 254; *DPP v Douglas Jensen *[2006] VSC 179).[^14]\n\n136. Thus, the \"displacement effect\" may be relevant where:\n\n\n\n- a person is initially identified from a photograph (or other representation);\n\n- the same person is subsequently identified at an identification parade; and\n\n- evidence of that identification parade is admitted (*Alexander v R* (1981) 145 CLR 395; *Roser v R* (2001) 24 WAR 254; *DPP v Douglas Jensen* [2006] VSC 179)\n\n137. In such cases, the \"displacement effect\" may constitute a significant matter which affects the reliability of the identification evidence, warranting a warning cautioning against accepting the evidence, and if the evidence is accepted, cautioning against the weight to be given to that evidence (*Jury Directions Act 2015 *s 36(3); see e.g. *R v Burchielli* [1981] VR 611).\n\n\n\n## Picture Identification\n\n\n\n138. Section 115 of the *Evidence Act 2008* provides that certain directions must be given in relation to \"picture identification evidence\" that is admitted into evidence.\n\n139. These directions must be given if:\n\n\n\n- the \"picture identification evidence\" is adduced by the prosecution; and\n\n- a request for the directions is made by the accused or defence counsel (*Evidence Act 2008* s 115(7)).\n\n\n\n140. The content of the direction depends on whether the relevant picture was made before or after the accused was taken into custody:\n\n\n\n- if it was made after the accused was taken into custody, the jury must be informed of that fact;\n\n- if it was made before the accused was taken into custody, the jury must be warned not to assume that the accused has a criminal record, or has previously been charged with an offence (*Evidence Act 2008* s 115(7)).\n\n\n\n141. These directions are directed to the problems associated with the use of ‘mug shots’ – pictures which give the impression that the person depicted was known to the police (*R v Maklouf* [1999] NSWCCA 94).\n\n142. 4.12.2 Charge: Photographic Identification includes a section addressing this issue in the context of photographic identification. This section can be modified for other forms of picture identification.\n\n\n\n## Failure to Hold an Identification Parade\n\n\n\n143. If photographic identification evidence is admitted where it would have been reasonable and practicable to arrange for an identification parade to be held instead, it may be appropriate to:\n\n- tell the jury such an identification parade could have been held;\n\n- explain the differences between the identification processes;\n\n- advise the jury that the accused has been deprived of the benefits of an identification parade;\n\n- advise the jury that the accused may have lost the advantage they would have gained from an inconclusive parade; and\n\n- direct the jury that it should take account of these facts in its assessment of the whole case, giving them such weight as it thinks fair (*Roser v R* (2001) 24 WAR 254).\n\n\n\n## Refusal to Participate in an Identification Parade\n\n\n\n144. If evidence is given that the accused refused to participate in an identification parade, the judge should advise the jury that he or she had a right not to participate, and that the exercise of that right must not lead to any conclusion as to guilt (*R v McCarthy* (1993) 71 A Crim R 395; *R v Davies* (2005) 11 VR 314).\n\n145. The direction should be given in very strong terms, explaining to the jury that it would make a mockery of our legal system to give the accused the right not to participate, but then to penalise them for relying on that right by allowing an adverse inference to be drawn from its exercise.\n\n146. This direction should be given as soon as the evidence is given and, if necessary, again in the summing up (*R v McCarthy *(1993) 71 A Crim R 395; *R v Davies* (2005) 11 VR 314).\n\n\n\nLast updated: 25 June 2024",
+    "child_ids": [
+      "4.12-c7-s1",
+      "4.12-c7-s2",
+      "4.12-c7-s3",
+      "4.12-c7-s4",
+      "4.12-c7-s5",
+      "4.12-c7-s6",
+      "4.12-c7-s7",
+      "4.12-c7-s8",
+      "4.12-c7-s9",
+      "4.12-c7-s10",
+      "4.12-c7-s11",
+      "4.12-c7-s12",
+      "4.12-c7-s13",
+      "4.12-c7-s14",
+      "4.12-c7-s15",
+      "4.12-c7-s16",
+      "4.12-c7-s17",
+      "4.12-c7-s18",
+      "4.12-c7-s19",
+      "4.12-c7-s20",
+      "4.12-c7-s21",
+      "4.12-c7-s22",
+      "4.12-c7-s23",
+      "4.12-c7-s24",
+      "4.12-c7-s25",
+      "4.12-c7-s26",
+      "4.12-c7-s27",
+      "4.12-c7-s28",
+      "4.12-c7-s29",
+      "4.12-c7-s30",
+      "4.12-c7-s31",
+      "4.12-c7-s32",
+      "4.12-c7-s33",
+      "4.12-c7-s34",
+      "4.12-c7-s35",
+      "4.12-c7-s36",
+      "4.12-c7-s37",
+      "4.12-c7-s38",
+      "4.12-c7-s39"
+    ],
+    "child_spans": [
+      {
+        "child_id": "4.12-c7-s1",
+        "start_char": 0,
+        "end_char": 2390
+      },
+      {
+        "child_id": "4.12-c7-s2",
+        "start_char": 2392,
+        "end_char": 5028
+      },
+      {
+        "child_id": "4.12-c7-s3",
+        "start_char": 5030,
+        "end_char": 5664
+      },
+      {
+        "child_id": "4.12-c7-s4",
+        "start_char": 5666,
+        "end_char": 7355
+      },
+      {
+        "child_id": "4.12-c7-s5",
+        "start_char": 7357,
+        "end_char": 8024
+      },
+      {
+        "child_id": "4.12-c7-s6",
+        "start_char": 8026,
+        "end_char": 8050
+      },
+      {
+        "child_id": "4.12-c7-s7",
+        "start_char": 8052,
+        "end_char": 9495
+      },
+      {
+        "child_id": "4.12-c7-s8",
+        "start_char": 9497,
+        "end_char": 9954
+      },
+      {
+        "child_id": "4.12-c7-s9",
+        "start_char": 9956,
+        "end_char": 9979
+      },
+      {
+        "child_id": "4.12-c7-s10",
+        "start_char": 9981,
+        "end_char": 11639
+      },
+      {
+        "child_id": "4.12-c7-s11",
+        "start_char": 11641,
+        "end_char": 11807
+      },
+      {
+        "child_id": "4.12-c7-s12",
+        "start_char": 11809,
+        "end_char": 12733
+      },
+      {
+        "child_id": "4.12-c7-s13",
+        "start_char": 12735,
+        "end_char": 14581
+      },
+      {
+        "child_id": "4.12-c7-s14",
+        "start_char": 14583,
+        "end_char": 16290
+      },
+      {
+        "child_id": "4.12-c7-s15",
+        "start_char": 16292,
+        "end_char": 18127
+      },
+      {
+        "child_id": "4.12-c7-s16",
+        "start_char": 18129,
+        "end_char": 19361
+      },
+      {
+        "child_id": "4.12-c7-s17",
+        "start_char": 19363,
+        "end_char": 21243
+      },
+      {
+        "child_id": "4.12-c7-s18",
+        "start_char": 21245,
+        "end_char": 23343
+      },
+      {
+        "child_id": "4.12-c7-s19",
+        "start_char": 23345,
+        "end_char": 24402
+      },
+      {
+        "child_id": "4.12-c7-s20",
+        "start_char": 24404,
+        "end_char": 26364
+      },
+      {
+        "child_id": "4.12-c7-s21",
+        "start_char": 26366,
+        "end_char": 26407
+      },
+      {
+        "child_id": "4.12-c7-s22",
+        "start_char": 26409,
+        "end_char": 28449
+      },
+      {
+        "child_id": "4.12-c7-s23",
+        "start_char": 28451,
+        "end_char": 28658
+      },
+      {
+        "child_id": "4.12-c7-s24",
+        "start_char": 28660,
+        "end_char": 29899
+      },
+      {
+        "child_id": "4.12-c7-s25",
+        "start_char": 29901,
+        "end_char": 31864
+      },
+      {
+        "child_id": "4.12-c7-s26",
+        "start_char": 31866,
+        "end_char": 32790
+      },
+      {
+        "child_id": "4.12-c7-s27",
+        "start_char": 32792,
+        "end_char": 34333
+      },
+      {
+        "child_id": "4.12-c7-s28",
+        "start_char": 34335,
+        "end_char": 36067
+      },
+      {
+        "child_id": "4.12-c7-s29",
+        "start_char": 36069,
+        "end_char": 38073
+      },
+      {
+        "child_id": "4.12-c7-s30",
+        "start_char": 38075,
+        "end_char": 40209
+      },
+      {
+        "child_id": "4.12-c7-s31",
+        "start_char": 40211,
+        "end_char": 42899
+      },
+      {
+        "child_id": "4.12-c7-s32",
+        "start_char": 42901,
+        "end_char": 42937
+      },
+      {
+        "child_id": "4.12-c7-s33",
+        "start_char": 42939,
+        "end_char": 44955
+      },
+      {
+        "child_id": "4.12-c7-s34",
+        "start_char": 44957,
+        "end_char": 45202
+      },
+      {
+        "child_id": "4.12-c7-s35",
+        "start_char": 45204,
+        "end_char": 47217
+      },
+      {
+        "child_id": "4.12-c7-s36",
+        "start_char": 47219,
+        "end_char": 48851
+      },
+      {
+        "child_id": "4.12-c7-s37",
+        "start_char": 48853,
+        "end_char": 50667
+      },
+      {
+        "child_id": "4.12-c7-s38",
+        "start_char": 50669,
+        "end_char": 52601
+      },
+      {
+        "child_id": "4.12-c7-s39",
+        "start_char": 52603,
+        "end_char": 54026
+      }
+    ],
+    "footnote_variants": [
+      {
+        "text": "[^6]: Department of Justice, *Jury Directions: the Next Step*, 2013 p38.\n[^7]: Department of Justice, *Jury Directions: the Next Step*, 2013 p12.\n[^8]: *Jury Directions: The Next Step*, Criminal Law Review, December 2013, p38.\n[^9]: See \"General Dangers of Voice Identification\" below for further information concerning identification by voice.\n[^10]: Dock identification occurs when a person is asked to look either at the dock containing the accused, or the area where the accused might be expected to be sitting, and then make an identification. Where a witness simply happens to be in the same courtroom as the accused, and spontaneously recognises him or her, this is not \"dock identification\" (*R v Rich (Ruling No. 6)* [2008] VSC 436. See also *R v Williams* [1983] 2 VR 579).\n[^11]: Dock identifications are not usually permitted, unless they are simply confirming an acceptable prior out-of-court identification (*Jamal v R; R v Gorham* (1997) 68 SASR 505; *Murdoch v R* [2007] NTCCA 1).\n[^12]: There may, however, be a need for separate warnings concerning such matters.\n[^13]: See **Negative Identification Evidence** for a discussion of the directions to be given when evidence is adduced identifying a person other than the accused as the offender, or stating that the accused is not the offender.\n[^14]: While the cases in this area generally refer to the risk that the memory of a photograph will displace the memory of the original sighting, memories of other types of representation (e.g. identikit pictures) may create the same risk.",
+        "child_ids": [
+          "4.12-c7-s1",
+          "4.12-c7-s2",
+          "4.12-c7-s3",
+          "4.12-c7-s4",
+          "4.12-c7-s5",
+          "4.12-c7-s6",
+          "4.12-c7-s7",
+          "4.12-c7-s8",
+          "4.12-c7-s9",
+          "4.12-c7-s10",
+          "4.12-c7-s11",
+          "4.12-c7-s12",
+          "4.12-c7-s13",
+          "4.12-c7-s14",
+          "4.12-c7-s15",
+          "4.12-c7-s16",
+          "4.12-c7-s17",
+          "4.12-c7-s18",
+          "4.12-c7-s19",
+          "4.12-c7-s20",
+          "4.12-c7-s21",
+          "4.12-c7-s22",
+          "4.12-c7-s23",
+          "4.12-c7-s24",
+          "4.12-c7-s25",
+          "4.12-c7-s26",
+          "4.12-c7-s27",
+          "4.12-c7-s28",
+          "4.12-c7-s29",
+          "4.12-c7-s30",
+          "4.12-c7-s31",
+          "4.12-c7-s32",
+          "4.12-c7-s33",
+          "4.12-c7-s34",
+          "4.12-c7-s35",
+          "4.12-c7-s36",
+          "4.12-c7-s37",
+          "4.12-c7-s38",
+          "4.12-c7-s39"
+        ]
+      }
+    ]
+  }
+]

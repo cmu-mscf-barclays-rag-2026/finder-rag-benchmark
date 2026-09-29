@@ -1,0 +1,4 @@
+example_type,seed_child_id,query_id,mode,k,token_budget,ranked_unit_hit_at_k,ranked_unit_recall_at_k,gold_child_in_selected_units,gold_child_hit_in_context,gold_child_coverage_in_context,all_gold_children_in_context,gold_body_token_coverage,returned_units,unbudgeted_content_tokens,returned_content_tokens,context_truncated
+Manual sibling seed; not model retrieval,1.2-c2-s1,1,child,1,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1,8,8,0.0
+Manual sibling seed; not model retrieval,1.2-c2-s1,1,child_to_parent,1,,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1,670,670,0.0
+Manual sibling seed; not model retrieval,1.2-c2-s1,1,child_to_parent,1,10,0.0,0.0,1.0,0.0,0.0,0.0,0.00398406374501992,1,670,10,1.0

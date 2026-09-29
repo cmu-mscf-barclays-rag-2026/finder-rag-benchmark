@@ -1,0 +1,3 @@
+variant,count,min,mean,median,p95,max,model_limit_including_specials,over_model_limit_count,over_model_limit_fraction
+child,4876,3,288.90422477440524,286.0,513.0,576,256,2684,0.5504511894995898
+parent,2785,17,505.8157989228007,299.0,1651.7999999999997,12632,256,1556,0.5587073608617594
