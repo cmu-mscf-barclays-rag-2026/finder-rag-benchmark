@@ -1,0 +1,5 @@
+k,candidate_only_hits,baseline_only_hits,net_hit_difference,mcnemar_exact_p,candidate,baseline
+5,45,2,43,1.6044054973463062e-11,Reference Answer Dense (oracle),Question Dense MiniLM
+5,5,19,-14,0.006610751152038574,Question-only HyDE Dense,Question Dense MiniLM
+5,6,5,1,1.0,Question BM25 + HyDE Dense RRF,Question BM25 + Question Dense RRF
+5,7,1,6,0.0703125,Question BM25 + HyDE Dense RRF,Question BM25

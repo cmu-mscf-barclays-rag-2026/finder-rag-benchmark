@@ -1,0 +1,5 @@
+prompt_style,max_new_tokens,method,hit_rate_at_5,mrr_at_5,ndcg_at_5,status
+concise_legal,64,Question-only HyDE Dense,0.15,0.08833333333333333,0.10327085784925864,primary
+concise_legal,64,Question BM25 + HyDE Dense RRF,0.37,0.246,0.2764505174476023,primary
+long_legal,96,Question-only HyDE Dense,0.27,0.14983333333333332,0.17924224730143926,sensitivity_check
+long_legal,96,Question BM25 + HyDE Dense RRF,0.32,0.212,0.23902854691238618,sensitivity_check
