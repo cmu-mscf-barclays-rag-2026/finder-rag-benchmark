@@ -14,7 +14,7 @@ queries before any test evaluation; the selected settings are **k1=1.6, b=1.0**.
 See [the complete common-split report](results/b_bm25_common/report.md),
 [dev sweep](results/b_bm25_common/dev_sweep.csv),
 [verification](results/b_bm25_common/validation.json), and
-[team CSV](../team_metrics/b_bm25.csv). All four cutoffs were independently
+[team CSV](shared_reference/team_metrics/b_bm25.csv). All four cutoffs were independently
 recomputed with the existing shared metric function from saved top-10 rankings;
 the maximum absolute difference was zero.
 

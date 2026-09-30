@@ -23,7 +23,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--retrieval-csv", type=Path, required=True)
     parser.add_argument("--answer-csv", type=Path)
-    parser.add_argument("--config", type=Path, default=Path("config/benchmark_config.json"))
+    parser.add_argument("--config", type=Path,
+                        default=Path(__file__).resolve().parents[1] / "config/benchmark_config.json")
     parser.add_argument("--method", required=True, help="Exact method label in the raw CSV")
     parser.add_argument("--method-id", required=True)
     parser.add_argument("--owner", required=True)

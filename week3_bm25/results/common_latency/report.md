@@ -1,4 +1,4 @@
-# Controlled retrieval latency — all four workstreams
+# Week 3 — controlled retrieval latency
 
 One Mac, CPU only, the same 100 held-out questions, 3 warmup calls per method, and 5 randomly interleaved repetitions. Each method has 500 measurements.
 

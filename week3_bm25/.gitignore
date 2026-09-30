@@ -2,7 +2,8 @@
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
-data/
+/data/
 results/*
 !results/b_bm25_common/
 !results/common_latency/
+!results/team_comparison/

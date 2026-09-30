@@ -23,6 +23,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 ROOT=Path(__file__).resolve().parents[1]
+REFERENCE=ROOT/'week3_bm25/shared_reference'
 A_COMMIT='bd5e7c35443c6eaa5a1f24ada240b2c5ffdb3eb1'
 D_COMMIT='4013a25b33a7dc62845359941f062870c822f91a'
 MODEL='sentence-transformers/all-MiniLM-L6-v2'
@@ -68,7 +69,7 @@ def run(args):
     from sentence_transformers import SentenceTransformer
     from langchain_core.documents import Document
     from langchain_text_splitters import RecursiveCharacterTextSplitter
-    sys.path.insert(0,str(ROOT)); sys.path.insert(0,str(ROOT/'week3_bm25'))
+    sys.path.insert(0,str(REFERENCE)); sys.path.insert(0,str(ROOT/'week3_bm25'))
     import finder_hybrid_experiment as common
     from finder_bm25.bm25 import BM25Retriever
     from finder_bm25.data import load_bundle
@@ -77,8 +78,8 @@ def run(args):
     threadpool_limits(limits=args.threads)
     output=ROOT/'week3_bm25/results/common_latency'; output.mkdir(parents=True,exist_ok=True)
     cache=Path(args.cache); cache.mkdir(parents=True,exist_ok=True)
-    cfg=json.loads((ROOT/'config/benchmark_config.json').read_text())
-    data=ROOT/cfg['dataset_file']
+    cfg=json.loads((REFERENCE/'config/benchmark_config.json').read_text())
+    data=REFERENCE/cfg['dataset_file']
     assert hashlib.sha256(data.read_bytes()).hexdigest()==cfg['dataset_sha256']
     records=pd.read_parquet(data)
     corpus,qrels=common.build_reference_corpus(records)
@@ -113,7 +114,7 @@ def run(args):
     settings=json.loads(subprocess.check_output(['git','show',f'{D_COMMIT}:results/d_refinement/selected_configs.json'],cwd=ROOT))
     threshold=next(s for s in settings if s['family']=='threshold')
     mmr=next(s for s in settings if s['family']=='mmr')
-    alpha=json.loads((ROOT/'results/run_summary.json').read_text())['hybrid']['best_dense_weight']
+    alpha=json.loads((REFERENCE/'results/run_summary.json').read_text())['hybrid']['best_dense_weight']
     if alpha != 0.25 or threshold['threshold'] != 0.3 or mmr['lambda_mult'] != 1.0 or mmr['fetch_k'] != 10:
         raise ValueError('Selected configurations changed; update method IDs and protocol before timing')
     def encode(query):
@@ -159,11 +160,11 @@ def run(args):
         'query_sample':'random.Random(42).sample(sorted test query IDs, 100)','queries_sha256':hashlib.sha256((output/'queries.csv').read_bytes()).hexdigest(),
         'warmup':3,'repeats':5,'interleave_seed':42,'scope':'raw question to up to 5 evidence strings; includes tokenization/encoding/search/pooling/fusion/refinement/lookup; excludes index build, disk IO, generation',
         'a_source_commit':subprocess.check_output(['git','rev-parse',A_COMMIT],cwd=ROOT,text=True).strip(),'a_source_sha256':a_hash,
-        'd_source_commit':subprocess.check_output(['git','rev-parse',D_COMMIT],cwd=ROOT,text=True).strip(),'d_source_sha256':d_hash,'c_source_sha256':hashlib.sha256((ROOT/'finder_hybrid_experiment.py').read_bytes()).hexdigest(),
+        'd_source_commit':subprocess.check_output(['git','rev-parse',D_COMMIT],cwd=ROOT,text=True).strip(),'d_source_sha256':d_hash,'c_source_sha256':hashlib.sha256((REFERENCE/'finder_hybrid_experiment.py').read_bytes()).hexdigest(),
         'b_source_sha256':hashlib.sha256((ROOT/'week3_bm25/finder_bm25/bm25.py').read_bytes()).hexdigest(),'b_selected':selected,'c_dense_weight':alpha,'d_threshold':threshold,'d_mmr':mmr,
         'packages':{p:importlib.metadata.version(p) for p in ['numpy','pandas','scipy','scikit-learn','torch','sentence-transformers','transformers','langchain-text-splitters','pyarrow','threadpoolctl']}}
     (output/'manifest.json').write_text(json.dumps(metadata,indent=2)+'\n')
-    lines=['# Controlled retrieval latency — all four workstreams','','One Mac, CPU only, the same 100 held-out questions, 3 warmup calls per method, and 5 randomly interleaved repetitions. Each method has 500 measurements.','',
+    lines=['# Week 3 — controlled retrieval latency','','One Mac, CPU only, the same 100 held-out questions, 3 warmup calls per method, and 5 randomly interleaved repetitions. Each method has 500 measurements.','',
         '| Method | Mean ms | Median ms | p95 ms |','| --- | ---: | ---: | ---: |']
     lines += [f"| {r['method_id']} | {r['mean_ms']:.3f} | {r['median_ms']:.3f} | {r['p95_ms']:.3f} |" for r in summary]
     lines += ['', f'Index embeddings were prepared on {args.index_device} outside the timed region; the model was then moved to CPU. Measured from raw question to top-five evidence text, including query encoding where needed, search, source pooling, fusion/refinement, and text lookup. Indexing, downloads, and generation are excluded. All timed model calls use CPU with four intra-op threads and one inter-op thread; BLAS pools are limited to four threads.', '',

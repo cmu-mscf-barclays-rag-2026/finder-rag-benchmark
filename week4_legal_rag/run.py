@@ -316,7 +316,7 @@ def main():
     write_jsonl(args.output / 'retrievals.jsonl', saved)
     write_jsonl(args.output / 'generation_inputs.jsonl', generation)
     write_csv(args.output / 'answer_review.csv', grading)
-    lines = ['# Legal RAG Bench — held-out retrieval results', '',
+    lines = ['# Week 4 — Legal RAG retrieval results', '',
              f'{len(dev)} development questions; {len(test)} held-out questions. Configurations selected on development nDCG@5.', '',
              '| Method | Recall@5 | Hit@5 | All evidence hit@5 | Gold-text coverage@5 | MRR@5 | nDCG@5 | Mean ms |',
              '|---|---:|---:|---:|---:|---:|---:|---:|']

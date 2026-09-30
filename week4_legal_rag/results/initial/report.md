@@ -1,4 +1,4 @@
-# Legal RAG Bench — held-out retrieval results
+# Week 4 — Legal RAG retrieval results
 
 20 development questions; 80 held-out questions. Configurations selected on development nDCG@5.
 

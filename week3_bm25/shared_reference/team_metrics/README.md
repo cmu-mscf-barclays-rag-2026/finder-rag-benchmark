@@ -1,9 +1,9 @@
-# Team metric submissions
+# Week 3 — team metric submissions
 
 Each person adds one CSV file to this directory. Do not edit another person's
 file. Use the exporter so that every submission has the same columns.
 
-Example for part C:
+Example for part C, run from `week3_bm25/shared_reference/`:
 
 ```bash
 python scripts/export_method_metrics.py \
@@ -31,7 +31,7 @@ sample, prompt, generator, context count, and token limit.
 | C / Cheryl | [c_hybrid_rrf.csv](c_hybrid_rrf.csv) | Common 4,575-query split; answer scores remain pilot |
 | D / Kevin | [d_threshold_mmr.csv](d_threshold_mmr.csv) | Owner's unchanged CSV for selected threshold and MMR configurations |
 
-See [the all-four overview](../presentation/team_overview.md) and
+See [the Week 3 comparison](../../results/team_comparison/README.md) and
 [provenance.json](provenance.json) for source commits and verification details.
 A's original CSV and run manifest are retained in `results/team_sources/`.
 Missing measurements are blank, not zero. A uses CUDA; C/D use CPU with different
@@ -45,10 +45,10 @@ fingerprint and corpus/split rules against the shared Parquet and configuration.
 
 Florence's current B export was rerun on the exact shared corpus and hash split.
 The older seed-42 scores remain in her historical report and are not relabeled.
-See [the rerun report](../week3_bm25/results/b_bm25_common/report.md) and
-[verification](../week3_bm25/results/b_bm25_common/validation.json).
+See [the rerun report](../../results/b_bm25_common/report.md) and
+[verification](../../results/b_bm25_common/validation.json).
 
 The owner CSV latency fields preserve the original run measurements. For the
-same-machine speed comparison use [latency_comparison.csv](../presentation/latency_comparison.csv),
+same-machine speed comparison use [latency_comparison.csv](../../results/team_comparison/latency_comparison.csv),
 generated from 500 raw measurements per method under one protocol. Final answer
 evaluation is still pending across the team.

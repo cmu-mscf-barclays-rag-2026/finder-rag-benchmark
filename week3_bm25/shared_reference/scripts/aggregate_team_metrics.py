@@ -9,6 +9,8 @@ import pandas as pd
 
 from export_method_metrics import METRIC_COLUMNS
 
+REFERENCE = Path(__file__).resolve().parents[1]
+WEEK3 = REFERENCE.parent
 
 BENCHMARK_KEYS = ["schema_version", "dataset_id", "corpus_id", "split_id"]
 RETRIEVAL_COLUMNS = [
@@ -39,10 +41,10 @@ def validate(df: pd.DataFrame) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input-dir", type=Path, default=Path("team_metrics"))
-    parser.add_argument("--output-dir", type=Path, default=Path("presentation"))
+    parser.add_argument("--input-dir", type=Path, default=REFERENCE / "team_metrics")
+    parser.add_argument("--output-dir", type=Path, default=WEEK3 / "results/team_comparison")
     parser.add_argument("--k", type=int, default=5)
-    parser.add_argument("--latency-csv", type=Path, default=Path("week3_bm25/results/common_latency/summary.csv"))
+    parser.add_argument("--latency-csv", type=Path, default=WEEK3 / "results/common_latency/summary.csv")
     args = parser.parse_args()
 
     files = sorted(path for path in args.input_dir.glob("*.csv") if not path.name.startswith("_"))
@@ -94,7 +96,7 @@ def main() -> None:
             "[Controlled latency comparison](latency_comparison.csv): all selected methods were timed on "
             "one Mac CPU with the same 100 held-out questions, 3 warmups, and 5 interleaved repetitions "
             "(500 measurements per method). Index preparation is excluded. See the "
-            "[timing report](../week3_bm25/results/common_latency/report.md) for scope, hardware, model revision, "
+            "[timing report](../common_latency/report.md) for scope, hardware, model revision, "
             "and limitations. The original mixed-hardware timings remain only in the combined CSV for provenance."
         )
     final_answers = selected[selected["answer_status"] == "final"].copy()
@@ -111,17 +113,23 @@ def main() -> None:
         )
         answer_note = "Final answer scores passed the shared answer-protocol check."
     else:
-        pd.DataFrame(columns=[
-            "owner", "method", "answer_n", *ANSWER_COLUMNS,
-            "generator_model", "answer_protocol_id",
-        ]).to_csv(args.output_dir / "answer_comparison.csv", index=False)
+        # Do not present a header-only placeholder as a completed result.
+        (args.output_dir / "answer_comparison.csv").unlink(missing_ok=True)
         answer_note = (
-            "Answer scores are not yet comparable. The answer table stays empty until every "
+            "Answer scores are not yet comparable. No answer table is published until every "
             "method is marked final under one shared protocol."
         )
-    table = selected[display_columns].copy()
-    for column in table.select_dtypes(include="number").columns:
-        table[column] = table[column].map(lambda x: "" if pd.isna(x) else f"{x:.4f}")
+    table = selected[["owner", "method", "n_queries", "recall_at_k", "mrr_at_k", "ndcg_at_k"]].copy()
+    table["owner"] = table["owner"].replace({"A": "Yuchen", "B": "Florence", "C": "Cheryl", "D": "Kevin"})
+    table["method"] = table["method"].replace({
+        "d_mmr_1.0_10": "MMR (lambda 1.0, 10 candidates)",
+        "d_threshold_0.3": "Similarity threshold 0.3",
+    })
+    table["n_queries"] = table["n_queries"].map(lambda x: f"{int(x):,}")
+    table["recall_at_k"] = table["recall_at_k"].map(lambda x: f"{x:.2%}")
+    for column in ("mrr_at_k", "ndcg_at_k"):
+        table[column] = table[column].map(lambda x: "Not reported" if pd.isna(x) else f"{x:.4f}")
+    table.columns = ["Contributor", "Method", "Test questions", f"Recall@{args.k}", f"MRR@{args.k}", f"nDCG@{args.k}"]
     headers = list(table.columns)
     markdown_rows = [
         "| " + " | ".join(headers) + " |",
@@ -133,17 +141,18 @@ def main() -> None:
     )
     markdown_table = "\n".join(markdown_rows)
 
-    summary = f"""# FinDER retrieval comparison
+    summary = f"""# Week 3 — FinDER team comparison
 
-This table covers the compatible CSV submissions currently in `team_metrics/`.
-See [the all-four team overview](team_overview.md) for every contribution,
-including the historical experiments. Source commits are recorded in
-[provenance.json](../team_metrics/provenance.json).
+This is the **Week 3** team comparison. Florence contributed the BM25 retriever
+and the controlled timing study; the other methods are teammate submissions.
+For Florence's own work, see [the Week 3 summary](../../README.md).
+Source commits and export provenance are recorded in
+[provenance.json](../../shared_reference/team_metrics/provenance.json).
 
 All included rows passed the shared benchmark identifier checks for dataset,
 corpus, and split. This is a comparison of the included submissions, not a claim
 that unreported metrics were measured. Blank metrics are unreported, not zero.
-Florence's current B submission uses the same shared split as A/C/D; her older
+Florence's submission uses the same shared split as the other methods; her older
 seed-42 experiments are excluded.
 
 ## Primary comparison at K={args.k}
@@ -152,14 +161,17 @@ seed-42 experiments are excluded.
 
 Among the included submissions, the highest Recall@{args.k} is **{best['method']}** at **{best['recall_at_k']:.4f}**.
 The same row has nDCG@{args.k} of **{best['ndcg_at_k']:.4f}**.
+This is a descriptive comparison, not a claim of statistical significance.
 
 ## Controlled query latency
 
 {latency_note}
 
+## Answer evaluation
+
 {answer_note}
 """
-    (args.output_dir / "presentation_summary.md").write_text(summary, encoding="utf-8")
+    (args.output_dir / "README.md").write_text(summary, encoding="utf-8")
     print(f"Validated {len(files)} submission file(s) and {len(combined)} metric rows")
     print(f"Presentation table: {args.output_dir / f'comparison_k{args.k}.csv'}")
 

@@ -1,4 +1,4 @@
-# Top-100 candidate-recall diagnostic
+# Week 4 — Top-100 candidate-recall diagnostic
 
 Same 80 held-out questions and frozen configurations as the initial run. No retuning.
 

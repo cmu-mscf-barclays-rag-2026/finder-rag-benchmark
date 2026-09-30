@@ -1,6 +1,6 @@
-> Archived original Part C overview. Run all commands below from the repository root.
+> Week 3 inherited Part C reference. Run commands from `week3_bm25/shared_reference/`.
 > Cheryl develops new Part C work on `feature/person3-hybrid`.
-> See the [team overview](../README.md) for the shared repository workflow.
+> For results, start with [Florence’s Week 3 summary](../../README.md).
 
 # FinDER RAG Team Benchmark — Part C Hybrid Retrieval
 
@@ -10,7 +10,7 @@ and a common metrics format for combining all four workstreams.
 
 ## Quick start
 
-Python 3.10, 3.11, or 3.12 is recommended. From this folder, create a virtual
+Python 3.10, 3.11, or 3.12 is recommended. From `week3_bm25/shared_reference/`, create a virtual
 environment:
 
 ```bash
@@ -35,11 +35,11 @@ The saved final table can be read without running the models:
 ```python
 import pandas as pd
 
-comparison = pd.read_csv("presentation/comparison_k5.csv")
+comparison = pd.read_csv("../results/team_comparison/comparison_k5.csv")
 print(comparison)
 ```
 
-`presentation/answer_comparison.csv` remains empty until every method has
+No final answer-comparison table is published until every method has
 final answer scores produced with one shared generator, prompt, sample, and
 context rule. The included FLAN-T5-small scores are marked as a pilot and are
 not treated as a final comparison.
@@ -50,8 +50,7 @@ After teammates add their standardized CSV files, rebuild the team table with:
 python scripts/aggregate_team_metrics.py --k 5
 ```
 
-See `TEAM_METRICS_SPEC.md` for the metric contract and `GITHUB_SETUP.md` for
-the shared-repository workflow.
+See `TEAM_METRICS_SPEC.md` for the Week 3 metric contract.
 
 ## Purpose
 

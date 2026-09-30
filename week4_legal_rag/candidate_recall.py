@@ -124,7 +124,7 @@ def main():
                'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                'top20_baseline_matches':len(saved),'validation':'all ranked IDs and scores match baseline Top-20; all first-gold ranks independently checked',
                'protocol':'Frozen baseline; no retuning; K counts chunks; hybrid pool is union of Top-100 per component, then RRF truncated to 100'})
-    lines=['# Top-100 candidate-recall diagnostic','','Same 80 held-out questions and frozen configurations as the initial run. No retuning.',
+    lines=['# Week 4 — Top-100 candidate-recall diagnostic','','Same 80 held-out questions and frozen configurations as the initial run. No retuning.',
            '', '| Method | Top-5 hits | Gold at ranks 6–100 | Gold absent from Top-100 | Recall@100 |',
            '|---|---:|---:|---:|---:|']
     for r in summary:

@@ -35,9 +35,10 @@ def prepare_shared(records, config, source):
 def benchmark(root=ROOT, output=None):
     import pyarrow.parquet as parquet
     root=Path(root); output=Path(output or root/'week3_bm25/results/b_bm25_common')
+    reference=root/'week3_bm25/shared_reference'
     output.mkdir(parents=True,exist_ok=True)
-    config=json.loads((root/'config/benchmark_config.json').read_text())
-    data=root/config['dataset_file']
+    config=json.loads((reference/'config/benchmark_config.json').read_text())
+    data=reference/config['dataset_file']
     checksum=hashlib.sha256(data.read_bytes()).hexdigest()
     if checksum != config['dataset_sha256']: raise ValueError('Dataset checksum mismatch')
     bundle=prepare_shared(parquet.read_table(data).to_pylist(),config,{'kind':'shared_parquet','sha256':checksum})
@@ -78,16 +79,16 @@ def benchmark(root=ROOT, output=None):
                     'generator_model':None,'answer_status':'not_run','answer_protocol_id':None})
                 if k==max(config['evaluation_k']): write_jsonl(output/'test_top10.jsonl',run['results'])
     write_csv(output/'test_summary.csv',summaries)
-    sys.path.insert(0,str(root/'scripts'))
+    sys.path.insert(0,str(reference/'scripts'))
     from export_method_metrics import METRIC_COLUMNS
-    write_csv(root/'team_metrics/b_bm25.csv',[{key:row[key] for key in METRIC_COLUMNS} for row in team])
+    write_csv(reference/'team_metrics/b_bm25.csv',[{key:row[key] for key in METRIC_COLUMNS} for row in team])
     write_json(output/'manifest.json',{**selected,'dataset_sha256':checksum,'corpus_id':config['corpus_id'],
         'dev_queries':len(dev_ids),'test_queries':len(test_ids),'corpus_passages':len(bundle['corpus']),
         'corpus_and_qrels_verified':True,'tokenizer':TOKENIZER_VERSION,'python':platform.python_version(),
         'platform':platform.platform(),'machine':platform.machine(),
         'latency_protocol':'One search per query/cutoff; descriptive only. See common_latency for controlled timings.',
         'default_control':'Fixed original k1=1.2, b=0.75; not selected on test','answer_status':'not_run'})
-    (output/'report.md').write_text('# Florence / Person 2 — common-split BM25\n\n'
+    (output/'report.md').write_text('# Week 3 — Florence Liu: BM25 results\n\n'
         f'Verified 5,830 passages, {len(dev_ids)} development queries, and {len(test_ids)} test queries.\n'
         'Parameters were selected on development queries and frozen before test evaluation.\n\n'+table(summaries)+'\n\n'
         'The tokenizer and BM25 implementation are unchanged; the partition protocol changes. '

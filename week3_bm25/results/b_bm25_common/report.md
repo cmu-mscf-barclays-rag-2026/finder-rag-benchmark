@@ -1,4 +1,4 @@
-# Florence / Person 2 — common-split BM25
+# Week 3 — Florence Liu: BM25 results
 
 Verified 5,830 passages, 1128 development queries, and 4575 test queries.
 Parameters were selected on development queries and frozen before test evaluation.

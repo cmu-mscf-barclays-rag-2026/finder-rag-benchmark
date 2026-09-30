@@ -1,7 +1,14 @@
 # Week 5 — Florence Liu: hierarchical retrieval
 
-This week's work compares BM25 and hybrid retrieval over original children,
-merged parents, and child-to-parent expansion, using Kevin Zhang's hierarchy.
+**Question:** Does grouping child passages into parents improve retrieval?
+
+With unlimited context, hybrid Top-10 gold-evidence hits rose from **33/80 for
+children to 49/80 for parents**, while returning about 2.6 times as much text.
+Under a common 2,048-token cutoff, the counts were **23/80 and 22/80**: the
+Top-10 advantage disappeared with this context policy.
+
+The experiment compares BM25 and hybrid retrieval over children, merged parents,
+and child-to-parent expansion, using Kevin Zhang's hierarchy.
 
 - [Meeting brief](results/comparison/MEETING_BRIEF.md): findings and examples.
 - [Results table](results/comparison/report.md): Hit@1/5/10, coverage, context size.
