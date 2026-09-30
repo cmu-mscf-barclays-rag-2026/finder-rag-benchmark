@@ -1,0 +1,8 @@
+{
+  "k1": 1.2,
+  "b": 0.75,
+  "bm25_weight": 0.75,
+  "selection": "mean child/parent dev nDCG@5, then MRR@5, then Hit@5, then grid order",
+  "candidate_depth": 100,
+  "rrf_constant": 60
+}

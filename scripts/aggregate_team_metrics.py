@@ -42,7 +42,7 @@ def main() -> None:
     parser.add_argument("--input-dir", type=Path, default=Path("team_metrics"))
     parser.add_argument("--output-dir", type=Path, default=Path("presentation"))
     parser.add_argument("--k", type=int, default=5)
-    parser.add_argument("--latency-csv", type=Path, default=Path("results/common_latency/summary.csv"))
+    parser.add_argument("--latency-csv", type=Path, default=Path("week3_bm25/results/common_latency/summary.csv"))
     args = parser.parse_args()
 
     files = sorted(path for path in args.input_dir.glob("*.csv") if not path.name.startswith("_"))
@@ -94,7 +94,7 @@ def main() -> None:
             "[Controlled latency comparison](latency_comparison.csv): all selected methods were timed on "
             "one Mac CPU with the same 100 held-out questions, 3 warmups, and 5 interleaved repetitions "
             "(500 measurements per method). Index preparation is excluded. See the "
-            "[timing report](../results/common_latency/report.md) for scope, hardware, model revision, "
+            "[timing report](../week3_bm25/results/common_latency/report.md) for scope, hardware, model revision, "
             "and limitations. The original mixed-hardware timings remain only in the combined CSV for provenance."
         )
     final_answers = selected[selected["answer_status"] == "final"].copy()

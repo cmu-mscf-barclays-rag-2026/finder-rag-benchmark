@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "rankings": 10,
+  "per_query_rows": 7200,
+  "aggregate_rows": 90,
+  "checks": [
+    "source checksums and exact child spans",
+    "code hashes",
+    "query/ID/ranking integrity",
+    "RRF recomputation",
+    "independent unbounded membership scoring",
+    "context budget and expansion invariants",
+    "aggregate recomputation",
+    "development selection"
+  ],
+  "limit": "Budgeted coverage uses the handoff evaluator; validated with its hand-calculated tests and invariants, not a second tokenizer implementation."
+}

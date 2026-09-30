@@ -1,0 +1,69 @@
+{
+  "hierarchy_source_branch": "origin/finder-threshold-mmr",
+  "hierarchy_source_commit": "ed72cf8473dea5df38e56ee1f62ece325bebb788",
+  "build_manifest_sha256": "ab93d3c4688de9217d20489f94241f01491dac0f00d1dd951dc3cf0043a7d5bf",
+  "input_sha256": {
+    "data\\child_spans.csv": "fe6c95c5e59830a2d116ceff4d278867af78d7acb45fd622aeb2f7535c558a54",
+    "data\\child_to_parent.json": "3538c0523e0710589b189c19e6eef60ec2f7c266ad937265646888b1a4cf34a7",
+    "data\\children.jsonl": "20b3451117a24a53391b9c7b31da02d9a254d17fa97163e124d3c6f274e7e438",
+    "data\\parent_to_children.json": "e35106eda3c58dc7eef043c43bedf2440438785e063ed41f1ddf04adbd0f1b89",
+    "data\\parents.jsonl": "395d68d3367b8fdcd1f75be8f619db21460188ca558cde6f76863ac59a4edbd4",
+    "data\\queries.jsonl": "b27dc56a795b0f5e1d9d037c8dec9f2bf5081843d35f91ee2cbf6ccfcb233371"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "packages": {
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "sentence-transformers": "3.4.1",
+    "transformers": "4.48.3",
+    "tokenizers": "0.21.4"
+  },
+  "python": "3.12.5 (v3.12.5:ff3bc82f7c9, Aug  7 2024, 05:32:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "device": "cpu",
+  "torch_threads": 4,
+  "bm25_tokenizer": "unicode_casefold_numbers_possessives_v1",
+  "dense_policy": "one normalized vector per released child or merged parent; right truncation at 256 tokens",
+  "tie_break": "lexicographic document ID",
+  "text_policy": "body only, no appended titles/footnotes",
+  "expansion": "top-k child seeds, parents deduplicated in first-hit order, no backfill",
+  "budgets": [
+    null,
+    2048
+  ],
+  "ks": [
+    1,
+    5,
+    10
+  ],
+  "selection": {
+    "k1": 1.2,
+    "b": 0.75,
+    "bm25_weight": 0.75,
+    "selection": "mean child/parent dev nDCG@5, then MRR@5, then Hit@5, then grid order",
+    "candidate_depth": 100,
+    "rrf_constant": 60
+  },
+  "overlapping_dev_test_gold_parents": [
+    "7.1.3-c1",
+    "7.4.9-c5",
+    "7.6.1-c3"
+  ],
+  "previous_test_overlap": 63,
+  "query_truncated_count": 0,
+  "latency": "not measured; this run evaluates retrieval quality and context size",
+  "code_sha256": {
+    "legal_rag/hierarchy_experiment.py": "9165ca69a9fca68760512409aee10fe7658c53314d6ad3072208750aa21a2ca7",
+    "legal_rag/run.py": "2cb7531f0bfb749619d1079fcc246085344200fbc53fc59bc46cb7fa4f795f81",
+    "person2_bm25/finder_bm25/bm25.py": "0d01ae1235e94b041cb4050eacac50c4c0ab967269bdcd9f8fd7bba42b2319ff",
+    "legal_rag_hierarchy/hierarchy/handoff.py": "c7130263b1d5c76435de4ce13e2c4216c48cda13195f6b27a27e540addf0c389"
+  },
+  "code_snapshot_paths": {
+    "legal_rag/hierarchy_experiment.py": "source_at_run/hierarchy_experiment.py",
+    "legal_rag/run.py": "source_at_run/run.py",
+    "person2_bm25/finder_bm25/bm25.py": "source_at_run/bm25.py",
+    "legal_rag_hierarchy/hierarchy/handoff.py": "source_at_run/handoff.py"
+  },
+  "layout_note": "Original execution sources and their hashes preserved in source_at_run; files reorganized under Week 3/4/5 after execution. Retrieval outputs unchanged."
+}

@@ -45,8 +45,8 @@ fingerprint and corpus/split rules against the shared Parquet and configuration.
 
 Florence's current B export was rerun on the exact shared corpus and hash split.
 The older seed-42 scores remain in her historical report and are not relabeled.
-See [the rerun report](../results/b_bm25_common/report.md) and
-[verification](../results/b_bm25_common/validation.json).
+See [the rerun report](../week3_bm25/results/b_bm25_common/report.md) and
+[verification](../week3_bm25/results/b_bm25_common/validation.json).
 
 The owner CSV latency fields preserve the original run measurements. For the
 same-machine speed comparison use [latency_comparison.csv](../presentation/latency_comparison.csv),

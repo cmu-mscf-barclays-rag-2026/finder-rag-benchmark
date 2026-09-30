@@ -38,7 +38,7 @@ Run only the command for your own workstream:
 | Contributor | Command |
 | --- | --- |
 | Yuchen / Person 1 / dense | `git switch yuchenlu` |
-| Florence / Person 2 / BM25 | `git switch feature/person2-bm25` |
+| Florence / weekly work | `git switch florenceliu` |
 | Cheryl / Person 3 / hybrid | `git switch feature/person3-hybrid` |
 | Person 4 / threshold-MMR | `git switch finder-threshold-mmr` |
 
@@ -54,13 +54,13 @@ other workstreams reuse it; its inclusion is not a requirement to work on `main`
 
 ## Commit and publish your work
 
-For Florence / Person 2, for example:
+For Florence, continue using `florenceliu` across weeks:
 
 ```bash
 git status
-git add person2_bm25
-git commit -m "Describe the BM25 changes"
-git push -u origin feature/person2-bm25
+git add week3_bm25 week4_legal_rag week5_hierarchy
+git commit -m "Describe this week’s changes"
+git push -u origin florenceliu
 ```
 
 Other contributors stage their own changed files and push their own branch. Inspect

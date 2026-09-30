@@ -12,7 +12,7 @@ quality scores remain their original saved results; generation was not rerun.
 | Owner | Work delivered | Branch | Detailed source |
 | --- | --- | --- | --- |
 | A / Yuchen | Dense MiniLM, chunk-size/overlap sweep, source-passage pooling, held-out evaluation, app and tests | [`yuchenlu`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/yuchenlu) | [Task A report](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/bd5e7c35443c6eaa5a1f24ada240b2c5ffdb3eb1/results/task_a_report.md) |
-| B / Florence / Person 2 | BM25 inverted index, MRR/nDCG, common-split rerun, tuning, failure analysis, notebook, 25 offline tests | [`feature/person2-bm25`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/feature/person2-bm25) | [Verified results](../results/b_bm25_common/report.md) |
+| B / Florence / Person 2 | BM25 inverted index, MRR/nDCG, common-split rerun, tuning, failure analysis, notebook, 25 offline tests | [`florenceliu`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/florenceliu) | [Verified results](../week3_bm25/results/b_bm25_common/report.md) |
 | C / Cheryl | BM25/dense controls, weighted hybrid RRF, dev tuning, pilot answer generation, shared benchmark tools | [`feature/person3-hybrid`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/feature/person3-hybrid) | [Part C write-up](../docs/PART_C_HYBRID.md) |
 | D / Kevin | Threshold/MMR tuning, paired evidence-error analysis, repeated CPU latency, held-out evaluation | [`finder-threshold-mmr`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/finder-threshold-mmr) | [Refinement report](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/4013a25b33a7dc62845359941f062870c822f91a/D_RESULTS.md) |
 
@@ -51,9 +51,9 @@ questions. A fixed default (k1=1.2, b=0.75) remains a within-B control.
 [All exported B metrics](../team_metrics/b_bm25.csv) were independently recomputed
 from the saved top-10 rankings with the existing team metric implementation.
 The maximum absolute difference across all five retrieval metrics at K=1/3/5/10
-was zero. See [verification](../results/b_bm25_common/validation.json),
-[the development sweep](../results/b_bm25_common/dev_sweep.csv), and
-[the report](../results/b_bm25_common/report.md).
+was zero. See [verification](../week3_bm25/results/b_bm25_common/validation.json),
+[the development sweep](../week3_bm25/results/b_bm25_common/dev_sweep.csv), and
+[the report](../week3_bm25/results/b_bm25_common/report.md).
 
 The previous 4,563-test-query seed-42 results remain in Florence's historical
 report for provenance, but do not enter the shared comparison.
@@ -69,8 +69,8 @@ and lookup are included. Indexing and generation are excluded.
 
 Untimed indexes were prepared on MPS; every measured query runs on CPU. This
 comparison applies to these implementations on this machine, not universal speed
-claims. See [the report](../results/common_latency/report.md) and
-[raw timings](../results/common_latency/raw.csv) for the full protocol and evidence.
+claims. See [the report](../week3_bm25/results/common_latency/report.md) and
+[raw timings](../week3_bm25/results/common_latency/raw.csv) for the full protocol and evidence.
 
 C's FLAN-T5-small answer experiment is a 50-question pilot. A/B/D have no final
 shared answer scores. [answer_comparison.csv](answer_comparison.csv) therefore

@@ -1,0 +1,3 @@
+mode,units,content_tokens_min,content_tokens_mean,content_tokens_max,dense_truncated_units,dense_max_tokens_including_specials
+child,4876,3,288.90422477440524,576,2684,256
+parent,2785,17,505.8157989228007,12632,1556,256

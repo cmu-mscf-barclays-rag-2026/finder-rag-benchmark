@@ -1,0 +1,11 @@
+{
+  "parent_rule": "remove only final -sN suffix; retain section and cN",
+  "text_policy": "text_only",
+  "separator": "\n\n",
+  "overlap_policy": "audit and retain; no text removed",
+  "evaluation_ks": [1, 5, 10],
+  "context_token_budget": 2048,
+  "split_seed": "legal-rag-team-v1",
+  "team_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+  "dev_group_fraction": 0.2
+}

@@ -26,6 +26,6 @@ The same row has nDCG@5 of **0.2497**.
 
 ## Controlled query latency
 
-[Controlled latency comparison](latency_comparison.csv): all selected methods were timed on one Mac CPU with the same 100 held-out questions, 3 warmups, and 5 interleaved repetitions (500 measurements per method). Index preparation is excluded. See the [timing report](../results/common_latency/report.md) for scope, hardware, model revision, and limitations. The original mixed-hardware timings remain only in the combined CSV for provenance.
+[Controlled latency comparison](latency_comparison.csv): all selected methods were timed on one Mac CPU with the same 100 held-out questions, 3 warmups, and 5 interleaved repetitions (500 measurements per method). Index preparation is excluded. See the [timing report](../week3_bm25/results/common_latency/report.md) for scope, hardware, model revision, and limitations. The original mixed-hardware timings remain only in the combined CSV for provenance.
 
 Answer scores are not yet comparable. The answer table stays empty until every method is marked final under one shared protocol.

@@ -1,0 +1,10 @@
+{
+  "unit_tests_passed": 10,
+  "child_spans_verified": 4876,
+  "all_query_label_controls_passed_in_three_modes": 100,
+  "actual_tokenizer_budget_checks": 205,
+  "split_matches_prior_part_a": true,
+  "cli_test_subset_queries": 80,
+  "notebook": "Executed successfully in Python kernel; no cell errors",
+  "scope": "Hierarchy/data/token/context checks, not retrieval-method performance"
+}

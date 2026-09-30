@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+data/
+results/*
+!results/b_bm25_common/
+!results/common_latency/

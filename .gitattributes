@@ -1,0 +1,3 @@
+# Preserve measured CSVs and Kevin's checksum-pinned Windows snapshot verbatim.
+*.csv -text whitespace=cr-at-eol
+week5_hierarchy/kevin_hierarchy/** -text whitespace=cr-at-eol

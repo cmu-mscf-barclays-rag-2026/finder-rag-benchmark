@@ -1,14 +1,32 @@
-# FinDER RAG Team Benchmark
+# Florence Liu — weekly research work
+
+Personal development branch: **`florenceliu`**. Keep each week's code, results,
+notes and dependencies in its own folder; continue using this branch every week.
+
+| Week | Work | Start here |
+|---|---|---|
+| 3 | BM25, ranking metrics, shared benchmark and timing | [week3_bm25](week3_bm25/README.md) |
+| 4 | Legal RAG: BM25, dense, hybrid and Top-100 analysis | [week4_legal_rag](week4_legal_rag/README.md) |
+| 5 | Hierarchical retrieval: child, parent and expansion | [week5_hierarchy](week5_hierarchy/README.md) |
+
+**Latest:** [Week 5 meeting brief](week5_hierarchy/results/comparison/MEETING_BRIEF.md).
+
+Root-level reference experiments, shared dataset/configuration, team metrics and
+presentation files remain shared project material. The weekly layout is specific
+to Florence's branch; other contributors' branches are not reorganized.
+For future work, add a folder such as `week6_topic/` and a row to this table.
+
+## Shared project background
 
 Shared repository for the four-person FinDER retrieval benchmark. The team compares
 dense retrieval, BM25, hybrid retrieval, and threshold/MMR refinement under a common
 data and evaluation protocol.
 
-## Legal RAG Bench — Florence's next experiment
+## Week 4 archive — Legal RAG Bench
 
 Florence's BM25 and hybrid work on `isaacus/legal-rag-bench` is in
-[legal_rag/README.md](legal_rag/README.md), alongside a dense comparison baseline.
-See the [initial held-out retrieval results](legal_rag/results/initial/report.md).
+[week4_legal_rag/README.md](week4_legal_rag/README.md), alongside a dense comparison baseline.
+See the [initial held-out retrieval results](week4_legal_rag/results/initial/report.md).
 This experiment has its own corpus, internal 20/80 question split, parameter sweep,
 and reproducible metric checks; its scores must not be combined with FinDER scores.
 Answer-correctness and groundedness evaluation are prepared but remain unmeasured
@@ -23,7 +41,7 @@ into `main` when the work is ready for integration.
 | Workstream | Owner | Development branch |
 | --- | --- | --- |
 | A — Dense retrieval | Yuchen / Person 1 | [`yuchenlu`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/yuchenlu) |
-| B — BM25, MRR/nDCG, keyword-versus-dense analysis | Florence / Person 2 | [`feature/person2-bm25`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/feature/person2-bm25) |
+| B — BM25, MRR/nDCG, keyword-versus-dense analysis | Florence / Person 2 | [`florenceliu`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/florenceliu) |
 | C — Hybrid retrieval | Cheryl / Person 3 | [`feature/person3-hybrid`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/feature/person3-hybrid) |
 | D — Threshold/MMR refinement and latency analysis | Kevin / Person 4 | [`finder-threshold-mmr`](https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/tree/finder-threshold-mmr) |
 
@@ -57,8 +75,9 @@ results, caveats, and reproduction commands are preserved in
 [Part C: hybrid retrieval](docs/PART_C_HYBRID.md).
 
 Yuchen's app, dense evaluation, and chunking sweep are on `yuchenlu`.
-Florence's standalone BM25 project is in `person2_bm25/` on both `main` and
-`feature/person2-bm25`, including the shared-split rerun and reproducible timing harness.
+Florence's Week 3 BM25 project is in `week3_bm25/` on `florenceliu`,
+including the shared-split rerun and reproducible timing harness. `main` retains
+its original layout until a separately reviewed integration.
 Person D's additional code and results are on `finder-threshold-mmr`. A file added
 on a personal branch appears on `main` only after its changes are integrated.
 
@@ -99,7 +118,7 @@ remain blank, and final answer evaluation is still pending.
 A new [controlled timing comparison](presentation/latency_comparison.csv) measures
 the selected methods on one Mac CPU, using the same 100 held-out questions,
 3 warmups, and 5 interleaved repetitions. Index construction is excluded. See
-[the timing report](results/common_latency/report.md) for details. These results
+[the timing report](week3_bm25/results/common_latency/report.md) for details. These results
 support a comparison on this machine and protocol; original mixed-hardware timings
 remain provenance only, not a speed ranking.
 
@@ -141,8 +160,8 @@ answer tables require a common answer protocol; pilot scores remain excluded.
 Use Python 3.12 with an isolated environment, from the repository root:
 
 ```bash
-python -m pip install -r requirements-timing.txt
-python person2_bm25/run_shared_benchmark.py
+python -m pip install -r week3_bm25/requirements-timing.txt
+python week3_bm25/run_shared_benchmark.py
 ```
 
 The BM25 runner verifies the dataset, corpus and qrels, retunes only on development
@@ -154,7 +173,7 @@ run (internet is needed only for installation/model download):
 
 ```bash
 python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', revision='1110a243fdf4706b3f48f1d95db1a4f5529b4d41', device='cpu', cache_folder='.cache/models')"
-python scripts/common_latency.py --index-device mps
+python week3_bm25/common_latency.py --index-device mps
 python scripts/aggregate_team_metrics.py --k 5
 ```
 
