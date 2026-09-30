@@ -5,7 +5,7 @@ import pytest
 from langchain_core.documents import Document
 from langchain_core.runnables import RunnableLambda
 
-from evaluate_standalone_graph import ranking_metrics
+from legal_protocol import ranking_metrics
 from standalone_graph import StandaloneGraphRetriever, StandaloneGraphSettings
 
 

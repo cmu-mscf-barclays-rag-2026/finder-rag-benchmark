@@ -47,8 +47,14 @@ def load_legal_questions(
     return rows
 
 
-def legal_records_to_documents(records: Sequence[dict[str, Any]]) -> list[Document]:
-    """Convert benchmark passages without rechunking or answer leakage."""
+def legal_records_to_documents(
+    records: Sequence[dict[str, Any]], *, text_only: bool = False
+) -> list[Document]:
+    """Convert benchmark passages without rechunking or answer leakage.
+
+    ``text_only`` follows the team legal_rag protocol (feature/person2-bm25):
+    the passage text alone, with no title metadata and no appended footnotes.
+    """
 
     documents: list[Document] = []
     seen: set[str] = set()
@@ -58,20 +64,17 @@ def legal_records_to_documents(records: Sequence[dict[str, Any]]) -> list[Docume
         if not passage_id or not text or passage_id in seen:
             continue
         seen.add(passage_id)
-        title = str(row.get("title", "")).strip()
-        footnotes = str(row.get("footnotes") or "").strip()
-        content = text if not footnotes else f"{text}\n\nFootnotes:\n{footnotes}"
-        documents.append(
-            Document(
-                page_content=content,
-                metadata={
-                    "passage_id": passage_id,
-                    "title": title,
-                    "source": LEGAL_DATASET_URL,
-                    "dataset": LEGAL_DATASET_ID,
-                },
-            )
-        )
+        metadata = {
+            "passage_id": passage_id,
+            "source": LEGAL_DATASET_URL,
+            "dataset": LEGAL_DATASET_ID,
+        }
+        content = text
+        if not text_only:
+            metadata["title"] = str(row.get("title", "")).strip()
+            footnotes = str(row.get("footnotes") or "").strip()
+            content = text if not footnotes else f"{text}\n\nFootnotes:\n{footnotes}"
+        documents.append(Document(page_content=content, metadata=metadata))
     return documents
 
 

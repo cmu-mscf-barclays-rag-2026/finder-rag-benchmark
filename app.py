@@ -42,6 +42,11 @@ def show_trace(trace: list[dict]) -> None:
         for item in trace:
             if "path" in item:
                 st.markdown(f"**S{item['rank']}** - graph score {item['final_score']:.6f}")
+                if "llm_relevance" in item:
+                    st.caption(
+                        f"LLM relevance {item['llm_relevance']:.3f}; graph rank "
+                        f"{item['graph_rank']} via {' + '.join(item['found_by'])} walk."
+                    )
                 st.code(" -> ".join(item["path"]), language=None)
                 st.caption(
                     "One connecting path is shown. The score sums incoming mass from "
@@ -70,9 +75,10 @@ with st.sidebar:
     st.header("Local setup")
     retrieval_mode = st.selectbox(
         "Retrieval strategy",
-        options=["graph", "dense", "dense_graph"],
+        options=["graph", "graph_llm", "dense", "dense_graph"],
         format_func=lambda value: {
             "graph": "Standalone graph (no embeddings)",
+            "graph_llm": "Graph + LLM keyword expansion and rerank (slower)",
             "dense": "Dense MMR baseline",
             "dense_graph": "Dense + graph (previous experiment)",
         }[value],
@@ -89,14 +95,14 @@ with st.sidebar:
         value=os.getenv(
             "HF_EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
         ),
-        disabled=retrieval_mode == "graph",
+        disabled=retrieval_mode in {"graph", "graph_llm"},
     )
     embedding_device = st.selectbox(
         "Embedding device",
         options=["cpu", "cuda"],
         index=0 if os.getenv("HF_EMBEDDING_DEVICE", "cpu") == "cpu" else 1,
         help="Choose CUDA only if PyTorch can use your NVIDIA GPU.",
-        disabled=retrieval_mode == "graph",
+        disabled=retrieval_mode in {"graph", "graph_llm"},
     )
     sample_size = st.slider("Dataset rows", 50, 1_000, 300, step=50)
     top_k = st.slider("Retrieved passages", 2, 8, 4)
@@ -176,7 +182,7 @@ if question:
                     f"Indexed {stats['chunks']:,} chunks from "
                     f"{stats['references']:,} references."
                 )
-                if settings.retrieval_mode in {"graph", "dense_graph"}:
+                if settings.retrieval_mode in {"graph", "graph_llm", "dense_graph"}:
                     status.write(
                         f"Built {stats['graph_edges']:,} interpretable edges across "
                         f"{stats['graph_nodes']:,} passages and "

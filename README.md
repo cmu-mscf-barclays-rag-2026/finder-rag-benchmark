@@ -23,10 +23,13 @@ and dataset downloads need internet access; inference runs on your computer.
 
 - `standalone_graph.py` - independent graph retrieval with interpretable paths.
 - `evaluate_standalone_graph.py` - standalone graph evaluation and one-step ablation.
+- `legal_protocol.py` - team Legal RAG protocol shared by the graph evaluators (split, metrics, files, timing).
 - `graph_rag.py` - previous dense-seeded graph experiment.
 - `legal_data.py` - leakage-safe Legal RAG Bench loaders.
 - `evaluate_graph.py` - previous dense-versus-dense-plus-graph evaluation.
 - `GRAPH_RAG_README.md` - standalone graph design, usage, and measured results.
+- `llm_graph.py` - LLM keyword expansion and LLM reranking around the standalone graph.
+- `evaluate_llm_graph.py` - graph versus LLM-augmented graph evaluation (cached LLM calls).
 
 The benchmark answers are deliberately not indexed. Only FinDER's reference
 passages are searchable, avoiding answer leakage into the retrieval context.
@@ -132,12 +135,18 @@ See [`GRAPH_RAG_README.md`](GRAPH_RAG_README.md) for usage and evaluation.
 The independent retrieval benchmark needs neither Ollama nor embeddings:
 
 ```powershell
-python evaluate_standalone_graph.py --output-dir results
+python evaluate_standalone_graph.py
 ```
 
-On the 100-question Legal RAG Bench, standalone graph Recall@5 is 0.21,
-equal to its one-step concept-matching ablation. This simple version establishes
-independent graph retrieval but does not show an improvement from propagation.
+The results follow the team Legal RAG protocol (`legal_rag/` on
+`feature/person2-bm25`): 80 held-out questions, passage text only.
+
+- **Standalone graph:** Recall@5 is 0.200, against 0.175 for its one-step
+  concept-matching ablation.
+- **Team references:** BM25 reaches 0.375 and hybrid 0.400.
+- **With the LLM:** the app's `graph_llm` mode adds LLM keyword expansion and
+  lets the local LLM rerank the pooled top 20 of both graph walks, which
+  raises Recall@5 to 0.375.
 The previous dense + graph experiment remains available as `dense_graph`;
 its original results are preserved separately.
 

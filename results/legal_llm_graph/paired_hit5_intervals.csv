@@ -1,0 +1,20 @@
+comparison,n_queries,hit5_difference,wins,losses,paired_bootstrap_95pct_low,paired_bootstrap_95pct_high
+standalone_graph minus legal_rag_bm25,80,-0.175,4,18,-0.2911392405063291,-0.0625
+standalone_graph minus legal_rag_dense,80,-0.0875,8,15,-0.20987654320987653,0.03614457831325301
+standalone_graph minus legal_rag_hybrid,80,-0.2,6,22,-0.3291139240506329,-0.07407407407407407
+llm_keywords_concat minus standalone_graph,80,-0.0875,1,8,-0.16049382716049382,-0.024096385542168676
+llm_keywords_concat minus legal_rag_bm25,80,-0.2625,4,25,-0.38461538461538464,-0.13924050632911392
+llm_keywords_concat minus legal_rag_dense,80,-0.175,5,19,-0.2948717948717949,-0.06097560975609756
+llm_keywords_concat minus legal_rag_hybrid,80,-0.2875,5,28,-0.4177215189873418,-0.15584415584415584
+llm_keywords_mixed minus standalone_graph,80,-0.0375,2,5,-0.10256410256410256,0.02531645569620253
+llm_keywords_mixed minus legal_rag_bm25,80,-0.2125,4,21,-0.3291139240506329,-0.0975609756097561
+llm_keywords_mixed minus legal_rag_dense,80,-0.125,6,16,-0.24358974358974358,-0.0125
+llm_keywords_mixed minus legal_rag_hybrid,80,-0.2375,6,25,-0.36585365853658536,-0.10714285714285714
+llm_rerank_graph minus standalone_graph,80,0.125,13,3,0.03529411764705882,0.2222222222222222
+llm_rerank_graph minus legal_rag_bm25,80,-0.05,8,12,-0.1686746987951807,0.06329113924050633
+llm_rerank_graph minus legal_rag_dense,80,0.0375,17,14,-0.10256410256410256,0.1794871794871795
+llm_rerank_graph minus legal_rag_hybrid,80,-0.075,12,18,-0.21518987341772153,0.06329113924050633
+llm_expand_rerank minus standalone_graph,80,0.175,17,3,0.07407407407407407,0.27848101265822783
+llm_expand_rerank minus legal_rag_bm25,80,0.0,13,13,-0.12987012987012986,0.12658227848101267
+llm_expand_rerank minus legal_rag_dense,80,0.0875,20,13,-0.06097560975609756,0.23076923076923078
+llm_expand_rerank minus legal_rag_hybrid,80,-0.025,15,17,-0.16883116883116883,0.12195121951219512

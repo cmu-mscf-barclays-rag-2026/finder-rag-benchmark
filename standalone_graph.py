@@ -249,8 +249,22 @@ class StandaloneGraphRetriever:
                     queue.append(previous)
         return ()
 
-    def retrieve(self, query: str, *, propagate: bool = True) -> StandaloneResult:
-        links = self.link_query(query)
+    def retrieve(
+        self, query: str, *, propagate: bool = True, top_k: int | None = None
+    ) -> StandaloneResult:
+        return self.retrieve_from_links(
+            self.link_query(query), propagate=propagate, top_k=top_k
+        )
+
+    def retrieve_from_links(
+        self, links: dict[str, float], *, propagate: bool = True, top_k: int | None = None
+    ) -> StandaloneResult:
+        """Rank passages from an explicit concept personalization (weights sum to 1)."""
+        top_k = self.top_k if top_k is None else top_k
+        if top_k < 1:
+            raise ValueError("top_k must be positive")
+        if unknown := set(links) - self.concept_index.keys():
+            raise ValueError(f"Unknown concepts in personalization: {sorted(unknown)[:5]}")
         if not links:
             return StandaloneResult([], [], {}, 0, 0.0, True)
         personalization = np.zeros(len(self.node_ids), dtype=np.float64)
@@ -277,7 +291,7 @@ class StandaloneGraphRetriever:
 
         # Only positive-mass passages are eligible; no arbitrary zero-score fill.
         candidates = np.flatnonzero(scores[:self.passage_count] > 0)
-        ranked = sorted(candidates, key=lambda i: (-scores[i], self.passage_ids[i]))[:self.top_k]
+        ranked = sorted(candidates, key=lambda i: (-scores[i], self.passage_ids[i]))[:top_k]
         explanations = []
         for rank, target in enumerate(ranked, start=1):
             start, end = self.incoming.indptr[target:target + 2]

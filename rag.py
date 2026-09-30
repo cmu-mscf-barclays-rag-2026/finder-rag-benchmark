@@ -20,6 +20,10 @@ from langchain_ollama import ChatOllama
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from graph_rag import InterpretableDocumentGraph, InterpretableGraphRetriever
+from llm_graph import (
+    LLMExpandedGraphRetriever, LLMRerankedGraphRetriever, OllamaRelevanceScorer,
+    expansion_chain,
+)
 from standalone_graph import StandaloneGraphRetriever
 
 
@@ -43,6 +47,8 @@ class RAGSettings:
     retrieval_mode: str = "dense"
     graph_seed_k: int = 10
     graph_weight: float = 0.35
+    llm_query_weight: float = 0.5
+    llm_rerank_pool: int = 20
 
     def __post_init__(self) -> None:
         if self.sample_size < 1:
@@ -59,8 +65,12 @@ class RAGSettings:
             raise ValueError("ollama_base_url must start with http:// or https://")
         if self.embedding_device not in {"cpu", "cuda", "mps"}:
             raise ValueError("embedding_device must be cpu, cuda, or mps")
-        if self.retrieval_mode not in {"dense", "graph", "dense_graph"}:
-            raise ValueError("retrieval_mode must be dense, graph, or dense_graph")
+        if self.retrieval_mode not in {"dense", "graph", "graph_llm", "dense_graph"}:
+            raise ValueError("retrieval_mode must be dense, graph, graph_llm, or dense_graph")
+        if not 0.0 <= self.llm_query_weight <= 1.0:
+            raise ValueError("llm_query_weight must be between 0 and 1")
+        if self.llm_rerank_pool < self.top_k:
+            raise ValueError("llm_rerank_pool must be at least top_k")
         if self.retrieval_mode == "dense_graph" and self.graph_seed_k < self.top_k:
             raise ValueError("graph_seed_k must be at least top_k")
         if not 0.0 <= self.graph_weight <= 1.0:
@@ -268,7 +278,9 @@ class FinDERGraphRAG:
     """Citation-grounded generation from standalone or legacy graph retrieval."""
 
     def __init__(
-        self, retriever: StandaloneGraphRetriever | InterpretableGraphRetriever,
+        self,
+        retriever: (StandaloneGraphRetriever | LLMRerankedGraphRetriever
+                    | InterpretableGraphRetriever),
         llm: Runnable,
     ) -> None:
         self.retriever = retriever
@@ -304,7 +316,8 @@ def build_rag(
     settings: RAGSettings | None = None,
     records: Sequence[dict[str, Any]] | None = None,
 ) -> tuple[FinDERRAG | FinDERGraphRAG, dict[str, int]]:
-    """Build standalone graph retrieval (graph) or a vector-based baseline."""
+    """Build standalone graph retrieval (graph, optionally LLM-augmented as
+    graph_llm) or a vector-based baseline."""
 
     settings = settings or RAGSettings()
     ollama_status = check_ollama(settings.ollama_base_url, settings.chat_model)
@@ -329,13 +342,27 @@ def build_rag(
         "references": len(documents),
         "chunks": len(chunks),
     }
-    if settings.retrieval_mode == "graph":
+    if settings.retrieval_mode in {"graph", "graph_llm"}:
         # Return before any embedding model or vector store is instantiated.
         standalone = StandaloneGraphRetriever(chunks, top_k=settings.top_k)
         stats["graph_nodes"] = standalone.stats["passage_nodes"]
         stats["graph_edges"] = standalone.stats["incidence_edges"] + standalone.stats["structural_edges"]
         stats["graph_concepts"] = standalone.stats["concept_nodes"]
-        return FinDERGraphRAG(standalone, llm), stats
+        if settings.retrieval_mode == "graph":
+            return FinDERGraphRAG(standalone, llm), stats
+        # LLM keyword expansion widens the walk; LLM relevance reranks the
+        # pooled top candidates of the question and expanded walks.
+        expand = expansion_chain(llm)
+        expanded = LLMExpandedGraphRetriever(
+            standalone, lambda question: expand.invoke({"question": question}),
+            query_weight=settings.llm_query_weight,
+        )
+        reranker = LLMRerankedGraphRetriever(
+            standalone,
+            OllamaRelevanceScorer(settings.chat_model, settings.ollama_base_url),
+            expanded=expanded, pool_depth=settings.llm_rerank_pool,
+        )
+        return FinDERGraphRAG(reranker, llm), stats
 
     embeddings = HuggingFaceEmbeddings(
         model_name=settings.embedding_model,

@@ -1,0 +1,36 @@
+{
+  "dataset_id": "isaacus/legal-rag-bench",
+  "corpus_passages": 4876,
+  "corpus_representation": "passage text only (no titles, no appended footnotes)",
+  "corpus_sha256": "7f763a8c310f934c29d388b24118721dce7760d9754050de8a9ec2fc494a32c0",
+  "questions": 100,
+  "dev_count": 20,
+  "test_count": 80,
+  "split": "group-gold-text-shuffle42-20pct-v1 (legal_rag, feature/person2-bm25)",
+  "retriever": "standalone concept/passage Personalized PageRank",
+  "embedding_model": null,
+  "dense_retrieval_used": false,
+  "settings": {
+    "restart_probability": 0.35,
+    "structural_mass": 0.15,
+    "title_weight": 2.0,
+    "max_term_df_fraction": 0.75,
+    "tolerance": 1e-09,
+    "max_iterations": 100
+  },
+  "graph": {
+    "passage_nodes": 4876,
+    "concept_nodes": 10982,
+    "total_nodes": 15858,
+    "incidence_edges": 274267,
+    "structural_edges": 4152,
+    "directed_transition_edges": 556838
+  },
+  "build_seconds": 0.6766281999880448,
+  "converged_queries": 100,
+  "unmatched_queries": 0,
+  "test_candidate_recall_at_100": 0.625,
+  "reference_per_query": "C:\\Users\\20122\\AppData\\Local\\Temp\\claude\\c--Users-20122-Desktop-cmu-mscf-mini5-6-ML-capstone-finder-rag-baseline\\cd008157-e296-4594-aaf8-63ed8abd1d82\\scratchpad\\florence_per_query.csv",
+  "protocol": "Team legal_rag protocol; both methods are fixed configurations (no development selection).",
+  "timing": "legal_rag harness: 4 BLAS threads, 3 dev warmups, 3 shuffled interleaved repeats of held-out queries; top-20 retrieval including explanation construction; CPU."
+}

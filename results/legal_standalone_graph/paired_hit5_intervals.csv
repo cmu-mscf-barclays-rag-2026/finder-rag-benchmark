@@ -1,0 +1,8 @@
+comparison,n_queries,hit5_difference,wins,losses,paired_bootstrap_95pct_low,paired_bootstrap_95pct_high
+one_step_concept_match minus legal_rag_bm25,80,-0.2,3,19,-0.3125,-0.08974358974358974
+one_step_concept_match minus legal_rag_dense,80,-0.1125,7,16,-0.23255813953488372,0.012048192771084338
+one_step_concept_match minus legal_rag_hybrid,80,-0.225,5,23,-0.35,-0.10126582278481013
+standalone_graph minus one_step_concept_match,80,0.025,2,0,0.0,0.0625
+standalone_graph minus legal_rag_bm25,80,-0.175,4,18,-0.2911392405063291,-0.0625
+standalone_graph minus legal_rag_dense,80,-0.0875,8,15,-0.20987654320987653,0.03614457831325301
+standalone_graph minus legal_rag_hybrid,80,-0.2,6,22,-0.3291139240506329,-0.07407407407407407

@@ -1,0 +1,55 @@
+{
+  "dataset_id": "isaacus/legal-rag-bench",
+  "corpus_passages": 4876,
+  "corpus_representation": "passage text only (no titles, no appended footnotes)",
+  "questions": 100,
+  "dev_count": 20,
+  "test_count": 80,
+  "split": "group-gold-text-shuffle42-20pct-v1 (legal_rag, feature/person2-bm25)",
+  "llm_model": "llama3.2",
+  "configs": {
+    "standalone_graph": "graph_ppr_r0.35_s0.15",
+    "llm_keywords_concat": "graph_llmkw_concat",
+    "llm_keywords_mixed": "graph_llmkw_q0.5",
+    "llm_rerank_graph": "graph_llmrerank_pool20",
+    "llm_expand_rerank": "graph_llmkw_q0.5_llmrerank_pool20"
+  },
+  "expansion_prompt": {
+    "version": "keywords-v1",
+    "messages": [
+      "You help a keyword search engine find the passage of a reference document that answers a question. First identify the underlying issue, ignoring people's names and incidental story details. Then output 6 to 10 search phrases using the precise technical terms and section-heading wording such a document would use. Output only the phrases, comma-separated.",
+      "Question: {question}"
+    ],
+    "query_weight_mixed": 0.5
+  },
+  "rerank": {
+    "version": "yesno-v1",
+    "system": "You are a relevance judge for a search engine. Decide whether the passage contains information that helps answer the question. Answer with exactly one word: Yes or No.",
+    "score": "P(Yes) over Yes/No in first-token top-10 logprobs",
+    "pool_depth_per_walk": 20,
+    "tie_break": "reciprocal-rank fusion, k=60"
+  },
+  "graph_settings": {
+    "restart_probability": 0.35,
+    "structural_mass": 0.15,
+    "title_weight": 2.0,
+    "max_term_df_fraction": 0.75,
+    "tolerance": 1e-09,
+    "max_iterations": 100
+  },
+  "graph": {
+    "passage_nodes": 4876,
+    "concept_nodes": 10982,
+    "total_nodes": 15858,
+    "incidence_edges": 274267,
+    "structural_edges": 4152,
+    "directed_transition_edges": 556838
+  },
+  "new_llm_calls_this_run": {},
+  "timing": {
+    "standalone_graph": "legal_rag harness: 4 BLAS threads, 3 dev warmups, 3 shuffled interleaved repeats of held-out queries, top-20 retrieval, CPU",
+    "llm_methods": "live, cache bypassed: 3 dev warmups, 1 shuffled interleaved pass of held-out queries; llama3.2 via Ollama on an RTX 4060 laptop GPU"
+  },
+  "reference_per_query": "C:\\Users\\20122\\AppData\\Local\\Temp\\claude\\c--Users-20122-Desktop-cmu-mscf-mini5-6-ML-capstone-finder-rag-baseline\\cd008157-e296-4594-aaf8-63ed8abd1d82\\scratchpad\\florence_per_query.csv",
+  "protocol": "Team legal_rag protocol; fixed configurations, no development selection. The LLM variants were designed earlier from failure analysis on a different 50-question half that overlaps this held-out set, so their held-out numbers are somewhat optimistic."
+}
