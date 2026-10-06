@@ -7,30 +7,180 @@
   "dev_count": 20,
   "test_count": 80,
   "split": "group-gold-text-shuffle42-20pct-v1 (legal_rag, feature/person2-bm25)",
-  "retriever": "standalone concept/passage Personalized PageRank",
+  "retriever": "standalone concept/passage/heading Personalized PageRank",
   "embedding_model": null,
   "dense_retrieval_used": false,
+  "selected_method": "improved_graph",
+  "selection": "Construction choices were made on the 20 development questions before any held-out run. Heading words + volume links led on dev nDCG@5; the heading tree (0.372) and consecutive edges (0.376) differed by one rank on one question, and the tree was kept for its interpretable structure. Corpus word forms lowered dev nDCG@5 (0.303) and were rejected.",
   "settings": {
-    "restart_probability": 0.35,
-    "structural_mass": 0.15,
-    "title_weight": 2.0,
-    "max_term_df_fraction": 0.75,
-    "tolerance": 1e-09,
-    "max_iterations": 100
+    "original_graph": {
+      "restart_probability": 0.35,
+      "structural_mass": 0.15,
+      "title_weight": 2.0,
+      "max_term_df_fraction": 0.75,
+      "tolerance": 1e-09,
+      "max_iterations": 100,
+      "heading_words": false,
+      "structure": "consecutive",
+      "query_links": "idf",
+      "word_forms": "plural"
+    },
+    "volume_links": {
+      "restart_probability": 0.35,
+      "structural_mass": 0.15,
+      "title_weight": 2.0,
+      "max_term_df_fraction": 0.75,
+      "tolerance": 1e-09,
+      "max_iterations": 100,
+      "heading_words": false,
+      "structure": "consecutive",
+      "query_links": "volume",
+      "word_forms": "plural"
+    },
+    "volume_heading_words": {
+      "restart_probability": 0.35,
+      "structural_mass": 0.15,
+      "title_weight": 2.0,
+      "max_term_df_fraction": 0.75,
+      "tolerance": 1e-09,
+      "max_iterations": 100,
+      "heading_words": true,
+      "structure": "consecutive",
+      "query_links": "volume",
+      "word_forms": "plural"
+    },
+    "heading_tree_only": {
+      "restart_probability": 0.35,
+      "structural_mass": 0.15,
+      "title_weight": 2.0,
+      "max_term_df_fraction": 0.75,
+      "tolerance": 1e-09,
+      "max_iterations": 100,
+      "heading_words": false,
+      "structure": "headings",
+      "query_links": "volume",
+      "word_forms": "plural"
+    },
+    "improved_graph": {
+      "restart_probability": 0.35,
+      "structural_mass": 0.15,
+      "title_weight": 2.0,
+      "max_term_df_fraction": 0.75,
+      "tolerance": 1e-09,
+      "max_iterations": 100,
+      "heading_words": true,
+      "structure": "headings",
+      "query_links": "volume",
+      "word_forms": "plural"
+    },
+    "improved_graph_one_step": {
+      "restart_probability": 0.35,
+      "structural_mass": 0.15,
+      "title_weight": 2.0,
+      "max_term_df_fraction": 0.75,
+      "tolerance": 1e-09,
+      "max_iterations": 100,
+      "heading_words": true,
+      "structure": "headings",
+      "query_links": "volume",
+      "word_forms": "plural"
+    },
+    "improved_graph_word_forms": {
+      "restart_probability": 0.35,
+      "structural_mass": 0.15,
+      "title_weight": 2.0,
+      "max_term_df_fraction": 0.75,
+      "tolerance": 1e-09,
+      "max_iterations": 100,
+      "heading_words": true,
+      "structure": "headings",
+      "query_links": "volume",
+      "word_forms": "corpus"
+    }
   },
-  "graph": {
-    "passage_nodes": 4876,
-    "concept_nodes": 10982,
-    "total_nodes": 15858,
-    "incidence_edges": 274267,
-    "structural_edges": 4152,
-    "directed_transition_edges": 556838
+  "graphs": {
+    "original_graph": {
+      "passage_nodes": 4876,
+      "concept_nodes": 10982,
+      "section_nodes": 0,
+      "heading_nodes": 0,
+      "total_nodes": 15858,
+      "incidence_edges": 274267,
+      "heading_only_incidence_edges": 0,
+      "structural_edges": 4152,
+      "directed_transition_edges": 556838
+    },
+    "volume_links": {
+      "passage_nodes": 4876,
+      "concept_nodes": 10982,
+      "section_nodes": 0,
+      "heading_nodes": 0,
+      "total_nodes": 15858,
+      "incidence_edges": 274267,
+      "heading_only_incidence_edges": 0,
+      "structural_edges": 4152,
+      "directed_transition_edges": 556838
+    },
+    "volume_heading_words": {
+      "passage_nodes": 4876,
+      "concept_nodes": 10985,
+      "section_nodes": 0,
+      "heading_nodes": 0,
+      "total_nodes": 15861,
+      "incidence_edges": 291789,
+      "heading_only_incidence_edges": 17522,
+      "structural_edges": 4152,
+      "directed_transition_edges": 591882
+    },
+    "heading_tree_only": {
+      "passage_nodes": 4876,
+      "concept_nodes": 10982,
+      "section_nodes": 724,
+      "heading_nodes": 3536,
+      "total_nodes": 20118,
+      "incidence_edges": 274267,
+      "heading_only_incidence_edges": 0,
+      "structural_edges": 9668,
+      "directed_transition_edges": 567870
+    },
+    "improved_graph": {
+      "passage_nodes": 4876,
+      "concept_nodes": 10985,
+      "section_nodes": 724,
+      "heading_nodes": 3536,
+      "total_nodes": 20121,
+      "incidence_edges": 291789,
+      "heading_only_incidence_edges": 17522,
+      "structural_edges": 9668,
+      "directed_transition_edges": 602914
+    },
+    "improved_graph_word_forms": {
+      "passage_nodes": 4876,
+      "concept_nodes": 9511,
+      "section_nodes": 724,
+      "heading_nodes": 3536,
+      "total_nodes": 18647,
+      "incidence_edges": 282840,
+      "heading_only_incidence_edges": 16946,
+      "structural_edges": 9668,
+      "directed_transition_edges": 585016
+    }
   },
-  "build_seconds": 0.6766281999880448,
+  "build_seconds": {
+    "original_graph": 0.7645886000000246,
+    "volume_links": 0.7879097000000002,
+    "volume_heading_words": 0.9272049999999581,
+    "heading_tree_only": 0.8580285000000458,
+    "improved_graph": 0.9674797999999782,
+    "improved_graph_word_forms": 1.445460500000081
+  },
   "converged_queries": 100,
   "unmatched_queries": 0,
-  "test_candidate_recall_at_100": 0.625,
-  "reference_per_query": "C:\\Users\\20122\\AppData\\Local\\Temp\\claude\\c--Users-20122-Desktop-cmu-mscf-mini5-6-ML-capstone-finder-rag-baseline\\cd008157-e296-4594-aaf8-63ed8abd1d82\\scratchpad\\florence_per_query.csv",
-  "protocol": "Team legal_rag protocol; both methods are fixed configurations (no development selection).",
+  "test_candidate_recall_at_100": {
+    "original_graph": 0.625,
+    "improved_graph": 0.7625
+  },
+  "reference_per_query": "C:\\Users\\20122\\AppData\\Local\\Temp\\claude\\c--Users-20122-Desktop-cmu-mscf-mini5-6-ML-capstone-finder-rag-baseline\\a8ea61c2-288a-4fe5-b96f-673c65113f06\\scratchpad\\florence_per_query.csv",
+  "protocol": "Team legal_rag protocol; every method is a fixed configuration.",
   "timing": "legal_rag harness: 4 BLAS threads, 3 dev warmups, 3 shuffled interleaved repeats of held-out queries; top-20 retrieval including explanation construction; CPU."
 }

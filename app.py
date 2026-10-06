@@ -47,12 +47,16 @@ def show_trace(trace: list[dict]) -> None:
                         f"LLM relevance {item['llm_relevance']:.3f}; graph rank "
                         f"{item['graph_rank']} via {' + '.join(item['found_by'])} walk."
                     )
-                st.code(" -> ".join(item["path"]), language=None)
+                labels = item.get("path_labels") or item["path"]
+                st.code(labels[0] + "".join(
+                    f"\n  -[{relation}]-> {label}"
+                    for relation, label in zip(item["path_relations"], labels[1:])
+                ), language=None)
                 st.caption(
                     "One connecting path is shown. The score sums incoming mass from "
                     f"matched concepts ({item['matched_concept_contribution']:.6f}), "
                     f"other concepts ({item['other_concept_contribution']:.6f}), and "
-                    f"adjacent passages ({item['structural_contribution']:.6f})."
+                    f"document structure ({item['structural_contribution']:.6f})."
                 )
             else:
                 st.markdown(
@@ -183,10 +187,12 @@ if question:
                     f"{stats['references']:,} references."
                 )
                 if settings.retrieval_mode in {"graph", "graph_llm", "dense_graph"}:
+                    sections = (f", and {stats['graph_sections']:,} document/heading nodes"
+                                if stats.get("graph_sections") else "")
                     status.write(
                         f"Built {stats['graph_edges']:,} interpretable edges across "
-                        f"{stats['graph_nodes']:,} passages and "
-                        f"{stats['graph_concepts']:,} concepts."
+                        f"{stats['graph_nodes']:,} passages, "
+                        f"{stats['graph_concepts']:,} concepts{sections}."
                     )
                 status.update(label="Searching and drafting an answer...", state="running")
                 response = engine.ask(question, history=prior_history)

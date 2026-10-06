@@ -8,7 +8,7 @@
   "split": "group-gold-text-shuffle42-20pct-v1 (legal_rag, feature/person2-bm25)",
   "llm_model": "llama3.2",
   "configs": {
-    "standalone_graph": "graph_ppr_r0.35_s0.15",
+    "standalone_graph": "graph_improved_ppr_r0.35_s0.15",
     "llm_keywords_concat": "graph_llmkw_concat",
     "llm_keywords_mixed": "graph_llmkw_q0.5",
     "llm_rerank_graph": "graph_llmrerank_pool20",
@@ -35,21 +35,28 @@
     "title_weight": 2.0,
     "max_term_df_fraction": 0.75,
     "tolerance": 1e-09,
-    "max_iterations": 100
+    "max_iterations": 100,
+    "heading_words": true,
+    "structure": "headings",
+    "query_links": "volume",
+    "word_forms": "plural"
   },
   "graph": {
     "passage_nodes": 4876,
-    "concept_nodes": 10982,
-    "total_nodes": 15858,
-    "incidence_edges": 274267,
-    "structural_edges": 4152,
-    "directed_transition_edges": 556838
+    "concept_nodes": 10985,
+    "section_nodes": 724,
+    "heading_nodes": 3536,
+    "total_nodes": 20121,
+    "incidence_edges": 291789,
+    "heading_only_incidence_edges": 17522,
+    "structural_edges": 9668,
+    "directed_transition_edges": 602914
   },
   "new_llm_calls_this_run": {},
   "timing": {
     "standalone_graph": "legal_rag harness: 4 BLAS threads, 3 dev warmups, 3 shuffled interleaved repeats of held-out queries, top-20 retrieval, CPU",
     "llm_methods": "live, cache bypassed: 3 dev warmups, 1 shuffled interleaved pass of held-out queries; llama3.2 via Ollama on an RTX 4060 laptop GPU"
   },
-  "reference_per_query": "C:\\Users\\20122\\AppData\\Local\\Temp\\claude\\c--Users-20122-Desktop-cmu-mscf-mini5-6-ML-capstone-finder-rag-baseline\\cd008157-e296-4594-aaf8-63ed8abd1d82\\scratchpad\\florence_per_query.csv",
+  "reference_per_query": "C:\\Users\\20122\\AppData\\Local\\Temp\\claude\\c--Users-20122-Desktop-cmu-mscf-mini5-6-ML-capstone-finder-rag-baseline\\a8ea61c2-288a-4fe5-b96f-673c65113f06\\scratchpad\\florence_per_query.csv",
   "protocol": "Team legal_rag protocol; fixed configurations, no development selection. The LLM variants were designed earlier from failure analysis on a different 50-question half that overlaps this held-out set, so their held-out numbers are somewhat optimistic."
 }

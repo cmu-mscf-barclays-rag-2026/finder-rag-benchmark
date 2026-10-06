@@ -348,6 +348,7 @@ def build_rag(
         stats["graph_nodes"] = standalone.stats["passage_nodes"]
         stats["graph_edges"] = standalone.stats["incidence_edges"] + standalone.stats["structural_edges"]
         stats["graph_concepts"] = standalone.stats["concept_nodes"]
+        stats["graph_sections"] = standalone.stats["section_nodes"] + standalone.stats["heading_nodes"]
         if settings.retrieval_mode == "graph":
             return FinDERGraphRAG(standalone, llm), stats
         # LLM keyword expansion widens the walk; LLM relevance reranks the

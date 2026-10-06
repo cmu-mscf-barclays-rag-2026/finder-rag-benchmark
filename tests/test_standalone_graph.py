@@ -1,4 +1,5 @@
 import math
+from dataclasses import replace
 
 import numpy as np
 import pytest
@@ -6,7 +7,9 @@ from langchain_core.documents import Document
 from langchain_core.runnables import RunnableLambda
 
 from legal_protocol import ranking_metrics
-from standalone_graph import StandaloneGraphRetriever, StandaloneGraphSettings
+from standalone_graph import (
+    LEGACY_SETTINGS, CorpusWordForms, StandaloneGraphRetriever, StandaloneGraphSettings,
+)
 
 
 def fixture_documents():
@@ -62,13 +65,96 @@ def test_structural_traversal_and_iteration_limit_are_exposed():
         Document(page_content="alpha", metadata={"passage_id": "1.2-c1-s1"}),
         Document(page_content="beta", metadata={"passage_id": "1.2-c1-s2"}),
     ]
-    graph = StandaloneGraphRetriever(documents)
-    result = graph.retrieve("alpha")
-    neighbor = next(item for item in result.explanations if item.node_id.endswith("s2"))
+    legacy = StandaloneGraphRetriever(documents, settings=LEGACY_SETTINGS).retrieve("alpha")
+    neighbor = next(item for item in legacy.explanations if item.node_id.endswith("s2"))
     assert neighbor.structural_contribution > 0
     assert "consecutive_passage" in neighbor.path_relations
+    tree = StandaloneGraphRetriever(documents).retrieve("alpha")
+    neighbor = next(item for item in tree.explanations if item.node_id.endswith("s2"))
+    assert neighbor.structural_contribution > 0
+    assert neighbor.path == ("term:alpha", "passage:1.2-c1-s1", "section:1.2", "passage:1.2-c1-s2")
+    assert neighbor.path_relations[1:] == ("under_heading", "under_heading")
     limited = StandaloneGraphRetriever(documents, settings=StandaloneGraphSettings(max_iterations=1))
     assert not limited.retrieve("alpha").converged
+
+
+def heading_documents():
+    return [
+        Document(page_content="# 1.5 Decide Solely on the Evidence\n\nJurors decide on evidence.",
+                 metadata={"passage_id": "1.5-c1-s1"}),
+        Document(page_content="## Pre-trial Publicity", metadata={"passage_id": "1.5-c2-s1"}),
+        Document(page_content="Warn the jury about media reports.", metadata={"passage_id": "1.5-c2-s2"}),
+        Document(page_content="Ignore reports.\n\n## Jury Room Experiments\n\nNo tests.",
+                 metadata={"passage_id": "1.5-c2-s3"}),
+    ]
+
+
+def test_passages_inherit_words_of_the_headings_they_sit_under():
+    graph = StandaloneGraphRetriever(heading_documents(), top_k=4)
+    labels = dict(zip(graph.node_ids, graph.node_labels))
+    assert labels["section:1.5"] == "1.5 Decide Solely on the Evidence"
+    assert labels["heading:1.5#1"] == "Pre-trial Publicity"
+    assert labels["passage:1.5-c2-s2"] == "1.5 Decide Solely on the Evidence > Pre-trial Publicity"
+    # A sibling heading that begins inside a passage is not its subheading.
+    assert labels["passage:1.5-c2-s3"] == (
+        "1.5 Decide Solely on the Evidence > Pre-trial Publicity | Jury Room Experiments"
+    )
+    # s2 never says "publicity"; its heading does, so one step already reaches it.
+    direct = graph.retrieve("publicity", propagate=False)
+    under = next(item for item in direct.explanations if item.node_id == "1.5-c2-s2")
+    assert under.path == ("term:publicity", "passage:1.5-c2-s2")
+    assert under.path_relations == ("heading_mentions_concept",)
+    assert under.path_labels[1] == 'passage:1.5-c2-s2 "1.5 Decide Solely on the Evidence > Pre-trial Publicity"'
+    assert StandaloneGraphRetriever(
+        heading_documents(), settings=replace(StandaloneGraphSettings(), heading_words=False)
+    ).retrieve("publicity", propagate=False).explanations[0].node_id == "1.5-c2-s1"
+    assert np.allclose(np.asarray(graph.transition.sum(axis=1)).ravel(), 1)
+    assert graph.stats["section_nodes"] == 1 and graph.stats["heading_nodes"] == 2
+
+
+def test_volume_links_make_the_first_step_idf_weighted_mention_scores():
+    documents = [
+        Document(page_content="juror excused prejudice", metadata={"passage_id": "gold"}),
+        Document(page_content="harry island", metadata={"passage_id": "name"}),
+        Document(page_content="juror trial", metadata={"passage_id": "x1"}),
+        Document(page_content="excused witness", metadata={"passage_id": "x2"}),
+        Document(page_content="trial witness", metadata={"passage_id": "x3"}),
+    ]
+    query = "Harry the juror was excused"
+    legacy = StandaloneGraphRetriever(documents, settings=LEGACY_SETTINGS)
+    assert legacy.retrieve(query).explanations[0].node_id == "name"
+    graph = StandaloneGraphRetriever(documents)
+    links = graph.link_query(query)
+    columns = {key: graph.concept_index[key] for key in links}
+    total = sum(graph.idf[j] * graph.concept_volume[j] for j in columns.values())
+    for item in graph.retrieve(query, propagate=False).explanations:
+        row = graph.passage_ids.index(item.node_id)
+        expected = sum(graph.idf[j] * graph.incidence[row, j] for j in columns.values()) / total
+        assert item.final_score == pytest.approx(expected)
+    assert graph.retrieve(query).explanations[0].node_id == "gold"
+
+
+def test_finder_references_group_their_chunks():
+    documents = [
+        Document(page_content=text, metadata={"chunk_id": f"r1:ref1:chunk{n}", "row_id": "r1",
+                                              "reference_number": 1, "reference_chunk_number": n})
+        for n, text in enumerate(["revenue rose", "margins fell"], start=1)
+    ]
+    result = StandaloneGraphRetriever(documents).retrieve("revenue")
+    neighbor = next(item for item in result.explanations if item.node_id.endswith("chunk2"))
+    assert neighbor.path[2] == "document:r1/ref1"
+
+
+def test_corpus_word_forms_merge_only_into_corpus_words():
+    forms = CorpusWordForms({"excuse", "excused", "excusing", "empanel", "empanelling", "punch",
+                             "punches", "christmas", "jones", "kill", "killing", "killings", "recklessly",
+                             "reckless", "witnesses", "witness"})
+    merged = {word: forms(word) for word in ("excusing", "excused", "empanelling", "punches",
+                                             "killings", "recklessly", "witnesses")}
+    assert merged == {"excusing": "excuse", "excused": "excuse", "empanelling": "empanel",
+                      "punches": "punch", "killings": "kill", "recklessly": "reckless",
+                      "witnesses": "witness"}
+    assert forms("christmas") == "christmas" and forms("jones") == "jones"
 
 
 def test_graph_build_and_generation_never_construct_embeddings(monkeypatch):

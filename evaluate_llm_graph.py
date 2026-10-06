@@ -4,7 +4,8 @@ Uses legal_protocol.py: passage text only, the published 20 dev / 80 held-out
 split, legal_rag metric files, and paired bootstrap intervals. Every method
 is a fixed configuration, so nothing is selected on development:
 
-- ``standalone_graph``: the original graph walk (baseline).
+- ``standalone_graph``: the graph walk alone (baseline). This is the improved
+  graph; ``--legacy-graph`` reruns everything on the original graph.
 - ``llm_keywords_concat`` and ``llm_keywords_mixed``: LLM keyword expansion.
   The phrases are either appended to the question, or share the walk's seeds
   with the question keeping a fixed 50%.
@@ -24,6 +25,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+from dataclasses import asdict
 from pathlib import Path
 from typing import Any, Callable
 
@@ -39,14 +41,14 @@ from llm_graph import (
     LLMExpandedGraphRetriever, LLMRerankedGraphRetriever, OllamaRelevanceScorer,
     expansion_chain, rerank_messages,
 )
-from standalone_graph import StandaloneGraphRetriever
+from standalone_graph import LEGACY_SETTINGS, StandaloneGraphRetriever, StandaloneGraphSettings
 
 
 BASELINE = "standalone_graph"
 QUERY_WEIGHT = 0.5  # fixed a priori: equal seed mass for question and expansion
 POOL_DEPTH = 20  # per-walk candidates judged by the LLM reranker
 CONFIG_IDS = {
-    BASELINE: "graph_ppr_r0.35_s0.15",
+    BASELINE: "graph_improved_ppr_r0.35_s0.15",
     "llm_keywords_concat": "graph_llmkw_concat",
     "llm_keywords_mixed": "graph_llmkw_q0.5",
     "llm_rerank_graph": "graph_llmrerank_pool20",
@@ -99,11 +101,16 @@ def build_methods(
 
 
 def evaluate(corpus: list[dict], qa: list[dict], output_dir: Path, model: str, base_url: str,
-             reference_per_query: Path | None = None, live_latency: bool = False) -> dict[str, Any]:
+             reference_per_query: Path | None = None, live_latency: bool = False,
+             graph_settings: StandaloneGraphSettings | None = None) -> dict[str, Any]:
     dev_ids, test_ids = split_queries(qa, corpus)
     documents = legal_records_to_documents(corpus, text_only=True)
     questions = legal_records_to_questions(qa)
-    graph = StandaloneGraphRetriever(documents, top_k=max(KS))
+    graph = StandaloneGraphRetriever(documents, top_k=max(KS), settings=graph_settings)
+    config_ids = dict(CONFIG_IDS)
+    if graph.settings == LEGACY_SETTINGS:
+        config_ids = {name: config.replace("graph_improved_", "graph_")
+                      for name, config in config_ids.items()}
     output_dir.mkdir(parents=True, exist_ok=True)
     cache = LLMCache(output_dir / "llm_cache.jsonl", model)
     chain = expansion_chain(ChatOllama(model=model, base_url=base_url, temperature=0, num_predict=256))
@@ -162,7 +169,7 @@ def evaluate(corpus: list[dict], qa: list[dict], output_dir: Path, model: str, b
                                     dev, test, repeats=1))
     results = write_results(
         output_dir, questions=questions, dev_ids=dev_ids, test_ids=test_ids, rankings=rankings,
-        config_ids=CONFIG_IDS, latency=latency, baseline=BASELINE,
+        config_ids=config_ids, latency=latency, baseline=BASELINE,
         references=load_reference_hits(reference_per_query) if reference_per_query else None,
     )
     summary = {
@@ -170,14 +177,14 @@ def evaluate(corpus: list[dict], qa: list[dict], output_dir: Path, model: str, b
         "corpus_representation": "passage text only (no titles, no appended footnotes)",
         "questions": len(questions), "dev_count": len(dev_ids), "test_count": len(test_ids),
         "split": f"{SPLIT_ID} (legal_rag, feature/person2-bm25)",
-        "llm_model": model, "configs": CONFIG_IDS,
+        "llm_model": model, "configs": config_ids,
         "expansion_prompt": {"version": EXPANSION_PROMPT_VERSION,
                              "messages": [m.prompt.template for m in EXPANSION_PROMPT.messages],
                              "query_weight_mixed": QUERY_WEIGHT},
         "rerank": {"version": RERANK_PROMPT_VERSION, "system": RERANK_SYSTEM,
                    "score": "P(Yes) over Yes/No in first-token top-10 logprobs",
                    "pool_depth_per_walk": POOL_DEPTH, "tie_break": "reciprocal-rank fusion, k=60"},
-        "graph_settings": graph.settings.__dict__, "graph": graph.stats,
+        "graph_settings": asdict(graph.settings), "graph": graph.stats,
         "new_llm_calls_this_run": cache.new_calls,
         "timing": {
             BASELINE: "legal_rag harness: 4 BLAS threads, 3 dev warmups, 3 shuffled interleaved "
@@ -208,9 +215,12 @@ def main() -> None:
                         help="legal_rag results/initial/per_query.csv for paired BM25/dense/hybrid comparisons")
     parser.add_argument("--live-latency", action="store_true",
                         help="also time LLM methods live with the cache bypassed (needs Ollama)")
+    parser.add_argument("--legacy-graph", action="store_true",
+                        help="run on the original keyword graph instead of the improved graph")
     args = parser.parse_args()
     evaluate(load_legal_corpus(), load_legal_questions(), args.output_dir, args.model,
-             args.base_url, args.reference_per_query, args.live_latency)
+             args.base_url, args.reference_per_query, args.live_latency,
+             LEGACY_SETTINGS if args.legacy_graph else None)
 
 
 if __name__ == "__main__":

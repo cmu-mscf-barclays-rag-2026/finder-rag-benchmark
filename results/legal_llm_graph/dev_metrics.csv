@@ -1,6 +1,6 @@
 method,config_id,k,n_queries,recall,hit_rate,all_evidence_hit,evidence_coverage,mrr,ndcg
-standalone_graph,graph_ppr_r0.35_s0.15,5,20,0.2,0.2,0.2,0.2,0.13333333333333333,0.15
-llm_keywords_concat,graph_llmkw_concat,5,20,0.1,0.1,0.1,0.1,0.06666666666666667,0.075
-llm_keywords_mixed,graph_llmkw_q0.5,5,20,0.25,0.25,0.25,0.25,0.11666666666666667,0.14961414348591218
-llm_rerank_graph,graph_llmrerank_pool20,5,20,0.35,0.35,0.35,0.35,0.3,0.31309297535714575
-llm_expand_rerank,graph_llmkw_q0.5_llmrerank_pool20,5,20,0.4,0.4,0.4,0.4,0.30416666666666664,0.32808031558224254
+standalone_graph,graph_improved_ppr_r0.35_s0.15,5,20,0.45,0.45,0.45,0.45,0.34750000000000003,0.3724229559439696
+llm_keywords_concat,graph_llmkw_concat,5,20,0.35,0.35,0.35,0.35,0.2125,0.24771977861796116
+llm_keywords_mixed,graph_llmkw_q0.5,5,20,0.4,0.4,0.4,0.4,0.27,0.30177825608059994
+llm_rerank_graph,graph_llmrerank_pool20,5,20,0.35,0.35,0.35,0.35,0.22916666666666666,0.25962680326081544
+llm_expand_rerank,graph_llmkw_q0.5_llmrerank_pool20,5,20,0.4,0.4,0.4,0.4,0.2791666666666667,0.30962680326081543

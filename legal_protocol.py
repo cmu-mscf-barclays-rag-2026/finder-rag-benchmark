@@ -150,11 +150,13 @@ def write_results(
     rankings: dict[str, dict[str, list[str]]],
     config_ids: dict[str, str],
     latency: dict[str, list[float]],
-    baseline: str,
+    baseline: str | Sequence[str],
     references: dict[str, dict[str, float]] | None = None,
 ) -> dict[str, Any]:
     """Write split.json, dev_metrics.csv, per_query.csv, test_metrics.csv, and
-    paired_hit5_intervals.csv. ``rankings`` maps method -> question ID -> passage IDs."""
+    paired_hit5_intervals.csv. ``rankings`` maps method -> question ID -> passage IDs;
+    every method is compared with each baseline method and each reference."""
+    baselines = [baseline] if isinstance(baseline, str) else list(baseline)
     by_id = {q.question_id: q for q in questions}
     dev, test = sorted(dev_ids, key=int), sorted(test_ids, key=int)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -188,7 +190,7 @@ def write_results(
     golds = [by_id[qid].relevant_passage_id for qid in test]
     paired = []
     for method in rankings:
-        for other, other_hits in {baseline: hit5[baseline], **references}.items():
+        for other, other_hits in {**{name: hit5[name] for name in baselines}, **references}.items():
             if method == other:
                 continue
             deltas = [hit5[method][qid] - other_hits[qid] for qid in test]

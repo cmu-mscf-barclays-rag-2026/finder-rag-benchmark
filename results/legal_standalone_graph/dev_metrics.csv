@@ -1,3 +1,8 @@
 method,config_id,k,n_queries,recall,hit_rate,all_evidence_hit,evidence_coverage,mrr,ndcg
-one_step_concept_match,graph_onestep,5,20,0.2,0.2,0.2,0.2,0.13333333333333333,0.15
-standalone_graph,graph_ppr_r0.35_s0.15,5,20,0.2,0.2,0.2,0.2,0.13333333333333333,0.15
+original_graph,graph_legacy_ppr_r0.35_s0.15,5,20,0.2,0.2,0.2,0.2,0.13333333333333333,0.15
+volume_links,graph_volume,5,20,0.4,0.4,0.4,0.4,0.23916666666666667,0.2789694436225425
+volume_heading_words,graph_volume_headwords_consecutive,5,20,0.45,0.45,0.45,0.45,0.3516666666666667,0.37588912804029995
+heading_tree_only,graph_volume_tree,5,20,0.35,0.35,0.35,0.35,0.21416666666666667,0.24742295594396962
+improved_graph,graph_improved_ppr_r0.35_s0.15,5,20,0.45,0.45,0.45,0.45,0.34750000000000003,0.3724229559439696
+improved_graph_one_step,graph_improved_onestep,5,20,0.4,0.4,0.4,0.4,0.33333333333333337,0.35
+improved_graph_word_forms,graph_improved_wordforms,5,20,0.35,0.35,0.35,0.35,0.2875,0.3030803155822425

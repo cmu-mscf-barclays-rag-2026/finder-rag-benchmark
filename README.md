@@ -21,8 +21,8 @@ and dataset downloads need internet access; inference runs on your computer.
 - `results/task_a_report.md` — measured results and interpretation for Task A.
 - `tests/test_rag.py` — offline tests for document preparation and retrieval.
 
-- `standalone_graph.py` - independent graph retrieval with interpretable paths.
-- `evaluate_standalone_graph.py` - standalone graph evaluation and one-step ablation.
+- `standalone_graph.py` - independent concept/passage/heading graph retrieval with labeled paths.
+- `evaluate_standalone_graph.py` - improved versus original graph construction, with ablations.
 - `legal_protocol.py` - team Legal RAG protocol shared by the graph evaluators (split, metrics, files, timing).
 - `graph_rag.py` - previous dense-seeded graph experiment.
 - `legal_data.py` - leakage-safe Legal RAG Bench loaders.
@@ -127,9 +127,11 @@ dataset card before commercial use.
 ## Task B: independent graph RAG
 
 The app defaults to **Standalone graph (no embeddings)**. Questions attach
-directly to keyword nodes in a corpus graph. Personalized PageRank follows
-keyword/passage and structural edges to rank evidence. Each result includes a
-connecting path and a score breakdown before Ollama generates a cited answer.
+directly to keyword nodes in a corpus graph that also holds the source
+document's sections and headings. Personalized PageRank follows keyword,
+passage, and heading edges to rank evidence. Each result includes a labeled
+connecting path (for example, the heading a passage sits under) and a score
+breakdown before Ollama generates a cited answer.
 
 See [`GRAPH_RAG_README.md`](GRAPH_RAG_README.md) for usage and evaluation.
 The independent retrieval benchmark needs neither Ollama nor embeddings:
@@ -141,12 +143,15 @@ python evaluate_standalone_graph.py
 The results follow the team Legal RAG protocol (`legal_rag/` on
 `feature/person2-bm25`): 80 held-out questions, passage text only.
 
-- **Standalone graph:** Recall@5 is 0.200, against 0.175 for its one-step
-  concept-matching ablation.
-- **Team references:** BM25 reaches 0.375 and hybrid 0.400.
+- **Standalone graph:** the improved graph construction raises Recall@5 from
+  0.200 to 0.3875 (MRR@5 0.293, nDCG@5 0.316). It weights query links by
+  IDF x concept volume and lets passages inherit their headings' words.
+- **Team references:** BM25 reaches 0.375 and hybrid 0.400; the graph has
+  higher MRR@5 and nDCG@5 than both.
 - **With the LLM:** the app's `graph_llm` mode adds LLM keyword expansion and
-  lets the local LLM rerank the pooled top 20 of both graph walks, which
-  raises Recall@5 to 0.375.
+  lets the local LLM rerank the pooled top 20 of both graph walks. On the
+  improved graph it reaches Recall@5 0.4125 but lower MRR@5 and nDCG@5 than
+  the graph alone, which development also favors.
 The previous dense + graph experiment remains available as `dense_graph`;
 its original results are preserved separately.
 
