@@ -4,7 +4,24 @@
 
 Legal RAG Bench: **100 questions / 4,876 passages**. Generator: **FLAN-T5-base**. Embeddings: **MiniLM-L6-v2**, fixed throughout. Generation uses only the question.
 
-## 1. What I tested
+## Last week: starting point
+
+Same benchmark: **100 questions / 4,876 passages**, FLAN-T5-base + MiniLM. These are last week's saved primary results.
+
+| Method | Precision@5 | Hit/Recall@5 | MRR@5 | nDCG@5 |
+|---|---:|---:|---:|---:|
+| BM25 baseline | 6.2% | 31% | 0.2295 | 0.2500 |
+| Original-question dense baseline | 5.8% | 29% | 0.1610 | 0.1933 |
+| Standard hybrid: BM25 + question dense | 7.2% | 36% | 0.2490 | 0.2764 |
+| Reference-answer dense — diagnostic only | 14.4% | 72% | 0.5498 | 0.5929 |
+| Single HyDE answer: dense | 3.0% | 15% | 0.0883 | 0.1033 |
+| HyDE hybrid: BM25 + HyDE dense | 7.4% | 37% | 0.2460 | 0.2765 |
+
+**Why this week's follow-up:** Test whether improving the 15% HyDE dense result could also improve hybrid retrieval. The 72% result uses the dataset's gold answer; it is a diagnostic, not a usable HyDE result. Generation software/settings differ between weeks, so cross-week HyDE gains are descriptive; this week's recomputed controls provide the main comparison.
+
+[Last week's source metrics](../person3_hyde/summary_k5.csv)
+
+## 1. What I tested this week
 
 | Parameter / method | Settings tested |
 |---|---|

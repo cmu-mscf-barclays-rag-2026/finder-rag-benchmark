@@ -49,13 +49,38 @@ def main():
         f"| {labels[r.representation]} | {r.hit5_min:.0%}–{r.hit5_max:.0%} | {r.hit5_mean:.1%} | {r.hit5_max:.0%} |"
         for r in ranges.itertuples()
     )
+    previous = pd.read_csv(OUT.parent/'person3_hyde'/'summary_k5.csv')
+    previous_labels = {
+        'Question BM25': 'BM25 baseline',
+        'Question Dense MiniLM': 'Original-question dense baseline',
+        'Question BM25 + Question Dense RRF': 'Standard hybrid: BM25 + question dense',
+        'Reference Answer Dense (oracle)': 'Reference-answer dense — diagnostic only',
+        'Question-only HyDE Dense': 'Single HyDE answer: dense',
+        'Question BM25 + HyDE Dense RRF': 'HyDE hybrid: BM25 + HyDE dense',
+    }
+    previous_rows = '\n'.join(
+        f"| {previous_labels[r.method]} | {r.precision_at_k:.1%} | {r.hit_rate_at_k:.0%} | {r.mrr_at_k:.4f} | {r.ndcg_at_k:.4f} |"
+        for r in previous.itertuples()
+    )
     report=f'''# Cheryl — HyDE generation and parameter robustness
 
 **Goal:** Following last week's feedback, test whether better HyDE generation improves dense retrieval and, in turn, hybrid retrieval.
 
 Legal RAG Bench: **100 questions / 4,876 passages**. Generator: **FLAN-T5-base**. Embeddings: **MiniLM-L6-v2**, fixed throughout. Generation uses only the question.
 
-## 1. What I tested
+## Last week: starting point
+
+Same benchmark: **100 questions / 4,876 passages**, FLAN-T5-base + MiniLM. These are last week's saved primary results.
+
+| Method | Precision@5 | Hit/Recall@5 | MRR@5 | nDCG@5 |
+|---|---:|---:|---:|---:|
+{previous_rows}
+
+**Why this week's follow-up:** Test whether improving the 15% HyDE dense result could also improve hybrid retrieval. The 72% result uses the dataset's gold answer; it is a diagnostic, not a usable HyDE result. Generation software/settings differ between weeks, so cross-week HyDE gains are descriptive; this week's recomputed controls provide the main comparison.
+
+[Last week's source metrics](../person3_hyde/summary_k5.csv)
+
+## 1. What I tested this week
 
 | Parameter / method | Settings tested |
 |---|---|
