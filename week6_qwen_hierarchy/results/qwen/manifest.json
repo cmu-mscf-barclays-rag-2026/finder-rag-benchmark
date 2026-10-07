@@ -1,0 +1,114 @@
+{
+  "status": "complete",
+  "reference_only": false,
+  "config": {
+    "model": "Qwen/Qwen3-Embedding-0.6B",
+    "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "embedding_windows": [
+      2048,
+      4096,
+      8192,
+      16384
+    ],
+    "optional_embedding_window": 32768,
+    "query_window": 2048,
+    "query_instruction": "Find legal passages containing evidence that answers the question.",
+    "context_budgets": [
+      null,
+      2048
+    ],
+    "ks": [
+      5,
+      10
+    ],
+    "modes": [
+      "child",
+      "parent",
+      "child_to_parent",
+      "child_to_selected_siblings"
+    ],
+    "bm25": {
+      "k1": 1.2,
+      "b": 0.75
+    },
+    "bm25_weight": 0.75,
+    "rrf_constant": 60,
+    "candidate_depth": 100,
+    "selection": {
+      "split": "dev",
+      "method": "hybrid",
+      "mode": "parent",
+      "context_budget": 2048,
+      "k": 10
+    },
+    "evaluation_tokenizer": {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    }
+  },
+  "measurement_tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+  "input_sha256": {
+    "data\\child_spans.csv": "fe6c95c5e59830a2d116ceff4d278867af78d7acb45fd622aeb2f7535c558a54",
+    "data\\child_to_parent.json": "3538c0523e0710589b189c19e6eef60ec2f7c266ad937265646888b1a4cf34a7",
+    "data\\children.jsonl": "20b3451117a24a53391b9c7b31da02d9a254d17fa97163e124d3c6f274e7e438",
+    "data\\parent_to_children.json": "e35106eda3c58dc7eef043c43bedf2440438785e063ed41f1ddf04adbd0f1b89",
+    "data\\parents.jsonl": "395d68d3367b8fdcd1f75be8f619db21460188ca558cde6f76863ac59a4edbd4",
+    "data\\queries.jsonl": "b27dc56a795b0f5e1d9d037c8dec9f2bf5081843d35f91ee2cbf6ccfcb233371"
+  },
+  "reference_sha256": {
+    "week5_hierarchy/results/comparison/rankings/bm25_child.jsonl": "e5422fd82d319e56ae1987dd37c7c18868c636d8116f16e718a865ee7cd967a5",
+    "week5_hierarchy/results/comparison/rankings/bm25_parent.jsonl": "e91009533eb7bf6fb0b067edef4ab753edfb3e96bac3e72bfaad34ae4be24dd6",
+    "week5_hierarchy/results/comparison/rankings/dense_child.jsonl": "06caf671bccedad5793bb7d8e8832ce345308ae1b208adebc0661c77714d0f58",
+    "week5_hierarchy/results/comparison/rankings/dense_parent.jsonl": "41c25dfbf60cc8766ce103bee5527155167198bc0979fa13b2340922f982d8cb",
+    "week5_hierarchy/results/comparison/rankings/hybrid_w0.25_child.jsonl": "592453c9fe82f653a6fd2cf9f3cc75d7286cec0875c6636afc482f31a9fe98d8",
+    "week5_hierarchy/results/comparison/rankings/hybrid_w0.25_parent.jsonl": "ccdd7dc7973429cbf4ef0ecd57afe4d9d02b83cebb900b9b9deab4090935e609",
+    "week5_hierarchy/results/comparison/rankings/hybrid_w0.5_child.jsonl": "46be01e736c5b3d3a78c86757866fc782a8c08572bfd38ac59a41987c8482bf9",
+    "week5_hierarchy/results/comparison/rankings/hybrid_w0.5_parent.jsonl": "e4db8028397dba08214b285bceb27d8ef9eba40731f21d72ce1f5b5b40754a67",
+    "week5_hierarchy/results/comparison/rankings/hybrid_w0.75_child.jsonl": "e7f0c08b67eea13f99a2c14f90396e41ffee8d6081dbe5d760e572233e02812f",
+    "week5_hierarchy/results/comparison/rankings/hybrid_w0.75_parent.jsonl": "1b8d98630b00430631035a2b29117057fb30d2bedc71aaa327ef6929ab891997"
+  },
+  "source_sha256": {
+    "week6_qwen_hierarchy/qwen_hierarchy.py": "f14670f69893b1b3bb58dbe1e96d06299ccf10ddb5376cd01be53027acf5a1ac",
+    "week5_hierarchy/hierarchy_experiment.py": "ce98f2f324962baacb59d33544b53c8103a5ee411df0ce77d89d785d997bf11f",
+    "week4_legal_rag/run.py": "6a37a1bbbba2ba4aef15307f321d879df03b5ad5e638d649d2aad9f03c5b974b",
+    "week3_bm25/finder_bm25/bm25.py": "0d01ae1235e94b041cb4050eacac50c4c0ab967269bdcd9f8fd7bba42b2319ff",
+    "week5_hierarchy/kevin_hierarchy/hierarchy/handoff.py": "c7130263b1d5c76435de4ce13e2c4216c48cda13195f6b27a27e540addf0c389",
+    "week5_hierarchy/kevin_hierarchy/hierarchy/core.py": "3d66a9505e005994b1b83d44625d79d0ba83db1ce1a6a727a1eca7b6df0e2f13"
+  },
+  "python": "3.12.5 (v3.12.5:ff3bc82f7c9, Aug  7 2024, 05:32:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "device": "mps",
+  "dtype": "float32",
+  "batch_size": 8,
+  "batch_tokens": 4096,
+  "threads": 4,
+  "overlapping_dev_test_gold_parents": [
+    "7.1.3-c1",
+    "7.4.9-c5",
+    "7.6.1-c3"
+  ],
+  "encoder": {
+    "model": "Qwen/Qwen3-Embedding-0.6B",
+    "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "pooling": "last_nonpadding_token",
+    "normalize": true,
+    "dtype": "float32",
+    "device": "mps",
+    "attention": "sdpa",
+    "packages": {
+      "torch": "2.14.0",
+      "transformers": "4.51.3",
+      "numpy": "2.5.3",
+      "tokenizers": "0.21.4"
+    }
+  },
+  "bm25_tokenizer": "unicode_casefold_numbers_possessives_v1",
+  "output_sha256": {
+    "window_sweep.csv": "6e83f3ff9ce7bd23ea176c3136a93f22354368ea9ef56ddca8af238306309e66",
+    "per_query.csv": "c24e2f7c8be3b251e5b637d216282a1ef19c65727d9b6b8d93a9ece9022a12b1",
+    "paired_comparisons.csv": "08ace565e44ae310f7459ceff9a19503aeab9cda5d0eec24c4843295c4f90cfd",
+    "examples.csv": "d56e7458975ff16ecf2a3b0bea1384b9f1fc04801a0bfd2a47d9502741911a40",
+    "hierarchy_comparison.csv": "cb2ea5bde1918fe6e1b6d07cfd5f003cb0ea60598d52c06446cd0aadc413ed1a",
+    "index_audit.csv": "56972037cff035b5c431b356b2ba5b15ca51a907666b9c199a331a6b9b6f2908"
+  }
+}

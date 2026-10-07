@@ -1,0 +1,6 @@
+# Separate environment: Week 5's transformers==4.48.3 does not support Qwen3.
+transformers==4.51.3
+torch>=2.2
+numpy>=1.26
+tokenizers>=0.21,<0.22
+threadpoolctl>=3.1

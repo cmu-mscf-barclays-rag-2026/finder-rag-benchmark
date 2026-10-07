@@ -1,0 +1,1 @@
+embedding,embedding_window,method,split,mode,context_budget,k,n_queries,hit_count,hit_rate,gold_text_coverage,mean_context_tokens,p95_context_tokens,mean_coverage_efficiency

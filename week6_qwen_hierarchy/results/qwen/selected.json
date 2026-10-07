@@ -1,0 +1,11 @@
+{
+  "embedding_window": 4096,
+  "criterion": {
+    "split": "dev",
+    "method": "hybrid",
+    "mode": "parent",
+    "context_budget": 2048,
+    "k": 10
+  },
+  "tie_break": "coverage, mean coverage efficiency, smaller window"
+}
