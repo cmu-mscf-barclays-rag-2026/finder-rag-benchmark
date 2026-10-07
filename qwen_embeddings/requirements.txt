@@ -1,0 +1,9 @@
+numpy>=1.26,<3
+pandas>=2.2,<3
+torch>=2.6,<3
+transformers>=4.51,<5
+tokenizers>=0.21,<0.23
+huggingface-hub>=0.30,<1
+safetensors>=0.5
+nbformat>=5.10
+ipykernel>=6

@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "children": 4876,
+    "parents": 2785,
+    "queries": 100
+  },
+  "splits": {
+    "dev": 20,
+    "test": 80
+  },
+  "all_parent_spans_and_gold_mappings_valid": true,
+  "scope": "Data validation, not model performance"
+}

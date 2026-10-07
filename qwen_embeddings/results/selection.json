@@ -1,0 +1,38 @@
+{
+  "experiment_signature": "94668e865b6fda974e4d72d69487f1fffd303b4fb65546e450c1d62ca4eb3a2c",
+  "runs": [
+    {
+      "model": "minilm",
+      "corpus": "child",
+      "window": 256
+    },
+    {
+      "model": "qwen",
+      "corpus": "child",
+      "window": 512
+    },
+    {
+      "model": "minilm",
+      "corpus": "parent",
+      "window": 256
+    },
+    {
+      "model": "qwen",
+      "corpus": "parent",
+      "window": 512
+    }
+  ],
+  "rule": "Per corpus: maximize dev gold-body-token-coverage@5 at fixed budget; tie unit Hit@5 then shorter window",
+  "dev_hashes": {
+    "results/dev/minilm_child_w256/summary.json": "2f09f3c0fc7613e15623ce9424912248ec88df6a6376ac0d66eb308ad7fa9bf8",
+    "results/dev/minilm_parent_w256/summary.json": "451c0038842fc370ac29fb15f23ed63b248acf9c473b165a40018496caad74fb",
+    "results/dev/qwen_child_w2048/summary.json": "ff2f03df07ba2c636acf962bfd2c40608d957355542af20bfdb1c6db91c55d1d",
+    "results/dev/qwen_child_w4096/summary.json": "ff2f03df07ba2c636acf962bfd2c40608d957355542af20bfdb1c6db91c55d1d",
+    "results/dev/qwen_child_w512/summary.json": "4a4e3ab22cd5c082757020c2180fca9f554234689ace5de4d924f8a54bbd5882",
+    "results/dev/qwen_child_w8192/summary.json": "ff2f03df07ba2c636acf962bfd2c40608d957355542af20bfdb1c6db91c55d1d",
+    "results/dev/qwen_parent_w2048/summary.json": "7e8f9187ebedc3945ed22133da01e28549a6bf517dfe209d3c5e0df62ce4e687",
+    "results/dev/qwen_parent_w4096/summary.json": "2a6a4bf715234e11f9d00376b6567b66f6297785cee53cdfe7214fb79e58a6e0",
+    "results/dev/qwen_parent_w512/summary.json": "0305b12e7539af6f6705ca45611f5219340cf4513945033476ed7c8172c6df86",
+    "results/dev/qwen_parent_w8192/summary.json": "bbc3a58b017ee569f160125be7a351952c74697bb6fea7877fa44bb16f23a8a3"
+  }
+}

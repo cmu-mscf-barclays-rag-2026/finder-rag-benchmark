@@ -1,0 +1,72 @@
+[
+  {
+    "split": "dev",
+    "run_id": "qwen_parent_w4096",
+    "query_id": "94",
+    "question": "Josh deliberately and dishonestly destroys physical bank documents that record a loan he still owes, hoping to improve his own financial position. Which specific offence best captures Josh's conduct?",
+    "gold_child_ids": [
+      "7.5.18-c2-s1"
+    ],
+    "coverage_delta_vs_qwen512": -1.0,
+    "effect": "hurt",
+    "short_ranking": [
+      "7.5.18.1-c2",
+      "7.5.22.11-c2",
+      "7.5.13-c4",
+      "7.5.18-c2",
+      "7.5.13-c1",
+      "7.5.18.2-c1",
+      "7.5.18.1-c1",
+      "7.5.18-c3",
+      "7.5.18.1-c3",
+      "7.5.1.1-c4"
+    ],
+    "long_ranking": [
+      "7.5.18.1-c2",
+      "7.5.22.11-c2",
+      "7.5.13-c4",
+      "7.5.12-c4",
+      "7.5.18-c2",
+      "7.5.13-c1",
+      "7.5.18.2-c1",
+      "7.5.12.1-c3",
+      "7.5.18.1-c1",
+      "7.5.18-c3"
+    ]
+  },
+  {
+    "split": "dev",
+    "run_id": "qwen_parent_w8192",
+    "query_id": "94",
+    "question": "Josh deliberately and dishonestly destroys physical bank documents that record a loan he still owes, hoping to improve his own financial position. Which specific offence best captures Josh's conduct?",
+    "gold_child_ids": [
+      "7.5.18-c2-s1"
+    ],
+    "coverage_delta_vs_qwen512": -1.0,
+    "effect": "hurt",
+    "short_ranking": [
+      "7.5.18.1-c2",
+      "7.5.22.11-c2",
+      "7.5.13-c4",
+      "7.5.18-c2",
+      "7.5.13-c1",
+      "7.5.18.2-c1",
+      "7.5.18.1-c1",
+      "7.5.18-c3",
+      "7.5.18.1-c3",
+      "7.5.1.1-c4"
+    ],
+    "long_ranking": [
+      "7.5.18.1-c2",
+      "7.5.22.11-c2",
+      "7.5.13-c4",
+      "7.5.12-c4",
+      "7.5.18-c2",
+      "7.5.13-c1",
+      "7.5.18.2-c1",
+      "7.5.12.1-c3",
+      "7.5.18.1-c1",
+      "7.5.18-c3"
+    ]
+  }
+]

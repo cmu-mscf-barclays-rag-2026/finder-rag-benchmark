@@ -1,0 +1,11 @@
+{
+  "source": "isaacus/legal-rag-bench",
+  "revision": "db0b31dc6d195ce9916897e1ac5e4e6209736c8a",
+  "derived_from": "legal_rag_hierarchy/data, copied unchanged",
+  "sha256": {
+    "children.jsonl": "20b3451117a24a53391b9c7b31da02d9a254d17fa97163e124d3c6f274e7e438",
+    "parents.jsonl": "395d68d3367b8fdcd1f75be8f619db21460188ca558cde6f76863ac59a4edbd4",
+    "queries.jsonl": "b27dc56a795b0f5e1d9d037c8dec9f2bf5081843d35f91ee2cbf6ccfcb233371"
+  },
+  "context_tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037"
+}

@@ -1,0 +1,10 @@
+{
+  "completed_development_runs": 10,
+  "completed_test_runs": 4,
+  "independently_checked_query_k_rows": 1560,
+  "ranking_metrics_and_aggregates_match": true,
+  "context_budget_respected": true,
+  "all_runs_on_cuda": true,
+  "selection_and_dev_hashes_unchanged": true,
+  "scope": "Independent ranking metric recomputation and saved-run consistency; not an independent relevance annotation"
+}
