@@ -1,5 +1,13 @@
 # Person 3: Reference-answer retrieval and HyDE
 
+## New: generation and parameter robustness
+
+The week-of-6-October follow-up is documented in
+[ROBUSTNESS_README.md](ROBUSTNESS_README.md). Its code is `run_robustness.py`
+and its saved results are in `results/person3_hyde_robustness/`.
+Start with `findings.md` and `generation_comparison_k5.csv` in that results folder.
+These are exploratory results on the previously inspected Legal RAG Bench set.
+
 This folder implements the Person 3 assignment from Meeting 5:
 
 1. retrieve with the expert reference answer as an **oracle diagnostic**;

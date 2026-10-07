@@ -1,0 +1,43 @@
+{
+  "dataset": "isaacus/legal-rag-bench",
+  "n_questions": 100,
+  "n_passages": 4876,
+  "corpus_sha256": "3a3565bc5429f6cead90548e81f87352b449927e4be1cdd804c28d766bb9c246",
+  "qa_sha256": "e3b869a4e293d081ec5f5b39c2058c8d27b36f611aa9f8275eb1877a7c8b38b0",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "embedding_max_seq_length": 256,
+  "generator": "google/flan-t5-base",
+  "generator_revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "batch_size": 8,
+  "threads": 4,
+  "rrf_k": 60,
+  "evaluation": "exploratory official 100-question test; already inspected in previous work; no held-out claim",
+  "latency": "batched CPU throughput including generation; single hypothesis estimated as one third of 3-hypothesis generation/embedding; not interactive latency; hardware dependent",
+  "python": "3.12.14",
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "2.3.3",
+    "torch": "2.14.1+cpu",
+    "transformers": "5.19.0",
+    "sentence_transformers": "5.7.0",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1"
+  },
+  "dataset_revision": "db0b31dc6d195ce9916897e1ac5e4e6209736c8a",
+  "corpus_text": "title + space + text",
+  "gold_protocol": "single labelled relevant_passage_id per question",
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "generation_rules": {
+    "num_beams": 1,
+    "repetition_penalty": 1.2,
+    "no_repeat_ngram_size": 3,
+    "top_p_when_sampling": 0.9,
+    "input_max_length": 512
+  },
+  "cache_signature_version": 2,
+  "postprocessing": "Metrics replayed from completed rankings; cache signatures annotated with actual batch size/rules; generated text and ranked arrays were not rerun."
+}

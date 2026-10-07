@@ -175,4 +175,10 @@ python finder_hybrid_experiment.py \
 
 ## Recommended team rule
 
+Cheryl's latest **Legal RAG Bench HyDE generation/parameter robustness** work is
+in [person3_hyde/ROBUSTNESS_README.md](person3_hyde/ROBUSTNESS_README.md), with
+[saved findings](results/person3_hyde_robustness/findings.md) and
+[Top-5 metrics](results/person3_hyde_robustness/summary_k5.csv).
+This is a separate exploratory benchmark from the FinDER tables above.
+
 Every team member should use the same Parquet file, reference-passage corpus construction, deterministic split, and metric functions. Only the retrieval method should change. Otherwise, differences in chunking, corpus size, or evidence matching may be mistaken for model improvement.

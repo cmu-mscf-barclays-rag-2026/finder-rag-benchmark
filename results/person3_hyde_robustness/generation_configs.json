@@ -1,0 +1,252 @@
+[
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "evidence_passage",
+    "length": 32,
+    "temperature": 0.7,
+    "seed": 20261006,
+    "prompts": [
+      "Generate the type of legal passage that would contain the evidence needed to answer this question about Victorian criminal law. Question: {q} Legal passage:",
+      "Write a passage from a Victorian criminal-law guide explaining the relevant rule and its conditions. Question: {q} Legal passage:",
+      "Write a legal evidence passage describing the procedure and exceptions relevant to this Victorian criminal-law question. Question: {q} Legal passage:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "evidence_passage_len32_t0.7_seed20261006",
+    "generation_3hyp_ms_per_query": 2495.795246880002,
+    "mean_hypothesis_words": 19.116666666666667
+  },
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "evidence_passage",
+    "length": 32,
+    "temperature": 0.0,
+    "seed": 20261006,
+    "prompts": [
+      "Generate the type of legal passage that would contain the evidence needed to answer this question about Victorian criminal law. Question: {q} Legal passage:",
+      "Write a passage from a Victorian criminal-law guide explaining the relevant rule and its conditions. Question: {q} Legal passage:",
+      "Write a legal evidence passage describing the procedure and exceptions relevant to this Victorian criminal-law question. Question: {q} Legal passage:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "evidence_passage_len32_t0_seed20261006",
+    "generation_3hyp_ms_per_query": 1812.3904086999985,
+    "mean_hypothesis_words": 18.583333333333332
+  },
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "evidence_passage",
+    "length": 96,
+    "temperature": 0.7,
+    "seed": 20261006,
+    "prompts": [
+      "Generate the type of legal passage that would contain the evidence needed to answer this question about Victorian criminal law. Question: {q} Legal passage:",
+      "Write a passage from a Victorian criminal-law guide explaining the relevant rule and its conditions. Question: {q} Legal passage:",
+      "Write a legal evidence passage describing the procedure and exceptions relevant to this Victorian criminal-law question. Question: {q} Legal passage:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "evidence_passage_len96_t0.7_seed20261006",
+    "generation_3hyp_ms_per_query": 3924.887246079998,
+    "mean_hypothesis_words": 27.673333333333332
+  },
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "evidence_passage",
+    "length": 96,
+    "temperature": 0.7,
+    "seed": 20261007,
+    "prompts": [
+      "Generate the type of legal passage that would contain the evidence needed to answer this question about Victorian criminal law. Question: {q} Legal passage:",
+      "Write a passage from a Victorian criminal-law guide explaining the relevant rule and its conditions. Question: {q} Legal passage:",
+      "Write a legal evidence passage describing the procedure and exceptions relevant to this Victorian criminal-law question. Question: {q} Legal passage:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "evidence_passage_len96_t0.7_seed20261007",
+    "generation_3hyp_ms_per_query": 2611.9848538900037,
+    "mean_hypothesis_words": 29.33
+  },
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "evidence_passage",
+    "length": 96,
+    "temperature": 0.7,
+    "seed": 20261008,
+    "prompts": [
+      "Generate the type of legal passage that would contain the evidence needed to answer this question about Victorian criminal law. Question: {q} Legal passage:",
+      "Write a passage from a Victorian criminal-law guide explaining the relevant rule and its conditions. Question: {q} Legal passage:",
+      "Write a legal evidence passage describing the procedure and exceptions relevant to this Victorian criminal-law question. Question: {q} Legal passage:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "evidence_passage_len96_t0.7_seed20261008",
+    "generation_3hyp_ms_per_query": 4974.860856260002,
+    "mean_hypothesis_words": 27.23
+  },
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "evidence_passage",
+    "length": 96,
+    "temperature": 0.0,
+    "seed": 20261006,
+    "prompts": [
+      "Generate the type of legal passage that would contain the evidence needed to answer this question about Victorian criminal law. Question: {q} Legal passage:",
+      "Write a passage from a Victorian criminal-law guide explaining the relevant rule and its conditions. Question: {q} Legal passage:",
+      "Write a legal evidence passage describing the procedure and exceptions relevant to this Victorian criminal-law question. Question: {q} Legal passage:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "evidence_passage_len96_t0_seed20261006",
+    "generation_3hyp_ms_per_query": 3444.35153141,
+    "mean_hypothesis_words": 27.75
+  },
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "short_answer",
+    "length": 32,
+    "temperature": 0.7,
+    "seed": 20261006,
+    "prompts": [
+      "Generate a concise answer to this Australian criminal-law question. Question: {q} Answer:",
+      "State the legal rule needed to answer this Australian criminal-law question. Question: {q} Answer:",
+      "Explain the legal procedure relevant to this Australian criminal-law question. Question: {q} Answer:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "short_answer_len32_t0.7_seed20261006",
+    "generation_3hyp_ms_per_query": 1087.4239626300005,
+    "mean_hypothesis_words": 5.97
+  },
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "short_answer",
+    "length": 32,
+    "temperature": 0.0,
+    "seed": 20261006,
+    "prompts": [
+      "Generate a concise answer to this Australian criminal-law question. Question: {q} Answer:",
+      "State the legal rule needed to answer this Australian criminal-law question. Question: {q} Answer:",
+      "Explain the legal procedure relevant to this Australian criminal-law question. Question: {q} Answer:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "short_answer_len32_t0_seed20261006",
+    "generation_3hyp_ms_per_query": 1001.0608007199994,
+    "mean_hypothesis_words": 5.27
+  },
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "short_answer",
+    "length": 96,
+    "temperature": 0.7,
+    "seed": 20261006,
+    "prompts": [
+      "Generate a concise answer to this Australian criminal-law question. Question: {q} Answer:",
+      "State the legal rule needed to answer this Australian criminal-law question. Question: {q} Answer:",
+      "Explain the legal procedure relevant to this Australian criminal-law question. Question: {q} Answer:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "short_answer_len96_t0.7_seed20261006",
+    "generation_3hyp_ms_per_query": 1420.8385003299984,
+    "mean_hypothesis_words": 6.946666666666666
+  },
+  {
+    "generator": "google/flan-t5-base",
+    "revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+    "style": "short_answer",
+    "length": 96,
+    "temperature": 0.0,
+    "seed": 20261006,
+    "prompts": [
+      "Generate a concise answer to this Australian criminal-law question. Question: {q} Answer:",
+      "State the legal rule needed to answer this Australian criminal-law question. Question: {q} Answer:",
+      "Explain the legal procedure relevant to this Australian criminal-law question. Question: {q} Answer:"
+    ],
+    "question_hash": "c3aa8465ed8351ca10f60411028ad9f6ad81054e00d853be3ac16ab8f0b262e0",
+    "batch_size": 8,
+    "generation_rules": {
+      "num_beams": 1,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "top_p_when_sampling": 0.9,
+      "input_max_length": 512
+    },
+    "config": "short_answer_len96_t0_seed20261006",
+    "generation_3hyp_ms_per_query": 889.479645429999,
+    "mean_hypothesis_words": 5.716666666666667
+  }
+]

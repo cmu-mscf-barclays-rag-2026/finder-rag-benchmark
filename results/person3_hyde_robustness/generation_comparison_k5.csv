@@ -1,0 +1,11 @@
+config,hyde_single,multi_average,multi_rrf,question_plus_hyde
+evidence_passage_len32_t0.7_seed20261006,0.08,0.14,0.11,0.26
+evidence_passage_len32_t0_seed20261006,0.12,0.16,0.14,0.26
+evidence_passage_len96_t0.7_seed20261006,0.09,0.17,0.15,0.24
+evidence_passage_len96_t0.7_seed20261007,0.08,0.2,0.18,0.24
+evidence_passage_len96_t0.7_seed20261008,0.11,0.21,0.2,0.26
+evidence_passage_len96_t0_seed20261006,0.19,0.2,0.17,0.26
+short_answer_len32_t0.7_seed20261006,0.06,0.08,0.08,0.29
+short_answer_len32_t0_seed20261006,0.05,0.07,0.07,0.29
+short_answer_len96_t0.7_seed20261006,0.06,0.08,0.06,0.29
+short_answer_len96_t0_seed20261006,0.04,0.07,0.07,0.29

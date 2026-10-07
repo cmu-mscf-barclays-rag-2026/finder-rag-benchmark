@@ -1,0 +1,12 @@
+numpy==2.5.3
+huggingface-hub==1.33.0
+pandas==2.3.3
+safetensors==0.8.0
+scikit-learn==1.9.1
+scipy==1.18.1
+sentence-transformers==5.7.0
+sentencepiece==0.2.2
+socksio==1.0.0
+tokenizers==0.23.2
+torch==2.14.1
+transformers==5.19.0

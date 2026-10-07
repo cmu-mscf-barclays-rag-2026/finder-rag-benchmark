@@ -1,0 +1,9 @@
+representation,hit5_mean,hit5_min,hit5_max,n_seeds
+hyde_single,0.09333333333333334,0.08,0.11,3
+hyde_single_hybrid,0.27666666666666667,0.26,0.3,3
+multi_average,0.19333333333333336,0.17,0.21,3
+multi_average_hybrid,0.3333333333333333,0.33,0.34,3
+multi_rrf,0.17666666666666667,0.15,0.2,3
+multi_rrf_hybrid,0.33666666666666667,0.33,0.35,3
+question_plus_hyde,0.24666666666666667,0.24,0.26,3
+question_plus_hyde_hybrid,0.3333333333333333,0.33,0.34,3
