@@ -39,97 +39,73 @@ def main():
     presentation.append(cand.to_dict()|{'display_name':'HyDE + BM25 hybrid','selection_status':'observed fixed-weight sweep maximum; exploratory'})
     pd.DataFrame(presentation).to_csv(OUT/'presentation_k5.csv',index=False)
     ranges=pd.read_csv(OUT/'robustness_by_representation.csv')
-    report=f'''# Cheryl — question-only HyDE robustness (week of 6 October 2026)
+    labels = {
+        'hyde_single': 'Single HyDE answer',
+        'multi_average': 'Three HyDE answers: average embeddings',
+        'multi_rrf': 'Three HyDE answers: fuse rankings (RRF)',
+        'question_plus_hyde': 'Original question + one HyDE answer',
+    }
+    dense_rows = '\n'.join(
+        f"| {labels[r.representation]} | {r.hit5_min:.0%}–{r.hit5_max:.0%} | {r.hit5_mean:.1%} | {r.hit5_max:.0%} |"
+        for r in ranges.itertuples()
+    )
+    report=f'''# Cheryl — HyDE generation and parameter robustness
 
-## Protocol and limits
+**Goal:** Following last week's feedback, test whether better HyDE generation improves dense retrieval and, in turn, hybrid retrieval.
 
-100 Legal RAG Bench questions; 4,876 passages; fixed MiniLM and FLAN-T5-base,
-pinned model revisions. Generation sees only the original question. Eight prompt ×
-length × decoding configurations plus two repeated stochastic seeds. Four dense
-representations per configuration, plus BM25 fusion weights/depths. This yields
-{len(df)} method/configuration rows at each K. The same 100 questions were inspected
-previously: **all sweep results are exploratory, not new held-out test results**.
-No Qwen or teammate dependency. Final answer correctness was not evaluated here.
+Legal RAG Bench: **100 questions / 4,876 passages**. Generator: **FLAN-T5-base**. Embeddings: **MiniLM-L6-v2**, fixed throughout. Generation uses only the question.
 
-## Recomputed controls
+## 1. What I tested
 
-| Method | Hit/Recall@5 | MRR@5 | nDCG@5 |
+| Parameter / method | Settings tested |
+|---|---|
+| Prompt style | Short answer; evidence passage |
+| Maximum generated length | 32; 96 tokens |
+| Decoding | Greedy; sampling with temperature 0.7 and top-p 0.9 |
+| Random-seed check | Three seeds for sampled evidence passages at 96 tokens |
+| Retrieval input | One HyDE answer; question + HyDE; three-answer embedding average; three-answer ranking fusion |
+| Hybrid weights | BM25 / dense: 75% / 25%, 50% / 50%, 25% / 75% |
+| Candidates before fusion | Top 20; Top 100 per retrieval list; RRF constant = 60 |
+| Evaluation | Precision, Recall/Hit Rate, MRR, nDCG at K = 1, 3, 5, 10; paired McNemar tests |
+| Experiment size | 10 generation settings; 3,000 generated hypotheses; {len(df)} method/configuration rows per K |
+
+Three-answer methods use three prompt variants, so they test both prompt diversity and the number of hypotheses.
+
+## 2. Dense retrieval results
+
+**Hit@5:** percentage of questions with the labelled evidence in the first five results. With one labelled passage per question, Recall@5 equals Hit@5.
+
+| Retrieval input | Hit@5 range across 10 settings | Mean Hit@5 | Highest observed Hit@5 |
 |---|---:|---:|---:|
-{table(base)}
+| Original question — baseline | — | — | {q:.0%} |
+{dense_rows}
+| Dataset reference answer — diagnostic only | — | — | {oracle:.0%} |
 
-## Formulation comparison
+**Finding:** No tested HyDE dense method exceeded the original-question baseline. The 72% reference-answer result uses the gold answer and cannot be deployed.
 
-Read `generation_comparison_k5.csv` for one row per generation setup and columns for
-single-HyDE, question+HyDE, average-embedding multi-HyDE, and multi-ranking RRF.
-Read `fixed_weight_comparison_k5.csv` for their BM25-hybrid variants at dense weight
-0.25 and candidate depth 100, the same control setting as last week.
+## 3. Hybrid retrieval results
 
-The strongest **observed** dense representation was `{bestdense.method_id}`:
-Hit@5 {bestdense.recall_at_k:.2f}, versus question dense {q:.2f}. Its descriptive
-oracle-gap fraction is {bestdense.oracle_gap_closed:.1%} relative to the oracle
-{oracle:.2f}. This is a sweep maximum, not an independently validated winner.
+Both rows use **75% BM25 / 25% dense**, candidate depth **100**, and RRF constant **60**.
 
-The strongest **observed fixed-weight** HyDE hybrid was `{cand.method_id}`:
-Hit@5 {cand.recall_at_k:.2f}, versus standard hybrid {standard:.2f}. Paired gains/losses:
-{int(paired.candidate_only_hits)} gained and {int(paired.baseline_only_hits)} lost;
-unadjusted exact McNemar p={paired.mcnemar_exact_p:.4g}, Holm-adjusted p={paired.holm_adjusted_p:.4g}
-across all {len(pairs)} exploratory comparisons. Do not claim significance from a
-selected sweep maximum. Full parameter sweeps are in `summary_k5.csv`.
+| Method | Precision@5 | Hit/Recall@5 | MRR@5 | nDCG@5 |
+|---|---:|---:|---:|---:|
+| Standard hybrid: BM25 + original-question dense | {control.precision_at_k:.1%} | {standard:.0%} | {control.mrr_at_k:.4f} | {control.ndcg_at_k:.4f} |
+| Highest observed HyDE hybrid: BM25 + three-answer RRF | {cand.precision_at_k:.1%} | **{cand.recall_at_k:.0%}** | {cand.mrr_at_k:.4f} | {cand.ndcg_at_k:.4f} |
+| Change | +{(cand.precision_at_k-control.precision_at_k)*100:.1f} pp | +{(cand.recall_at_k-standard)*100:.0f} pp | {cand.mrr_at_k-control.mrr_at_k:+.4f} | {cand.ndcg_at_k-control.ndcg_at_k:+.4f} |
 
-The higher Hit@5 is also a ranking tradeoff: the selected hybrid's MRR@5 is
-{cand.mrr_at_k:.4f}, versus {control.mrr_at_k:.4f} for standard hybrid; nDCG@5 is
-{cand.ndcg_at_k:.4f}, versus {control.ndcg_at_k:.4f}. More Top-5 hits therefore
-does not establish better ranking quality. Read `presentation_k5.csv` for a
-compact descriptive table; maxima are explicitly labelled exploratory.
+Selected HyDE setup: **short-answer prompt / 32 tokens / greedy / three hypotheses**. Paired comparison: **{int(paired.candidate_only_hits)} gained, {int(paired.baseline_only_hits)} lost**; McNemar **p = {paired.mcnemar_exact_p:.4f}**, Holm-adjusted **p = {paired.holm_adjusted_p:.0f}** across {len(pairs)} comparisons.
 
-## Stability
+**Finding:** More Top-5 hits, but worse ranking quality and no statistically significant improvement. Improving standalone HyDE dense did not consistently improve hybrid retrieval.
 
-{ranges.to_csv(index=False)}
+## Conclusion and next step
 
-Seed checks for sampled evidence-passage generation (length cap 96):
+**Conclusion:** These generation and parameter changes did not establish a reliable HyDE improvement with the current models.
 
-{seeds.to_csv()}
+**Next:** Freeze a configuration, validate on new questions, then test a stronger generator.
 
-These ranges cover this small local generator and this benchmark only. They do
-not establish that HyDE broadly succeeds or fails with stronger generators.
+**Limits:** The same 100 questions were previously inspected; ranges and selected maxima are exploratory. Final answer correctness was not evaluated. Saved timings are batched CPU estimates, not interactive latency.
 
-## Timing and audits
-
-`generation_audit_summary.csv` records empty outputs and generated-text truncation
-under MiniLM's original token limit. `generation_configs.csv` records three-hypothesis
-generation throughput. Timing columns are batched CPU estimates; single-generation
-cost is approximated by dividing total three-hypothesis time by three and extra
-question+HyDE encoding is not timed. They are not interactive latency measurements.
-
-## Easy meeting notes
-
-- I kept MiniLM fixed and tested question-only HyDE generation, so the embedding
-  model stayed the same across all comparisons.
-- I compared short answers, evidence-style passages, the question plus generated
-  text, and three hypotheses combined in two ways.
-- I also changed output length, decoding, fusion weights and candidate depth,
-  and repeated one sampled setting with three seeds.
-- Question dense retrieved the correct passage for {q*100:.0f} out of 100 questions;
-  the reference-answer oracle retrieved it for {oracle*100:.0f}. The oracle uses the
-  dataset answer and is only a diagnostic.
-- The best observed dense setup reached {bestdense.recall_at_k*100:.0f} hits, and the
-  best observed hybrid at the original weight reached {cand.recall_at_k*100:.0f},
-  compared with {standard*100:.0f} for standard hybrid.
-- These are exploratory results. I will show the full ranges and seed checks,
-  rather than treating the highest score as a reliable final improvement.
-- The next step is to freeze a configuration and validate it on new questions,
-  then test a stronger generator if the local model remains the bottleneck.
-
-## Files to open during the meeting
-
-1. `generation_comparison_k5.csv` — prompt/length/decoding and formulation comparison.
-2. `fixed_weight_comparison_k5.csv` — fair comparison at unchanged hybrid weight.
-3. `seed_robustness_k5.csv` — consistency across random seeds.
-4. `help_hurt_examples.csv` and `generated_*.csv` — concrete question examples.
-5. `paired_comparisons_k5.csv` — paired tests and multiplicity adjustment.
-
-Run `python person3_hyde/validate_robustness.py` to independently verify CSV metrics
-with no model download. Model-free replay is documented in `ROBUSTNESS_README.md`.
+[Full generation comparison](generation_comparison_k5.csv) · [All weights and configurations](summary_k5.csv) · [Seed checks](seed_robustness_k5.csv) · [Paired tests](paired_comparisons_k5.csv) · [Help/hurt examples](help_hurt_examples.csv) · [Reproduction instructions](../../person3_hyde/ROBUSTNESS_README.md)
 '''
     (OUT/'findings.md').write_text(report)
     print(report[:3500])
