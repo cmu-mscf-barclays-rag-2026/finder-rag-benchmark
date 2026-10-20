@@ -347,6 +347,124 @@ same file set as the standalone evaluation: `split.json`, `dev_metrics.csv`,
 `summary.json`, and `traces.jsonl`. `traces.jsonl` holds each question's LLM
 keywords, seeds, gold rank, and top 5 per method.
 
+## Selective routing and one-retry agentic search
+
+These are this branch's own experiments (Yuchen). The question was when
+extra retrieval work is worth it. Every number below is on the improved
+graph, under the same team protocol.
+
+### Routing headroom
+
+A per-question router can gain only where the two choices disagree. The
+oracle row picks the better choice for each question using the labels, so it
+is the most any router could gain.
+
+| Choice (held-out Hit@5) | Option A | Option B | Oracle |
+|---|---:|---:|---:|
+| Graph propagation off / on | 0.3750 | 0.3875 | 0.3875 |
+| Single pass / LLM-reformulated retry | 0.3875 | 0.4500 | 0.5125 |
+| Graph / *legal_rag BM25* | 0.3875 | 0.3750 | 0.4500 |
+
+**Routing graph propagation has no headroom.** The one-step search never
+finds a passage the full walk misses, on either split. The improved graph's
+value lies in its construction, not in deciding per query whether to walk;
+the walk costs about 20 ms, so it is simply always on. The retry decision
+has the most headroom: the single pass and the retry fail on different
+questions, and an oracle that retries only the 16% of questions it helps
+reaches 0.5125.
+
+### One-retry prototype
+
+[`agentic_graph.py`](agentic_graph.py) (`OneRetryGraphRetriever`) takes at
+most one extra search step:
+
+```text
+graph search  ->  confidence = top PageRank score / mean of the top 20
+              ->  confident: return the first ranking (no LLM call)
+              ->  otherwise: LLM keyword reformulation, second walk seeded by
+                  50% question + 50% reformulation; return that ranking
+```
+
+The second walk already combines both versions of the query, so no separate
+merge step is added. In exploration, reciprocal-rank fusion of the two
+rankings never hurt on development but recovered less of the retry gain on
+held-out (at most 0.425 Recall@5), and LLM reranking hurts on this graph
+(above). Each trace entry adds `retried`,
+`confidence`, `confidence_threshold`, and `reformulation` to the graph path.
+
+Three gates were fixed before the held-out run. Each retries when its
+signal falls below the signal's median over the 20 development questions; the
+median needs no labels and aims at about half the queries.
+
+- **Peakedness:** the prototype's gate, a standard score-based
+  query-performance predictor.
+- **Coverage:** the share of the question's link weight that the top passage
+  mentions.
+- **LLM judge:** CRAG-style; the highest LLM P(relevant) among the top 3
+  passages, which costs 3 extra LLM calls.
+
+| Method (held-out, 80) | Recall@5 | MRR@5 | nDCG@5 | Retried | LLM calls/query | ~ms |
+|---|---:|---:|---:|---:|---:|---:|
+| Single pass (improved graph) | 0.3875 | 0.2925 | 0.3156 | 0% | 0 | 23 |
+| Always retry | 0.4500 | 0.3127 | 0.3467 | 100% | 1.00 | 683 |
+| **Gated by peakedness (prototype)** | **0.4500** | **0.3327** | **0.3616** | 42% | 0.42 | 304 |
+| Gated by coverage | 0.4125 | 0.3077 | 0.3337 | 41% | 0.41 | 295 |
+| Gated by LLM judge | 0.4375 | 0.3206 | 0.3494 | 50% | 3.50 | 720 |
+| *Oracle gate (uses labels; upper bound)* | 0.5125 | 0.3710 | 0.4059 | 16% | 0.16 | 131 |
+
+Latency is the expected cost per query, built from the live step latencies
+measured in the LLM-graph evaluation: the graph walk is 23 ms and the LLM
+reformulation about 640 ms. The pipeline was not re-timed end to end.
+
+- **On held-out, the gate pays for itself.** The prototype matches
+  always-retry Recall@5 and has higher MRR@5 and nDCG@5, with 42% of the LLM
+  calls and under half the latency. Against the single pass it gains +0.0625
+  Hit@5 ([0.000, +0.139], 7 wins and 2 losses); against always-retry the
+  difference is 0.000 (3 wins, 3 losses).
+- **The gate itself adds little over chance.** The budget curves sweep the
+  retried share against random gating. At equal budgets of 40-60%,
+  peakedness beats random gating by about 0.02 Hit@5 and 0.02 nDCG@5, about
+  two questions. Most of the gain comes from retrying at all.
+- **No signal predicts when a retry hurts.** Questions the retry fixes lean
+  toward low confidence, but the five it breaks are spread across the
+  confidence range for all three signals. That is why the oracle stays far
+  ahead.
+- **The LLM judge costs more than it saves.** It needs three LLM calls on
+  every query to avoid one reformulation on some.
+- **Development does not confirm the gain.** On the 20 development questions,
+  every retry variant scores at or below the single pass (nDCG@5: single pass
+  0.372; LLM-judge gate 0.373; always retry 0.302; peakedness gate 0.292).
+  A retry changes Hit@5 for only 3 of them, so development cannot select or
+  validate a gate. The reformulation prompt was also designed on an earlier
+  split overlapping held-out. Under the team rule, the single-pass graph stays
+  the default, and one-retry search remains an opt-in prototype.
+
+This matches the literature on selective query expansion: deciding per query
+whether to expand from retrieval-confidence predictors gives modest,
+inconsistent gains (Cronen-Townsend, Zhou and Croft, 2004; Amati, Carpineto
+and Romano, 2004). The useful next step is more labeled development
+questions, not a more elaborate gate.
+
+```powershell
+.venv\Scripts\python.exe evaluate_agentic_graph.py --reference-per-query legal_rag_per_query.csv
+```
+
+This reads cached LLM outputs and live latencies from
+[results/legal_llm_graph/](results/legal_llm_graph/), so it needs no Ollama.
+It also checks that `OneRetryGraphRetriever` reproduces the evaluated ranking
+on every question. Outputs in
+[results/legal_agentic_graph/](results/legal_agentic_graph/) follow the
+usual file set plus:
+
+- `budget_curves.csv` - Hit@5, MRR@5, nDCG@5, cost, and LLM calls per query
+  for each gate, random gating, and the oracle, at retried shares from 0% to
+  100%, on both splits.
+- `gate_costs.csv` - thresholds, retried shares, and expected cost per method.
+- `traces.jsonl` - each question's signals, reformulation, both top 5s, and
+  whether the retry helps.
+- `summary.json` - routing headroom, thresholds, measured step costs, and
+  protocol notes.
+
 ## Previous experiment
 
 The earlier dense-seeded graph remains available as `retrieval_mode="dense_graph"`

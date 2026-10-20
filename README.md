@@ -30,6 +30,8 @@ and dataset downloads need internet access; inference runs on your computer.
 - `GRAPH_RAG_README.md` - standalone graph design, usage, and measured results.
 - `llm_graph.py` - LLM keyword expansion and LLM reranking around the standalone graph.
 - `evaluate_llm_graph.py` - graph versus LLM-augmented graph evaluation (cached LLM calls).
+- `agentic_graph.py` - one-retry agentic search: confidence-gated LLM reformulation around the graph.
+- `evaluate_agentic_graph.py` - routing headroom, gated retry, and budget curves (cached LLM calls).
 
 The benchmark answers are deliberately not indexed. Only FinDER's reference
 passages are searchable, avoiding answer leakage into the retrieval context.
@@ -152,6 +154,11 @@ The results follow the team Legal RAG protocol (`legal_rag/` on
   lets the local LLM rerank the pooled top 20 of both graph walks. On the
   improved graph it reaches Recall@5 0.4125 but lower MRR@5 and nDCG@5 than
   the graph alone, which development also favors.
+- **Selective retry:** retrying with an LLM reformulation only when the first
+  search is unconfident matches always-retry Recall@5 (0.450) with 42% of the
+  LLM calls on held-out, but development does not confirm the gain. Routing
+  graph propagation per query has no headroom.
+
 The previous dense + graph experiment remains available as `dense_graph`;
 its original results are preserved separately.
 
