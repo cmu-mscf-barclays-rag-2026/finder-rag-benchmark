@@ -1,0 +1,10 @@
+{
+  "ks": [1, 5, 10],
+  "budgets": [null, 2048],
+  "grandchild_tokens": 128,
+  "grandchild_overlap": 32,
+  "bm25_k1": 1.5,
+  "bm25_b": 0.75,
+  "selection": "All 20 inherited development questions; no test questions or retrieval-based sampling",
+  "status": "Fixed demonstration settings, not tuned winners"
+}

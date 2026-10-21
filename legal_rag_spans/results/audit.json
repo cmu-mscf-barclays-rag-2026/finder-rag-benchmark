@@ -1,0 +1,6 @@
+{
+  "query_setting_rows_independently_checked": 360,
+  "summary_rows_checked": 18,
+  "character_union_token_coverage_and_budget_checks": "passed",
+  "human_semantic_review": "not performed; cannot be replaced by these tests"
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "case": "one_piece",
+    "any_span_overlap": 1,
+    "any_complete_span": 1,
+    "all_spans_included": 1,
+    "complete_span_recall": 1.0,
+    "evidence_char_coverage": 1.0,
+    "evidence_token_coverage": 1.0
+  },
+  {
+    "case": "two_pieces",
+    "any_span_overlap": 1,
+    "any_complete_span": 1,
+    "all_spans_included": 1,
+    "complete_span_recall": 1.0,
+    "evidence_char_coverage": 1.0,
+    "evidence_token_coverage": 1.0
+  },
+  {
+    "case": "duplicate",
+    "any_span_overlap": 1,
+    "any_complete_span": 1,
+    "all_spans_included": 1,
+    "complete_span_recall": 1.0,
+    "evidence_char_coverage": 1.0,
+    "evidence_token_coverage": 1.0
+  },
+  {
+    "case": "missing_tail",
+    "any_span_overlap": 1,
+    "any_complete_span": 0,
+    "all_spans_included": 0,
+    "complete_span_recall": 0.0,
+    "evidence_char_coverage": 0.5,
+    "evidence_token_coverage": 0.47058823529411764
+  }
+]

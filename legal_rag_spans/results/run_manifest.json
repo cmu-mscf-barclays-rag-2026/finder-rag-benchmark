@@ -1,0 +1,31 @@
+{
+  "scope": "Actual CPU BM25 retrieval on all source units; 20 development queries; draft span labels",
+  "config": {
+    "ks": [
+      1,
+      5,
+      10
+    ],
+    "budgets": [
+      null,
+      2048
+    ],
+    "grandchild_tokens": 128,
+    "grandchild_overlap": 32,
+    "bm25_k1": 1.5,
+    "bm25_b": 0.75,
+    "selection": "All 20 inherited development questions; no test questions or retrieval-based sampling",
+    "status": "Fixed demonstration settings, not tuned winners"
+  },
+  "source_manifest_sha256": "0f31392d7eeab6d0ff4442583224afc0c3049577afcf9180e3faa00f86777b2a",
+  "implementation_sha256": "cd634883e091d6468e48bbc0485ccd9afb56be0f5902036c5577097c48cf7d1e",
+  "annotation_sha256": "fbe2bc69835acef9824bdf6dd95d9bf5ea09727905a77c197d77e6f175694248",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.2.6",
+  "questions": 20,
+  "sources": 2785,
+  "evaluated_query_settings": 360,
+  "human_approved_questions": 0,
+  "no_test_questions_used": true,
+  "no_parameter_tuning": true
+}

@@ -1,0 +1,538 @@
+[
+  {
+    "question_id": "3",
+    "question": "Isaac is on trial for statutory murder of an emergency worker. You are his barrister. Should you notify the jury that, according to the Crimes Act 1958, the standard sentence for this offence is 30 years imprisonment?",
+    "reference_answer": "No. The bench book is clear that “counsel should not refer to the penalty prescribed by law for the offence charged or make any other reference to the consequences which will flow from the jury’s verdict.”",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "1.5-c6-s1",
+    "spans": [
+      {
+        "id": "q3-e1",
+        "source_document": "1.5-c6",
+        "source_sha256": "61ebb854aa28a5956a99f0f18090868eb8cd3edda5dc9c3f0f666ed52d26cf40",
+        "start_char": 456,
+        "end_char": 632,
+        "text": "Counsel should also not refer to the penalty prescribed by law for the offence charged, or make any other reference to the consequences which will flow from the jury’s verdict."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Directly supports the reference answer's prohibition on counsel mentioning the penalty.",
+    "review_note": "Check that the selected rule is sufficient for this factual scenario; no independent legal validation is claimed."
+  },
+  {
+    "question_id": "10",
+    "question": "Emma is found in possession of someone else’s phone but has no documentation of how she obtained it. Emma’s counsel argues that possession of the phone is circumstantial evidence and thus completely inadmissible to establish guilt. Is Emma’s counsel correct?",
+    "reference_answer": "No. They are incorrect. The bench book notes that “nothing in the law that makes proof by circumstantial evidence unacceptable or suspect of itself.”",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "3.6-c2-s1",
+    "spans": [
+      {
+        "id": "q10-e1",
+        "source_document": "3.6-c2",
+        "source_sha256": "7a1315b1dc48354960ff00c11d8397a44587f58244816d01dd5f7fd8fda63d20",
+        "start_char": 353,
+        "end_char": 658,
+        "text": "As there is nothing in the law that makes proof by circumstantial evidence unacceptable or suspect of itself (*De **Gruchy** v R* (2002) 211 CLR 85), circumstantial evidence can be used to prove the accused’s guilt in this way (*Festa v R* (2001) 208 CLR 593; *Chamberlain v R (No 2)* (1984) 153 CLR 521)."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Includes the admissibility principle and the explicit statement that circumstantial evidence can prove guilt.",
+    "review_note": "Retain the proposition, rather than just the word circumstantial."
+  },
+  {
+    "question_id": "25",
+    "question": "In an armed robbery trial, a shop assistant who has served the accused every week for years is shown still images from CCTV and says, “Based on how he looks, that’s the same customer who comes into my store.” What type of identification evidence is this an example of?",
+    "reference_answer": "It is an example of comparison evidence. As the bench book explains one example of comparison evidence is a “non-expert witness which compares two people or items which do not require particular expertise to compare (e.g. evidence comparing the voice of the accused with a voice on a tape).”",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "4.12-c2-s1",
+    "spans": [
+      {
+        "id": "q25-e1",
+        "source_document": "4.12-c2",
+        "source_sha256": "df8ce1bf93ecac935427ba4fdac7c4dce911acbdc4ad459a80cef962a9447a3f",
+        "start_char": 1115,
+        "end_char": 1426,
+        "text": "comparison evidence: evidence of a non-expert witness which compares two people or items which do not require particular expertise to compare (e.g. evidence comparing the voice of the accused with a voice on a tape) (see, e.g.* Bulejcik v R* (1996) 185 CLR 375; *R v Theos* (1996) 89 A Crim R 486 (Vic CA));[^4]"
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "The definition cited in the reference answer identifies comparison evidence.",
+    "review_note": "The scenario resembles recognition as well; a reviewer should confirm the dataset's intended classification rather than treating this draft as an independent legal judgment."
+  },
+  {
+    "question_id": "39",
+    "question": "Emma is committed for trial on 1 March. On 25 March, she first tells her lawyer she was at a movie with her sister at the time of the alleged offence and wants both to give evidence, but no notice has been filed. What procedural step is required before Emma, or her sister can give evidence that she was at the movie rather than at the scene of the offence?",
+    "reference_answer": "Emma must apply for leave. The bench book explains that “an accused must obtain leave of the court in order to give evidence of an alibi personally, or to call evidence in support of an alibi, if the accused has not given notice of alibi within 14 days of being committed for trial.”",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "4.25-c1-s1",
+    "spans": [
+      {
+        "id": "q39-e1",
+        "source_document": "4.25-c1",
+        "source_sha256": "8ed87473fce48e89c112f3c22a3f80d2135f7c15697a9c01913b842c660f1e78",
+        "start_char": 510,
+        "end_char": 911,
+        "text": "An accused must obtain leave of the court in order to give evidence of an alibi personally, or to call evidence in support of an alibi, if the accused has not given notice of alibi within 14 days of being committed for trial or, if that does not apply, within 14 days of receiving a copy of the indictment (*Criminal Procedure Act 2009* ss 190(1), (2). See also *DPP v Debs* [2002] VSC 79, [11]–[12])."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Includes leave, notice, and the 14-day condition rather than selecting only the outcome.",
+    "review_note": "The selected sentence retains the alternative indictment timing condition."
+  },
+  {
+    "question_id": "40",
+    "question": "Alex is charged with a robbery at a shopping centre at 8:15 pm. He leads evidence that he was having dinner with friends at a restaurant across town at that time, and the jury thinks there is a real chance this is true. Ignoring the standard elements of robbery, what more needs to be proven to establish Alex’s guilt?",
+    "reference_answer": "In addition to proving beyond reasonable doubt the elements of the offence, the prosecution must disprove the alibi.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "4.25-c2-s2",
+    "spans": [
+      {
+        "id": "q40-e1",
+        "source_document": "4.25-c2",
+        "source_sha256": "caa68ca59b7581ef26414139c090e37bfe6d482194281a1134ab8f59bcf74e1d",
+        "start_char": 1629,
+        "end_char": 1843,
+        "text": "This means that the prosecution assume a burden of disproving the alibi. If the prosecution fails to satisfy you beyond reasonable doubt that the alibi evidence should be rejected, then you must acquit the accused."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "States the burden to disprove the alibi and the beyond-reasonable-doubt consequence.",
+    "review_note": "Other sentences repeat this principle; this is one sufficient candidate evidence set, not exhaustive acceptable evidence."
+  },
+  {
+    "question_id": "43",
+    "question": "Noah convinces his 12-year-old nephew to deliver a sealed package to an address, telling him it contains “books for a friend,” when in fact Noah has filled the package with prohibited drugs. The nephew has no idea what is inside and believes he’s doing a harmless favour. If police intercept the drugs, can Noah be liable as a principal offender for drug trafficking?",
+    "reference_answer": "Yes. In this case, Noah's nephew would be an “innocent agent” and thus, as Noah caused his nephew to do the physical elements of the offence, Noah can be found guilty as a principal offender.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "5.9-c1-s2",
+    "spans": [
+      {
+        "id": "q43-e1",
+        "source_document": "5.9-c1",
+        "source_sha256": "109a192533d8fc116e7abac8cc23971f66eaf042c81f1ee9162b1d8bd83180c7",
+        "start_char": 61,
+        "end_char": 358,
+        "text": "In some cases a person will intentionally cause the physical elements of an offence to be committed by someone who will him/herself be innocent of that offence (an \"innocent agent\"). In such cases, the person who caused the innocent agent to act in that way will be guilty as a principal offender."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Defines the innocent agent and the resulting principal liability together.",
+    "review_note": "The fuller source also lists mental-state requirements; reviewer should assess sufficiency against the reference answer."
+  },
+  {
+    "question_id": "48",
+    "question": "Jacob sets off powerful fireworks in a small, crowded backyard. He later admits he knew people could get hurt but did it anyway. In Victoria, what level of criminal culpability best describes his conduct?",
+    "reference_answer": "In Victoria, Jacob's actions are an example of recklessness. As the bench book explains “an accused is said to have been reckless if they acted in the knowledge that a particular harmful consequence would probably result from their conduct, but they decided to continue their actions regardless of that consequence.”",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.1.3-c1-s2",
+    "spans": [
+      {
+        "id": "q48-e1",
+        "source_document": "7.1.3-c1",
+        "source_sha256": "25875b28b4559ab34bf887b788b2fd17adad30175b9ac192b7f2a6e20b401ce4",
+        "start_char": 25,
+        "end_char": 263,
+        "text": "In Victoria, an accused is said to have been reckless if they acted in the knowledge that a particular harmful consequence would probably result from their conduct, but they decided to continue their actions regardless of that consequence"
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Matches the reference answer's definition of recklessness, including probability and continuing despite the consequence.",
+    "review_note": "High-priority ambiguity: the question says people could get hurt, while this source requires a probable consequence. Human review must resolve this question-answer mismatch before approval."
+  },
+  {
+    "question_id": "56",
+    "question": "During an argument outside a bar in 2016, Taylor swings once at Jordan’s jaw; Jordan falls backwards, hits their head on the curb and dies from the head injury. For manslaughter by an unlawful and dangerous act, which element of the offence does Crimes Act 1958 s 4A(4) help the jury assess?",
+    "reference_answer": "Crimes Act 1958 s 4A helps the jury assess the first element of manslaughter by an unlawful and dangerous act causing death, which is ‘that the accused committed an act that caused the death of another person.’ Namely, this is relevant in telling the jury that a single punch can still be treated as the cause of death even if the fatal injury comes from the victim’s head hitting the curb after the punch.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.2.2-c2-s1",
+    "spans": [
+      {
+        "id": "q56-e1",
+        "source_document": "7.2.2-c2",
+        "source_sha256": "58607cb0ddc1d2431f340077a06322dfd08bae0d2aa7ea7d787f15b77f2151a4",
+        "start_char": 563,
+        "end_char": 774,
+        "text": "The first element that the prosecution must prove is that the accused committed an act that caused the victim’s death (*R v Stein* (2007) 18 VR 376; *R v Summers* [1990] 1 Qd R 92; *Aidid v R *(2010) 25 VR 593)."
+      },
+      {
+        "id": "q56-e2",
+        "source_document": "7.2.2-c2",
+        "source_sha256": "58607cb0ddc1d2431f340077a06322dfd08bae0d2aa7ea7d787f15b77f2151a4",
+        "start_char": 779,
+        "end_char": 1219,
+        "text": "For offences committed on or after 1 November 2014, the *Crimes Act 1958* s 4A provides that:\n\n\n\n(4) A single punch or strike may be the cause of a person's death even if the injury from which the person dies is not the injury that the punch or strike itself caused to the person's head or neck but another injury resulting from an impact to the person's head or neck, or to another part of the person's body, caused by the punch or strike."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Two clauses support the requested element and the single-punch causation explanation; both are in the same original passage.",
+    "review_note": "Multiple spans here do not establish a multi-document reasoning task."
+  },
+  {
+    "question_id": "57",
+    "question": "The accused admits he did not actually think death or really serious injury was likely, but the jury is sure that any reasonable person in his position would have realised they were exposing the victim to an appreciable risk of serious injury. If both reckless murder and manslaughter are left, which verdict does this state of mind support?",
+    "reference_answer": "This state of mind supports manslaughter, but not reckless murder. The test for reckless murder requires the jury to find that the accused knew that it was probable that death or really serious injury would result from his or her acts, whereas the test for manslaughter requires the jury to find that ‘a reasonable person would have realised that he or she was exposing the deceased to an appreciable risk of serious injury.’",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.2.2-c4-s1",
+    "spans": [
+      {
+        "id": "q57-e1",
+        "source_document": "7.2.2-c4",
+        "source_sha256": "dcd589dcffd98b692e350aecf6a32b719f87ff7fd206738f45a2b237fe1aae55",
+        "start_char": 228,
+        "end_char": 420,
+        "text": "The subjective test for reckless murder, which requires the jury to find that *the accused knew* that it was probable that death or really serious injury would result from his or her acts; and"
+      },
+      {
+        "id": "q57-e2",
+        "source_document": "7.2.2-c4",
+        "source_sha256": "dcd589dcffd98b692e350aecf6a32b719f87ff7fd206738f45a2b237fe1aae55",
+        "start_char": 424,
+        "end_char": 639,
+        "text": "The objective \"dangerousness\" test for manslaughter, which requires the jury to find that *a reasonable person would have **realised* that he or she was exposing the deceased to an appreciable risk of serious injury"
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "The answer contrasts two standards, so both definitions are retained.",
+    "review_note": "Both spans are from one passage; malformed Markdown is intentionally preserved."
+  },
+  {
+    "question_id": "58",
+    "question": "In 2010, Amir and Bella agree to “rough up” a debtor by slapping him around and threatening him, but nothing more. During the confrontation, Bella unexpectedly pulls a knife and fatally stabs the debtor. Amir is charged with manslaughter as a secondary party. If the prosecution relies on the doctrine that extends liability beyond the agreed lesser assault, what must they prove about Amir’s foresight of Bella’s escalation?",
+    "reference_answer": "They must prove that Amir foresaw the possibility that Bella would go beyond the agreed “roughing up” and commit the relevant unlawful and dangerous act of stabbing the debtor. Under the pre-2014 doctrine of extended common purpose, it isn’t enough that a reasonable person would have foreseen this. The prosecution must show Amir himself foresaw that Bella might escalate to that kind of serious violence and still went ahead with the plan.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.2.2-c5-s1",
+    "spans": [
+      {
+        "id": "q58-e1",
+        "source_document": "7.2.2-c5",
+        "source_sha256": "76b0815b7110ac81a22e73d6e3d19d756eac569fa06f1d58a807adc9d26fe87a",
+        "start_char": 827,
+        "end_char": 1205,
+        "text": "If the prosecution relies on the doctrine of extended common purpose based on the existence of an agreement to commit a lesser offence that is not dangerous, the prosecution must prove that the accused foresaw the possibility that a co-offender would commit the relevant unlawful and dangerous act (*R v Hartwick, Hartwick& Clayton *(2005) 14 VR 125; *R v PDJ *(2002) 7 VR 612)."
+      },
+      {
+        "id": "q58-e2",
+        "source_document": "7.2.2-c5",
+        "source_sha256": "76b0815b7110ac81a22e73d6e3d19d756eac569fa06f1d58a807adc9d26fe87a",
+        "start_char": 1297,
+        "end_char": 1402,
+        "text": "For offences committed on or after 1 November 2014, the doctrine of extended common purpose is abolished."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Supports personal foresight of possibility and preserves the temporal limitation relevant to the 2010 scenario.",
+    "review_note": "This is an annotation of supplied benchmark text, not advice on current law; historical applicability requires reviewer confirmation."
+  },
+  {
+    "question_id": "78",
+    "question": "Assault' is defined to mean the direct or indirect application of force to the body of, or to the clothing or equipment worn by, a person. “Application of force” is defined to include the application of heat, light, electric current or any other form of energy, as well as the application of matter in solid, liquid or gaseous form. For the purposes of Victorian criminal law as it pertains to assault, which statute establishes the meaning of a police officer?",
+    "reference_answer": "According to the bench book, The Victoria Police Act 2013 defines the meaning of a police officer or protective services officer.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.4.9-c5-s2",
+    "spans": [
+      {
+        "id": "q78-e1",
+        "source_document": "7.4.9-c5",
+        "source_sha256": "1f1f1e5e2efe7fe9e9599ba457ccdeec1fd221b154c92783c8af00745eca2b23",
+        "start_char": 2428,
+        "end_char": 2533,
+        "text": "(a) a police officer or protective services officer within the meaning of the *Victoria Police Act 2013*;"
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Names the statute attached specifically to police/protective services officers.",
+    "review_note": "Do not select the separate police custody officer definition merely because it mentions the same Act."
+  },
+  {
+    "question_id": "80",
+    "question": "As officers move in to arrest Malik outside a bar, his friend Tia sees them coming and yells, “Run, they’re about to grab you!” intending to help him escape. What key fact about the effect of Tia’s warning must be proved in order to charge her with obstruction?",
+    "reference_answer": "It must be proved that her warning actually prevented or made it more difficult for the officers to carry out the arrest. As the bench book explains, “for an accused to have obstructed an emergency worker … the accused must have acted in a way that prevented the emergency worker … from carrying out their duty, or made it more difficult for them to do so.”",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.4.9-c5-s9",
+    "spans": [
+      {
+        "id": "q80-e1",
+        "source_document": "7.4.9-c5",
+        "source_sha256": "1f1f1e5e2efe7fe9e9599ba457ccdeec1fd221b154c92783c8af00745eca2b23",
+        "start_char": 11514,
+        "end_char": 11692,
+        "text": "Acted in a way that prevented the emergency worker, youth justice custodial worker or custodial officer from carrying out their duty, or made it more difficult for them to do so;"
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Selects the effect of the warning, which is what the question asks, rather than the distinct intent element.",
+    "review_note": "The annotation is scoped to the requested fact, not every element of the offence."
+  },
+  {
+    "question_id": "82",
+    "question": "What are the elements of carjacking? Actually, I can answer that question for you. The offence has the following three elements: (i) The accused stole a vehicle; (ii) Immediately before or at the time of the theft, the accused: (a) Used force on any person; or (b) Put any person in fear that s/he or another person would, then and there, be subject to the use of force; or (c) Sought to put any person in fear that s/he or another person would, then and there, be subject to the use of force; and (iii) The accused did so in order to commit the theft (Crimes Act 1958 s 79(1)). Answer only this question: In a large shopping centre, Soraya stands in one spot near the central atrium all afternoon, turning only her head and eyes to keep Felix in view as he walks between different levels and stores. She never changes her physical position. On these facts, does Soraya follow Felix?",
+    "reference_answer": "No, she is not following Felix. The bench book is clear that it is not following if the accused stands or sits still and stares at the victim as the victim walks past. Following someone with one’s eyes is not sufficient.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.4.12-c2-s5",
+    "spans": [
+      {
+        "id": "q82-e1",
+        "source_document": "7.4.12-c2",
+        "source_sha256": "1dd8187205da8cf1b9353e7d0696ec48b30bfd0b74071953093e0ee8e5469e54",
+        "start_char": 4108,
+        "end_char": 4312,
+        "text": "The accused will therefore not fall within the scope of s 21A(2)(a) if he or she stands or sits still and stares at the victim as the victim walks past. Following someone with one’s eyes is not sufficient"
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Directly answers the stationary-observation question despite unrelated carjacking text in the query.",
+    "review_note": "The complete original question, including distractor text, remains the retrieval input."
+  },
+  {
+    "question_id": "89",
+    "question": "What is a good?",
+    "reference_answer": "According to the bench book, “Goods include money, every other type of property except land and things severed from land by stealing.”",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.5.10-c2-s1",
+    "spans": [
+      {
+        "id": "q89-e1",
+        "source_document": "7.5.10-c2",
+        "source_sha256": "7026ce9be44fdf8a90211ea168daec24bb0769316117c613c8f6f3e3493fa6f0",
+        "start_char": 141,
+        "end_char": 287,
+        "text": "\"Goods\" include:\n\n\n\n- Money;\n\n- Every other type of property except land; and\n\n- Things severed from land by stealing (*Crimes Act 1958* s 71(1))."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Keeps all three listed categories to support the definition rather than one example.",
+    "review_note": "Formatting and intervening whitespace are part of the canonical text."
+  },
+  {
+    "question_id": "90",
+    "question": "Kai forces the owner of a vacant farm to leave, then lives there rent-free for six months, locking everyone else out of the gate and using it as his own space. For the purposes of handling stolen goods, does Kai’s wrongful occupation turn the land itself into “stolen goods”?",
+    "reference_answer": "No. According to the bench book, “goods” include money and all other property except land, plus things severed from land by stealing, so Kai’s wrongful occupation does not make the land itself “stolen goods” as land is not a “good”.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.5.10-c2-s1",
+    "spans": [
+      {
+        "id": "q90-e1",
+        "source_document": "7.5.10-c2",
+        "source_sha256": "7026ce9be44fdf8a90211ea168daec24bb0769316117c613c8f6f3e3493fa6f0",
+        "start_char": 141,
+        "end_char": 287,
+        "text": "\"Goods\" include:\n\n\n\n- Money;\n\n- Every other type of property except land; and\n\n- Things severed from land by stealing (*Crimes Act 1958* s 71(1))."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Preserves the definition including land exclusion and severed-property qualification.",
+    "review_note": "Shares source evidence with question 89; this pilot contains correlated questions."
+  },
+  {
+    "question_id": "91",
+    "question": "Carmen submits a valuation certificate for 500 crates of “premium truffles” that don’t exist and uses it to support a finance application. Which case has been treated as authority that a valuation of non-existent goods is fraudulent in this way?",
+    "reference_answer": "The bench book cites R v Donnelly [1984] 1 WLR 1017 as a case supporting the proposition that ‘a valuation of non-existent goods (as the goods need to exist before the valuation can properly be made)’ is an example of a ‘false’ or fraudulent document.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.5.14-c2-s6",
+    "spans": [
+      {
+        "id": "q91-e1",
+        "source_document": "7.5.14-c2",
+        "source_sha256": "478b251066d4a240127e71227783c9085c2c5d8491ff9af346ac960f41b715f9",
+        "start_char": 8076,
+        "end_char": 8220,
+        "text": "A valuation of non-existent goods (as the goods needed to exist before the valuation could properly be made) (*R v Donnelly* [1984] 1 WLR 1017);"
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Contains both the relevant example and its case citation, not only the case name.",
+    "review_note": "Citation formatting is preserved exactly."
+  },
+  {
+    "question_id": "94",
+    "question": "Josh deliberately and dishonestly destroys physical bank documents that record a loan he still owes, hoping to improve his own financial position. Which specific offence best captures Josh's conduct?",
+    "reference_answer": "Josh’s conduct satisfies all the elements for criminal damage with a view to gain, thus making this offence the ‘best fit’. As the bench book explains, the elements of this offence relate to destroying property, doing so dishonestly and doing so with a view to gain for himself or another.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.5.18-c2-s1",
+    "spans": [
+      {
+        "id": "q94-e1",
+        "source_document": "7.5.18-c2",
+        "source_sha256": "0d4768361c301fa640784fd9424641b07664992560d53745e7a4ff4a12ca31c1",
+        "start_char": 18,
+        "end_char": 281,
+        "text": "The offence of criminal damage with a view to gain has the following three elements:\n\n1. The accused damaged or destroyed property;\n\n2. The accused did so dishonestly;\n\n3. The accused did so with a view to gain for himself or another (*Crimes Act 1958* s 197(3))."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Includes the offence name and all three elements used by the reference answer.",
+    "review_note": "Does not independently adjudicate the factual scenario."
+  },
+  {
+    "question_id": "95",
+    "question": "Marco transfers cryptocurrency through multiple wallets to make it harder to trace, fully aware it came from a fraud scheme. Under the Victorian “dealing with proceeds of crime” offences, which physical element is clearly satisfied by his conduct, and which highest mental state could be charged on these facts?",
+    "reference_answer": "Marco’s conduct is best characterised as dealing with proceeds of crime with intent to conceal that it is proceeds of crime under s 194(1). As the bench book explains, to “deal with” property includes “receive, possess, conceal or dispose of” it, and s 194(1) specifically covers cases where the accused intends to conceal that it is proceeds of crime.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.5.22-c1-s1",
+    "spans": [
+      {
+        "id": "q95-e1",
+        "source_document": "7.5.22-c1",
+        "source_sha256": "7e5aca052d3fc6ae22968822d8904214f6c97c06fa722e95bde84f551fcf73f9",
+        "start_char": 623,
+        "end_char": 699,
+        "text": "intends to conceal that it is proceeds of crime (*Crimes Act 1958* s 194(1))"
+      },
+      {
+        "id": "q95-e2",
+        "source_document": "7.5.22-c1",
+        "source_sha256": "7e5aca052d3fc6ae22968822d8904214f6c97c06fa722e95bde84f551fcf73f9",
+        "start_char": 1033,
+        "end_char": 1094,
+        "text": "“deal with” includes receive, possess, conceal or dispose of."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "The question requests both physical conduct and mental state, supported by two separate clauses in the same passage.",
+    "review_note": "Reviewer should confirm adequacy of this evidence set; no new cross-passage requirement is inferred."
+  },
+  {
+    "question_id": "97",
+    "question": "Over six months, Minh alternates between weeks of intense dealing and long quiet stretches with no proven activity. The transactions involve different drugs, buyers and locations, but all are commercial. The indictment alleges he “trafficked” by carrying on a business over that whole period. What must the jury be satisfied of, given the patchy pattern of conduct?",
+    "reference_answer": "They must be satisfied that Minh was running a business, not just making a few big sales. As the bench book explains, Giretti trafficking requires proof that the accused was involved in a “continuing trade or business of dealing in drugs” carried on with enough “regularity and system” to amount to a business for a “significant part of the period specified.”",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.6.1-c3-s8",
+    "spans": [
+      {
+        "id": "q97-e1",
+        "source_document": "7.6.1-c3",
+        "source_sha256": "45c2d33ae66b9b69bf0178e7527a45b1765ea371b37f9c642a6dd2a5143bb897",
+        "start_char": 9662,
+        "end_char": 10053,
+        "text": "This latter type of trafficking (sometimes known as Giretti trafficking) requires the prosecution to prove that the accused was involved in a continuing trade or business of dealing in drugs, or had engaged on a regular and commercial basis in the transmission of drugs from source to consumer (Giretti v R (1986) 24 A Crim R 112; R v Te [1998] 3 VR 566; R v Lao and Nguyen (2002) 5 VR 129)."
+      },
+      {
+        "id": "q97-e2",
+        "source_document": "7.6.1-c3",
+        "source_sha256": "45c2d33ae66b9b69bf0178e7527a45b1765ea371b37f9c642a6dd2a5143bb897",
+        "start_char": 10386,
+        "end_char": 10755,
+        "text": "A charge of trafficking on a Giretti basis will usually allege that the accused conducted the business of trafficking between a start date and an end date. It is open to a jury to conclude that such a business was being carried on if it finds that the accused was conducting such a business for a significant part of the period specified (Mustica v R (2011) 31 VR 367)."
+      },
+      {
+        "id": "q97-e3",
+        "source_document": "7.6.1-c3",
+        "source_sha256": "45c2d33ae66b9b69bf0178e7527a45b1765ea371b37f9c642a6dd2a5143bb897",
+        "start_char": 11037,
+        "end_char": 11355,
+        "text": "It does not matter if the alleged activities were many and varied, and occurred over a long period of time, as long as they were part of a \"continuing\" offence. That is, they must have taken place with the necessary degree of regularity and system to amount to a business or trade (Giretti v R (1986) 24 A Crim R 112)."
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Covers continuing business, significant part of the period, and regularity/system, all requested by the reference answer.",
+    "review_note": "Three spans in one annotated passage, not evidence of multi-document completeness."
+  },
+  {
+    "question_id": "98",
+    "question": "“The salt of the abovementioned drugs, derivates and _______” Which word goes in the blank and which act does this phrase belong to?",
+    "reference_answer": "The missing word is “isomers”, and the phrase comes from the definition of “drug of dependence” in ‘4 of the Drugs Act’.",
+    "split": "dev",
+    "inherited_split_id": "legal-rag-a-sha256-gold-group-20pct-v1",
+    "original_gold_child_id": "7.6.3-c2-s1",
+    "spans": [
+      {
+        "id": "q98-e1",
+        "source_document": "7.6.3-c2",
+        "source_sha256": "75f0fbbb23abf0c49b94750f989d4d2c4215b69abc79f4aa5905f75255a3e7b2",
+        "start_char": 135,
+        "end_char": 194,
+        "text": "This term is defined in s 4 of the *Drugs Act*, to include:"
+      },
+      {
+        "id": "q98-e2",
+        "source_document": "7.6.3-c2",
+        "source_sha256": "75f0fbbb23abf0c49b94750f989d4d2c4215b69abc79f4aa5905f75255a3e7b2",
+        "start_char": 415,
+        "end_char": 475,
+        "text": "The salt of the abovementioned drugs, derivates and isomers;"
+      }
+    ],
+    "span_semantics": "All listed spans form one proposed sufficient evidence set",
+    "annotator": "Codex assistant; source-read selections",
+    "review_status": "assistant_reviewed_pending_human",
+    "reviewer": null,
+    "rationale": "Separately captures the Act/section and the missing word in its original phrase.",
+    "review_note": "Preserves the source's abbreviated Act name and spelling; does not infer an expanded statutory title."
+  }
+]
