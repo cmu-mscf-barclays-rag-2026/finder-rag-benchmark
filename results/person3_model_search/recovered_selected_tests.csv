@@ -1,0 +1,3 @@
+candidate,baseline,candidate_only_hits,baseline_only_hits,mcnemar_exact_p,holm_adjusted_p,n_comparisons,provenance
+smol3_focused160_question_mix_dense,question_dense,11,3,0.057373046875,1.0,32,recovered_counts_and_logged_test
+smol3_focused160_question_mix_hybrid_w0.5,standard_hybrid,10,6,0.454498291015625,1.0,32,recovered_counts_and_logged_test

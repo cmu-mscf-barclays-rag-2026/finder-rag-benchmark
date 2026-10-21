@@ -1,5 +1,11 @@
 # FinDER RAG Team Benchmark — Part C Hybrid Retrieval
 
+## Cheryl: recovered small-model HyDE observations
+
+[Result tables and provenance](results/person3_model_search/findings.md) · [Technical explanation](results/person3_model_search/technical_walkthrough.md)
+
+Aggregate observations are recovered from execution logs; original per-query files are unavailable. Earlier completed experiments remain unchanged.
+
 ## Cheryl: stronger HyDE follow-up
 
 [Latest findings and comparison tables](results/person3_stronger_hyde/findings.md) · [Code, model revisions and reproduction](person3_stronger_hyde/README.md)

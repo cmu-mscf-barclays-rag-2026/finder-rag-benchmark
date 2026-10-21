@@ -1,0 +1,72 @@
+{
+  "status": "recovered protocol from visible executed code; original generation/ranking artifacts lost; no new model runs performed by this update",
+  "dataset": {
+    "name": "isaacus/legal-rag-bench",
+    "revision": "db0b31dc6d195ce9916897e1ac5e4e6209736c8a",
+    "n_queries": 100,
+    "n_passages": 4876,
+    "scope": "previously inspected exploratory questions; no new held-out evaluation"
+  },
+  "models": {
+    "smol3": [
+      "HuggingFaceTB/SmolLM3-3B",
+      "a07cc9a04f16550a088caea529712d1d335b0ac1"
+    ],
+    "lfm25": [
+      "LiquidAI/LFM2.5-1.2B-Instruct",
+      "0f604ada3f766f9f257460c4c9f0b5d6f69d431b"
+    ]
+  },
+  "embedding": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "max_seq_length": 256,
+    "normalize": true,
+    "dtype": "float32",
+    "question_mix": "normalize(normalize(E(question)) + normalize(E(hypothetical_paragraph))); equal vector weights"
+  },
+  "profiles": {
+    "matched96": {
+      "limit": 96,
+      "prompt": "Generate the type of legal passage that would contain the evidence needed to answer this question about Victorian criminal law. Question: {q} Legal passage:"
+    },
+    "focused160": {
+      "limit": 160,
+      "prompt": "Write one short hypothetical textbook paragraph to help retrieve evidence about Victorian criminal law for the question below. Preserve the key legal issue and distinguish it from similar issues. Describe the relevant legal rule in plain language. Do not invent case names, statutory sections, dates, penalties or facts. Do not repeat the question or add headings. Aim for 70 to 100 words.\nQuestion: {q}\nHypothetical evidence paragraph:"
+    }
+  },
+  "generation": {
+    "do_sample": false,
+    "repetition_penalty": 1.2,
+    "no_repeat_ngram_size": 3,
+    "enable_thinking": false,
+    "chat_templates": "official tokenizer templates",
+    "input_add_special_tokens": false,
+    "dtype": "bfloat16",
+    "device": "cpu",
+    "torch_threads": 4,
+    "batch_schedule": "SmolLM3 matched96: first 8 questions in 2 batches of 4; remaining groups up to16. Other configurations: batches up to16."
+  },
+  "retrieval": {
+    "similarity": "cosine / dot product of normalized embeddings",
+    "bm25_input": "original question",
+    "bm25_k1": 1.2,
+    "bm25_b": 0.75,
+    "rrf_constant": 60,
+    "candidate_depth": 100,
+    "dense_rrf_weights": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "k_reported": 5
+  },
+  "evaluation": {
+    "relevance": "one gold passage per query",
+    "precision": "hit@5 / 5",
+    "recall": "equal to hit@5 with one gold passage",
+    "mcnemar": "exact two-sided conditional binomial test on paired Hit@5",
+    "multiple_testing": "Holm across all32 new configurations",
+    "final_answer_evaluation": "not performed by these experiments; earlier answer pilot unchanged"
+  }
+}
