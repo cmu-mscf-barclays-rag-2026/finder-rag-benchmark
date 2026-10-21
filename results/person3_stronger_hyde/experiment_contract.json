@@ -1,0 +1,32 @@
+{
+  "models": {
+    "qwen06": [
+      "Qwen/Qwen3-0.6B",
+      "c1899de289a04d12100db370d81485cdf75e47ca"
+    ],
+    "qwen17": [
+      "Qwen/Qwen3-1.7B",
+      "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+    ]
+  },
+  "embedding": [
+    "sentence-transformers/all-MiniLM-L6-v2",
+    "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+  ],
+  "embedding_max_length": 256,
+  "prompt": "Generate the type of legal passage that would contain the evidence needed to answer this question about Victorian criminal law. Question: {q} Legal passage:",
+  "max_new_tokens": 96,
+  "decoding": "greedy, repetition_penalty1.2, no_repeat_ngram_size3",
+  "thinking": false,
+  "threads": 4,
+  "dtype": "bfloat16 (generator); float32 (embeddings)",
+  "candidate_depth": 100,
+  "rrf_constant": 60,
+  "bm25_weight": 0.75,
+  "data_hashes": {
+    "corpus.jsonl": "3a3565bc5429f6cead90548e81f87352b449927e4be1cdd804c28d766bb9c246",
+    "qa.jsonl": "e3b869a4e293d081ec5f5b39c2058c8d27b36f611aa9f8275eb1877a7c8b38b0"
+  },
+  "scope": "exploratory previously inspected 100 questions",
+  "answer_pilot": "8 lowest sha256(str(query_id)) values; fixed before new generation; all five methods on same IDs"
+}

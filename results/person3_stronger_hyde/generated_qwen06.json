@@ -1,0 +1,1002 @@
+{
+  "4": {
+    "text": "A possible legal passage containing evidence for answering whether jurors should be excussed based on their exposure to news stories before a trial could look like:\n\n**\"In accordance with the principles established in *Smith v. United States* (1890), where it was held that public knowledge and media coverage may influence judicial proceedings, the court has determined that such information is not inherently prejudicial unless it directly relates to the case's facts or circumstances.\"**\n\nThis passage includes an example from",
+    "seconds": 8.08917129599996,
+    "input_tokens": 59,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 4,
+    "question": "Should jurors be excused if they have encountered news stories about the accused prior to the trial commencing?",
+    "precision": "bfloat16"
+  },
+  "5": {
+    "text": "**Legal Passage:**  \nIn *Case No. 12345*, the court ruled that **Frank must notify the jury immediately upon receiving any relevant evidence**, including photographs or documents related to the case. The prosecution had previously provided all necessary materials for the trial, but if additional evidence is discovered through text messages (such as photos), Frank was required to inform the jury promptly.\n\nThis passage outlines how the discovery of specific evidence\u2014via text\u2014together with prior procedural requirements",
+    "seconds": 7.849093686000003,
+    "input_tokens": 80,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 5,
+    "question": "Frank and Joe are jurors in an arson trial. Over the weekend, Joe finds photos of the accused holding a petrol canister and texts them to Frank. Having received this new information, what should Frank do?",
+    "precision": "bfloat16"
+  },
+  "6": {
+    "text": "A possible legal passage containing evidence for answering whether \"the standard of 'beyond unreasonable doubt' implies that the court must be completely satisfied with all claims made by the prosecution\" could look like:\n\n**Legal Passage:**  \n\"The standard of *beyond* reasonable doubt is a high threshold, and it requires the defendant's case to be so convincing that no other explanation can account for its outcome. In such circumstances, the trial judge may not require the plaintiff to present any alternative explanations",
+    "seconds": 7.457894425999996,
+    "input_tokens": 66,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 6,
+    "question": "Does the standard of proof of \u201cbeyond reasonable doubt\u201d imply that the jury must be fully convinced of every claim the prosecution has made?",
+    "precision": "bfloat16"
+  },
+  "7": {
+    "text": "The legal procedure you're referring to is called **\"examination by the jury.\"** This process allows the court to investigate an individual's actions through direct observation and examination by the jurors.\n\nIn your context, since the prosecution wants to verify if Sally \"intentionally cultivated or tried to cultivate narcotics,\" the use of **examination** (or *examination* as used in legal terminology) enables the court and jury to assess the presence and intent behind the alleged crime.",
+    "seconds": 8.34835848800003,
+    "input_tokens": 121,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 7,
+    "question": "Sally is accused of cultivating narcotic plants in her backyard. One of the elements of this charge is that \u201cthe accused intentionally cultivated or attempted to cultivate a particular substance.\u201d To establish whether this is the case, the judge believes it would be valuable to visit Sally\u2019s backyard and have the jury examine it for themselves. What is the name of the legal procedure whereby the court travels to a location relevant to the charge?",
+    "precision": "bfloat16"
+  },
+  "8": {
+    "text": "The legal passage you're referring to likely describes an **intoxication test** in the context of Victoria's Criminal Code (which applies in Australia). This test assesses whether the person who observed the crime had been under influence and therefore could not have acted with voluntary intent.\n\nIn your case:\n\n- **Josh**, at age 20, gave a clear witness statement.\n- The **prosecution seeks to prove voluntariness** through the presence of intoxication.\n-",
+    "seconds": 8.025867806000008,
+    "input_tokens": 108,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 8,
+    "question": "Josh is 21 years old. He witnessed a murder that was clearly perpetrated by the accused. The prosecution, however, needs to determine whether the accused committed the acts voluntarily, thus satisfying the elements of intentional or reckless murder. In court, the judge plays a recording of Josh giving his eyewitness testimony. What is this evidentiary process called?",
+    "precision": "bfloat16"
+  },
+  "9": {
+    "text": "The legal passage you have provided does not directly address the specific questions or context required for answering the query about **Victorian criminal law** and the relevant **legal privilege**. However, based on your description:\n\n### Relevant Legal Privilege (in Victoria's Criminal Law Context):\n\nWhen an individual testifies as a **witness** in a case involving **arson**, they may be subject to certain **privileges** under the **Common Law**.\n\nIn particular, if the",
+    "seconds": 7.85801546700003,
+    "input_tokens": 83,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 9,
+    "question": "Olivia illegally bought cannabis from a tobacconist. As she left, she saw a man firebomb the store. She is now a witness in the arson trial. What legal privilege should she consider when giving her evidence?",
+    "precision": "bfloat16"
+  },
+  "10": {
+    "text": "The legal passage you have provided does not address whether **Emma's counsel is correct** regarding her argument. However, based on the information given:\n\n- The presence of a person's phone at hand (i.e., *possession*) may be considered as circumstantial proof.\n  \n- If there are no documented records or sources establishing how Emma acquired the phone, then such possession might still be admissible under certain circumstances.\n\nIn general, **certain types of evidence**, like physical",
+    "seconds": 7.919305811000015,
+    "input_tokens": 87,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 10,
+    "question": "Emma is found in possession of someone else\u2019s phone but has no documentation of how she obtained it. Emma\u2019s counsel argues that possession of the phone is circumstantial evidence and thus completely inadmissible to establish guilt. Is Emma\u2019s counsel correct?",
+    "precision": "bfloat16"
+  },
+  "11": {
+    "text": "The type of **reasoning** exemplified in this scenario is a classic case of **reductio ad absurdum**, where the argument attempts to eliminate one possibility (John being at the arcade) and concludes that it must be false.\n\n### Explanation:\n- The prosecution presents evidence (arcade tickets) supporting John's claim that he was present.\n- John challenges this by arguing that his alibi (being at an arcades 12 miles away) is \"plausible",
+    "seconds": 8.44768602900001,
+    "input_tokens": 121,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 11,
+    "question": "John is on trial for an unnamed offence. John testifies that he could not have committed the offence because he was at an arcade 10 miles away when the offence took place. Earlier, the jury accepted arcade tickets as evidence of John's alibi. John\u2019s counsel now argues that, given this plausible alibi, John could not have committed the crime. What type of reasoning is this an example of?",
+    "precision": "bfloat16"
+  },
+  "12": {
+    "text": "A possible legal passage containing evidence related to whether Victoria has laws protecting against **double jeopardy** could be structured as follows:\n\n---\n\n**Victoria, Australia \u2013 Law on Protection Against Double Jeopardy**\n\nIn accordance with the principles established in *The Human Rights Act 1998*, and under Section 20(3) of the Constitution (which states that no person shall be deprived of their life or liberty without due process), it is hereby declared that all individuals are protected",
+    "seconds": 7.577091197000016,
+    "input_tokens": 50,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 12,
+    "question": "Does Victoria have a law/laws protecting against double jeopardy?",
+    "precision": "bfloat16"
+  },
+  "13": {
+    "text": "The instruction to continue the jury\u2019s deliberation when faced with uncertainty (such as Sophie and Helen) is commonly referred to by **\"the indeterminacy rule.\"** This principle ensures that even if some members have conflicting opinions, the jury should proceed based on majority opinion.\n\nIn your case, since both Sophie and Harrison were unsure of their own verdict, and others believed the accused was guilty, the court instructed them to \"continue deliberating,\" which aligns with the concept of",
+    "seconds": 7.294704272999979,
+    "input_tokens": 99,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 13,
+    "question": "Sophie and Hazel are two of twelve jurors in a trial. Both are uncertain of their verdict, while the remaining ten jurors believe the accused is guilty. The jury is becoming frustrated with Sophie and Hazel's indecision, but the judge instructs the jury to continue deliberating. What is this instruction called?",
+    "precision": "bfloat16"
+  },
+  "14": {
+    "text": "This scenario highlights an issue with the timing and structure of evidence presentation in Victoria's Criminal Code (Vic), particularly regarding **aggravated burglary**.\n\n### Reasoning:\n1. **Timing of Evidence**: In *Tim v. State* [2019 VSC 345], the court ruled that if a defendant\u2019s defense relies on prior testimony from a third party, it must be presented at a time when the prosecution has already had sufficient opportunity to present",
+    "seconds": 7.936996678000014,
+    "input_tokens": 71,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 14,
+    "question": "Tim is on trial for aggravated burglary. Before Tim gives evidence, his counsel calls another witness to testify first. Why might this be a bad idea for the defence?",
+    "precision": "bfloat16"
+  },
+  "15": {
+    "text": "Certainly! Here's a sample **legal argument** based on the scenario:\n\n---\n\n**Counsel for the Accused:**  \n\"Paul, who was found to be under the influence of alcohol at the time of the incident and thus not capable of providing reliable testimony, has been proven to have committed no crime by the court. As such, we respectfully request that the prosecution refrain from using any evidence involving Paul as a witness.\"\n\n---\n\nThis response adheres to the principles of **Vict",
+    "seconds": 9.388622731999988,
+    "input_tokens": 83,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 15,
+    "question": "Paul is 12 years old. He is a witness in a trial related to a common law riot. You are counsel for the accused. Should you argue that Paul\u2019s is fundamentally untrustworthy because of his age?",
+    "precision": "bfloat16"
+  },
+  "16": {
+    "text": "A possible legal passage containing evidence relevant to answering whether a defense can use \"good character\" evidence in Victorian criminal laws might look like:\n\n**\"In accordance with the principles established by the common law, it may be argued that an individual's conduct and moral character are not necessarily indicative of guilt unless proven beyond reasonable doubt.\"**\n\nThis passage reflects on the role of character evidence under Victorian (or early 19th-century) legal standards, which often emphasized personal morality over direct proof",
+    "seconds": 8.75697116699996,
+    "input_tokens": 52,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 16,
+    "question": "Can the defence use good character evidence to argue the accused is innocent?",
+    "precision": "bfloat16"
+  },
+  "17": {
+    "text": "A possible legal passage containing evidence relevant to answering whether a prosecution can freely use \"bad character\" evidence in Victorian criminal laws might look like:\n\n**\"In accordance with the principles established by the common law, it may be held that the prosecution has the right and power to utilize any evidence which supports its case, including statements or testimonies from individuals who have been found guilty before trial.\"**\n\nThis passage reflects on the general rights of the prosecution under Victorian (or contemporaneous) legal",
+    "seconds": 8.29475021899998,
+    "input_tokens": 53,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 17,
+    "question": "Can the prosecution freely use bad character evidence to argue the accused is guilty?",
+    "precision": "bfloat16"
+  },
+  "18": {
+    "text": "The legal passage should establish that **Sam's statement (\"I murdered My Neighbour Today\")** constitutes an admission under Victorian criminal laws. This typically requires:\n\n1. **Evidence of intent or motive**,  \n2. **A direct and clear statement made by Sam**,  \n3. **No prior knowledge or influence from others**,  \n4. **An absence of any other credible alternative explanations**.\n\nIn summary, the passage might look like this:\n\n> \"It was found that Sam",
+    "seconds": 8.334794394000028,
+    "input_tokens": 80,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 18,
+    "question": "Sam is on trial for murdering her neighbour. The prosecution presents a text from Sam to a friend saying, \u201cI murdered my neighbour today.\u201d What must be established for this text to be treated as an admission?",
+    "precision": "bfloat16"
+  },
+  "19": {
+    "text": "The legal passage you've provided does not explicitly state whether \"conscience of guilt\" reasoning was involved in answering the question. However, it can be inferred based on the structure:\n\n- The **prosecution** presents **incriminating evidence**, including the **interview**.\n- The defense argues that **Omar's denial of the use of a weapon** constitutes an act of **ignorance** (i.e., lack of knowledge).\n- If the court accepts",
+    "seconds": 8.758992750000061,
+    "input_tokens": 114,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 19,
+    "question": "Omar is charged with intentionally causing serious injury. In a recorded interview, he admits being at the scene and pushing the complainant but denies using a weapon or intending serious harm. At trial, the prosecution asks the jury to accept the incriminating parts of the interview but treat his denial of using a weapon as lies. Does this necessarily involve \u2018consciousness of guilt\u2019 reasoning?",
+    "precision": "bfloat16"
+  },
+  "20": {
+    "text": "A valid legal passage containing evidence relevant to answering whether **Liam's silence** can be used probatively in his case against him could look like:\n\n> *In the course of an investigation into the crime, the court found that during the hearing, when questioned by the prosecution regarding the circumstances surrounding the incident, Liam was able to describe events without any indication of emotional distress or other signs of mental disturbance. The absence of such symptoms led the jury to conclude that he was not guilty",
+    "seconds": 9.087396543000068,
+    "input_tokens": 106,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 20,
+    "question": "Liam is on trial for arson. His sister gives evidence that, at a family dinner, she said, \u201cThe police think you set fire to Dad\u2019s shed. You didn\u2019t do it, did you?\u201d Liam, who had been speaking normally, then went silent and looked down. Can this be used as evidence probative of guilt?",
+    "precision": "bfloat16"
+  },
+  "21": {
+    "text": "The legal passage you've provided is not a valid response to the given question. However, if we were to generate a plausible and well-structured legal passage in support of or against the claim regarding Victoria's criminal law:\n\n**Legal Passage:**  \n\"Under Victorian Criminal Law (1832), an individual may be held accountable for acts committed with intent, even when they are perceived as innocent due to external circumstances such as facial expressions or other physical traits. The court must determine",
+    "seconds": 8.75244812699998,
+    "input_tokens": 69,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 21,
+    "question": "At Zoe\u2019s assault trial, the prosecution argues that her blank, expressionless stare at photos of the injured complainant indicates guilt. Is this argument sound?",
+    "precision": "bfloat16"
+  },
+  "22": {
+    "text": "The legal passage you've provided does not address whether the prosecution must call a psychiatrist as part of their case, but rather focuses on the **defence's burden** of proof regarding mental impairment.\n\nTo generate a proper legal passage answering the question in context:\n\n### Revised Legal Passage:\n> \"In *Smith v. Court* (2018), the court held that the defendant\u2019s claim of mental impairments was supported by an expert opinion from a psychiatrist. As such,",
+    "seconds": 8.89609860600001,
+    "input_tokens": 77,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 22,
+    "question": "The defence raises the issue of mental impairment and bears the onus of proving it. There is a psychiatrist who has examined the accused. Is the prosecution required to call this psychiatrist as a witness?",
+    "precision": "bfloat16"
+  },
+  "23": {
+    "text": "The submission by **the prosecution** in this scenario is **permissible**, provided it adheres to certain principles within Victorian (or 19th-century) criminal law.\n\n### Key Points:\n\n- The **prosecution's argument** relies on **evidence** rather than direct statements from the accused.\n  \n- The prosecution **does not mention** Sarah's silence explicitly \u2014 instead, they emphasize that \"only the *prosecutorial* account is based on evidence.\"\n\nThis",
+    "seconds": 10.671123998999974,
+    "input_tokens": 87,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 23,
+    "question": "Sarah is tried for armed robbery. She does not give or call any evidence. In closing, the prosecution avoids mentioning her silence directly but repeatedly stresses that \u201conly the prosecution\u2019s account is supported by evidence.\u201d Is this submission by the prosecution permissible?",
+    "precision": "bfloat16"
+  },
+  "24": {
+    "text": "In response to the situation described in your query, here is a plausible legal passage (in English) that could be used as evidence or argument for a Victorian criminal court:\n\n---\n\n**Legal Passage:**  \n*\u201cThe accused's failure to effectively challenge the weight and reliability of the prosecution's key evidence may have led to unjust prejudice. While the defense did not directly contest the core elements of the evidence presented at trial, their subsequent assertion of a conflicting case theory contradicts the established facts",
+    "seconds": 9.05533987299998,
+    "input_tokens": 93,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 24,
+    "question": "In a criminal trial, defence counsel fails to challenge an important part of a prosecution witness\u2019s evidence and later runs a case theory inconsistent with that evidence. The prosecution complains that this has caused unfairness. As the trial judge, how should you decide what to do about it?",
+    "precision": "bfloat16"
+  },
+  "25": {
+    "text": "The type of **identification evidence** in this scenario is an example under **CCTV surveillance footage**, specifically as part of **evidence used to substantiate identity or suspicion**.\n\n### Explanation:\n- The **shop assistant's statement** (based on \"how he looks\") involves using **visual cues** derived from **video recordings**.\n- This falls under **photographic or visual evidence**.\n  \nIn the context of a **Victorian criminal law case**, such statements",
+    "seconds": 9.656775796000034,
+    "input_tokens": 94,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 25,
+    "question": "In an armed robbery trial, a shop assistant who has served the accused every week for years is shown still images from CCTV and says, \u201cBased on how he looks, that\u2019s the same customer who comes into my store.\u201d What type of identification evidence is this an example of?",
+    "precision": "bfloat16"
+  },
+  "26": {
+    "text": "The relevant legal passage could highlight how **cognitive biases** might have influenced the outcome of the case. Specifically, it could reference:\n\n> \"Smith's identification was based on his recognition of the accused *immediately* from the photograph provided by the police, even though he had no opportunity to examine the suspect\u2019s facial features.\"\n\nThis scenario illustrates a potential **confirmation bias**, where Smith relied too heavily on external confirmation rather than relying solely on direct observation and personal experience.\n\nIn the",
+    "seconds": 9.59388113099999,
+    "input_tokens": 149,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 26,
+    "question": "One of the elements of aggravated carjacking is the use of a weapon or causing injury to another person (Crimes Act 1958 s 79A). Smith witnesses an aggravated carjacking late at night. He sees the offender wield a weapon but does not get a good look at their face. A year later, he positively identifies the accused, saying he \u201crecognised him immediately from the daytime photo the police showed me last year.\u201d What cognitive bias, about which the jury is educated, may be relevant in this case?",
+    "precision": "bfloat16"
+  },
+  "27": {
+    "text": "In such a scenario, as a **trial judge**, you are expected to:\n\n1. **Review and interpret** any relevant evidence presented by both parties.\n2. **Ensure fairness and impartiality** during the proceedings.\n3. **Follow procedural rules** regarding witness testimony and evidence presentation.\n\nThe specific instruction might be something like:\n\n> \"It is my duty to ensure that all evidence provided is accurate and not misleading, while also adhering strictly to the principles of fair trial.\"\n\n",
+    "seconds": 8.38834253899995,
+    "input_tokens": 89,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 27,
+    "question": "You are the trial judge in a child stealing case. During the trial, the prosecutor briefly mentions that the image used for recognising the accused was taken before the accused was detained but gives no further explanation. What are judges instructed to do in this situation?",
+    "precision": "bfloat16"
+  },
+  "28": {
+    "text": "In response to your query regarding whether Priya's comment qualifies as admissible under Victorian Criminal Law (assuming you're referring to Victoria or another jurisdiction), here is an appropriate legal passage:\n\n---\n\n**Legal Passage:**  \n\"Under section [insert relevant provision from Victorian Criminal Code], any statement made by a witness who has firsthand knowledge of events or circumstances must be considered reliable if it is based upon facts known to them. However, opinions formed solely out of personal belief without factual basis may",
+    "seconds": 9.404562016,
+    "input_tokens": 115,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 28,
+    "question": "Harvey is on trial for dangerous driving causing serious injury. Priya, a mechanic with 15 years\u2019 experience, inspects the damaged vehicles and wants to tell the jury that, in her opinion, the pattern of damage shows Harvey was travelling at \u201cat least 110 km/h\u201d before impact. Are Priya\u2019s comments inadmissible because they are opinion evidence?",
+    "precision": "bfloat16"
+  },
+  "29": {
+    "text": "The legal passage you've provided does not directly address whether Talia's evidence (First Nations practices) is admissible in answering a question about Victoria's criminal law regarding intentional or reckless causes of fire. However, if we were to construct such a passage based on standard legal principles and Victorian criminal laws:\n\n**Legal Passage:**  \n\"Chris is accused by his attorney of deliberately or recklessness igniting a bushfires incident. The prosecution presents expert testimony from an environmental scientist who explains how",
+    "seconds": 8.916130394000106,
+    "input_tokens": 88,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 29,
+    "question": "Chris is on trial for intentionally or recklessly causing a bushfire. His counsel says he was carrying out a \u201ccool burn.\u201d Talia, a First Nations woman, is called to explain First Nations practices. Is Talia\u2019s evidence admissible?",
+    "precision": "bfloat16"
+  },
+  "30": {
+    "text": "The legal passage containing the evidence required to address whether a defense expert's claim regarding **poverty**, **lack of access** to services or **cultural stigma** surrounding family separations is admissible under Victorian criminal laws (which apply primarily in England and Wales) could be structured as follows:\n\n---\n\n> *In the case of [Name], it was established by the court that the defendant, [Noah], was found guilty of murder after being accused of causing harm through",
+    "seconds": 8.932370099999957,
+    "input_tokens": 94,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 30,
+    "question": "Noah is on trial for killing his father, who had been violent towards Noah\u2019s mother for decades. The defence calls an expert to describe how poverty, lack of access to services, and cultural stigma around separation can trap families in violent homes. Is this expert's evidence admissible?",
+    "precision": "bfloat16"
+  },
+  "31": {
+    "text": "The legal passage you've provided is **not** suitable for answering the given question about Victoria's criminal law.\n\n### Why:\n1. **Legal context**: You're asking whether specific evidence\u2014DNA tests on siblings and their relationships with the crime site\u2014is \"sufficient\" to reasonably establish that one person (Joseph) committed the crime.\n   \n2. **Victorian Criminal Law Context**: In modern criminal investigations, courts typically require strong evidence linking suspects directly to the offense. This includes",
+    "seconds": 9.357930226000008,
+    "input_tokens": 166,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 31,
+    "question": "Police have detained and taken DNA samples from three of four full siblings in a carjacking investigation: Chloe (female, 24), Sam (female, 23), and Joseph (male, 22). The fourth sibling, Kyle (male, 22), was not detained or sampled. Mitochondrial DNA testing of a crime scene sample links all three sampled siblings to the scene. Y-STR testing (which examines Y-chromosome DNA passed from father to son) links Joseph to the scene. Nuclear DNA testing also links Joseph to the scene. Is this information sufficient to reasonably link Joseph to the crime scene?",
+    "precision": "bfloat16"
+  },
+  "32": {
+    "text": "The legal passage you've provided is **not** suitable for answering the given question about Victoria's criminal law.\n\n### Why:\n1. **Legal context**: You're asking whether specific evidence\u2014DNA tests on siblings and their relationships with the crime site\u2014is \"sufficient\" to reasonably establish that one person (Joseph) committed the crime.\n   \n2. **Victorian Criminal Law Context**: In modern criminal investigations, courts typically require strong evidence linking suspects directly to the offense. This includes",
+    "seconds": 9.070443823000005,
+    "input_tokens": 166,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 32,
+    "question": "Police have detained and taken DNA samples from three of four full siblings in a carjacking investigation: Chloe (female, 24), Sam (female, 23), and Joseph (male, 22). The fourth sibling, Kylie (female, 22), was not detained or sampled. Mitochondrial DNA testing of a crime scene sample links all three sampled siblings to the scene. Y-STR testing (which examines Y-chromosome DNA passed from father to son) links Joseph to the scene. Nuclear DNA testing also links Joseph to the scene. Is this information sufficient to reasonably link Joseph to the crime scene?",
+    "precision": "bfloat16"
+  },
+  "33": {
+    "text": "A possible legal passage containing evidence for answering whether \"the right to silent\" is based solely in **common law** could be:\n\n> *In Common Law, the right of a person to remain silent and not speak freely may depend upon certain conditions such as the presence of an accused or defendant who has been found guilty by a court.*  \n\nThis passage includes reference to **Common Law**, but it does not explicitly state that the right is based only on common laws \u2014 rather, it",
+    "seconds": 8.097803687999999,
+    "input_tokens": 49,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 33,
+    "question": "Is the right to silence based solely on common law?",
+    "precision": "bfloat16"
+  },
+  "34": {
+    "text": "**Legal Passage:**  \n\nIn *Case No. [X]*, a prosecution for armed robbery arose after Daniel Smith was interrogated by the police in the early hours of 1 a.m., during which time he provided no statement or testimony. The defense argued that his silence constituted self-defense or reasonable resistance, while the prosecution contended that it should be treated as a voluntary admission of guilt.\n\nThe court found that the absence of any specific statements from Daniel made him vulnerable to false",
+    "seconds": 8.138464824000039,
+    "input_tokens": 102,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 34,
+    "question": "Daniel is questioned by police about an armed robbery. He gives his name and age but answers \u201cno comment\u201d when asked where he was at 1 am and who he was with. He is now on trial, and you are the prosecutor. Should you invite the jury to treat his selective silence as evidence of guilt?",
+    "precision": "bfloat16"
+  },
+  "35": {
+    "text": "**Legal Passage:**  \n\nIn *Kim v. Frank*, the court held that the prosecution must demonstrate that Kim was not an official or authorized representative of any governmental body at the time of the incident. This requirement ensures that the defense can effectively challenge Kim's credibility as a public figure, thereby protecting her from being used in a case involving potential government involvement.\n\nThe importance lies in maintaining judicial independence by preventing external influence over the investigation process, ensuring fair trials based on facts rather than political",
+    "seconds": 8.979571662000012,
+    "input_tokens": 102,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 35,
+    "question": "At dinner, Kim and Frank watch a news story about a drive-by shooting. Kim says the car looks like Frank\u2019s and asks, \u201cThat\u2019s not your car, is it, Frank?\u201d Frank stays silent. Frank is now on trial. Why is it important for the prosecution that Kim is not a government authority?",
+    "precision": "bfloat16"
+  },
+  "36": {
+    "text": "**Legal Passage:**  \nIn *Kim v. Frank*, the court held that the defense must demonstrate that the parties were in an environment where they could reasonably expect harm from the incident. The prosecution argued that the sound level during the night time increased enough to justify the shutdown of the party. However, the defense contended that the noise levels were excessive and potentially disruptive, which may have caused emotional distress or other harms. As such, the court ruled that the loudness of the",
+    "seconds": 9.649807530999965,
+    "input_tokens": 129,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 36,
+    "question": "Kim and Frank are at a Christmas party and are watching a news story about a recent drive-by shooting. Kim thinks the car looks like Frank\u2019s and asks, \u201cThat\u2019s not your car, is it?\u201d Frank stays silent. A few minutes later, the police shut down the party due to noise complaints. Later, Frank is on trial for offences related to the same drive-by shooting. Why is it important to the defence that the party was loud?",
+    "precision": "bfloat16"
+  },
+  "37": {
+    "text": "The legal passage you've provided contains **inferred reasoning** based on the evidence presented in the case.\n\n### Type of Inferential Reasoning:\nThis is an example of **evidence-based inference**, specifically using logical deduction from circumstantial evidence rather than direct proof.\n\n---\n\n### Explanation:\n\n- The prosecution's argument relies on **circular logic**: they assume that the events described are not random coincidence.\n  \n  - They argue that *if* there were no reason why Rachel could",
+    "seconds": 9.293316574999949,
+    "input_tokens": 158,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 37,
+    "question": "Rachel is on trial for poisoning her business partner with mushrooms. There is no direct proof Rachel possessed poisonous mushrooms, but the prosecution shows that: (1) two weeks before the death she searched for a specific species of poisonous mushroom; (2) she had a manual for dehydration equipment that can mask the taste of mushrooms; and (3) toxicology shows her partner was poisoned by that same species. The prosecution argues it is highly improbable all of this is coincidental, if the death were an accident. What kind of inferential reasoning or type of evidence is the prosecution asking the jury to use?",
+    "precision": "bfloat16"
+  },
+  "38": {
+    "text": "A possible legal passage containing evidence for determining whether Daisy was a \"prison informant\" could look like this:\n\n> **In the case *Daisy v. State*, 1892**, it was established that any individual who, through their position within the prison system (such as being an officer or witness), has access to information regarding unlawful activities within the institution may be held accountable under the provisions of the Criminal Code.\n\nThis example includes elements such as the specific court name",
+    "seconds": 8.921853379000027,
+    "input_tokens": 64,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 38,
+    "question": "Daisy witnessed a murder in her prison and is called by the prosecution to give evidence. Is she a \u201cprison informer\u201d?",
+    "precision": "bfloat16"
+  },
+  "39": {
+    "text": "The legal passage should reflect the requirement under **procedural rules** in Victoria's Criminal Law (or similar jurisdiction) regarding when an accused person may be allowed to testify against themselves.\n\n### Relevant Procedural Rule:\nIn many jurisdictions, including Victoria, there are specific requirements for when someone who is not present at the crime scene can be called into evidence. For example:\n\n> *If the accused party does not appear at the hearing, they cannot be called as a witness unless",
+    "seconds": 9.883475648000058,
+    "input_tokens": 117,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 39,
+    "question": "Emma is committed for trial on 1 March. On 25 March, she first tells her lawyer she was at a movie with her sister at the time of the alleged offence and wants both to give evidence, but no notice has been filed. What procedural step is required before Emma, or her sister can give evidence that she was at the movie rather than at the scene of the offence?",
+    "precision": "bfloat16"
+  },
+  "40": {
+    "text": "**Legal Passage:**  \n\"Under section [insert relevant provision from Victorian Criminal Law], if a person is found guilty of robbery *after* being present in possession or control of property (as required by the statute), then it must also be established that they were not actually involved in any act of theft during their presence at the scene.\"  \n\nThis passage addresses the need for additional proof beyond the initial allegations of \"dinner with friends,\" as the prosecution may argue that the timing and",
+    "seconds": 9.491283968999937,
+    "input_tokens": 108,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 40,
+    "question": "Alex is charged with a robbery at a shopping centre at 8:15 pm. He leads evidence that he was having dinner with friends at a restaurant across town at that time, and the jury thinks there is a real chance this is true. Ignoring the standard elements of robbery, what more needs to be proven to establish Alex\u2019s guilt?",
+    "precision": "bfloat16"
+  },
+  "41": {
+    "text": "Under **Victorian (now Australian) criminal law**, specifically under the **Common Law** principles, **Liam could be held involved in the crime of assault if his actions contributed directly or indirectly to its commission**.\n\n### Key Points:\n\n1. **Assault**: The prosecution must prove that Liam was present at the scene when the attack occurred.\n2. **Contributory Role**: Even if Liam did not participate actively in the robbery itself, he may still be considered \"in",
+    "seconds": 9.689434527000003,
+    "input_tokens": 119,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 41,
+    "question": "Liam and Noah plan to break into a warehouse to steal electronics. Liam agrees to act as the lookout while Noah goes inside; during the burglary, Noah violently assaults a security guard. Liam is later charged as a secondary party to the assault. Under Victorian law, on what basis could Liam be found \u201cinvolved in the commission\u201d of the assault, even though he only agreed to help with the burglary?",
+    "precision": "bfloat16"
+  },
+  "42": {
+    "text": "The legal passage you've requested contains an accurate representation of how Victoria's criminal law might address such a scenario:\n\n**\"In order for Courtney to be held legally responsible under the provisions of Section 102(3) of the Criminal Code (Victoria), it must be established by the Crown that she knowingly possessed or had knowledge of the nature of the substance involved.\"**\n\nThis aligns with common principles in Victorian criminal statutes where possession or intent to possess a prohibited item constitutes",
+    "seconds": 9.177022440999963,
+    "input_tokens": 104,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 42,
+    "question": "Courtney and Tom agree to sell what they think is a harmless \u201cparty pill\u201d to strangers at a music festival. The pills are in fact a controlled drug, and the conduct clearly amounts to a criminal offence. For Courtney to be liable on the basis of this agreement, must the prosecution prove that she knew the substance was illegal?",
+    "precision": "bfloat16"
+  },
+  "43": {
+    "text": "**Legal Passage:**  \nIn *Noah v. Thompson*, the court ruled that **noah was not liable as an accomplice or principal offender** for delivering a concealed parcel containing prohibited drugs to a stranger. This decision stemmed from the following key facts:\n\n- **Noah's intent**: He intended to deliver books (a harmless act) but had false intentions.\n- **The nature of the delivery**: It involved the concealment of illegal substances within a sealed envelope.\n-",
+    "seconds": 9.286258864999922,
+    "input_tokens": 114,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 43,
+    "question": "Noah convinces his 12-year-old nephew to deliver a sealed package to an address, telling him it contains \u201cbooks for a friend,\u201d when in fact Noah has filled the package with prohibited drugs. The nephew has no idea what is inside and believes he\u2019s doing a harmless favour. If police intercept the drugs, can Noah be liable as a principal offender for drug trafficking?",
+    "precision": "bfloat16"
+  },
+  "44": {
+    "text": "**Legal Passage:**  \nIn *Jordan v. [Name]* (Supreme Court), it was held that **no further conviction could be imposed**, as there were no sufficient evidentiary cases established for Jordan's guilt in the Commonwealth conspiracy charge. The court ruled that while the two company directors had been acquitted, their acquittal did not absolve Jordan from liability under the charges. Therefore, based on the information provided and applicable Victorian criminal laws, **Jordan cannot be convicted of",
+    "seconds": 8.786707092000029,
+    "input_tokens": 112,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 44,
+    "question": "Jordan is a factory worker; Mia is his supervisor. They\u2019re both charged with a Commonwealth conspiracy to commit an offence that requires an employer to ensure the safety of employees at a hazardous worksite. Two company directors, alleged to be the other parties to the agreement, have already been acquitted of the conspiracy. In these circumstances, can Jordan be found guilty of the conspiracy?",
+    "precision": "bfloat16"
+  },
+  "45": {
+    "text": "**Legal Passage:**  \nIn *Clyde v. State*, 1892 (Victoria), the court held that **mental illnesses do not inherently render an individual\u2019s acts involuntary**, even if such individuals believe their actions were unlawful due to delusions and hallucinations. The case emphasized that **the nature of the offense does not depend on whether one's mind is healthy or ill**, regardless of any belief in guilt.\n\nThe reasoning was based on the principle that **a",
+    "seconds": 8.577440131000003,
+    "input_tokens": 91,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 45,
+    "question": "Clyde, who has schizophrenia, assaults a stranger while experiencing delusions. He knows he is hitting a person but believes they are a \u201cdemon.\u201d Does his mental illness, or his failure to appreciate the wrongfulness of his conduct, necessarily make his act involuntary?",
+    "precision": "bfloat16"
+  },
+  "46": {
+    "text": "A possible legal passage could be structured as follows:\n\n**\"In the course of performing their duties under the law, [Name] drove with caution, but upon experiencing a sudden convulsive episode, they experienced a violent involuntary motion which resulted in the following consequences: [...] The incident occurred while [Name]'s body was still conscious, and it did not result from any external force or intentional action by [Name]. As such, the Court finds that [Name's name] has committed",
+    "seconds": 8.955480454000053,
+    "input_tokens": 104,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 46,
+    "question": "Jonah is driving when he suddenly suffers an unexpected convulsion, causing his leg to slam down on the accelerator and his car to mount the curb and hit a pedestrian. If the only cause of the collision was this sudden bodily movement during the convulsion, how should a court characterise his physical act for the purpose of criminal liability?",
+    "precision": "bfloat16"
+  },
+  "47": {
+    "text": "In a **Victorian (1837\u20131906) criminal law context**, if an accused person's actions are described as \"standing, speaking,\" and then \"punching\" in court, it may not necessarily imply that the act was *voluntary*.\n\n### Key considerations:\n- In many jurisdictions, especially those with strict criminal statutes of limitations, the presence of certain physical characteristics\u2014such as being conscious, disoriented, or otherwise unable to commit",
+    "seconds": 8.656884493000007,
+    "input_tokens": 97,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 47,
+    "question": "At Andrew\u2019s assault trial, there is no suggestion he was unconscious, seizing, or sleepwalking; all the evidence shows him standing, speaking, and then punching the complainant. Does the prosecution need specific evidence that the punch was voluntary, or can voluntariness be inferred from these circumstances?",
+    "precision": "bfloat16"
+  },
+  "48": {
+    "text": "In Victoria, **the level of Criminal Culpability** for Jacob's conduct is determined by the nature and extent of harm caused, as well as whether there was any intent or negligence involved.\n\nThe legal passage might read:\n\n> \"Jacob\u2019s act of setting off powerful explosives within a small and overcrowded backyard constitutes an intentional offense under Victoria\u2019s Criminal Code (Section 104), where the presence of such acts may be considered as having resulted in injury or death.\"\n\nThis",
+    "seconds": 8.872351907000052,
+    "input_tokens": 78,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 48,
+    "question": "Jacob sets off powerful fireworks in a small, crowded backyard. He later admits he knew people could get hurt but did it anyway. In Victoria, what level of criminal culpability best describes his conduct?",
+    "precision": "bfloat16"
+  },
+  "49": {
+    "text": "The legal passage should reflect that **reckfulness** in Victoria's criminal law does not require Liam to know *exactly* what he was trying to do (i.e., \"knew the brick 'might' cause harm\"), and instead requires him to have known that his actions could result in injury or death.\n\nHere\u2019s how you can structure the passage:\n\n---\n\nLiam threw a heavy bricked over a highway during peak hour traffic. The prosecution asserts that reckless intent has been",
+    "seconds": 9.710584627000003,
+    "input_tokens": 118,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 49,
+    "question": "Liam throws a heavy brick off a freeway overpass into peak-hour traffic. He later tells police, \u201cI knew it might hit a car, but I didn\u2019t really think much more about it.\u201d At trial, the prosecution tells the jury that recklessness is established if Liam knew the brick \u201cmight\u201d cause harm. Why is this an incorrect statement of the legal test for recklessness in Victoria?",
+    "precision": "bfloat16"
+  },
+  "50": {
+    "text": "In Victoria, under **Victoria's Criminal Code**, particularly sections 102 (for assault) or 345 (for intentional harm), an individual may be held liable if they are found guilty of *intentional harm* by their actions. However, there is no specific provision allowing for a \"standalone defense\" such as *\"the act itself caused damage\"*.\n\nIf Abigail claims her injuries were due to an accidental event\u2014such as pushing a door un",
+    "seconds": 9.264737357000058,
+    "input_tokens": 94,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 50,
+    "question": "Abigail is on trial in Victoria for causing serious injury. She argues that the injury was \u201can accident\u201d because she pushed a door open without looking and it unexpectedly hit someone on the other side. Can Abigail rely on a standalone defence of \u201caccident\u201d in Victoria?",
+    "precision": "bfloat16"
+  },
+  "51": {
+    "text": "To determine whether **Ethan is guilty of murder** under Victorian criminal laws (which are based on common law), we need to identify the necessary elements required for conviction.\n\n### Elements Required for Conviction:\n\n1. **Intention**: The prosecution must prove that Ethan had a *premeditated intent* or *malice aforestated*, meaning he intended to kill Marcus with deliberate action.\n\n2. **Causation**: There must be a direct link between Ethan\u2019s actions",
+    "seconds": 8.998561383000037,
+    "input_tokens": 93,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 51,
+    "question": "Ethan punches Marcus once in the head during an argument. Marcus falls, hits his head on the gutter, and dies in hospital two days later. At trial, Ethan admits to killing Marcus by punching him. What elements must still be proved for Ethan to be convicted of murder?",
+    "precision": "bfloat16"
+  },
+  "52": {
+    "text": "One possible legal passage containing an element of **intention** (as in intentional homicide) but lacking it could be:\n\n> *Ethan admitted to killing Marcus, who was a German shepherd, by voluntary means, with no unlawful justifications for his actions.*  \n\nThis passage does not mention any elements of **murder**, such as intent or malice, which are required for a valid charge under Victorian criminal laws. However, if you're looking for something more specific, I",
+    "seconds": 8.355893621000064,
+    "input_tokens": 65,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 52,
+    "question": "Ethan admits he voluntarily and intentionally killed Marcus, a German Shepherd, without lawful justification. Name ONE element of murder that is missing here.",
+    "precision": "bfloat16"
+  },
+  "53": {
+    "text": "Under **Victorian (English) criminal law**, specifically in *Common Law* systems like England and Wales, there are strict rules regarding whether an act can be considered \"murder\" under certain circumstances.\n\n### Key Points:\n\n1. **Intentionality**: The prosecution must prove that the person acted with **intentional malice**\u2014a clear intent to kill someone.\n   \n   - In your case, Ethan was found guilty of intentional killing because he had **intent**",
+    "seconds": 8.970905258000016,
+    "input_tokens": 83,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 53,
+    "question": "Ethan, a sane 24-year-old, intentionally killed Marcus, a child, without lawful justification, and the jury accepts this beyond reasonable doubt. Under Victorian law, how could this still not amount to manslaughter or murder?",
+    "precision": "bfloat16"
+  },
+  "54": {
+    "text": "**Legal Passage:**  \nIn accordance with the principles established by the Australian Constitution (Section 2), any individual who commits a crime within the jurisdiction shall have the right to pursue justice regardless of their residence or nationality. The Commonwealth has been granted full immunity from prosecution for offenses committed while residing in Australia.\n\nHarper, a resident of New South West Queensland, was found guilty of murder upon conviction at the trial held in Sydney, which took place under the jurisdiction of the State of Victoria",
+    "seconds": 8.700630093999962,
+    "input_tokens": 95,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 54,
+    "question": "Harper, a New South Wales resident, shoots Riley in Sydney. Riley is stabilised in an NSW hospital, then transferred to a specialist trauma unit in Melbourne, where complications arise during surgery and he dies 10 days after the shooting. Can Harper be tried in a Victorian court?",
+    "precision": "bfloat16"
+  },
+  "55": {
+    "text": "The legal passage you have provided is not complete and does not address the issue raised in your query. However, based on the information given:\n\n**On what basis** could the **reckless conduct offense (as defined by the Penal Code)** be treated *as* a foundational offense under Victorian criminal laws?\n\nIn Victoria's Criminal Law Act 1986, the \"offence of reckless or negligent conduct\" is considered a foundational crime because it establishes the standard for determining whether",
+    "seconds": 9.542924061000008,
+    "input_tokens": 92,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 55,
+    "question": "Mila fires a gun recklessly into a crowded apartment block corridor, committing the offence of reckless conduct endangering life. One of the bullets kills Jonah. The prosecution seeks to invoke statutory murder. On what basis could this reckless conduct offence be treated as a foundational offence?",
+    "precision": "bfloat16"
+  },
+  "56": {
+    "text": "The legal passage should include the relevant elements of the case as described:\n\n**\"In the course of an altercation between Taylor and Jordan, during the year 237 (or 216 if it's 221), Taylor struck Jordan with force upon his own initiative. As a result, Jordan fell back onto the street, sustaining severe injuries including damage to the head. The death occurred due to a fatal head injury sustained after falling. This constitutes *manslaughter",
+    "seconds": 9.75494272900005,
+    "input_tokens": 110,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 56,
+    "question": "During an argument outside a bar in 2016, Taylor swings once at Jordan\u2019s jaw; Jordan falls backwards, hits their head on the curb and dies from the head injury. For manslaughter by an unlawful and dangerous act, which element of the offence does Crimes Act 1958 s 4A(4) help the jury assess?",
+    "precision": "bfloat16"
+  },
+  "57": {
+    "text": "The legal passage could be structured as follows:\n\n**\"In *Smith v. Jones*, 1892**, it was held that if a defendant **admits** that there was no actual possibility of death or serious injury being committed (i.e., their statement contradicts the prosecution's claim), yet the court still finds that the defendant\u2019s actions exposed the victim **to a significant risk of harm**, then the defense must argue for a **reckless homicide** rather",
+    "seconds": 9.429868973999987,
+    "input_tokens": 101,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 57,
+    "question": "The accused admits he did not actually think death or really serious injury was likely, but the jury is sure that any reasonable person in his position would have realised they were exposing the victim to an appreciable risk of serious injury. If both reckless murder and manslaughter are left, which verdict does this state of mind support?",
+    "precision": "bfloat16"
+  },
+  "58": {
+    "text": "**Legal Passage:**  \nIn *Smith v. Doe*, the court held that if the accused (Amir) was not aware of the specific nature or intent behind Bella's actions during the altercation, then he cannot be found liable for Manslaughter under the doctrine. However, in cases where there exists an element of foreseeability\u2014such as knowing that Bella had already committed acts of violence\u2014the defendant may still be held responsible.\n\nIf the prosecution seeks to rely on the principle that \"",
+    "seconds": 9.508929986999988,
+    "input_tokens": 125,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 58,
+    "question": "In 2010, Amir and Bella agree to \u201crough up\u201d a debtor by slapping him around and threatening him, but nothing more. During the confrontation, Bella unexpectedly pulls a knife and fatally stabs the debtor. Amir is charged with manslaughter as a secondary party. If the prosecution relies on the doctrine that extends liability beyond the agreed lesser assault, what must they prove about Amir\u2019s foresight of Bella\u2019s escalation?",
+    "precision": "bfloat16"
+  },
+  "59": {
+    "text": "The provided legal passage does not address whether the claim made by the prosecution (that the rear-seat driver caused death) is valid under Victorian criminal laws. It lacks any specific reference to Victorian legal principles or provisions related to negligence, recklessness, or other elements typically required for such claims.\n\nTo evaluate if it's \"sound\" as an argument against the prosecution\u2019s allegations, we need more context on what aspects of Victorian criminal theory were considered relevant during that period. However, based solely",
+    "seconds": 9.43377959299994,
+    "input_tokens": 101,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 59,
+    "question": "A person is sitting in the back seat of a moving taxi when the taxi strikes a pedestrian at a crossing, killing them instantly. The prosecution later alleges that this rear-seat passenger is guilty of culpable driving causing death because he was driving a motor vehicle at the time of the collision. Is this a sound argument?",
+    "precision": "bfloat16"
+  },
+  "60": {
+    "text": "The provided legal passage does not accurately reflect any specific provision in Victorian criminal laws regarding \"culpable driving\" or \"unawareness as a defense.\" It is more of a hypothetical scenario and lacks direct reference to Victorian legal principles.\n\nHowever, based on general understanding of Victorian (1837\u20131901) criminal law:\n\n- **Culpability** requires proof of intent or negligence.\n- A defendant's failure to realize a dangerous situation may be considered *",
+    "seconds": 9.156698129999995,
+    "input_tokens": 102,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 60,
+    "question": "In a culpable driving causing death trial, the prosecution tells the jury: \u201cYou cannot find the accused guilty unless you are sure he actually realised his driving fell well below that of an ordinary careful driver; if he was simply unaware of the danger, you must acquit.\u201d Is this an accurate statement of the law?",
+    "precision": "bfloat16"
+  },
+  "61": {
+    "text": "The second driver could be held **responsible** on the basis of **negligence**, as per **Victoria's Criminal Code (VCC)**, which defines negligence in cases involving human life.\n\n### Explanation:\n- The first driver lost control and caused harm.\n- The second driver did not cause any injuries or fatalities.\n- Under VCC Section 102, if one party failed to take reasonable care to prevent an accident, they may be liable for injury or death",
+    "seconds": 8.575750215000085,
+    "input_tokens": 82,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 61,
+    "question": "Two friends agree to race their cars along a suburban street. One driver loses control and fatally hits a cyclist; the other does not crash. On what general basis could the second driver still be held responsible for the death?",
+    "precision": "bfloat16"
+  },
+  "62": {
+    "text": "**Legal Passage:**  \n\"Under section 102(3) of the Criminal Code (Victoria), if an individual commits a crime while under the influence of alcohol, drugs, or other substances, they may be held liable for damages resulting from such actions.\"  \n\n*However, in cases where there is no direct link between the defendant's conduct and the victim\u2019s death, particularly when the cause of death is attributed to external factors like traffic accidents, the prosecution must demonstrate that",
+    "seconds": 8.771863065999923,
+    "input_tokens": 85,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 62,
+    "question": "While driving late at night, Jerry fails to see a cyclist and runs him over, killing him instantly. Jerry was not drunk, reckless or negligent. Why does it matter to the prosecution that Jerry knew his headlights were broken before driving?",
+    "precision": "bfloat16"
+  },
+  "63": {
+    "text": "**Legal Passage:**  \nIn *Asha v. Ben*, a case involving Victoria Criminal Law, it was established that if two individuals are in an agreement or relationship (such as being managers) where their sexual acts occur without mutual consent, then such conduct may be considered illegal under Victorian criminal laws.\n\nThe key elements included:\n\n1. **Consent**: The existence of a consensual arrangement between Asha and Ben.\n2. **Voluntary Participation**: Both parties willingly participated in",
+    "seconds": 8.59002052400001,
+    "input_tokens": 79,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 63,
+    "question": "Asha is Ben\u2019s manager at work. One evening they both freely and voluntarily have sex. Two days after the act, Asha regrets her decision. Does this mean Asha's consent was violated?",
+    "precision": "bfloat16"
+  },
+  "64": {
+    "text": "The legal passage you've provided does not directly address the specific issue regarding Jones's awareness as required by the question. However, a relevant and well-structured response could be:\n\n**\"When determining whether Jones was aware of the nature of the alleged offense (an unspecified sexual act), the court will consider factors such as any prior knowledge he may have possessed, including cultural norms and societal expectations surrounding similar conduct.\"**\n\nThis aligns with the principles of understanding the context within which the crime",
+    "seconds": 8.492301633000011,
+    "input_tokens": 85,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 64,
+    "question": "Jones is on trial for an unnamed sexual offence. He says that, in his culture, silence or lack of resistance means agreement. In light of this explanation, what specific issue about Jones awareness must the jury determine when deciding his guilt?",
+    "precision": "bfloat16"
+  },
+  "65": {
+    "text": "A possible legal passage containing evidence related to a Victorian context and answering the question could be:\n\n**\"In order to determine whether Jones reasonably believed that he had been subjected to an act of unlawful sexual intercourse under Victoria's Criminal Law Act 1863 (VCA), it must be considered whether the circumstances of the case were such that the existence of certain cultural norms\u2014such as the belief that silence or absence of resistance leads to agreement\u2014was relevant to the nature of the",
+    "seconds": 8.710093549000021,
+    "input_tokens": 82,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 65,
+    "question": "Jones is on trial for an unnamed sexual offence. He says that, in his culture, silence or lack of resistance means agreement. Must the jury learn more about this culture to decide whether he reasonably believed there was consent?",
+    "precision": "bfloat16"
+  },
+  "66": {
+    "text": "**Legal Passage:**  \n\nIn a case involving a victim who was allegedly assaulted by someone in Victoria, the court may consider the testimony provided by the defendant's sister during the investigation or trial as relevant evidence. The sister is called upon to describe the emotional state of the defendant when she first reported the incident.\n\nThe importance of such testimony lies in its ability to provide insight into the psychological impact on the individual involved. This can help establish whether the claim of rape was made with intent to",
+    "seconds": 8.353102900999943,
+    "input_tokens": 99,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 66,
+    "question": "After an alleged sexual assault, Liam goes straight to his sister\u2019s apartment and, sobbing and struggling to speak, tells her what happened. At trial, the prosecution calls his sister to describe his emotional state when he reported it. Why might Liam\u2019s behaviour at that time be important evidence against the accused?",
+    "precision": "bfloat16"
+  },
+  "67": {
+    "text": "The legal passage you've provided does not address whether it's a **valid** assumption made by some jurors when they interpret a complaint as \"likely\" or \"possibly lying.\" Instead, it seems like a generic example of how someone might describe their experience under Victorian criminal laws.\n\nTo generate a proper legal passage answering the original question:\n\n### Legal Passage:\n> In *Smith v. District Attorney*, 1892 (Victoria), the court held that if a complainant\u2019s",
+    "seconds": 8.29448775000003,
+    "input_tokens": 76,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 67,
+    "question": "At trial, the complainant describes an alleged sexual assault in a completely flat tone, without visible emotion. Some jurors think this means she is \u201cprobably lying.\u201d Is this a valid assumption?",
+    "precision": "bfloat16"
+  },
+  "68": {
+    "text": "A possible legal passage containing evidence related to Victorian criminal laws could look like this:\n\n> In *Smith v. Court (1893)*, the High Court held that **Victoria's Criminal Code** prohibited judges from directing juries to require proof of intent as part of an accusation of sexual assault. The court emphasized that such requirements were inconsistent with the principles of fairness and proportionality under the law.\n\nThis passage reflects how Victorian courts approached similar issues, particularly regarding intent in cases",
+    "seconds": 8.95265330999996,
+    "input_tokens": 96,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 68,
+    "question": "Assume the year is 2012. Why is it problematic for a judge to direct the jury that the prosecution must prove the accused \u201cintended to commit rape in the sense that, at the time of penetration, he knew the complainant was not or might not be consenting\u201d?",
+    "precision": "bfloat16"
+  },
+  "69": {
+    "text": "The legal passage you've requested is a **summary or hypothetical scenario** based on the provided information and not an actual legal document. However, if you're looking for a general example of how such a claim might be presented in a legal context under Victorian criminal laws (which were largely influenced by Enlightenment principles), here's a possible structure:\n\n---\n\n### **Legal Passage Example**\n\n> *In the case of [Name], it was alleged that the defendant, upon forceful coercion, compelled",
+    "seconds": 8.408105406999994,
+    "input_tokens": 73,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 69,
+    "question": "The prosecution alleges that the accused forced the complainant to put his own penis into his own mouth. Under the current statutory definition, does this amount to sexual penetration of oneself?",
+    "precision": "bfloat16"
+  },
+  "70": {
+    "text": "**Legal Passage:**  \nIn accordance with section 34(1) of the Criminal Code (Crimes Act 2), \"sexual penetration\" is defined as a voluntary act by one individual who causes another individual's body or organs to be penetrated during an intimate relationship. The specific provision under reference, *section 36* of the same Act, states that such acts are considered unlawful unless they occur within the context of mutual consent and without any force or threat.\n\nUnder",
+    "seconds": 8.906682444000012,
+    "input_tokens": 100,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 70,
+    "question": "In 2016, person A instructs person C to insert person C\u2019s finger into person B\u2019s mouth. Under the definition of \u201csexual penetration\u201d in s 37D of the Crimes Act 1958, why does this not amount to person A sexually penetrating person B?",
+    "precision": "bfloat16"
+  },
+  "71": {
+    "text": "**Legal Passage:**  \nIn accordance with section 34(1) of the Criminal Code (Crimes Act 2), a sexual act is defined as one involving **intentional and deliberate contact or action**, which may include inserting an object such as a penile member into another's body during sexual activity.\n\nUnder section 12 of the same code, if person A intentionally inserts their own penile members into person C's mouth while doing so for personal pleasure,",
+    "seconds": 8.209588196000027,
+    "input_tokens": 99,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 71,
+    "question": "In 2016, person A instructs person C to insert person C\u2019s penis into person B\u2019s mouth. Under the definition of \u201csexual penetration\u201d in s 37D of the Crimes Act 1958, why does this amount to person A sexually penetrating person B?",
+    "precision": "bfloat16"
+  },
+  "72": {
+    "text": "A possible legal passage under Victorian (1837\u20131906) criminal law could address whether such conduct was permissible based on public morality and societal norms. Here's an example:\n\n**\"Whereas it is established by common sense and tradition in England and Wales that sexual penetration between two persons shall not occur unless with the consent of both parties, and where no explicit agreement has been made for any form of penetrative act, then it follows that if a man who",
+    "seconds": 8.449603142,
+    "input_tokens": 60,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 72,
+    "question": "Under Victorian law, can a person assigned male at birth be sexually penetrated somewhere other than the anus or mouth?",
+    "precision": "bfloat16"
+  },
+  "73": {
+    "text": "**Legal Passage:**  \nIn *Caleb v. State*, 1892 (Victoria), it was held that **private sexual interests**, even if fleeting or incidental, can be sufficient as an inducement for \"sexual touching\" under Victoria's Criminal Law Act. The court emphasized that such conduct does not require explicit intent or coercion but rather must meet certain thresholds\u2014such as being consensual, occurring between two individuals with mutual consent, and involving physical contact.\n\nThe",
+    "seconds": 8.70713554200006,
+    "input_tokens": 94,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 73,
+    "question": "On a crowded tram, Caleb briefly brushes Rina\u2019s hand while reaching for a pole; later he privately admits he finds her attractive and had a sexual interest in her. On these grounds alone, is Caleb\u2019s private sexual interest enough to make that brief hand contact \u201csexual touching\u201d?",
+    "precision": "bfloat16"
+  },
+  "74": {
+    "text": "**Legal Passage:**  \nIn *Nina v. Caleb*, [Court Name] held that while the act itself may be considered an **induction or commission**, its **motive**\u2014namely, the presence of a **sexual arousal** from the feet \u2014 does not automatically constitute an **indecency** in Victoria (or any other jurisdiction). The court emphasized that such acts are often seen as **intentional acts with no intent to harm**, but they still",
+    "seconds": 8.744507708000015,
+    "input_tokens": 105,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 74,
+    "question": "Assume the year is 2011. Nina is sexually aroused by feet and secretly attracted to her colleague Caleb. During a meeting, she slowly removes his shoe under the table, later admitting she did so purely for her own sexual gratification. Does her sexual motive alone make the removal of Caleb\u2019s shoe an indecent assault?",
+    "precision": "bfloat16"
+  },
+  "75": {
+    "text": "**Legal Passage:**  \nIn *Imogen v. Sara*, it was established by the High Court that **assault is not only based on fear or provocation**, but also depends on whether there is a **reasonable expectation of harm** or threat posed during the act itself. In this case, although Sara claims she \"wasn't frightened,\" the court found that:\n\n> *\"Sara's assertion that she 'wasn'T actually scared' does not negate the fact that",
+    "seconds": 8.886598013000139,
+    "input_tokens": 96,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 75,
+    "question": "During an argument, Imogen swings her fist at Sara but stops just short. Sara flinches and braces for impact, but later says she \u201cwasn\u2019t actually scared.\u201d Why doesn\u2019t Sara\u2019s claim that she wasn\u2019t afraid stop Imogen\u2019s conduct from amounting to assault?",
+    "precision": "bfloat16"
+  },
+  "76": {
+    "text": "The legal passage should include a reference to **assault** as an essential component for answering the question, explaining why it doesn't meet the requirements of the crime.\n\nHere's an example:\n\n> \"Assault requires both intent (to commit a violent act) and the presence of physical contact with another person.\" If the accused lacks either intention or physical contact, then their statement does not constitute assault under Victorian criminal laws. Therefore, the absence of these elements means the claim does not",
+    "seconds": 7.991082027999937,
+    "input_tokens": 76,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 76,
+    "question": "\u201cI\u2019m not from law enforcement and I\u2019m going to illegally kill you in the next couple of years or so\u201d does not amount to assault because which element of the offence is missing?",
+    "precision": "bfloat16"
+  },
+  "77": {
+    "text": "The legal passage you're looking for should reference a **common law case** (e.g., *Mia v. Noah* or similar) where the court established that **late-night communication involving violence and intent to commit an act** constitutes **assault**, even if no physical contact occurs.\n\nA possible example could be:\n\n> In *Morgan v. Smith*, 1892 [40] (No. 3), the High Court ruled that \"the",
+    "seconds": 8.37443430799999,
+    "input_tokens": 88,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 77,
+    "question": "Mia receives several late-night calls from Noah. Each time she answers, he says nothing. Knowing his violent history, she believes he is outside about to attack. What is the citation of the common law case that held this conduct can amount to assault?",
+    "precision": "bfloat16"
+  },
+  "78": {
+    "text": "The legal passage you've provided contains **no relevant information** regarding Victorian criminal laws and assaults. Here's what you can generate based on your request:\n\n### Generated Legal Passage (Based on Your Request):\n\nAssault is defined under Victorian criminal statutes as \"the direct or indirectly applied force to another person\u2019s body or clothing/equipment.\" The definition includes applications such as heat, electricity, or matter in different forms.\n\nIn Victoria, the specific statutory framework for defining assault was established through the",
+    "seconds": 10.092948902999979,
+    "input_tokens": 134,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 78,
+    "question": "Assault' is defined to mean the direct or indirect application of force to the body of, or to the clothing or equipment worn by, a person. \u201cApplication of force\u201d is defined to include the application of heat, light, electric current or any other form of energy, as well as the application of matter in solid, liquid or gaseous form. For the purposes of Victorian criminal law as it pertains to assault, which statute establishes the meaning of a police officer?",
+    "precision": "bfloat16"
+  },
+  "79": {
+    "text": "**Legal Passage:**  \n\nIn *Case No. [X]* (2019), a court ruled that **Officer Harper did not act in the execution** of her duties when she searched Liam\u2019s pocket for drugs under an unproven or illegal reason. The Court held that the search was conducted with no reasonable justification, violating both procedural and substantive rights protected by Victorian Criminal Law.\n\nThe key points are:\n\n- **Harper's Search**: She performed a \"search",
+    "seconds": 9.26565148099985,
+    "input_tokens": 110,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 79,
+    "question": "Officer Harper stops Liam on the street, says, \u201cI\u2019m just curious if you\u2019ve got anything on you,\u201d and, without any lawful basis, searches his pockets and finds drugs. Liam resists and accidentally strikes Harper during the unlawful search. In these circumstances, is Harper acting \u201cin the execution of her duty\u201d at the time of the alleged assault?",
+    "precision": "bfloat16"
+  },
+  "80": {
+    "text": "To charge **Tia** with **obstruction**, it is necessary to prove that she intentionally obstructed or hindered an officer's lawful pursuit of someone who was arrested.\n\nThe required key fact from the legal passage would be:\n\n> \"Tia intended to prevent the officers from pursuing Malik by shouting 'Run!' at them.\"  \n\nThis establishes the intent behind her action, which is essential for proving obstruction under Victorian criminal laws.",
+    "seconds": 8.403207469000108,
+    "input_tokens": 98,
+    "output_tokens": 87,
+    "hit_length_cap": false,
+    "query_id": 80,
+    "question": "As officers move in to arrest Malik outside a bar, his friend Tia sees them coming and yells, \u201cRun, they\u2019re about to grab you!\u201d intending to help him escape. What key fact about the effect of Tia\u2019s warning must be proved in order to charge her with obstruction?",
+    "precision": "bfloat16"
+  },
+  "81": {
+    "text": "The relevant statutory reference is **Section 20(3) of the Criminal Code (Victorian Commonwealth)**, which was introduced in 1764 and aimed at addressing issues related to property rights and personal conduct.\n\n**Legal Passage:**  \nIn accordance with Section 21(3)(a) of The Criminal Code [Victoria], a person who engages in acts involving unlawful contact or interference through electronic means may be held liable for prosecution under the Crimes Against the Person Act",
+    "seconds": 7.833376330999954,
+    "input_tokens": 57,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 81,
+    "question": "Which Victorian statute amended the Crimes Act 1958 to cover stalking over the internet?",
+    "precision": "bfloat16"
+  },
+  "82": {
+    "text": "In a large shop center, Sorayan follows Felix because she maintains her physical posture\u2014turning her head only and keeping her gaze fixed while Felix moves through various levels and displays. This behavior aligns with the element **(ii)** of car-jacking, which requires immediate action by the thief using force or causing fear during the act. Therefore, based on the provided information, it is reasonable to conclude that Soraya follows Felix. \n\n**Legal passage:**  \n\"In a large",
+    "seconds": 9.331861889000038,
+    "input_tokens": 252,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 82,
+    "question": "What are the elements of carjacking? Actually, I can answer that question for you. The offence has the following three elements: (i) The accused stole a vehicle; (ii) Immediately before or at the time of the theft, the accused: (a) Used force on any person; or (b) Put any person in fear that s/he or another person would, then and there, be subject to the use of force; or (c) Sought to put any person in fear that s/he or another person would, then and there, be subject to the use of force; and (iii) The accused did so in order to commit the theft (Crimes Act 1958 s 79(1)). Answer only this question: In a large shopping centre, Soraya stands in one spot near the central atrium all afternoon, turning only her head and eyes to keep Felix in view as he walks between different levels and stores. She never changes her physical position. On these facts, does Soraya follow Felix?",
+    "precision": "bfloat16"
+  },
+  "83": {
+    "text": "The type of **legal passage** required for this query would be a **statutory or legislative text**, specifically referencing **Victorian criminal law**, focusing on **stalking behavior** as outlined in relevant laws.\n\n### Relevant Statutes:\n\n- **Statute 456 (Vic) \u2013 Stalking**: This statute defines \"stalking\" as persistent contact with someone who has been previously identified as having committed a crime, such as assault or harassment, through threats or physical",
+    "seconds": 9.15512314800003,
+    "input_tokens": 174,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 83,
+    "question": "Angry at Leo, Martina repeatedly dumps dead flowers and threatening notes on his doorstep and also tags him in public posts accusing him of crimes, hoping his employer will see them. Which two separate stalking acts in statutes best capture this pattern? The following information is irrelevant to answering the question: In 2013, Leo was convicted of \u201cmanslaughter by unlawful and dangerous act.\u201d During the trial, a jury member asked the judge the following question: \u201cUnder Victorian law, what is the first element of an unlawful and dangerous act causing death and what does it entail? And also, what are the other elements to this offence? And how is it different to negligent manslaughter?\u201d",
+    "precision": "bfloat16"
+  },
+  "84": {
+    "text": "**Legal Passage:**  \nIn *Rafaele v. Mary*, 1892 (UK), the court held that **Mary\u2019s confinement of twelve-year-old Timothy to her bedroom for one hour due to his behavior\u2014such as throwing water on Gregory and stealing his sister's watch\u2014is unlawful under the provisions of the Criminal Law Act 1704**, which mandates that children must have their rights protected from such deprivation.\n\nThe case relied upon two key points:\n\n",
+    "seconds": 9.263717991000021,
+    "input_tokens": 220,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 84,
+    "question": "Mary is Rafa\u2019s mother. Twelve-year-old Rafa has been especially naughty this week: on Monday he threw water on his brother Gregory, and on Tuesday he stole his sister\u2019s watch. On Wednesday, as punishment, Mary confines Rafa to his room for an hour. What are the citations of the cases suggesting that Mary\u2019s treatment of Rafa is lawful? As an aside, let's talk about Mary\u2019s childhood. When Mary was younger, she was part of a violent gang. She would roam the streets carrying a cricket bat, and when elderly women walked past, Mary would swing the bat towards them, never actually hitting them but bringing it close enough to make them believe they were about to be struck. One day, Mary was caught by the police. She was charged with assault not involving the application of force but was never convicted because the prosecution couldn\u2019t prove the first element of the offence.",
+    "precision": "bfloat16"
+  },
+  "85": {
+    "text": "The legal passage could be structured as follows:\n\n**\"In the case of *Felix v. Rosa*, it was established by the High Court of Justice (Victoria) that in Victoria, where the law is based on strict adherence to natural rights and social order, any parent's decision to leave their children unattended without proper explanation falls within the category of 'taking a child' rather than 'harbouring a minor'. The court held that since Rosa had not employed any means",
+    "seconds": 9.540160072000162,
+    "input_tokens": 127,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 85,
+    "question": "After an argument at home, 15-year-old Felix storms out and gets into the car of his aunt, Rosa, who takes him to stay at her house. Rosa used no trickery or threats, but she knows Felix\u2019s parents want him back and tells him, \u201cYou can stay here as long as you like.\u201d On these facts, is Rosa\u2019s conduct closer to taking a child or harbouring a child under the Victorian law?",
+    "precision": "bfloat16"
+  },
+  "86": {
+    "text": "**Legal Passage:**  \nIn *Hamish v. Zoe*, it was established under Victorian Criminal Law (which is now part of Australian common law) that **Zoe did not take Hamish into custody or harm him**, even though she asked if he had permission from his parents.\n\nThe court found that:\n\n- **No explicit statement by Zoe** confirmed her intent to leave Hamish.\n- She only offered a **vague shrug** and followed the entry point without further",
+    "seconds": 8.494401701000015,
+    "input_tokens": 115,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 86,
+    "question": "A 13-year-old, Hamish, orders a rideshare to a friend\u2019s house after a fight with his parents. The driver, Zoe, picks him up outside his home, asks \u201cAre your parents okay with you going?\u201d, gets a vague shrug, but offers no encouragement and simply follows the entered destination. On these facts, has Zoe taken Hamish away?",
+    "precision": "bfloat16"
+  },
+  "87": {
+    "text": "The legal passage you've requested is not directly related to the specific question and does not provide any relevant information or analysis on whether Luca formed a \"mental element\" in the context of Victorian criminal laws regarding theft.\n\nHowever, if we were to construct a hypothetical legal passage based on the scenario described (Luca using another person's guitar during a gig), one possible interpretation could be:\n\n**Legal Passage:**  \nIn *Case No. 12345*, the court held",
+    "seconds": 8.625288104999981,
+    "input_tokens": 92,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 87,
+    "question": "During a gig, Luca quietly picks up someone else\u2019s guitar, uses it for his set, then returns it to exactly the same spot before the owner notices. He always planned to put it back. On these facts alone, has Luca formed the mental element for theft?",
+    "precision": "bfloat16"
+  },
+  "88": {
+    "text": "**Legal Passage:**  \n\"Under Commonwealth Law, \"dishonest behavior\" is defined as a deliberate and intentional act of deception or misrepresentation, which may include false statements, omissions, or actions designed to deceive others. This concept emphasizes intent, falsity, and harm through deceitful means.\n\nIn contrast, Victorian Law defines \"dishonestly\" as an unintentional failure to perform one's duties with honesty, often resulting from negligence, lack of care, or moral failing rather",
+    "seconds": 8.203770652000003,
+    "input_tokens": 59,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 88,
+    "question": "How does the definition of \u201cdishonesty\u201d under Commonwealth law differ from that used in Victorian law?",
+    "precision": "bfloat16"
+  },
+  "89": {
+    "text": "A possible legal passage containing evidence for answering the question \"What is a Good?\" in the context of Victorian criminal laws might look like:\n\n**\"In accordance with the principles established by the British Law Commission, it was determined that any act which contravenes the natural rights and liberties of mankind shall be deemed unlawful unless proven otherwise.\"**\n\nThis passage includes elements such as reference to the British Constitution (a key source of Victorian legal thought), mention of natural rights, and an assertion of",
+    "seconds": 8.417727767000088,
+    "input_tokens": 43,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 89,
+    "question": "What is a good?",
+    "precision": "bfloat16"
+  },
+  "90": {
+    "text": "**Legal Passage:**  \nIn *Kai v. Farmowner*, the court held that **the ownership of property by an individual who unlawfully occupies or uses it without permission constitutes theft**, even if they are not actively involved in its acquisition. The case established that when someone rents out or owns a vacant land (or any property) under false pretenses\u2014such as forcing others out while keeping the premises free from use\u2014the land becomes \"stolen\" due to the unauthorized occupation",
+    "seconds": 8.894186974999911,
+    "input_tokens": 96,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 90,
+    "question": "Kai forces the owner of a vacant farm to leave, then lives there rent-free for six months, locking everyone else out of the gate and using it as his own space. For the purposes of handling stolen goods, does Kai\u2019s wrongful occupation turn the land itself into \u201cstolen goods\u201d?",
+    "precision": "bfloat16"
+  },
+  "91": {
+    "text": "The relevant legal passage would be:\n\n**\"In *Carnegie v. United States* (1872), the Supreme Court held that valuations of non-existing or fictitious items are not valid under U.S. law, citing the principle that such claims must be supported by actual proof.\"**\n\nThis reference aligns with the concept of **fraudulent valuation**, which was established in cases like *Carmen v. State*, where similar issues were addressed regarding",
+    "seconds": 8.785246466999979,
+    "input_tokens": 88,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 91,
+    "question": "Carmen submits a valuation certificate for 500 crates of \u201cpremium truffles\u201d that don\u2019t exist and uses it to support a finance application. Which case has been treated as authority that a valuation of non-existent goods is fraudulent in this way?",
+    "precision": "bfloat16"
+  },
+  "92": {
+    "text": "The legal passage should reflect a clear distinction between **theft** and **blackmail**, based on the elements provided in the scenario.\n\n### Analysis:\n\n- **Nicholas's intent**: The statement \"he intends to *keep* the $400 'permanently'*\" aligns with the definition of **thefts** (intention to unlawfully take someone else's property for personal gain).\n  \n- **Blackmail vs. Theft**: While blackmail involves threats to",
+    "seconds": 9.242667277999999,
+    "input_tokens": 126,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 92,
+    "question": "One element of theft is an intention to permanently deprive the owner of property. Nicholas threatens to smash his neighbour\u2019s car unless she pays him $500 \u201cfor the damage you did last year,\u201d an amount she genuinely owes. He intends to keep the $500 permanently but makes no claim over any other property. On these facts, which offence does his state of mind more clearly support \u2013 theft or blackmail \u2013 and why?",
+    "precision": "bfloat16"
+  },
+  "93": {
+    "text": "The legal passage should include:\n\n- A reference to **threats under Victorian criminal laws**, specifically mentioning the **technical label**.\n- Reference to a **reported case** (e.g., *R v. Smith*), citing it as authoritative.\n\n### Example Legal Passage:\n> In Victoria, under Victorian Criminal Law, any threat that incites harm or damages through deceitful means may be classified as a \"market-damaging\" threat. This classification applies when such threats are",
+    "seconds": 8.965859827000031,
+    "input_tokens": 127,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 93,
+    "question": "Rafi, a former executive of a publicly traded company, phones the current CEO and says, \u201cTransfer $1 million to my account or I\u2019ll leak information that will seriously damage your company's valuation.\u201d Years earlier, Rafi was convicted of assault not involving force. Under Victorian law, what technical label best fits this kind of threat, and which reported case in your materials is cited as authority for treating market-damage threats in this way?",
+    "precision": "bfloat16"
+  },
+  "94": {
+    "text": "The legal passage containing the evidence necessary for answering the question about **Victorian criminal law** is likely structured as follows:\n\n---\n\n**Josh intentionally and dishonestfully destroyed physical bank records that recorded a loan Josh owed himself. This act constitutes an offense under Victoria\u2019s Criminal Code (1890), specifically the crime of *fraudulent misrepresentation* or *deceptive concealment*.**\n\nThis passage includes relevant elements such as intent, dishonesty, destruction of property, and potential",
+    "seconds": 8.33581015599998,
+    "input_tokens": 72,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 94,
+    "question": "Josh deliberately and dishonestly destroys physical bank documents that record a loan he still owes, hoping to improve his own financial position. Which specific offence best captures Josh's conduct?",
+    "precision": "bfloat16"
+  },
+  "95": {
+    "text": "Under the **Victorian \"Dealing with Proceeds of Crime\" Offences**, the physical element clearly satisfied in Marco's conduct is **the use or possession of property** (in this case, cryptocurrencies). This means he has used the cryptocurrency as part of a fraudulent scheme.\n\nThe **highest mental state** that could be reasonably charged under these circumstances is **intentional deception**. Since Marco was fully aware that the funds were obtained via a fraudscheme, he must have",
+    "seconds": 8.79844680500014,
+    "input_tokens": 95,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 95,
+    "question": "Marco transfers cryptocurrency through multiple wallets to make it harder to trace, fully aware it came from a fraud scheme. Under the Victorian \u201cdealing with proceeds of crime\u201d offences, which physical element is clearly satisfied by his conduct, and which highest mental state could be charged on these facts?",
+    "precision": "bfloat16"
+  },
+  "96": {
+    "text": "The legal passage you've provided does not directly address whether such a transaction constitutes trafficking under Victorian criminal laws. However, if we were to construct an example based on Victorian criminal principles (which are rooted in English common law), one possible scenario could be:\n\n**\"Smith, a habitual offender, was found guilty of trafficking cocaine after agreeing with Walter, who had previously been convicted of similar offenses, to exchange quantities of their own drug.\"**\n\nThis hypothetical situation would align with Victorian criminal theory",
+    "seconds": 8.344969018000029,
+    "input_tokens": 87,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 96,
+    "question": "Smith is a dealer, and so is his friend Walter. After some haggling, they agree to swap a quantity of Smith\u2019s cocaine for Walter\u2019s ice. Which case is specifically cited to show that this type of deal amounts to trafficking?",
+    "precision": "bfloat16"
+  },
+  "97": {
+    "text": "The legal passage should reflect how the court might assess whether the accused trafficked based on the limited evidence provided in the case. Here's an example:\n\n**Legal Passage:**  \n\"Given the incomplete nature of the evidence regarding the alleged trafficking activities\u2014over six months where the accused alternated between periods of active engagement (weeks of intensive dealings) and non-activity (long quiet stretches), including multiple instances involving different drug sellers, buyers, and locations\u2014the jury is required to determine whether",
+    "seconds": 8.76759451199996,
+    "input_tokens": 109,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 97,
+    "question": "Over six months, Minh alternates between weeks of intense dealing and long quiet stretches with no proven activity. The transactions involve different drugs, buyers and locations, but all are commercial. The indictment alleges he \u201ctrafficked\u201d by carrying on a business over that whole period. What must the jury be satisfied of, given the patchy pattern of conduct?",
+    "precision": "bfloat16"
+  },
+  "98": {
+    "text": "To answer the question \"What is the missing term?\" we need to identify a **drug or substance** from the 19th century (Victorian era) associated with illegal use.\n\n### Step-by-step:\n\n- The sentence structure suggests it's referring to an **illegal drug**, likely derived from substances like alcohol.\n- In British Victoria-era criminal law, one such known drug was **coca**.\n  \n### Final Answer:\n- **Missing word**: *Coca*\n",
+    "seconds": 8.165755409999974,
+    "input_tokens": 69,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 98,
+    "question": "\u201cThe salt of the abovementioned drugs, derivates and _______\u201d Which word goes in the blank and which act does this phrase belong to?",
+    "precision": "bfloat16"
+  },
+  "99": {
+    "text": "The legal passage you've provided does not include any relevant information or references to Victorian criminal laws. However, based on your query:\n\n- **Provoked intent** (also known as *prosecution intention*) refers to the mental state where an individual acts with the purpose of causing harm.\n  \n- In the case described in the question:\n  - Jordan's actions were motivated by **provoked intent**, which requires him to have been provoked into acting.\n\nSince no specific reference",
+    "seconds": 8.478757476000055,
+    "input_tokens": 80,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 99,
+    "question": "After a grave insult, Jordan cools off for several hours, then calmly returns and kills. Which state of mind required for provocation is missing on these facts, and what is the technical term for it?",
+    "precision": "bfloat16"
+  },
+  "100": {
+    "text": "The missing word in the sentence is **\"compensation\"**.\n\nThis phrase appears in a legal passage from *Victoria's Criminal Code*, specifically under section 102 (Compensation). The passage states:\n\n> \"There was also an agreement... to seek compensation for any losses or damages incurred by the victim.\"\n\nThus, the correct answer is:\n- **Missing Word**: Compensation  \n- Where it is used: In Victoria\u2019s Criminal Code, Section 153/",
+    "seconds": 8.338263248999965,
+    "input_tokens": 74,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 100,
+    "question": "\u201cThere was an agreement between the accused and the deceased to seek the _____ of all parties to the agreement.\u201d What is the missing word, and where is this specific phrase used?",
+    "precision": "bfloat16"
+  },
+  "1": {
+    "text": "A possible legal passage containing evidence related to whether the judge was required to exclude Bob from service as a jurors could be:\n\n**\"The court found that the selection process did not violate any procedural or constitutional requirements under Victorian Criminal Law. The judge had no duty to refuse Bob's application unless there were specific circumstances where his impartiality might have compromised the fairness of the proceedings.\"**\n\nThis passage includes relevant elements such as **procedural obligations**, **impartiality**, and **constitutional",
+    "seconds": 7.928286178999997,
+    "input_tokens": 80,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "precision": "bfloat16",
+    "query_id": 1,
+    "question": "Bob and Ted are close friends. Ted is on trial for drug offences, and Bob has been selected as a juror in Ted\u2019s case. Is the judge required to excuse Bob from serving on the jury?"
+  },
+  "2": {
+    "text": "**Legal Passage:**  \nHarry was presented with an unopened lock during the burglary trial and testified under the authority of his expertise as a professional locksmith. The judge noted that while he had demonstrated proficiency in lockpicks, the lack of damage suggested it could not have been done by someone skilled in such methods. Therefore, the presence of the locked item did not provide sufficient evidence for proving the claim made by the prosecution regarding its origin.\n\nThis passage outlines how Harry\u2019s expert knowledge",
+    "seconds": 8.77865483000005,
+    "input_tokens": 106,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "precision": "bfloat16",
+    "query_id": 2,
+    "question": "Harry is serving as a juror in a burglary trial. He is also a professional locksmith. During the proceedings, Harry is shown a lock which, in his expert view, is too damaged to have been lockpicked in the manner described in court. Why might Harry's expert knowledge of lockpicking be irrelevant when assessing the physical evidence?"
+  },
+  "3": {
+    "text": "**Legal Passage:**  \n\n*In the case of *Isaac v. The Emergency Worker*, [the court] held that under section 2(1) of the **Crimes Act 2 (Statutory Murder)**, which defines a crime as \"a deliberate and intentional act with intent to kill,\" the offense of statutory murder constitutes a serious criminal offense punishable by a maximum of three hundred years imprisonment.*  \n\nThe Court found that Isaac\u2019s actions were both deliberate and intentionally aimed",
+    "seconds": 8.494390003000035,
+    "input_tokens": 87,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "precision": "bfloat16",
+    "query_id": 3,
+    "question": "Isaac is on trial for statutory murder of an emergency worker. You are his barrister. Should you notify the jury that, according to the Crimes Act 1958, the standard sentence for this offence is 30 years imprisonment?"
+  }
+}

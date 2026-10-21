@@ -1,5 +1,9 @@
 # FinDER RAG Team Benchmark — Part C Hybrid Retrieval
 
+## Cheryl: stronger HyDE follow-up
+
+[Latest findings and comparison tables](results/person3_stronger_hyde/findings.md) · [Code, model revisions and reproduction](person3_stronger_hyde/README.md)
+
 This folder is ready to place inside the team's shared GitHub repository. It
 contains the FinDER annotation file, reproducible part-C code, saved results,
 and a common metrics format for combining all four workstreams.

@@ -1,0 +1,3 @@
+
+# Preserve formatting inside generated CSV text fields.
+results/person3_stronger_hyde/*.csv whitespace=-blank-at-eol

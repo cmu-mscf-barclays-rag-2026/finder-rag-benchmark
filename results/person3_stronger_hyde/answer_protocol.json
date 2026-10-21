@@ -1,0 +1,29 @@
+{
+  "model": [
+    "Qwen/Qwen3-0.6B",
+    "c1899de289a04d12100db370d81485cdf75e47ca"
+  ],
+  "prompt": "Use only the supplied evidence to answer the question. Give a concise answer and cite supporting passage numbers like [1]. If the evidence is insufficient, say so.",
+  "context_budget_tokens": 2048,
+  "context_selection": "top5 title+text packed sequentially with final passage truncated to budget; model tokenizer; gold_context diagnostic",
+  "max_new_tokens": 128,
+  "thinking": false,
+  "pilot_ids": [
+    55,
+    51,
+    39,
+    49,
+    65,
+    9,
+    50,
+    91
+  ],
+  "methods": [
+    "standard_hybrid",
+    "flan_hybrid",
+    "qwen06_hybrid",
+    "qwen17_hybrid",
+    "gold_context"
+  ],
+  "evaluation": "manual rubric in answer_reviews.csv; lexical scores only proxies; no independent held-out claim"
+}

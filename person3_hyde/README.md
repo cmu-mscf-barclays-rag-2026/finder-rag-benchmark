@@ -1,5 +1,9 @@
 # Person 3: Reference-answer retrieval and HyDE
 
+## Stronger-generator follow-up
+
+The October20 follow-up compares Qwen3 generators with matched saved FLAN-T5 outputs and adds a preliminary final-answer pilot. See [findings](../results/person3_stronger_hyde/findings.md) and [reproduction](../person3_stronger_hyde/README.md).
+
 ## New: generation and parameter robustness
 
 The week-of-6-October follow-up is documented in

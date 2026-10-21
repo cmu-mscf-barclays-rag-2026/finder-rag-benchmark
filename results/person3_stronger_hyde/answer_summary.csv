@@ -1,0 +1,6 @@
+method,n,fully_correct_rate,partly_or_fully_correct_rate,mean_correctness_0_to_2,fully_grounded_rate,citation_present_rate,all_citations_valid_rate,mean_answer_seconds,numerical_accuracy,review_type
+standard_hybrid,8,0.0,0.25,0.25,0.0,0.75,0.5,29.06720223187503,not_applicable,model-assisted qualitative review; not independent expert annotation
+flan_hybrid,8,0.125,0.375,0.5,0.0,0.625,0.625,28.612849756624968,not_applicable,model-assisted qualitative review; not independent expert annotation
+qwen06_hybrid,8,0.0,0.25,0.25,0.0,0.625,0.625,27.80935895612498,not_applicable,model-assisted qualitative review; not independent expert annotation
+gold_context,8,0.125,0.5,0.625,0.25,1.0,0.75,12.584566281250034,not_applicable,model-assisted qualitative review; not independent expert annotation
+qwen17_hybrid,8,0.0,0.25,0.25,0.0,0.625,0.625,21.561636433874867,not_applicable,model-assisted qualitative review; not independent expert annotation

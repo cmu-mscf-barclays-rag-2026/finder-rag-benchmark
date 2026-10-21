@@ -1,0 +1,19 @@
+{
+  "python": "3.12.14",
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "transformers": "4.57.1",
+    "sentence-transformers": "5.1.1",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "huggingface-hub": "0.36.2",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.8.0"
+  },
+  "CPU": "AMD EPYC 9V74; shared host; cgroup8 CPU capacity",
+  "thread_count_per_job": 4,
+  "generator_arithmetic": "bfloat16; initial float32 timing pilot excluded",
+  "measurement_note": "serial queries; generation jobs overlap; final answer job also overlaps part of1.7B generation; timings not isolated benchmark"
+}

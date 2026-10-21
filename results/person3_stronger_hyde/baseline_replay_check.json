@@ -1,0 +1,27 @@
+{
+  "question_dense": {
+    "current_hit5": 0.29,
+    "old_hit5": 0.29,
+    "identical_top100": true
+  },
+  "bm25": {
+    "current_hit5": 0.31,
+    "old_hit5": 0.31,
+    "identical_top100": true
+  },
+  "standard_hybrid": {
+    "current_hit5": 0.36,
+    "old_hit5": 0.36,
+    "identical_top100": true
+  },
+  "reference_oracle": {
+    "current_hit5": 0.72,
+    "old_hit5": 0.72,
+    "identical_top100": true
+  },
+  "flan_dense": {
+    "current_hit5": 0.19,
+    "old_hit5": 0.19,
+    "identical_top100": false
+  }
+}

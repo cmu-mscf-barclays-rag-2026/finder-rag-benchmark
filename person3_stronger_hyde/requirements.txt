@@ -1,0 +1,12 @@
+accelerate==1.15.0
+numpy==2.5.4
+pandas==3.0.6
+safetensors==0.8.0
+scikit-learn==1.9.1
+scipy==1.18.1
+sentence-transformers==5.1.1
+sentencepiece==0.2.2
+socksio==1.0.0
+tokenizers==0.22.2
+transformers==4.57.1
+huggingface-hub==0.36.2

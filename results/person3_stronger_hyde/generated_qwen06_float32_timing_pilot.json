@@ -1,0 +1,29 @@
+{
+  "1": {
+    "text": "**Legal Passage:**  \nIn *Case No. 12345*, it was established by the High Court that **Victoria's Criminal Code (VCC) Section 60(1)** mandates that any individual who is not legally incapacitated must serve on a jury if they have committed an offense within their lifetime. This rule applies regardless of personal relationships or prior affiliations with the accused.\n\nAs such, since **Bob and Ted were close friends**, there may be",
+    "seconds": 17.656126588999996,
+    "input_tokens": 80,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 1,
+    "question": "Bob and Ted are close friends. Ted is on trial for drug offences, and Bob has been selected as a juror in Ted\u2019s case. Is the judge required to excuse Bob from serving on the jury?"
+  },
+  "2": {
+    "text": "**Legal Passage:**  \nHarry was presented with an unopened lock during the burglary trial and testified under the authority of his expertise as a professional locksmith. The judge noted that while he had demonstrated proficiency in lockpicks, the lack of damage suggested it could not have been done by someone skilled in such methods. Therefore, the jury found that the claim of lockpick involvement was unsubstantiated based on the available evidence.\n\nThis passage outlines how Harry\u2019s expert knowledge may or may",
+    "seconds": 17.74400197099999,
+    "input_tokens": 106,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 2,
+    "question": "Harry is serving as a juror in a burglary trial. He is also a professional locksmith. During the proceedings, Harry is shown a lock which, in his expert view, is too damaged to have been lockpicked in the manner described in court. Why might Harry's expert knowledge of lockpicking be irrelevant when assessing the physical evidence?"
+  },
+  "3": {
+    "text": "**Legal Passage:**  \n\n*In the matter of [Name], a barrister representing Mr. Isaac, it is held by the court that under section 2(1) of the Criminal Law (Statutory Murder) Act 2004, the offense in issue\u2014statutory murder\u2014is defined as *the act or omission which results in death and has been committed with intent to kill*, and accordingly, the punishment prescribed shall be determined by the provisions set out in subsection",
+    "seconds": 17.84814236599999,
+    "input_tokens": 87,
+    "output_tokens": 96,
+    "hit_length_cap": true,
+    "query_id": 3,
+    "question": "Isaac is on trial for statutory murder of an emergency worker. You are his barrister. Should you notify the jury that, according to the Crimes Act 1958, the standard sentence for this offence is 30 years imprisonment?"
+  }
+}
