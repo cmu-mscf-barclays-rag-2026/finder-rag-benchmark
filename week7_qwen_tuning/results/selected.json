@@ -1,0 +1,114 @@
+[
+  {
+    "budget": 2048,
+    "mode": "child",
+    "bm25_weight": 0.0,
+    "dev_hit10": 11,
+    "dev_coverage": 0.55
+  },
+  {
+    "budget": 2048,
+    "mode": "parent",
+    "bm25_weight": 0.0,
+    "dev_hit10": 9,
+    "dev_coverage": 0.45
+  },
+  {
+    "budget": 2048,
+    "mode": "child_to_parent",
+    "bm25_weight": 0.75,
+    "dev_hit10": 6,
+    "dev_coverage": 0.3
+  },
+  {
+    "budget": 2048,
+    "mode": "child_to_selected_siblings",
+    "bm25_weight": 0.0,
+    "dev_hit10": 10,
+    "dev_coverage": 0.5
+  },
+  {
+    "budget": 4000,
+    "mode": "child",
+    "bm25_weight": 0.0,
+    "dev_hit10": 12,
+    "dev_coverage": 0.6
+  },
+  {
+    "budget": 4000,
+    "mode": "parent",
+    "bm25_weight": 0.5,
+    "dev_hit10": 11,
+    "dev_coverage": 0.55
+  },
+  {
+    "budget": 4000,
+    "mode": "child_to_parent",
+    "bm25_weight": 0.0,
+    "dev_hit10": 11,
+    "dev_coverage": 0.55
+  },
+  {
+    "budget": 4000,
+    "mode": "child_to_selected_siblings",
+    "bm25_weight": 0.0,
+    "dev_hit10": 12,
+    "dev_coverage": 0.6
+  },
+  {
+    "budget": 6000,
+    "mode": "child",
+    "bm25_weight": 0.0,
+    "dev_hit10": 12,
+    "dev_coverage": 0.6
+  },
+  {
+    "budget": 6000,
+    "mode": "parent",
+    "bm25_weight": 0.0,
+    "dev_hit10": 11,
+    "dev_coverage": 0.55
+  },
+  {
+    "budget": 6000,
+    "mode": "child_to_parent",
+    "bm25_weight": 0.0,
+    "dev_hit10": 12,
+    "dev_coverage": 0.6
+  },
+  {
+    "budget": 6000,
+    "mode": "child_to_selected_siblings",
+    "bm25_weight": 0.0,
+    "dev_hit10": 13,
+    "dev_coverage": 0.65
+  },
+  {
+    "budget": 8000,
+    "mode": "child",
+    "bm25_weight": 0.0,
+    "dev_hit10": 12,
+    "dev_coverage": 0.6
+  },
+  {
+    "budget": 8000,
+    "mode": "parent",
+    "bm25_weight": 0.5,
+    "dev_hit10": 11,
+    "dev_coverage": 0.5941269841269842
+  },
+  {
+    "budget": 8000,
+    "mode": "child_to_parent",
+    "bm25_weight": 0.0,
+    "dev_hit10": 12,
+    "dev_coverage": 0.6
+  },
+  {
+    "budget": 8000,
+    "mode": "child_to_selected_siblings",
+    "bm25_weight": 0.0,
+    "dev_hit10": 13,
+    "dev_coverage": 0.65
+  }
+]
