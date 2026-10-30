@@ -1,0 +1,62 @@
+{
+  "dataset": "FiQA-2018 (BEIR: BeIR/fiqa, BeIR/fiqa-qrels), test split",
+  "corpus_passages": 57638,
+  "test_queries": 648,
+  "mean_relevant_per_query": 2.632716049382716,
+  "passage_representation": "title + text (BEIR); titles are empty in FiQA",
+  "graph_settings": {
+    "improved_graph": {
+      "restart_probability": 0.35,
+      "structural_mass": 0.15,
+      "title_weight": 2.0,
+      "max_term_df_fraction": 0.75,
+      "tolerance": 1e-09,
+      "max_iterations": 100,
+      "heading_words": true,
+      "structure": "headings",
+      "query_links": "volume",
+      "word_forms": "plural"
+    },
+    "original_graph": {
+      "restart_probability": 0.35,
+      "structural_mass": 0.15,
+      "title_weight": 2.0,
+      "max_term_df_fraction": 0.75,
+      "tolerance": 1e-09,
+      "max_iterations": 100,
+      "heading_words": false,
+      "structure": "consecutive",
+      "query_links": "idf",
+      "word_forms": "plural"
+    }
+  },
+  "graph": {
+    "improved_graph": {
+      "passage_nodes": 57638,
+      "concept_nodes": 67412,
+      "section_nodes": 0,
+      "heading_nodes": 0,
+      "total_nodes": 125050,
+      "incidence_edges": 2721443,
+      "heading_only_incidence_edges": 0,
+      "structural_edges": 0,
+      "directed_transition_edges": 5442886
+    },
+    "original_graph": {
+      "passage_nodes": 57638,
+      "concept_nodes": 67412,
+      "section_nodes": 0,
+      "heading_nodes": 0,
+      "total_nodes": 125050,
+      "incidence_edges": 2721443,
+      "heading_only_incidence_edges": 0,
+      "structural_edges": 0,
+      "directed_transition_edges": 5442886
+    }
+  },
+  "bm25": "team_bm25.py (Florence, ce54a01), k1=0.9, b=0.4 (BEIR/Anserini defaults)",
+  "dense": "sentence-transformers/all-MiniLM-L6-v2",
+  "published_reference": "BEIR (Thakur et al., 2021) BM25 nDCG@10 on FiQA: 0.236",
+  "protocol": "Fixed configurations; nothing tuned on FiQA; validation split unused.",
+  "timing": "one CPU pass over test queries (4 BLAS threads), top-100, after one warm-up query"
+}

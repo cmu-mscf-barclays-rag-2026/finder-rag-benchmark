@@ -1,0 +1,30 @@
+{
+  "dataset": "LongBench v2 (zai-org/LongBench-v2, train split = all 503 questions)",
+  "questions": 503,
+  "llm_model": "llama3.2",
+  "num_ctx": 16384,
+  "temperature": 0,
+  "chunk_words": 300,
+  "top_chunks": 8,
+  "budget_words": 2400,
+  "retrieval_query": "question + four choices",
+  "chance": {
+    "uniform": 0.25,
+    "majority_letter": 0.294234592445328
+  },
+  "max_prompt_tokens": {
+    "graph": 15241,
+    "bm25": 14009,
+    "truncate_middle": 13923,
+    "no_context": 3413
+  },
+  "mean_retrieval_seconds": {
+    "graph": 0.20174869383697094,
+    "bm25": 0.11333201033774686
+  },
+  "mean_overlap_graph_bm25_chunks": 5.10337972166998,
+  "new_llm_calls_this_run": {
+    "longbench-answer": 1998
+  },
+  "protocol": "Fixed configurations, nothing tuned on LongBench v2. Official 0-shot prompt and answer extraction; temperature 0 instead of the official 0.1 for determinism."
+}

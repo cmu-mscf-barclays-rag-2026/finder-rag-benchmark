@@ -114,8 +114,13 @@ class StandaloneGraphSettings:
     structure: str = "headings"  # "headings" section/heading tree; "consecutive" adjacent passages
     query_links: str = "volume"  # "volume" IDF x concept edge volume; "idf" IDF only
     word_forms: str = "plural"  # "corpus" also merges -ing/-ed/-ly forms into corpus words
+    # Pivoted length normalization: mention weights are divided by
+    # 1 - b + b x passage length / average length (0 = no normalization).
+    length_normalization: float = 0.0
 
     def __post_init__(self) -> None:
+        if not 0 <= self.length_normalization <= 1:
+            raise ValueError("length_normalization must be in [0, 1]")
         if not 0 < self.restart_probability < 1:
             raise ValueError("restart_probability must be strictly between 0 and 1")
         if not 0 <= self.structural_mass < 1:
@@ -229,12 +234,13 @@ class StandaloneGraphRetriever:
         self.section_passages = self._passages_under()
         # Each passage sits under one or more chains: section > heading > subheading.
         self.breadcrumbs = [[self._chain(index) for index in sections] for sections in attached]
-        counts = []
+        counts, lengths = [], []
         inherited: set[tuple[int, str]] = set()
         df: Counter[str] = Counter()
         for passage_index, document in enumerate(self.documents):
             content_counts = self.concepts(document.page_content)
             body = set(content_counts)
+            lengths.append(sum(content_counts.values()))
             # Title and heading words count title_weight times, before log scaling.
             titles = [str(document.metadata.get("title") or "")]
             if self.settings.heading_words:
@@ -256,14 +262,18 @@ class StandaloneGraphRetriever:
             math.log(1 + (self.passage_count - df[key] + 0.5) / (df[key] + 0.5))
             for key in self.concept_ids
         ])
+        b = self.settings.length_normalization
+        average_length = (sum(lengths) / len(lengths)) or 1.0
         rows, cols, weights = [], [], []
         for passage_index, row in enumerate(counts):
+            pivot = 1 - b + b * max(lengths[passage_index], 1) / average_length
             for concept_id, frequency in sorted(row.items()):
                 column = self.concept_index.get(concept_id)
                 if column is None:
                     continue
-                # Repeated mentions strengthen an edge with diminishing returns.
-                weight = 1.0 + math.log(frequency)
+                # Repeated mentions strengthen an edge with diminishing returns;
+                # mentions in longer-than-average passages count less.
+                weight = (1.0 + math.log(frequency)) / pivot
                 rows.append(passage_index)
                 cols.append(column)
                 weights.append(weight)

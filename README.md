@@ -32,6 +32,9 @@ and dataset downloads need internet access; inference runs on your computer.
 - `evaluate_llm_graph.py` - graph versus LLM-augmented graph evaluation (cached LLM calls).
 - `agentic_graph.py` - one-retry agentic search: confidence-gated LLM reformulation around the graph.
 - `evaluate_agentic_graph.py` - routing headroom, gated retry, and budget curves (cached LLM calls).
+- `evaluate_fiqa_graph.py` - graph vs BM25 and dense on FiQA-2018 (BEIR) passage retrieval.
+- `evaluate_longbench_graph.py` - graph RAG end to end on LongBench v2 with the local LLM.
+- `team_bm25.py` - Florence's BM25, vendored unmodified for the outside benchmarks.
 
 The benchmark answers are deliberately not indexed. Only FinDER's reference
 passages are searchable, avoiding answer leakage into the retrieval context.

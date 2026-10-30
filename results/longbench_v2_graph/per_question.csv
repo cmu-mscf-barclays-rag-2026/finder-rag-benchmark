@@ -1,0 +1,504 @@
+id,domain,difficulty,length,answer,graph_pred,graph_correct,graph_prompt_tokens,bm25_pred,bm25_correct,bm25_prompt_tokens,truncate_middle_pred,truncate_middle_correct,truncate_middle_prompt_tokens,no_context_pred,no_context_correct,no_context_prompt_tokens
+66fcffd9bb02136c067c94c5,Long In-context Learning,hard,long,D,D,1.0,5108,D,1.0,4680,,0.0,6666,A,0.0,161
+66f36490821e116aacb2cc22,Single-Document QA,easy,short,D,A,0.0,3914,A,0.0,3736,A,0.0,3892,A,0.0,145
+66f94f9ebb02136c067c4fde,Multi-Document QA,hard,long,D,B,0.0,4029,B,0.0,3907,B,0.0,4439,D,1.0,429
+6723a1ccbb02136c067d70b3,Single-Document QA,easy,medium,D,B,0.0,3684,C,0.0,3550,C,0.0,3857,,0.0,247
+66ebed525a08c7b9b35e1cb4,Single-Document QA,hard,short,B,D,0.0,3615,D,0.0,3630,D,0.0,3761,D,0.0,184
+670aac92bb02136c067d218a,Single-Document QA,hard,medium,D,B,0.0,3519,D,1.0,3497,D,1.0,3395,,0.0,92
+671b3cabbb02136c067d5252,Long-dialogue History Understanding,hard,short,B,D,0.0,5753,A,0.0,5657,B,1.0,5420,,0.0,86
+66fa208bbb02136c067c5fc1,Code Repository Understanding,easy,long,B,B,1.0,5681,B,1.0,5647,B,1.0,6347,B,1.0,106
+66ec0c4c821e116aacb1994a,Multi-Document QA,easy,medium,D,A,0.0,3990,D,1.0,3741,C,0.0,4844,C,0.0,144
+66f920d8bb02136c067c4b81,Single-Document QA,hard,medium,C,B,0.0,3230,B,0.0,3222,,0.0,3226,D,0.0,101
+66ec56dd821e116aacb1cd0e,Code Repository Understanding,easy,long,C,B,0.0,6959,B,0.0,5316,B,0.0,8194,B,0.0,218
+6725dc28bb02136c067d8555,Long In-context Learning,easy,medium,D,C,0.0,3549,C,0.0,3506,C,0.0,3367,C,0.0,248
+66ebd55f5a08c7b9b35e0698,Single-Document QA,easy,long,A,B,0.0,3749,B,0.0,3760,D,0.0,3967,A,1.0,86
+670cf1c0bb02136c067d26e5,Single-Document QA,hard,medium,A,B,0.0,3107,C,0.0,3105,D,0.0,3117,,0.0,105
+66ec3fa7821e116aacb1c75d,Long In-context Learning,hard,medium,B,D,0.0,4705,D,0.0,3914,D,0.0,5244,D,0.0,160
+66ed875e821e116aacb2023e,Multi-Document QA,hard,medium,A,C,0.0,3800,C,0.0,3636,,0.0,3810,B,0.0,115
+66f8c9febb02136c067c4511,Multi-Document QA,hard,long,C,D,0.0,4256,D,0.0,3997,A,0.0,4563,D,0.0,281
+67239fd9bb02136c067d6ff7,Single-Document QA,easy,medium,A,B,0.0,3654,B,0.0,3675,B,0.0,4013,,0.0,263
+66f61d7dbb02136c067c1802,Multi-Document QA,easy,long,D,,0.0,4618,,0.0,4628,,0.0,11162,,0.0,125
+66f3f46f821e116aacb2ff5d,Multi-Document QA,hard,long,B,D,0.0,4511,D,0.0,4244,D,0.0,4836,D,0.0,305
+66f599ef821e116aacb34099,Multi-Document QA,hard,short,B,B,1.0,4017,D,0.0,3826,D,0.0,5957,B,1.0,204
+66f39aa7821e116aacb2da76,Single-Document QA,hard,short,B,D,0.0,3651,D,0.0,3679,B,1.0,4596,D,0.0,314
+66f2a414821e116aacb2a3af,Long Structured Data Understanding,hard,medium,B,C,0.0,8194,C,0.0,8194,B,1.0,8194,C,0.0,196
+67286634bb02136c067d91f0,Long In-context Learning,hard,medium,D,D,1.0,3744,C,0.0,3869,C,0.0,3880,C,0.0,303
+66f958b3bb02136c067c5219,Single-Document QA,hard,short,C,C,1.0,3891,C,1.0,3783,C,1.0,4628,C,1.0,319
+66f3c1ab821e116aacb2ead1,Multi-Document QA,hard,short,D,C,0.0,4395,C,0.0,4323,C,0.0,3849,B,0.0,370
+66f618f1bb02136c067c16f9,Single-Document QA,hard,short,D,B,0.0,4425,B,0.0,4309,B,0.0,4598,,0.0,160
+66fcf2f2bb02136c067c9169,Multi-Document QA,easy,short,B,C,0.0,3471,C,0.0,3471,C,0.0,3422,C,0.0,334
+66f40b9c821e116aacb30a99,Multi-Document QA,easy,long,C,B,0.0,7325,B,0.0,3327,B,0.0,4261,B,0.0,222
+6725d977bb02136c067d8373,Long In-context Learning,easy,medium,A,C,0.0,4883,C,0.0,4760,C,0.0,4817,C,0.0,117
+66f8d4b3bb02136c067c45c2,Single-Document QA,hard,medium,B,D,0.0,3919,D,0.0,3935,A,0.0,4484,A,0.0,522
+6724631ebb02136c067d7300,Single-Document QA,easy,long,D,C,0.0,4052,,0.0,4187,,0.0,4158,,0.0,234
+66f659a8bb02136c067c1d68,Long Structured Data Understanding,hard,medium,A,C,0.0,8142,C,0.0,7510,D,0.0,8194,D,0.0,100
+66f40e44821e116aacb30b45,Long In-context Learning,hard,long,C,B,0.0,4403,D,0.0,4388,B,0.0,7683,,0.0,216
+66f50109821e116aacb31f16,Multi-Document QA,hard,medium,B,C,0.0,4575,C,0.0,3697,C,0.0,3739,D,0.0,117
+66fa3843bb02136c067c655d,Code Repository Understanding,hard,long,D,,0.0,8333,,0.0,6153,B,0.0,7958,D,1.0,252
+670fb813bb02136c067d2bec,Single-Document QA,easy,medium,D,D,1.0,3362,C,0.0,3340,C,0.0,3322,D,1.0,134
+66f167c3821e116aacb274f4,Multi-Document QA,hard,medium,C,B,0.0,3880,B,0.0,3849,B,0.0,4801,B,0.0,262
+66ecfe1e821e116aacb1e41c,Single-Document QA,hard,medium,C,D,0.0,3729,D,0.0,3606,C,1.0,4127,D,0.0,263
+66eefe85821e116aacb228dc,Multi-Document QA,hard,short,A,B,0.0,3828,B,0.0,3723,B,0.0,4163,C,0.0,255
+66f78ecfbb02136c067c2f12,Multi-Document QA,easy,short,B,D,0.0,3476,C,0.0,3491,A,0.0,3494,D,0.0,155
+6703a0ecbb02136c067cd11b,Long Structured Data Understanding,hard,short,A,A,1.0,8232,A,1.0,5191,B,0.0,12088,B,0.0,270
+67286698bb02136c067d9223,Long In-context Learning,easy,medium,C,C,1.0,4092,C,1.0,3944,C,1.0,4007,B,0.0,430
+66ebc4af5a08c7b9b35dede0,Single-Document QA,hard,short,A,B,0.0,3942,B,0.0,3920,B,0.0,3973,,0.0,224
+67285e1dbb02136c067d901b,Long Structured Data Understanding,easy,medium,A,,0.0,7275,,0.0,7277,,0.0,8490,,0.0,92
+66ee4c55821e116aacb21596,Single-Document QA,hard,long,D,B,0.0,3499,B,0.0,3460,A,0.0,5325,A,0.0,141
+66faafd9bb02136c067c74a8,Long In-context Learning,easy,long,B,B,1.0,4019,B,1.0,3838,,0.0,4608,B,1.0,118
+6719bc01bb02136c067d43fa,Long-dialogue History Understanding,hard,short,D,,0.0,6158,,0.0,6160,,0.0,6323,,0.0,87
+66ed3148821e116aacb1f2ce,Single-Document QA,hard,short,B,B,1.0,3543,B,1.0,3536,B,1.0,3840,B,1.0,248
+6704a83dbb02136c067cde1b,Single-Document QA,hard,short,B,D,0.0,4074,B,1.0,3835,B,1.0,4870,D,0.0,382
+66f3d738821e116aacb2f446,Single-Document QA,easy,medium,D,D,1.0,3825,A,0.0,3767,A,0.0,4672,A,0.0,456
+66ebd5125a08c7b9b35e0616,Single-Document QA,easy,short,C,C,1.0,3286,C,1.0,3339,B,0.0,3390,C,1.0,120
+66f95126bb02136c067c5070,Multi-Document QA,easy,short,C,C,1.0,4421,C,1.0,4461,,0.0,4817,C,1.0,165
+66fcf8dfbb02136c067c92cc,Long In-context Learning,easy,long,C,C,1.0,4240,C,1.0,4767,C,1.0,6633,D,0.0,152
+6701cda0bb02136c067cb6eb,Multi-Document QA,hard,short,A,C,0.0,3761,C,0.0,3696,B,0.0,3627,C,0.0,164
+66f4cd2c821e116aacb316ef,Single-Document QA,hard,medium,D,D,1.0,5094,D,1.0,3957,D,1.0,4789,D,1.0,371
+67062a63bb02136c067cf5ac,Long Structured Data Understanding,hard,short,C,,0.0,6478,,0.0,6448,,0.0,6448,C,1.0,202
+67237d8ebb02136c067d6c06,Long Structured Data Understanding,easy,long,C,C,1.0,7497,C,1.0,7329,C,1.0,8551,C,1.0,106
+66f1dac1821e116aacb27df1,Code Repository Understanding,easy,long,A,C,0.0,5879,C,0.0,5700,C,0.0,5574,C,0.0,190
+66fbab85bb02136c067c81dc,Multi-Document QA,hard,short,C,C,1.0,3049,C,1.0,3083,C,1.0,3105,,0.0,103
+6725e2febb02136c067d8717,Single-Document QA,hard,short,D,C,0.0,4031,,0.0,4081,,0.0,4051,,0.0,259
+66ec3aff821e116aacb1c52e,Single-Document QA,easy,medium,D,C,0.0,3628,C,0.0,3601,C,0.0,3535,C,0.0,163
+66ecfdbd821e116aacb1e3f7,Single-Document QA,hard,medium,C,D,0.0,3413,C,1.0,3442,,0.0,3386,C,1.0,83
+670fbae0bb02136c067d2c79,Single-Document QA,easy,medium,A,C,0.0,3305,C,0.0,3315,D,0.0,3503,A,1.0,100
+67246903bb02136c067d74f2,Single-Document QA,easy,medium,A,B,0.0,3970,B,0.0,3909,B,0.0,3521,,0.0,244
+66f2a4e3821e116aacb2a49b,Long In-context Learning,hard,long,B,D,0.0,12461,D,0.0,12450,D,0.0,13850,D,0.0,399
+66fa7f1dbb02136c067c6e6b,Multi-Document QA,easy,short,D,A,0.0,4164,A,0.0,3996,A,0.0,3968,B,0.0,157
+66ec3d1d821e116aacb1c622,Single-Document QA,easy,short,B,D,0.0,3489,D,0.0,3489,D,0.0,3484,D,0.0,192
+672464aebb02136c067d73e6,Single-Document QA,hard,medium,D,C,0.0,4147,A,0.0,4075,C,0.0,4194,C,0.0,235
+66f3e58c821e116aacb2fabc,Multi-Document QA,easy,medium,B,B,1.0,4507,C,0.0,4373,C,0.0,5023,B,1.0,459
+670cf52abb02136c067d2728,Single-Document QA,hard,long,A,C,0.0,3180,D,0.0,3187,C,0.0,3089,,0.0,104
+6725d92bbb02136c067d833c,Long In-context Learning,hard,medium,D,D,1.0,4887,D,1.0,4932,D,1.0,4831,C,0.0,131
+66fa50acbb02136c067c6827,Code Repository Understanding,easy,short,B,C,0.0,7584,C,0.0,6389,C,0.0,7951,C,0.0,172
+671b99e5bb02136c067d583d,Long-dialogue History Understanding,hard,medium,C,B,0.0,3711,B,0.0,3740,,0.0,4395,B,0.0,98
+66f2a255821e116aacb2a20b,Long In-context Learning,hard,long,D,C,0.0,12560,C,0.0,12313,C,0.0,13728,C,0.0,277
+66f55d66821e116aacb33734,Single-Document QA,hard,short,D,B,0.0,3902,B,0.0,3618,D,1.0,4595,B,0.0,188
+66f2adaf821e116aacb2aca9,Multi-Document QA,hard,long,B,C,0.0,4180,C,0.0,3747,C,0.0,4899,C,0.0,252
+66fe8eb3bb02136c067ca35f,Single-Document QA,hard,short,D,C,0.0,3560,C,0.0,3531,B,0.0,4051,B,0.0,203
+670fbf5abb02136c067d2d9c,Single-Document QA,hard,medium,A,C,0.0,3278,D,0.0,3361,C,0.0,3353,,0.0,143
+67040276bb02136c067cd8ae,Single-Document QA,hard,short,B,D,0.0,3663,B,1.0,3699,D,0.0,4359,D,0.0,266
+66fb6d71bb02136c067c7c34,Multi-Document QA,hard,short,B,C,0.0,3778,D,0.0,3544,B,1.0,3638,C,0.0,114
+6703933bbb02136c067ccd78,Single-Document QA,hard,short,B,C,0.0,3525,C,0.0,3490,C,0.0,3462,B,1.0,124
+6724c788bb02136c067d792d,Long Structured Data Understanding,easy,medium,B,D,0.0,7063,B,1.0,6926,,0.0,8496,,0.0,104
+670fbb78bb02136c067d2cd3,Single-Document QA,hard,medium,B,C,0.0,3554,C,0.0,3588,D,0.0,3323,,0.0,113
+66f40501821e116aacb307e8,Long In-context Learning,easy,long,B,B,1.0,4916,B,1.0,4916,A,0.0,5064,A,0.0,158
+670fbb1fbb02136c067d2ca4,Single-Document QA,hard,medium,A,B,0.0,3628,A,1.0,3615,D,0.0,3514,,0.0,111
+671b1335bb02136c067d4e88,Long-dialogue History Understanding,easy,short,C,A,0.0,6814,C,1.0,6663,C,1.0,7418,,0.0,86
+66f14c70821e116aacb271ee,Multi-Document QA,hard,short,C,D,0.0,4266,D,0.0,4279,D,0.0,5031,B,0.0,203
+66fea153bb02136c067ca3e7,Single-Document QA,easy,short,D,C,0.0,3542,C,0.0,3549,C,0.0,3681,D,1.0,218
+66ec2df6821e116aacb1bb7b,Long In-context Learning,hard,medium,C,B,0.0,3676,B,0.0,3793,B,0.0,4899,B,0.0,305
+66ebee0a5a08c7b9b35e1d05,Multi-Document QA,hard,short,D,A,0.0,4313,A,0.0,4350,A,0.0,5153,A,0.0,681
+66ed910a821e116aacb2033b,Single-Document QA,hard,short,A,A,1.0,4031,A,1.0,3650,A,1.0,4108,D,0.0,267
+66ed1556821e116aacb1ea14,Single-Document QA,hard,short,A,C,0.0,4083,C,0.0,4002,C,0.0,4842,D,0.0,289
+66f2cacb821e116aacb2ba50,Multi-Document QA,hard,medium,C,C,1.0,6377,C,1.0,4657,B,0.0,4089,B,0.0,309
+66f2c44e821e116aacb2b826,Multi-Document QA,hard,medium,C,B,0.0,3965,B,0.0,3879,B,0.0,3632,,0.0,159
+66eae4de5a08c7b9b35dd12d,Single-Document QA,hard,short,C,C,1.0,3761,C,1.0,3761,B,0.0,3831,B,0.0,144
+6703f73cbb02136c067cd74a,Single-Document QA,hard,long,B,B,1.0,3808,B,1.0,3749,B,1.0,5415,B,1.0,311
+671b3fa1bb02136c067d5353,Long-dialogue History Understanding,hard,short,C,C,1.0,6016,B,0.0,5244,,0.0,5859,,0.0,102
+66f3d10b821e116aacb2f14f,Single-Document QA,easy,medium,D,C,0.0,3870,A,0.0,3680,C,0.0,5651,B,0.0,273
+66f016e6821e116aacb25497,Multi-Document QA,hard,medium,D,D,1.0,3854,D,1.0,3642,D,1.0,3749,D,1.0,197
+66f97d7fbb02136c067c56b2,Multi-Document QA,hard,medium,A,C,0.0,4015,C,0.0,3774,C,0.0,3630,C,0.0,242
+66f3dd59821e116aacb2f6ba,Multi-Document QA,hard,medium,C,B,0.0,4397,B,0.0,4209,B,0.0,4492,B,0.0,342
+66f2a80d821e116aacb2a760,Long In-context Learning,hard,medium,A,B,0.0,11208,B,0.0,11098,B,0.0,10118,,0.0,164
+66ee3c6d821e116aacb20f6f,Multi-Document QA,hard,short,B,C,0.0,4065,C,0.0,4008,C,0.0,4808,C,0.0,153
+6725d898bb02136c067d82d6,Long In-context Learning,easy,medium,B,B,1.0,4045,B,1.0,3776,C,0.0,3873,B,1.0,296
+66f3c1c3821e116aacb2eaf6,Multi-Document QA,hard,short,A,C,0.0,3568,C,0.0,3568,C,0.0,3653,C,0.0,213
+66ed364d821e116aacb1f47e,Multi-Document QA,easy,medium,D,B,0.0,4176,D,1.0,4274,D,1.0,4598,,0.0,134
+66efc5e3821e116aacb23df1,Single-Document QA,hard,long,D,B,0.0,4296,B,0.0,4458,C,0.0,3699,,0.0,189
+66f2b546821e116aacb2b152,Long In-context Learning,easy,long,C,C,1.0,4134,C,1.0,4152,,0.0,3777,C,1.0,134
+66f2b11c821e116aacb2aeb6,Single-Document QA,hard,medium,A,A,1.0,4030,A,1.0,3958,D,0.0,5250,A,1.0,239
+671b2c67bb02136c067d50f7,Long-dialogue History Understanding,hard,short,D,,0.0,104,B,0.0,7151,,0.0,7332,,0.0,87
+66fa0d88bb02136c067c5a8a,Multi-Document QA,hard,long,C,A,0.0,3986,A,0.0,3970,B,0.0,5323,B,0.0,503
+66ec356a821e116aacb1c22b,Multi-Document QA,hard,short,C,A,0.0,3152,A,0.0,3152,A,0.0,3146,C,1.0,131
+672861afbb02136c067d90d8,Long Structured Data Understanding,easy,medium,C,,0.0,7447,,0.0,7447,,0.0,8603,,0.0,88
+66eb873c5a08c7b9b35dd849,Multi-Document QA,hard,medium,B,C,0.0,4877,B,1.0,5166,C,0.0,4760,B,1.0,408
+66ebd2475a08c7b9b35e0155,Single-Document QA,easy,long,D,C,0.0,3497,C,0.0,3421,C,0.0,3615,B,0.0,100
+66fa8ccdbb02136c067c6fa7,Long Structured Data Understanding,easy,medium,B,,0.0,8194,,0.0,8024,,0.0,6362,,0.0,141
+66ee4287821e116aacb21258,Multi-Document QA,hard,short,B,B,1.0,4306,B,1.0,4316,B,1.0,5402,B,1.0,387
+66f19f04821e116aacb27bab,Long In-context Learning,hard,medium,A,D,0.0,4830,D,0.0,4571,D,0.0,5537,D,0.0,220
+66ec41d3821e116aacb1c874,Single-Document QA,easy,short,D,D,1.0,3378,D,1.0,3370,D,1.0,3374,D,1.0,164
+66f55828821e116aacb3363e,Multi-Document QA,hard,long,D,D,1.0,4485,D,1.0,4543,D,1.0,4506,D,1.0,387
+6725da56bb02136c067d841b,Long In-context Learning,hard,medium,D,D,1.0,4875,D,1.0,4915,C,0.0,4841,D,1.0,141
+66f3918f821e116aacb2d8b7,Single-Document QA,easy,short,D,D,1.0,3857,D,1.0,3663,D,1.0,3641,D,1.0,165
+66ebd3ba5a08c7b9b35e0446,Code Repository Understanding,hard,medium,A,A,1.0,4697,A,1.0,4189,A,1.0,5541,A,1.0,470
+66fa2734bb02136c067c627a,Code Repository Understanding,easy,long,A,D,0.0,6455,D,0.0,5978,B,0.0,6700,D,0.0,246
+66f950acbb02136c067c5021,Single-Document QA,easy,medium,A,B,0.0,4117,A,1.0,3911,B,0.0,4710,A,1.0,236
+671a4444bb02136c067d4a40,Long-dialogue History Understanding,hard,medium,B,,0.0,4752,B,1.0,4904,,0.0,4762,D,0.0,87
+6703f57bbb02136c067cd714,Single-Document QA,hard,long,D,A,0.0,4666,A,0.0,4337,D,1.0,6853,A,0.0,248
+66ed211f821e116aacb1ee0d,Single-Document QA,hard,medium,C,D,0.0,3143,D,0.0,3179,,0.0,3537,D,0.0,153
+66fcfd6fbb02136c067c9454,Long In-context Learning,hard,long,D,A,0.0,3962,A,0.0,4252,D,1.0,6641,B,0.0,136
+66ed4274821e116aacb1f8f1,Multi-Document QA,hard,medium,D,C,0.0,4137,D,1.0,3752,D,1.0,5090,,0.0,140
+66f299b3821e116aacb29cfa,Long In-context Learning,easy,long,B,A,0.0,12984,A,0.0,12938,A,0.0,13675,A,0.0,224
+6724c83fbb02136c067d7962,Long Structured Data Understanding,easy,medium,D,,0.0,7394,,0.0,7029,,0.0,8490,,0.0,98
+66faac15bb02136c067c73f3,Multi-Document QA,hard,short,C,A,0.0,4047,C,1.0,3950,B,0.0,3752,B,0.0,228
+671b530dbb02136c067d5454,Long-dialogue History Understanding,easy,medium,D,C,0.0,3891,D,1.0,3675,C,0.0,4742,D,1.0,85
+66f53ab2821e116aacb33299,Multi-Document QA,easy,medium,A,C,0.0,5554,C,0.0,4664,,0.0,4448,,0.0,154
+670fb6a3bb02136c067d2b94,Single-Document QA,hard,medium,A,B,0.0,3270,B,0.0,3406,C,0.0,3302,,0.0,111
+66f53892821e116aacb33225,Single-Document QA,easy,short,B,B,1.0,8721,B,1.0,8474,B,1.0,6415,B,1.0,216
+66f1cd02821e116aacb27d3f,Single-Document QA,easy,long,B,C,0.0,3349,B,1.0,3354,C,0.0,4130,B,1.0,93
+66f3d2fc821e116aacb2f269,Single-Document QA,hard,medium,B,D,0.0,3828,D,0.0,3751,D,0.0,4878,B,1.0,249
+66fa542bbb02136c067c686d,Code Repository Understanding,easy,medium,A,A,1.0,6559,A,1.0,6360,,0.0,7471,D,0.0,270
+66f6b623bb02136c067c2646,Multi-Document QA,hard,medium,A,C,0.0,3973,C,0.0,3989,A,1.0,3769,C,0.0,108
+670765abbb02136c067d06b4,Long In-context Learning,hard,long,B,B,1.0,10024,B,1.0,9752,,0.0,10316,D,0.0,281
+66f3df1e821e116aacb2f7be,Code Repository Understanding,hard,long,A,B,0.0,8352,B,0.0,5592,B,0.0,6678,B,0.0,221
+672468b1bb02136c067d74bd,Single-Document QA,hard,medium,B,B,1.0,3562,,0.0,3546,B,1.0,3774,,0.0,239
+66fba2bcbb02136c067c8112,Multi-Document QA,easy,medium,D,B,0.0,3607,B,0.0,3607,B,0.0,3508,B,0.0,261
+66f17aab821e116aacb2772d,Single-Document QA,hard,medium,D,C,0.0,3790,C,0.0,3766,C,0.0,4498,C,0.0,167
+66ebd34d5a08c7b9b35e035d,Single-Document QA,hard,long,C,B,0.0,3360,C,1.0,3405,B,0.0,4500,B,0.0,202
+66ead7bd5a08c7b9b35dca7a,Single-Document QA,easy,long,D,B,0.0,4806,B,0.0,4646,B,0.0,3962,B,0.0,120
+66ec0874821e116aacb194a4,Multi-Document QA,hard,short,B,A,0.0,5117,A,0.0,5122,A,0.0,5898,D,0.0,713
+66ec4370821e116aacb1c905,Long In-context Learning,hard,medium,A,B,0.0,4687,B,0.0,4536,D,0.0,4551,B,0.0,231
+66fcf725bb02136c067c924a,Long In-context Learning,easy,long,B,A,0.0,3652,B,1.0,4861,B,1.0,6652,C,0.0,147
+66f95c18bb02136c067c52e1,Single-Document QA,hard,short,B,B,1.0,3896,B,1.0,3794,C,0.0,3984,C,0.0,299
+66f2ad2b821e116aacb2ac0f,Multi-Document QA,hard,short,A,B,0.0,4301,D,0.0,4146,D,0.0,4368,D,0.0,116
+6724c5febb02136c067d78e7,Long Structured Data Understanding,hard,medium,A,,0.0,7484,A,1.0,7121,,0.0,8527,,0.0,93
+66ec4e43821e116aacb1cb54,Long In-context Learning,easy,medium,A,A,1.0,9529,A,1.0,5270,A,1.0,11040,C,0.0,191
+6724c4aabb02136c067d78a6,Long Structured Data Understanding,hard,medium,B,,0.0,7290,B,1.0,7130,C,0.0,8463,C,0.0,97
+66f3fb96821e116aacb3043f,Long In-context Learning,hard,long,A,A,1.0,12460,A,1.0,12632,B,0.0,13923,B,0.0,472
+66f41108821e116aacb30c41,Multi-Document QA,easy,medium,D,B,0.0,3648,B,0.0,3628,,0.0,4281,,0.0,103
+66ed5be2821e116aacb1fb57,Code Repository Understanding,hard,long,D,D,1.0,6783,D,1.0,5502,D,1.0,5806,D,1.0,325
+66fcfb5fbb02136c067c93ae,Code Repository Understanding,hard,short,D,B,0.0,6728,B,0.0,6728,D,1.0,8806,D,1.0,419
+670bf6ddbb02136c067d2379,Single-Document QA,hard,medium,C,A,0.0,3296,A,0.0,3318,B,0.0,3725,B,0.0,103
+66f530ce821e116aacb32f09,Code Repository Understanding,easy,short,C,A,0.0,9098,C,1.0,8203,D,0.0,10118,C,1.0,429
+66ec1e3f821e116aacb1ae7d,Single-Document QA,easy,short,D,D,1.0,4250,D,1.0,4213,D,1.0,4761,D,1.0,189
+6723a0a7bb02136c067d7040,Single-Document QA,hard,medium,A,C,0.0,4228,C,0.0,3999,C,0.0,4076,,0.0,229
+66ec2e2a821e116aacb1bb9f,Single-Document QA,easy,short,D,C,0.0,3506,C,0.0,3435,C,0.0,4628,C,0.0,143
+66ed2c87821e116aacb1f149,Long Structured Data Understanding,easy,short,A,D,0.0,5347,D,0.0,4099,D,0.0,5047,D,0.0,207
+66ec48f2821e116aacb1ca3f,Long In-context Learning,hard,medium,D,B,0.0,4623,D,1.0,4078,C,0.0,5243,C,0.0,168
+66f00f1a821e116aacb252cf,Multi-Document QA,hard,long,B,D,0.0,4860,C,0.0,3980,B,1.0,5870,B,1.0,364
+6723a770bb02136c067d7233,Single-Document QA,hard,medium,D,,0.0,3488,B,0.0,3387,C,0.0,5084,,0.0,253
+66ebc0c95a08c7b9b35de7f3,Single-Document QA,easy,short,C,C,1.0,4554,C,1.0,4465,C,1.0,3633,C,1.0,90
+671b17d5bb02136c067d4f7d,Long-dialogue History Understanding,easy,short,D,,0.0,103,A,0.0,6711,C,0.0,7329,,0.0,86
+66ed168b821e116aacb1ea8c,Single-Document QA,hard,medium,C,C,1.0,3920,C,1.0,3749,A,0.0,3677,,0.0,182
+6725db01bb02136c067d847f,Long In-context Learning,hard,medium,A,A,1.0,5744,A,1.0,5706,C,0.0,5580,B,0.0,104
+66f2a46d821e116aacb2a41a,Long Structured Data Understanding,hard,long,B,C,0.0,5638,C,0.0,5033,C,0.0,5442,C,0.0,105
+6719c1febb02136c067d44db,Long-dialogue History Understanding,easy,medium,D,C,0.0,3749,C,0.0,3662,C,0.0,4439,C,0.0,113
+66f91f2cbb02136c067c4b1e,Single-Document QA,hard,short,B,D,0.0,3315,D,0.0,3311,D,0.0,3344,D,0.0,149
+66efaf70821e116aacb234bd,Multi-Document QA,hard,medium,D,B,0.0,3568,B,0.0,3610,B,0.0,3635,B,0.0,189
+66f3f1a5821e116aacb2fdc7,Long In-context Learning,easy,medium,D,A,0.0,11232,A,0.0,11280,A,0.0,10192,C,0.0,260
+670c090bbb02136c067d2404,Single-Document QA,hard,medium,C,D,0.0,3216,D,0.0,3216,D,0.0,3142,,0.0,113
+66f28ede821e116aacb29a27,Multi-Document QA,hard,medium,B,C,0.0,3940,B,1.0,3905,B,1.0,5165,B,1.0,350
+66fa6867bb02136c067c6b3b,Multi-Document QA,hard,short,D,A,0.0,4283,A,0.0,4239,C,0.0,4087,C,0.0,376
+67249705bb02136c067d76d1,Long Structured Data Understanding,easy,medium,D,B,0.0,7285,,0.0,7265,,0.0,8443,,0.0,93
+66fab090bb02136c067c74e7,Multi-Document QA,hard,short,B,D,0.0,5236,C,0.0,4636,C,0.0,3959,D,0.0,203
+66fcfb1cbb02136c067c938b,Long In-context Learning,easy,long,A,C,0.0,4213,C,0.0,4443,,0.0,6663,B,0.0,158
+66fad00bbb02136c067c76ce,Long In-context Learning,easy,medium,C,D,0.0,3567,A,0.0,3498,D,0.0,3675,D,0.0,175
+67095b87bb02136c067d1bad,Single-Document QA,hard,long,D,B,0.0,4154,B,0.0,3892,D,1.0,4456,,0.0,243
+66f9625fbb02136c067c5456,Long In-context Learning,easy,short,B,C,0.0,3760,C,0.0,3261,C,0.0,3723,D,0.0,130
+66f56630821e116aacb3392b,Long In-context Learning,hard,medium,D,D,1.0,3634,D,1.0,3577,D,1.0,4477,D,1.0,324
+670fb882bb02136c067d2c1d,Single-Document QA,easy,medium,C,B,0.0,3596,B,0.0,3566,D,0.0,3515,,0.0,112
+67189156bb02136c067d3b8d,Long-dialogue History Understanding,hard,medium,B,D,0.0,3738,D,0.0,3692,D,0.0,4674,A,0.0,106
+66f2cb0f821e116aacb2ba6d,Code Repository Understanding,hard,long,A,C,0.0,6553,C,0.0,5534,C,0.0,5456,,0.0,96
+672494e5bb02136c067d7697,Long Structured Data Understanding,easy,medium,C,B,0.0,7156,A,0.0,7405,,0.0,8534,,0.0,88
+66faa0f5bb02136c067c722c,Code Repository Understanding,easy,long,A,A,1.0,7297,C,0.0,6783,C,0.0,6637,A,1.0,336
+66f52d48821e116aacb32cf4,Single-Document QA,hard,medium,A,D,0.0,3518,B,0.0,3455,,0.0,3654,D,0.0,136
+67239f49bb02136c067d6fc0,Single-Document QA,easy,long,A,C,0.0,3791,C,0.0,3796,C,0.0,3761,,0.0,257
+66f3ad93821e116aacb2e29f,Code Repository Understanding,hard,short,C,C,1.0,6838,C,1.0,6596,C,1.0,6749,C,1.0,226
+66f95e11bb02136c067c5370,Long Structured Data Understanding,hard,medium,B,B,1.0,8613,D,0.0,8502,B,1.0,8568,,0.0,117
+66f954a5bb02136c067c511a,Single-Document QA,hard,long,B,A,0.0,4071,A,0.0,4120,A,0.0,4846,A,0.0,263
+6713066fbb02136c067d3214,Long-dialogue History Understanding,hard,short,D,B,0.0,5975,D,1.0,6004,,0.0,6325,,0.0,96
+670fbfa4bb02136c067d2dcb,Single-Document QA,easy,medium,A,D,0.0,3435,D,0.0,3486,D,0.0,3348,D,0.0,138
+66f37635821e116aacb2d017,Single-Document QA,hard,short,D,D,1.0,3370,D,1.0,3334,C,0.0,3325,C,0.0,138
+66ebcc1e5a08c7b9b35df87d,Single-Document QA,hard,short,C,A,0.0,4289,A,0.0,4269,C,1.0,4848,C,1.0,154
+670bf1c4bb02136c067d2341,Single-Document QA,easy,long,B,C,0.0,3072,C,0.0,3042,B,1.0,3127,,0.0,112
+67285f8ebb02136c067d905d,Long Structured Data Understanding,hard,medium,C,D,0.0,7817,C,1.0,7164,A,0.0,8431,C,1.0,85
+66f1ae08821e116aacb27c9c,Long In-context Learning,hard,long,B,C,0.0,4206,C,0.0,3944,C,0.0,4224,D,0.0,280
+6724694fbb02136c067d752b,Single-Document QA,easy,medium,C,C,1.0,3665,C,1.0,3808,D,0.0,3650,C,1.0,233
+66ebd0ea5a08c7b9b35dff57,Single-Document QA,easy,medium,D,C,0.0,3365,A,0.0,3286,A,0.0,3445,A,0.0,180
+66ebe0fb5a08c7b9b35e14f5,Single-Document QA,hard,short,C,D,0.0,3777,D,0.0,3691,D,0.0,3665,D,0.0,170
+66f41e45821e116aacb30ec3,Multi-Document QA,hard,short,C,D,0.0,3402,D,0.0,3326,D,0.0,3319,D,0.0,263
+66fd4f54bb02136c067c9987,Multi-Document QA,hard,medium,B,D,0.0,5010,D,0.0,4770,D,0.0,4193,D,0.0,302
+6719b96abb02136c067d4358,Long-dialogue History Understanding,hard,short,B,,0.0,5705,A,0.0,5921,,0.0,5671,,0.0,87
+66ebcc335a08c7b9b35df8b6,Single-Document QA,hard,long,D,D,1.0,3741,D,1.0,3726,B,0.0,3646,B,0.0,124
+67078ecabb02136c067d0b89,Multi-Document QA,easy,short,B,B,1.0,3747,B,1.0,3812,B,1.0,3871,B,1.0,259
+67192e81bb02136c067d427f,Long-dialogue History Understanding,easy,medium,A,B,0.0,3572,B,0.0,3574,,0.0,5329,,0.0,85
+66ec332a821e116aacb1c042,Single-Document QA,easy,medium,B,,0.0,4420,,0.0,4477,,0.0,3627,,0.0,175
+66f793f4bb02136c067c306e,Single-Document QA,hard,medium,C,C,1.0,3558,D,0.0,3724,C,1.0,4394,D,0.0,84
+66ebeb5a5a08c7b9b35e1ba5,Single-Document QA,easy,long,A,A,1.0,4233,A,1.0,4418,D,0.0,4743,C,0.0,226
+66ee981d821e116aacb22005,Single-Document QA,easy,medium,C,B,0.0,3558,B,0.0,3575,D,0.0,4024,D,0.0,205
+67286533bb02136c067d919f,Long In-context Learning,hard,medium,D,B,0.0,3617,B,0.0,3658,C,0.0,3553,B,0.0,434
+66fab4bfbb02136c067c754c,Multi-Document QA,hard,short,C,C,1.0,3838,B,0.0,3899,B,0.0,4048,,0.0,102
+6719bce5bb02136c067d4447,Long-dialogue History Understanding,hard,short,C,,0.0,6168,,0.0,6181,,0.0,6295,,0.0,87
+670cb73fbb02136c067d2502,Code Repository Understanding,easy,long,C,D,0.0,7049,D,0.0,6853,D,0.0,8565,D,0.0,234
+66fa190bbb02136c067c5d32,Multi-Document QA,hard,long,B,D,0.0,4025,D,0.0,3823,D,0.0,3942,D,0.0,552
+66f3c806821e116aacb2ed77,Multi-Document QA,hard,medium,C,A,0.0,4367,D,0.0,4225,C,1.0,4050,C,1.0,277
+66f3e473821e116aacb2fa73,Multi-Document QA,hard,medium,B,C,0.0,3368,D,0.0,3306,C,0.0,3362,,0.0,298
+66ebc95f5a08c7b9b35df497,Single-Document QA,easy,short,B,B,1.0,4388,B,1.0,4154,B,1.0,5062,D,0.0,142
+6704fe26bb02136c067ce670,Multi-Document QA,hard,long,C,D,0.0,4085,A,0.0,4104,D,0.0,4436,D,0.0,314
+66f7f963bb02136c067c3be1,Long Structured Data Understanding,easy,medium,C,B,0.0,12490,C,1.0,12506,A,0.0,12521,,0.0,106
+671b1480bb02136c067d4f14,Long-dialogue History Understanding,easy,short,A,B,0.0,6904,C,0.0,6916,C,0.0,7459,,0.0,86
+66ec1aef821e116aacb1aa1a,Multi-Document QA,hard,medium,C,A,0.0,4376,A,0.0,4339,B,0.0,4318,B,0.0,718
+6725d7a9bb02136c067d822d,Long In-context Learning,hard,medium,A,B,0.0,3839,B,0.0,3862,C,0.0,3911,D,0.0,334
+670493d4bb02136c067cdcd9,Single-Document QA,easy,medium,B,B,1.0,3263,B,1.0,3285,B,1.0,3177,B,1.0,107
+67040983bb02136c067cd996,Single-Document QA,easy,long,A,B,0.0,3731,B,0.0,3667,B,0.0,4311,B,0.0,191
+6725db8bbb02136c067d84eb,Long In-context Learning,easy,medium,B,C,0.0,5728,B,1.0,5592,C,0.0,5587,,0.0,111
+66fe81dcbb02136c067ca2de,Multi-Document QA,hard,medium,C,D,0.0,3284,A,0.0,3187,A,0.0,3445,D,0.0,305
+66f0ed5a821e116aacb265ab,Multi-Document QA,easy,short,C,C,1.0,3598,C,1.0,3688,C,1.0,4120,C,1.0,160
+66ee8bab821e116aacb21e44,Multi-Document QA,hard,short,B,D,0.0,4177,D,0.0,4074,D,0.0,4565,C,0.0,94
+66f37eb9821e116aacb2d295,Multi-Document QA,easy,short,B,D,0.0,3123,D,0.0,3177,D,0.0,3029,D,0.0,130
+66fa7c81bb02136c067c6e09,Code Repository Understanding,hard,short,B,D,0.0,7481,D,0.0,6246,D,0.0,6610,D,0.0,132
+66f97dc3bb02136c067c56c8,Multi-Document QA,easy,long,B,B,1.0,4524,B,1.0,4272,B,1.0,6338,B,1.0,935
+6703fc69bb02136c067cd7c2,Single-Document QA,easy,short,A,A,1.0,3924,A,1.0,3959,A,1.0,4304,D,0.0,452
+66f7a96cbb02136c067c3255,Multi-Document QA,hard,short,A,B,0.0,4369,B,0.0,3990,B,0.0,4584,B,0.0,139
+66f53f2b821e116aacb3335a,Long In-context Learning,hard,short,C,B,0.0,5505,A,0.0,5226,C,1.0,6022,A,0.0,283
+66ec2374821e116aacb1b423,Single-Document QA,hard,medium,B,C,0.0,3363,C,0.0,3371,A,0.0,3205,A,0.0,90
+671b58e8bb02136c067d5525,Long-dialogue History Understanding,easy,medium,B,B,1.0,4686,B,1.0,4904,,0.0,4755,,0.0,84
+67192057bb02136c067d41b4,Long-dialogue History Understanding,easy,medium,C,D,0.0,3638,D,0.0,3750,,0.0,4851,,0.0,90
+670397b5bb02136c067ccec6,Single-Document QA,easy,medium,B,A,0.0,3595,A,0.0,3634,C,0.0,3542,C,0.0,143
+66fcf36fbb02136c067c919e,Code Repository Understanding,hard,short,D,D,1.0,7725,D,1.0,7031,D,1.0,6999,D,1.0,370
+66ecf139821e116aacb1e0e1,Code Repository Understanding,hard,short,C,D,0.0,6569,D,0.0,6205,B,0.0,8085,D,0.0,180
+6719b9f1bb02136c067d4389,Long-dialogue History Understanding,hard,short,A,,0.0,6231,,0.0,6207,A,1.0,6312,,0.0,87
+66fa1e4cbb02136c067c5edf,Code Repository Understanding,hard,long,A,C,0.0,6702,C,0.0,5883,C,0.0,6089,C,0.0,333
+66f118e1821e116aacb26b79,Long In-context Learning,hard,medium,A,C,0.0,4685,C,0.0,4708,C,0.0,4665,C,0.0,479
+66efd10f821e116aacb2437c,Long In-context Learning,hard,medium,D,C,0.0,3702,C,0.0,3368,B,0.0,3919,D,1.0,152
+66f39ac5821e116aacb2da81,Code Repository Understanding,easy,short,B,D,0.0,8934,D,0.0,6709,D,0.0,7090,D,0.0,116
+66ebd49a5a08c7b9b35e0550,Single-Document QA,easy,short,B,D,0.0,3659,D,0.0,3598,C,0.0,3517,C,0.0,186
+66ebb0e55a08c7b9b35ddd6a,Single-Document QA,hard,short,D,A,0.0,3854,A,0.0,3810,A,0.0,3911,A,0.0,202
+6719185cbb02136c067d40ab,Long-dialogue History Understanding,hard,medium,B,A,0.0,3889,A,0.0,3664,,0.0,4768,B,1.0,84
+672864b4bb02136c067d916c,Long In-context Learning,easy,medium,D,D,1.0,3653,A,0.0,3575,C,0.0,3535,D,1.0,416
+66f6909bbb02136c067c2380,Long In-context Learning,hard,short,B,C,0.0,4263,C,0.0,3904,D,0.0,4971,D,0.0,369
+66fb75adbb02136c067c7d73,Code Repository Understanding,hard,long,C,D,0.0,8194,A,0.0,4704,A,0.0,5891,D,0.0,352
+66f2b5ec821e116aacb2b1ec,Long Structured Data Understanding,easy,medium,C,,0.0,7311,,0.0,7297,,0.0,7539,,0.0,129
+6708ae87bb02136c067d1847,Code Repository Understanding,hard,long,C,D,0.0,7739,D,0.0,5723,D,0.0,12241,D,0.0,414
+66f3fd3a821e116aacb30533,Code Repository Understanding,hard,long,B,B,1.0,6828,B,1.0,6540,D,0.0,8915,B,1.0,285
+66ebc04a5a08c7b9b35de740,Single-Document QA,easy,long,B,D,0.0,4281,D,0.0,3613,D,0.0,5078,A,0.0,115
+66f3cfa5821e116aacb2f096,Single-Document QA,easy,medium,D,A,0.0,3590,D,1.0,3551,A,0.0,4386,A,0.0,245
+6724c1d4bb02136c067d77ec,Long Structured Data Understanding,easy,medium,A,,0.0,7055,,0.0,7011,A,1.0,8453,,0.0,94
+6725dbd1bb02136c067d8522,Long In-context Learning,hard,medium,D,A,0.0,5610,D,1.0,5671,,0.0,5613,,0.0,137
+66f2a557821e116aacb2a510,Multi-Document QA,hard,short,C,B,0.0,4103,B,0.0,4017,B,0.0,5109,C,1.0,168
+66f8d84cbb02136c067c465f,Single-Document QA,hard,short,C,B,0.0,3940,B,0.0,3902,B,0.0,4545,D,0.0,600
+66f2a59d821e116aacb2a553,Long Structured Data Understanding,easy,short,A,D,0.0,8194,,0.0,8194,,0.0,8194,,0.0,153
+66f67c18bb02136c067c21b8,Single-Document QA,easy,short,C,C,1.0,4491,C,1.0,4776,C,1.0,5090,,0.0,171
+66f2a98a821e116aacb2a8bf,Multi-Document QA,hard,short,B,A,0.0,3917,C,0.0,3853,D,0.0,5091,C,0.0,156
+671b3d1bbb02136c067d5283,Long-dialogue History Understanding,easy,short,C,D,0.0,6080,B,0.0,5753,B,0.0,5869,,0.0,102
+6725e351bb02136c067d8758,Single-Document QA,hard,medium,B,C,0.0,3966,C,0.0,3734,,0.0,4013,,0.0,262
+66f7aa19bb02136c067c327e,Multi-Document QA,hard,short,C,D,0.0,3864,D,0.0,3714,D,0.0,4619,D,0.0,234
+66f2616e821e116aacb28e0c,Long In-context Learning,easy,medium,C,A,0.0,4192,C,1.0,4081,D,0.0,4547,D,0.0,222
+67246500bb02136c067d7423,Single-Document QA,hard,medium,C,C,1.0,3469,C,1.0,3412,C,1.0,3656,,0.0,259
+66f3fb15821e116aacb303dc,Multi-Document QA,hard,medium,D,B,0.0,4062,B,0.0,3704,B,0.0,4621,B,0.0,360
+6707b84cbb02136c067d10a5,Long In-context Learning,easy,long,A,A,1.0,4889,A,1.0,3841,A,1.0,5132,A,1.0,353
+66f26c5f821e116aacb2907c,Multi-Document QA,hard,medium,A,C,0.0,4672,C,0.0,4339,A,1.0,5578,C,0.0,247
+671b56cfbb02136c067d54e9,Long-dialogue History Understanding,easy,medium,D,C,0.0,3871,C,0.0,3811,,0.0,4527,,0.0,102
+66ece358821e116aacb1dc08,Long In-context Learning,hard,short,C,D,0.0,4669,D,0.0,4242,D,0.0,4882,D,0.0,141
+66ed3960821e116aacb1f616,Multi-Document QA,hard,long,C,A,0.0,4871,A,0.0,3727,B,0.0,4866,B,0.0,137
+66ec1eb9821e116aacb1af36,Single-Document QA,hard,medium,C,C,1.0,3825,B,0.0,3727,C,1.0,3709,C,1.0,149
+66eefa2f821e116aacb2284f,Single-Document QA,easy,short,A,,0.0,4324,,0.0,3982,B,0.0,3755,,0.0,133
+6724645dbb02136c067d73ad,Single-Document QA,hard,long,A,B,0.0,3904,B,0.0,3898,,0.0,3776,,0.0,267
+66ebe30a5a08c7b9b35e1693,Single-Document QA,hard,short,C,D,0.0,4595,D,0.0,3929,D,0.0,4772,D,0.0,153
+66ed3e90821e116aacb1f82f,Code Repository Understanding,easy,short,C,B,0.0,8052,B,0.0,6960,B,0.0,7998,C,1.0,117
+66ec1de5821e116aacb1adca,Single-Document QA,easy,short,D,B,0.0,4130,B,0.0,4079,D,1.0,4210,C,0.0,239
+66ec1054821e116aacb19f1a,Long In-context Learning,easy,medium,D,B,0.0,4491,B,0.0,4226,B,0.0,5933,B,0.0,349
+671b3d9fbb02136c067d52b2,Long-dialogue History Understanding,easy,short,D,A,0.0,6032,B,0.0,5608,B,0.0,5860,,0.0,103
+66ebd22e5a08c7b9b35e0126,Single-Document QA,hard,short,B,A,0.0,3541,A,0.0,3395,A,0.0,3551,B,1.0,133
+66ebca1e5a08c7b9b35df5e8,Single-Document QA,hard,short,A,D,0.0,3317,D,0.0,3308,B,0.0,3327,B,0.0,252
+66ee490e821e116aacb2149c,Multi-Document QA,hard,short,C,C,1.0,3597,C,1.0,3935,C,1.0,4013,D,0.0,207
+6708a096bb02136c067d1789,Code Repository Understanding,easy,short,D,B,0.0,7711,B,0.0,7464,B,0.0,7286,,0.0,303
+66f3b843821e116aacb2e692,Multi-Document QA,hard,short,C,C,1.0,3465,A,0.0,3383,A,0.0,3417,C,1.0,161
+66f52f0f821e116aacb32ddb,Long In-context Learning,hard,long,A,C,0.0,8074,B,0.0,8024,C,0.0,7896,C,0.0,3413
+6719d65ebb02136c067d45dc,Long-dialogue History Understanding,hard,medium,C,B,0.0,3328,B,0.0,3330,B,0.0,4575,D,0.0,115
+66f947abbb02136c067c4ea6,Multi-Document QA,hard,medium,B,D,0.0,4164,D,0.0,4189,D,0.0,5179,D,0.0,401
+67286036bb02136c067d9092,Long Structured Data Understanding,easy,medium,D,,0.0,6912,,0.0,6843,,0.0,8570,,0.0,93
+66ed0cb0821e116aacb1e6c1,Single-Document QA,hard,short,A,A,1.0,4792,A,1.0,4741,A,1.0,4718,A,1.0,198
+6728586bbb02136c067d8f4f,Long Structured Data Understanding,easy,medium,C,C,1.0,7415,,0.0,7406,,0.0,8585,,0.0,92
+671b5d49bb02136c067d55fb,Long-dialogue History Understanding,easy,medium,C,C,1.0,3657,D,0.0,3655,A,0.0,4779,A,0.0,104
+66ebe68d5a08c7b9b35e190b,Single-Document QA,hard,short,C,D,0.0,4003,D,0.0,3787,C,1.0,3851,C,1.0,235
+671b3e0cbb02136c067d52e5,Long-dialogue History Understanding,easy,short,D,,0.0,6067,A,0.0,5647,B,0.0,5853,,0.0,86
+671b2c05bb02136c067d50c8,Long-dialogue History Understanding,easy,short,A,,0.0,103,B,0.0,6696,,0.0,7329,,0.0,86
+66f3a311821e116aacb2de19,Long Structured Data Understanding,hard,medium,B,,0.0,4884,,0.0,4803,,0.0,4943,,0.0,114
+66ebd0825a08c7b9b35dfe9d,Single-Document QA,hard,short,D,C,0.0,3556,C,0.0,3556,A,0.0,3569,C,0.0,228
+66ec3352821e116aacb1c085,Single-Document QA,hard,medium,B,C,0.0,3606,C,0.0,3605,A,0.0,3623,C,0.0,118
+66ebc3165a08c7b9b35deb38,Single-Document QA,hard,medium,A,C,0.0,3993,C,0.0,4022,C,0.0,4084,D,0.0,289
+66ed1734821e116aacb1ead5,Long In-context Learning,hard,medium,A,D,0.0,3862,D,0.0,3799,D,0.0,4590,D,0.0,210
+66f6a14dbb02136c067c2453,Long In-context Learning,easy,short,D,D,1.0,3791,D,1.0,3663,D,1.0,4428,D,1.0,423
+66f59d31821e116aacb340f6,Multi-Document QA,hard,short,D,B,0.0,4202,B,0.0,4009,D,1.0,4355,D,1.0,190
+66ec5e39821e116aacb1cee1,Long In-context Learning,hard,medium,C,C,1.0,4215,C,1.0,4086,C,1.0,3781,D,0.0,218
+66f2b676821e116aacb2b27a,Single-Document QA,hard,short,B,C,0.0,3740,C,0.0,3777,B,1.0,3841,C,0.0,397
+66f52567821e116aacb329bc,Single-Document QA,hard,short,C,C,1.0,3602,C,1.0,3686,C,1.0,3774,C,1.0,174
+66f7f382bb02136c067c3a6c,Long Structured Data Understanding,easy,long,C,D,0.0,12146,D,0.0,12115,,0.0,12114,,0.0,125
+6704a442bb02136c067cdd91,Single-Document QA,hard,short,C,,0.0,3806,,0.0,3823,,0.0,4158,C,1.0,244
+66ec1db2821e116aacb1ad69,Single-Document QA,hard,short,C,B,0.0,4428,B,0.0,4337,B,0.0,4045,D,0.0,122
+66ebbe4f5a08c7b9b35de533,Single-Document QA,hard,short,C,B,0.0,5132,B,0.0,4569,A,0.0,4473,B,0.0,203
+66fa7269bb02136c067c6c73,Code Repository Understanding,hard,medium,B,A,0.0,7642,A,0.0,6845,A,0.0,7469,A,0.0,139
+66ece545821e116aacb1dd77,Code Repository Understanding,easy,short,A,B,0.0,15241,A,1.0,8194,A,1.0,8194,B,0.0,240
+66ebde0f5a08c7b9b35e1256,Single-Document QA,hard,short,D,D,1.0,4029,D,1.0,3983,D,1.0,4150,D,1.0,489
+66fbe00fbb02136c067c84c8,Multi-Document QA,hard,short,C,C,1.0,5585,C,1.0,5180,C,1.0,4721,A,0.0,297
+671b2e2dbb02136c067d515b,Long-dialogue History Understanding,easy,medium,C,A,0.0,3814,B,0.0,3841,C,1.0,4801,,0.0,106
+66f6bcf3bb02136c067c2703,Multi-Document QA,hard,short,A,C,0.0,3308,C,0.0,3312,A,1.0,3298,D,0.0,202
+66f55729821e116aacb3358b,Single-Document QA,easy,short,C,B,0.0,3653,C,1.0,3614,C,1.0,3698,D,0.0,185
+66f2a14b821e116aacb2a128,Long In-context Learning,easy,long,C,A,0.0,12810,A,0.0,12695,A,0.0,13884,A,0.0,433
+66f52926821e116aacb32b5e,Single-Document QA,hard,short,C,D,0.0,3565,D,0.0,3505,D,0.0,3390,A,0.0,102
+6704e10fbb02136c067ce1a0,Multi-Document QA,hard,medium,B,B,1.0,4156,B,1.0,3885,B,1.0,3899,B,1.0,303
+66f43414821e116aacb310a1,Multi-Document QA,easy,long,D,A,0.0,3336,A,0.0,3365,D,1.0,3699,A,0.0,97
+671b13f5bb02136c067d4ee3,Long-dialogue History Understanding,hard,short,B,A,0.0,6815,,0.0,6664,B,1.0,7419,,0.0,87
+66ec0f3c821e116aacb19d70,Single-Document QA,easy,short,A,D,0.0,3805,A,1.0,3750,A,1.0,4447,B,0.0,132
+66f3abe6821e116aacb2e1d2,Multi-Document QA,easy,short,C,C,1.0,3175,C,1.0,3112,A,0.0,3141,C,1.0,149
+6700d19dbb02136c067cb024,Long Structured Data Understanding,hard,long,C,D,0.0,13881,D,0.0,14009,D,0.0,12586,D,0.0,1075
+66f3ac0b821e116aacb2e203,Long Structured Data Understanding,hard,long,D,,0.0,8194,,0.0,8194,,0.0,8194,,0.0,136
+66ec2fde821e116aacb1bd18,Single-Document QA,hard,short,D,C,0.0,4914,C,0.0,4291,C,0.0,4072,,0.0,272
+66ebce825a08c7b9b35dfc75,Single-Document QA,hard,short,C,D,0.0,4688,D,0.0,4474,B,0.0,4235,,0.0,95
+66ec0f7f821e116aacb19dde,Multi-Document QA,hard,short,B,B,1.0,4376,B,1.0,4309,A,0.0,5050,D,0.0,596
+6725dabfbb02136c067d8450,Long In-context Learning,hard,medium,C,C,1.0,5734,C,1.0,5520,C,1.0,5593,C,1.0,117
+66ec6582821e116aacb1cf7a,Single-Document QA,easy,medium,B,B,1.0,3458,B,1.0,3536,C,0.0,3410,B,1.0,154
+6725d8dbbb02136c067d8309,Long In-context Learning,hard,medium,C,C,1.0,3791,C,1.0,3648,C,1.0,3951,C,1.0,374
+66f3de02821e116aacb2f73b,Multi-Document QA,hard,short,D,A,0.0,3923,A,0.0,3907,B,0.0,4541,B,0.0,244
+66f535c5821e116aacb33168,Multi-Document QA,hard,medium,B,A,0.0,4352,A,0.0,4320,A,0.0,4924,A,0.0,396
+66ec21e6821e116aacb1b2d2,Multi-Document QA,hard,short,A,D,0.0,3949,D,0.0,3826,A,1.0,4482,,0.0,170
+66ee3c7b821e116aacb20f80,Single-Document QA,hard,medium,B,D,0.0,4424,D,0.0,3740,D,0.0,4114,D,0.0,169
+6709d44abb02136c067d1d5d,Single-Document QA,hard,short,B,B,1.0,3638,B,1.0,3648,,0.0,3593,B,1.0,297
+66fa69a4bb02136c067c6b75,Code Repository Understanding,hard,long,D,B,0.0,8194,B,0.0,5749,B,0.0,7633,B,0.0,203
+66ee496a821e116aacb214d5,Multi-Document QA,hard,short,B,A,0.0,4399,A,0.0,4219,A,0.0,4642,B,1.0,397
+66fa6702bb02136c067c6abb,Code Repository Understanding,hard,long,B,D,0.0,6429,D,0.0,6163,D,0.0,9031,D,0.0,126
+66f5605a821e116aacb3381f,Multi-Document QA,hard,long,D,D,1.0,4049,D,1.0,3900,D,1.0,4354,D,1.0,274
+66f52c6d821e116aacb32cb0,Single-Document QA,easy,short,A,C,0.0,3538,C,0.0,3521,B,0.0,4103,,0.0,138
+66ebd9895a08c7b9b35e0c7c,Single-Document QA,hard,short,C,C,1.0,3841,C,1.0,3368,C,1.0,4393,C,1.0,134
+66ec25a5821e116aacb1b5d1,Single-Document QA,easy,short,C,A,0.0,3859,A,0.0,3706,C,1.0,3483,C,1.0,177
+6725dcb2bb02136c067d85b7,Long In-context Learning,hard,medium,A,C,0.0,3617,C,0.0,3625,C,0.0,3718,C,0.0,599
+66fc05b6bb02136c067c88e4,Multi-Document QA,hard,medium,A,D,0.0,3822,D,0.0,3593,D,0.0,4236,D,0.0,402
+6707f349bb02136c067d13b9,Code Repository Understanding,easy,long,C,A,0.0,6230,A,0.0,4928,A,0.0,6839,A,0.0,373
+66ec5af0821e116aacb1ce41,Multi-Document QA,hard,short,C,B,0.0,3734,D,0.0,3669,D,0.0,4182,B,0.0,147
+6725dda1bb02136c067d8654,Long In-context Learning,easy,medium,C,B,0.0,4874,D,0.0,4895,D,0.0,4815,A,0.0,115
+66ec088c821e116aacb194d9,Long Structured Data Understanding,easy,medium,D,D,1.0,8194,B,0.0,8194,D,1.0,8194,B,0.0,90
+66fb8633bb02136c067c800b,Multi-Document QA,easy,medium,A,C,0.0,3824,C,0.0,3647,C,0.0,3630,C,0.0,297
+66f578fa821e116aacb33c58,Long In-context Learning,hard,short,D,D,1.0,4359,B,0.0,4129,D,1.0,4402,B,0.0,296
+66f68b33bb02136c067c2303,Long In-context Learning,easy,short,D,D,1.0,4054,B,0.0,3889,A,0.0,4246,A,0.0,434
+66ebd2975a08c7b9b35e01e3,Single-Document QA,hard,medium,C,C,1.0,4377,C,1.0,4175,C,1.0,4475,B,0.0,159
+66fc0152bb02136c067c8826,Multi-Document QA,easy,short,A,C,0.0,4579,D,0.0,4510,C,0.0,4202,C,0.0,179
+67039cfabb02136c067cd04e,Long Structured Data Understanding,easy,medium,C,,0.0,9254,,0.0,8834,,0.0,8589,D,0.0,276
+66ece958821e116aacb1df04,Single-Document QA,hard,short,B,B,1.0,3529,B,1.0,3353,B,1.0,3631,B,1.0,278
+66fb77e7bb02136c067c7db1,Code Repository Understanding,hard,long,C,C,1.0,5688,D,0.0,5713,D,0.0,12535,D,0.0,353
+66fa5fbcbb02136c067c6959,Code Repository Understanding,hard,long,B,D,0.0,5351,D,0.0,5044,C,0.0,12631,D,0.0,449
+66fa9ff6bb02136c067c71e0,Long In-context Learning,hard,medium,D,B,0.0,3878,B,0.0,3658,,0.0,3711,B,0.0,108
+66f3e318821e116aacb2f9d1,Code Repository Understanding,hard,long,B,C,0.0,9118,C,0.0,5741,C,0.0,6032,C,0.0,110
+66fa1b54bb02136c067c5df7,Code Repository Understanding,easy,long,B,B,1.0,7743,B,1.0,5918,C,0.0,5776,C,0.0,94
+66ec542b821e116aacb1cc87,Single-Document QA,hard,medium,D,B,0.0,3760,C,0.0,3614,B,0.0,3813,B,0.0,161
+66f2d224821e116aacb2bb8a,Long In-context Learning,easy,medium,C,D,0.0,4148,A,0.0,3883,A,0.0,6249,C,1.0,198
+66ec7ba6821e116aacb1d114,Multi-Document QA,hard,short,C,A,0.0,4117,A,0.0,4420,A,0.0,5204,A,0.0,394
+67041f08bb02136c067cdb52,Long In-context Learning,easy,long,C,B,0.0,3566,B,0.0,3547,B,0.0,5027,A,0.0,279
+66ec0d4b821e116aacb19af8,Single-Document QA,hard,short,B,D,0.0,4261,D,0.0,3925,D,0.0,4735,D,0.0,267
+67286ab8bb02136c067d92e4,Single-Document QA,easy,medium,C,C,1.0,3858,C,1.0,3858,C,1.0,4075,,0.0,248
+66f41348821e116aacb30c89,Multi-Document QA,hard,short,D,A,0.0,3459,A,0.0,3459,A,0.0,3537,C,0.0,182
+66f120a9821e116aacb26d02,Multi-Document QA,hard,short,A,C,0.0,3748,C,0.0,3686,C,0.0,3969,A,1.0,178
+6707b3cabb02136c067d1021,Multi-Document QA,hard,medium,A,D,0.0,5544,D,0.0,4275,D,0.0,4738,D,0.0,252
+66fa700bbb02136c067c6c06,Code Repository Understanding,easy,medium,C,A,0.0,6987,A,0.0,6843,A,0.0,7163,A,0.0,135
+66f55ddb821e116aacb33761,Long In-context Learning,hard,medium,D,C,0.0,4631,C,0.0,4591,C,0.0,4913,D,1.0,288
+66fcfa1cbb02136c067c932e,Long In-context Learning,hard,long,D,A,0.0,3926,D,1.0,3797,,0.0,6682,A,0.0,177
+67246413bb02136c067d7374,Single-Document QA,hard,medium,C,C,1.0,4316,B,0.0,4246,B,0.0,4323,,0.0,276
+66f568dc821e116aacb33995,Single-Document QA,hard,medium,B,D,0.0,3605,D,0.0,3535,D,0.0,4599,D,0.0,233
+671b08c8bb02136c067d4e19,Long-dialogue History Understanding,easy,short,C,A,0.0,6839,B,0.0,6726,A,0.0,7381,,0.0,87
+66f168d8821e116aacb27519,Single-Document QA,hard,medium,C,C,1.0,3983,C,1.0,3694,C,1.0,4102,C,1.0,121
+66f4f87b821e116aacb31d62,Long In-context Learning,hard,medium,A,B,0.0,3424,B,0.0,3423,B,0.0,3946,B,0.0,208
+66f2982b821e116aacb29c66,Long In-context Learning,easy,long,A,B,0.0,12979,A,1.0,12324,A,1.0,13699,D,0.0,248
+6725dd39bb02136c067d861b,Long In-context Learning,hard,medium,B,D,0.0,3743,C,0.0,3783,C,0.0,3655,D,0.0,536
+66fcfbbcbb02136c067c93d3,Long In-context Learning,easy,long,B,A,0.0,4758,,0.0,4035,,0.0,6676,A,0.0,171
+66ebdadd5a08c7b9b35e0e5b,Single-Document QA,hard,short,B,D,0.0,3846,D,0.0,3678,D,0.0,4016,D,0.0,260
+66f11349821e116aacb269e0,Multi-Document QA,hard,long,A,A,1.0,3994,A,1.0,3930,A,1.0,5534,A,1.0,347
+66f28794821e116aacb298ee,Long In-context Learning,hard,long,A,B,0.0,4523,B,0.0,4793,B,0.0,5347,B,0.0,139
+66f67c1bbb02136c067c21b9,Long In-context Learning,hard,short,D,B,0.0,4249,B,0.0,3928,B,0.0,5196,B,0.0,425
+66f53b9b821e116aacb332fc,Single-Document QA,hard,short,A,B,0.0,4242,B,0.0,4226,B,0.0,4977,B,0.0,234
+67191791bb02136c067d406c,Long-dialogue History Understanding,easy,medium,C,A,0.0,3733,A,0.0,3886,,0.0,4711,,0.0,89
+670fb8dfbb02136c067d2c48,Single-Document QA,easy,medium,D,C,0.0,3252,C,0.0,3294,D,1.0,3515,C,0.0,112
+67062fbfbb02136c067cf66a,Multi-Document QA,easy,short,D,D,1.0,4109,D,1.0,3908,C,0.0,4793,D,1.0,274
+66f2e0bc821e116aacb2bf37,Multi-Document QA,hard,short,D,C,0.0,3183,C,0.0,3171,C,0.0,3211,B,0.0,144
+671b080abb02136c067d4dde,Long-dialogue History Understanding,hard,short,B,B,1.0,5507,B,1.0,5479,A,0.0,6237,,0.0,86
+66f3c219821e116aacb2eb4e,Code Repository Understanding,hard,medium,C,B,0.0,7499,B,0.0,6910,B,0.0,7511,D,0.0,197
+66f3cb88821e116aacb2eeb9,Code Repository Understanding,hard,medium,D,B,0.0,10185,A,0.0,5379,B,0.0,10746,B,0.0,319
+66f3c5f2821e116aacb2eccf,Multi-Document QA,hard,long,A,C,0.0,4836,C,0.0,3689,D,0.0,4020,D,0.0,233
+66f38969821e116aacb2d6ec,Single-Document QA,easy,medium,D,B,0.0,3743,B,0.0,3693,C,0.0,3642,C,0.0,254
+67066b87bb02136c067cfaa3,Code Repository Understanding,hard,long,B,D,0.0,7350,D,0.0,5742,D,0.0,7526,D,0.0,427
+66f284ff821e116aacb29763,Single-Document QA,hard,short,C,A,0.0,3478,A,0.0,3490,A,0.0,3453,A,0.0,248
+66f25a2f821e116aacb28b2f,Single-Document QA,hard,medium,D,C,0.0,4073,C,0.0,4018,,0.0,7325,C,0.0,189
+66f24538821e116aacb2865e,Multi-Document QA,hard,long,D,C,0.0,3769,C,0.0,3831,C,0.0,5258,C,0.0,296
+67246a00bb02136c067d759f,Single-Document QA,hard,medium,B,,0.0,3637,C,0.0,3942,B,1.0,3731,B,1.0,236
+66eecc45821e116aacb225c3,Multi-Document QA,hard,short,C,C,1.0,3949,C,1.0,3797,D,0.0,4044,D,0.0,347
+66fa415cbb02136c067c671c,Multi-Document QA,easy,medium,C,D,0.0,3885,B,0.0,3612,D,0.0,3740,D,0.0,243
+671b170cbb02136c067d4f4a,Long-dialogue History Understanding,easy,short,C,,0.0,103,C,1.0,6244,C,1.0,6180,,0.0,86
+66f57379821e116aacb33b7a,Code Repository Understanding,hard,long,D,D,1.0,4593,D,1.0,4490,B,0.0,4543,D,1.0,195
+66f96115bb02136c067c541c,Multi-Document QA,easy,short,D,B,0.0,3931,B,0.0,3796,B,0.0,4064,B,0.0,460
+66f3f947821e116aacb3029b,Multi-Document QA,easy,long,B,C,0.0,3763,C,0.0,3498,C,0.0,3767,C,0.0,188
+6725dc6abb02136c067d8586,Long In-context Learning,easy,medium,C,B,0.0,3658,B,0.0,3658,B,0.0,3658,B,0.0,539
+66f2e874821e116aacb2c0af,Code Repository Understanding,hard,medium,C,D,0.0,7758,B,0.0,6401,B,0.0,6011,B,0.0,125
+66f957e2bb02136c067c51c8,Single-Document QA,hard,medium,D,B,0.0,4052,B,0.0,4044,B,0.0,5211,B,0.0,236
+66faa8efbb02136c067c7357,Multi-Document QA,hard,medium,C,D,0.0,4729,D,0.0,4672,B,0.0,4585,D,0.0,346
+66ec18a7821e116aacb1a72e,Single-Document QA,hard,short,C,B,0.0,4942,,0.0,4370,,0.0,5816,A,0.0,130
+66f3e604821e116aacb2fadf,Multi-Document QA,hard,long,D,C,0.0,3979,C,0.0,3905,,0.0,4655,C,0.0,238
+670fbd96bb02136c067d2d49,Single-Document QA,easy,medium,A,C,0.0,3259,C,0.0,3374,D,0.0,3317,D,0.0,126
+66ec052a5a08c7b9b35e29c7,Single-Document QA,hard,short,C,B,0.0,3083,B,0.0,3076,C,1.0,3122,,0.0,77
+6723a63bbb02136c067d71a1,Single-Document QA,hard,medium,D,C,0.0,4218,C,0.0,4128,C,0.0,3627,,0.0,249
+6700eb6ebb02136c067cb152,Code Repository Understanding,hard,long,D,D,1.0,7165,D,1.0,6009,,0.0,7333,B,0.0,137
+671b2822bb02136c067d5020,Long-dialogue History Understanding,hard,medium,D,C,0.0,3847,D,1.0,3684,D,1.0,4950,A,0.0,98
+67009bd8bb02136c067caba9,Multi-Document QA,easy,medium,B,B,1.0,4109,B,1.0,3997,B,1.0,4202,B,1.0,481
+66f2d553821e116aacb2bc8f,Long In-context Learning,hard,medium,D,B,0.0,6026,D,1.0,5919,C,0.0,8754,C,0.0,143
+66f3edfb821e116aacb2fc91,Long In-context Learning,easy,short,C,B,0.0,3368,B,0.0,3434,B,0.0,3786,B,0.0,145
+66fb6527bb02136c067c7b4f,Multi-Document QA,easy,long,B,D,0.0,3533,D,0.0,3478,D,0.0,3451,B,1.0,191
+66ebd5675a08c7b9b35e06bf,Single-Document QA,easy,short,B,C,0.0,4657,C,0.0,4729,C,0.0,5404,D,0.0,315
+66ec3644821e116aacb1c312,Code Repository Understanding,hard,short,D,D,1.0,8206,D,1.0,6253,D,1.0,7804,D,1.0,472
+66ec3a46821e116aacb1c49f,Long In-context Learning,easy,short,A,C,0.0,3992,C,0.0,4039,C,0.0,5204,C,0.0,162
+66ebdfb65a08c7b9b35e140a,Single-Document QA,hard,medium,C,B,0.0,4174,B,0.0,4262,D,0.0,4746,D,0.0,250
+66f4ce9e821e116aacb31731,Multi-Document QA,easy,medium,B,A,0.0,4135,B,1.0,3878,B,1.0,3784,C,0.0,358
+66ec17e4821e116aacb1a6a7,Multi-Document QA,hard,long,D,B,0.0,3542,A,0.0,3752,B,0.0,4025,A,0.0,124
+66ebd3075a08c7b9b35e02bd,Single-Document QA,hard,short,B,B,1.0,3710,B,1.0,3658,C,0.0,4542,B,1.0,184
+66ebc7445a08c7b9b35df155,Single-Document QA,hard,short,D,B,0.0,4286,B,0.0,4327,B,0.0,4275,B,0.0,633
+66ec09ec821e116aacb19620,Multi-Document QA,hard,short,C,A,0.0,4170,C,1.0,3798,A,0.0,4544,C,1.0,274
+66fa788abb02136c067c6d75,Code Repository Understanding,hard,medium,D,C,0.0,7486,C,0.0,6980,C,0.0,7764,C,0.0,141
+6719ef50bb02136c067d4911,Long-dialogue History Understanding,easy,medium,C,B,0.0,3593,,0.0,3588,B,0.0,4712,C,1.0,142
+66ef1a4d821e116aacb229d5,Single-Document QA,hard,medium,C,A,0.0,3205,D,0.0,3238,D,0.0,4267,D,0.0,157
+66ece28e821e116aacb1db1f,Single-Document QA,easy,medium,D,D,1.0,3260,B,0.0,3323,,0.0,3362,D,1.0,118
+66f3cca6821e116aacb2ef7c,Multi-Document QA,easy,medium,B,A,0.0,4161,C,0.0,4049,A,0.0,4590,D,0.0,422
+66fcf80dbb02136c067c928e,Code Repository Understanding,hard,long,B,A,0.0,5559,A,0.0,4765,C,0.0,6142,C,0.0,604
+66ec0d51821e116aacb19b0f,Single-Document QA,hard,short,D,D,1.0,3879,D,1.0,3912,D,1.0,4326,D,1.0,185
+6724cae7bb02136c067d79be,Long Structured Data Understanding,easy,long,B,A,0.0,6744,A,0.0,6832,D,0.0,8256,,0.0,94
+66f590fa821e116aacb33f35,Multi-Document QA,hard,medium,C,D,0.0,4647,D,0.0,4734,D,0.0,4761,D,0.0,145
+6703bed0bb02136c067cd381,Single-Document QA,easy,medium,B,D,0.0,3964,D,0.0,3625,D,0.0,4011,D,0.0,289
+66ef8aa3821e116aacb22db5,Single-Document QA,hard,medium,B,C,0.0,3775,A,0.0,3623,C,0.0,4439,C,0.0,170
+66f40c5e821e116aacb30ad2,Code Repository Understanding,hard,long,A,D,0.0,7113,D,0.0,6502,A,1.0,7782,A,1.0,104
+66f3f095821e116aacb2fd28,Single-Document QA,easy,medium,C,A,0.0,3771,A,0.0,3771,C,1.0,5571,B,0.0,234
+66f51ab2821e116aacb325fb,Code Repository Understanding,hard,long,C,B,0.0,7787,B,0.0,6665,B,0.0,6291,C,1.0,99
+671b2b57bb02136c067d508b,Long-dialogue History Understanding,hard,short,D,,0.0,103,D,1.0,7151,,0.0,7315,,0.0,86
+66f8c6b4bb02136c067c4480,Multi-Document QA,hard,short,C,,0.0,3565,,0.0,3565,,0.0,3462,,0.0,231
+670bffa2bb02136c067d23b5,Single-Document QA,hard,long,A,C,0.0,3165,C,0.0,3192,C,0.0,3087,,0.0,102
+6724699dbb02136c067d7564,Single-Document QA,hard,medium,C,,0.0,4518,C,1.0,4319,C,1.0,3489,,0.0,268
+66fcfc9fbb02136c067c9411,Long In-context Learning,hard,long,C,D,0.0,4749,B,0.0,4191,D,0.0,6640,B,0.0,159
+66f245cc821e116aacb28698,Multi-Document QA,easy,short,C,B,0.0,3223,B,0.0,3211,B,0.0,3120,B,0.0,170
+66f908e3bb02136c067c4992,Code Repository Understanding,hard,medium,A,C,0.0,7121,C,0.0,5510,B,0.0,4692,B,0.0,84
+66ed3ae5821e116aacb1f729,Single-Document QA,hard,short,C,C,1.0,4470,C,1.0,4420,B,0.0,4349,D,0.0,891
+66f2aac2821e116aacb2a9de,Long In-context Learning,hard,short,B,B,1.0,3942,B,1.0,3896,B,1.0,3942,B,1.0,184
+670fb637bb02136c067d2b65,Single-Document QA,easy,medium,B,C,0.0,3305,C,0.0,3285,A,0.0,3300,,0.0,109
+670fbbd0bb02136c067d2d04,Single-Document QA,hard,medium,D,B,0.0,3491,B,0.0,3414,B,0.0,3343,B,0.0,133
+66f2ef20821e116aacb2c278,Single-Document QA,easy,medium,C,D,0.0,3981,D,0.0,4004,D,0.0,5440,D,0.0,231
+67246d0ebb02136c067d75f0,Single-Document QA,easy,long,D,C,0.0,4374,C,0.0,4243,B,0.0,3967,,0.0,247
+66ec31eb821e116aacb1bf28,Single-Document QA,easy,medium,B,D,0.0,3496,D,0.0,3553,D,0.0,3515,D,0.0,159
+66ed24c5821e116aacb1eee6,Single-Document QA,hard,long,B,,0.0,3233,,0.0,3268,,0.0,3236,,0.0,90
+66ebdd1c5a08c7b9b35e113b,Code Repository Understanding,easy,long,D,B,0.0,8990,B,0.0,7618,C,0.0,8745,C,0.0,279
+66ebd92d5a08c7b9b35e0bf0,Single-Document QA,hard,short,B,B,1.0,3164,D,0.0,3223,D,0.0,3095,C,0.0,152
+66ed23ce821e116aacb1ee84,Long In-context Learning,easy,medium,A,D,0.0,4356,C,0.0,4093,C,0.0,4896,B,0.0,196
+6719167dbb02136c067d4025,Long-dialogue History Understanding,easy,medium,A,C,0.0,4886,C,0.0,4804,,0.0,4432,B,0.0,118
+67286795bb02136c067d92ab,Long In-context Learning,easy,medium,C,C,1.0,5583,C,1.0,5551,C,1.0,5596,,0.0,120
+66efa5ea821e116aacb23268,Multi-Document QA,easy,medium,D,D,1.0,4755,D,1.0,4732,C,0.0,3625,D,1.0,96
+66f56c9c821e116aacb33a45,Long In-context Learning,hard,short,C,D,0.0,4069,B,0.0,4021,A,0.0,4018,D,0.0,129
+6724938fbb02136c067d7657,Long Structured Data Understanding,easy,medium,A,C,0.0,7485,A,1.0,7471,,0.0,8449,,0.0,101
+66f58d6c821e116aacb33e76,Single-Document QA,easy,short,C,B,0.0,3659,C,1.0,3672,,0.0,4541,C,1.0,115
+66ed36ca821e116aacb1f505,Single-Document QA,hard,medium,C,C,1.0,3545,C,1.0,3563,C,1.0,3530,C,1.0,280
+670646aebb02136c067cf85a,Multi-Document QA,easy,medium,B,C,0.0,4095,D,0.0,4120,C,0.0,4314,C,0.0,252
+66efa466821e116aacb23219,Multi-Document QA,easy,short,C,C,1.0,4618,C,1.0,4688,C,1.0,5390,B,0.0,495
+66fb5f73bb02136c067c7ae7,Multi-Document QA,hard,short,D,C,0.0,4106,C,0.0,4152,B,0.0,4875,B,0.0,390
+6719dc46bb02136c067d470b,Long-dialogue History Understanding,hard,medium,B,C,0.0,3669,A,0.0,3608,C,0.0,5480,C,0.0,158
+66f4eff3821e116aacb31bc8,Long In-context Learning,easy,long,A,B,0.0,3394,B,0.0,3368,B,0.0,4995,B,0.0,161
+66fa36c9bb02136c067c6517,Code Repository Understanding,easy,long,C,B,0.0,7730,C,1.0,7166,A,0.0,6094,D,0.0,90
+66ebda775a08c7b9b35e0dcb,Single-Document QA,easy,short,C,A,0.0,3892,A,0.0,3853,A,0.0,3993,,0.0,97
+66ec2755821e116aacb1b6f2,Single-Document QA,easy,long,B,D,0.0,3175,D,0.0,3191,C,0.0,3211,C,0.0,115
+66f379e8821e116aacb2d161,Multi-Document QA,hard,medium,D,B,0.0,3804,B,0.0,3808,B,0.0,5469,B,0.0,167
+66f8c783bb02136c067c44b8,Multi-Document QA,hard,medium,B,C,0.0,4146,C,0.0,3816,C,0.0,4449,D,0.0,508
+66f519a6821e116aacb32579,Single-Document QA,hard,medium,D,C,0.0,4636,D,1.0,4428,C,0.0,3980,,0.0,191
+66f10d67821e116aacb268d0,Multi-Document QA,hard,short,B,A,0.0,4341,A,0.0,4301,D,0.0,4724,A,0.0,358
+66f3c081821e116aacb2e9fa,Multi-Document QA,hard,medium,D,B,0.0,4792,B,0.0,4786,B,0.0,4306,B,0.0,132
+6718a43fbb02136c067d3ca8,Long-dialogue History Understanding,hard,medium,B,C,0.0,3497,C,0.0,3481,,0.0,4436,B,1.0,143
+66f2ad89821e116aacb2ac92,Multi-Document QA,hard,short,D,B,0.0,5056,B,0.0,4548,A,0.0,3839,,0.0,104
+66fcf53fbb02136c067c91e7,Long In-context Learning,easy,long,A,A,1.0,4357,A,1.0,4470,C,0.0,6636,B,0.0,131
+6725db46bb02136c067d84b4,Long In-context Learning,easy,medium,C,D,0.0,5652,D,0.0,5744,,0.0,5583,D,0.0,107
+66f2abc5821e116aacb2aab7,Long Structured Data Understanding,hard,medium,C,,0.0,8194,B,0.0,8194,,0.0,8194,,0.0,111
+66ebf9bf5a08c7b9b35e1f85,Multi-Document QA,easy,short,D,D,1.0,4022,D,1.0,3929,D,1.0,3919,D,1.0,181
+670cf163bb02136c067d26b6,Single-Document QA,hard,medium,D,C,0.0,3191,C,0.0,3181,C,0.0,3123,,0.0,111
+66f7c780bb02136c067c35e8,Multi-Document QA,hard,long,C,D,0.0,4346,A,0.0,4268,A,0.0,4154,A,0.0,588
+66f2a7a9821e116aacb2a721,Multi-Document QA,easy,medium,A,D,0.0,4266,C,0.0,3863,B,0.0,4217,B,0.0,111

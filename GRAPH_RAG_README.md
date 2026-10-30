@@ -465,6 +465,108 @@ usual file set plus:
 - `summary.json` - routing headroom, thresholds, measured step costs, and
   protocol notes.
 
+## Other datasets: FiQA and LongBench v2
+
+The improved graph was run unchanged on two outside benchmarks. Nothing was
+tuned on either. BM25 is the team's implementation, vendored unmodified from
+Florence's branch as [`team_bm25.py`](team_bm25.py); its parameters are BEIR's
+Anserini defaults (k1 = 0.9, b = 0.4).
+
+### FiQA-2018 (passage retrieval)
+
+FiQA-2018 task 2 asks financial opinion questions over 57,638 forum answers.
+This uses the BEIR release and its standard reporting: the 648 test queries
+(2.6 relevant passages each), nDCG@10 and Recall@100. The posts have no
+headings or sections, so only the concept graph and the volume-weighted query
+links are active.
+
+| Method (test, 648) | nDCG@10 | MRR@10 | Recall@10 | Recall@100 | Mean ms |
+|---|---:|---:|---:|---:|---:|
+| Improved graph | 0.1320 | 0.1613 | 0.1828 | 0.3963 | 403 |
+| Improved graph, one step only | 0.1606 | 0.1977 | 0.2195 | 0.4309 | 24 |
+| Original graph | 0.1155 | 0.1317 | 0.1678 | 0.3930 | 785 |
+
+- **The improvements beat the original graph** (+0.016 nDCG@10,
+  [+0.003, +0.030]), but **propagation hurts**: the one-step version scores
+  0.029 higher than the full walk.
+- **The cause is length bias.** Mention weights have no length normalization,
+  so long posts collect more question words, and the walk amplifies this
+  because long passages have more edges. Median passage length in words:
+
+  | Corpus | Relevant | BM25 top 10 | Graph one-step top 10 | Graph walk top 10 |
+  |---:|---:|---:|---:|---:|
+  | 90 | 133 | 256 | 480 | 656 |
+
+  Legal Rag Bench passages are far more uniform in length, so this never
+  surfaced there (length-normalized edges even lowered development scores in
+  prototyping).
+
+The dense reference is all-MiniLM-L6-v2 on CPU; its 57,638 passage embeddings
+take about 16 minutes to encode and are cached outside the repository.
+Latency is one CPU pass over the test queries, top 100; the LongBench run
+shared the machine for part of it.
+
+```powershell
+.venv\Scripts\python.exe evaluate_fiqa_graph.py
+```
+
+Outputs in [results/fiqa_graph/](results/fiqa_graph/): `test_metrics.csv`,
+`per_query.csv`, `paired_ndcg10_intervals.csv` (paired bootstrap over queries,
+10,000 resamples), `summary.json`, and `traces.jsonl` (labeled paths for the
+top 3 per query).
+
+### LongBench v2 (long-context multiple choice)
+
+LongBench v2 has 503 multiple-choice questions over contexts of 8k to 1.4M
+words, and no relevance labels, so retrieval is judged end to end. Each
+context is cut into 300-word chunks (original text kept, so markdown headings
+reach the graph's heading tree), and the local `llama3.2` (3B) answers with
+the official 0-shot prompt and answer extraction, at temperature 0 with a
+16k-token window. Every context method gets the same budget of 2,400 words:
+the graph's or BM25's top 8 chunks for the question plus its four choices, or
+the first and last 1,200 words (the official truncation).
+
+| Context (503 questions) | Accuracy | Easy | Hard | Unparsed answers |
+|---|---:|---:|---:|---:|
+| Graph top 8 chunks | 0.239 | 0.260 | 0.225 | 7% |
+| Truncate middle | 0.227 | 0.219 | 0.232 | 14% |
+| No context | 0.215 | 0.224 | 0.209 | 22% |
+
+- **The 3B reader is the bottleneck.** Every method scores below always
+  answering the most common letter (0.294). Unparseable answers, where the
+  model reasons past its 128-token limit, count as wrong, as in the official
+  scorer.
+- **The graph is not clearly better than no retrieval.** It is +0.012 against
+  truncation and +0.024 against no context; both intervals include zero.
+
+`accuracy.csv` breaks results down by difficulty, length, and domain. The
+LongBench v2 authors report human experts at 53.7% under a time limit, so
+these numbers mainly show the pipeline runs; a stronger reader model is
+needed to measure retrieval quality through answers.
+
+```powershell
+.venv\Scripts\python.exe evaluate_longbench_graph.py
+```
+
+It needs Ollama for new prompts; answers are cached by exact prompt in
+[`llm_cache.jsonl`](results/longbench_v2_graph/llm_cache.jsonl), so reruns and
+interrupted runs reuse them. The full run made 1,998 LLM calls in about 55
+minutes on the RTX 4060 laptop GPU. Outputs in
+[results/longbench_v2_graph/](results/longbench_v2_graph/):
+`per_question.csv`, `accuracy.csv`, `paired_accuracy_intervals.csv`,
+`summary.json`, and `traces.jsonl` (chunks chosen by each retriever and the
+graph's top-3 paths).
+
+### What this says about the graph
+
+The Legal RAG Bench gains came from features that corpus has and these two
+lack: headings that label the passages under them, and passages of similar
+length. On unstructured text with uneven passage lengths the graph is behind
+BM25, and on FiQA both lexical methods are far behind dense retrieval.
+Length-normalized mention weights could be a promising fix for FiQA. They
+would be tuned on its 500-query validation split, without touching its test
+set; this is not done yet.
+
 ## Previous experiment
 
 The earlier dense-seeded graph remains available as `retrieval_mode="dense_graph"`
