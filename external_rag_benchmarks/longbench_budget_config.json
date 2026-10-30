@@ -1,0 +1,11 @@
+{
+  "version": "top40-budget-followup-v1",
+  "top_k": 40,
+  "budgets": [2048, 8192, null],
+  "reader_prompt_limit": 32768,
+  "reader_max_new_tokens": 32,
+  "decoding": "greedy",
+  "sampling": "Reuse the same 6 development and 14 previously inspected test questions",
+  "interpretation": "Exploratory follow-up; no new untouched test set and no test-based configuration selection",
+  "uncapped_definition": "All top-40 retrieved chunks, not the full original source; prompt must fit the reader without truncation"
+}

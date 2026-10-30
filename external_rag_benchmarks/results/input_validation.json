@@ -1,0 +1,8 @@
+{
+  "longbench_items": 20,
+  "chunks": 2432,
+  "smallest_item_chunks": 50,
+  "largest_item_chunks": 210,
+  "maximum_chunk_tokens": 256,
+  "exact_source_slices_and_full_source_coverage": "passed"
+}

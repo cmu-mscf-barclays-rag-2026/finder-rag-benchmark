@@ -1,0 +1,11 @@
+numpy==2.2.6
+torch>=2.7,<3
+transformers==4.51.3
+tokenizers==0.21.4
+huggingface-hub==0.30.2
+requests==2.32.4
+nbformat>=5.10,<6
+ipykernel>=6,<8
+# Needed only to rebuild the pinned input files:
+pyarrow>=18,<27
+ijson>=3.3,<4

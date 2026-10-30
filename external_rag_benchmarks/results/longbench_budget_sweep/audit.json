@@ -1,0 +1,13 @@
+{
+  "contexts_checked": 180,
+  "answers_checked": 200,
+  "summary_rows_checked": 20,
+  "same_top40_ranking_across_budgets": true,
+  "all_uncapped_conditions_include_all40": true,
+  "reader_prompt_truncations": 0,
+  "maximum_native_prompt_tokens": 14047,
+  "original_2048_contexts_identical": true,
+  "prediction_changes_vs_original_baseline": 0,
+  "status": "passed",
+  "interpretation": "Exploratory follow-up on previously inspected questions"
+}

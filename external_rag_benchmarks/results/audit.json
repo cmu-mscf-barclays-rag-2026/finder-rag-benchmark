@@ -1,0 +1,10 @@
+{
+  "fiqa_query_metric_rows_checked": 1800,
+  "fiqa_summary_rows_checked": 24,
+  "longbench_predictions_checked": 80,
+  "longbench_summary_rows_checked": 8,
+  "software_tests_passed": 19,
+  "source_hashes_and_context_slices": "passed",
+  "frozen_dev_selection": "passed",
+  "limits": "Audit checks arithmetic and protocol, not correctness of publisher relevance judgments or model reasoning"
+}

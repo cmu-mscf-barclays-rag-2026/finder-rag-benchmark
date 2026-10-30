@@ -1,0 +1,13 @@
+split,method,budget,questions,wins_vs_2048,losses_vs_2048,ties
+dev,BM25,8192,6,1,0,5
+dev,BM25,all_retrieved,6,0,0,6
+dev,Qwen dense,8192,6,1,1,4
+dev,Qwen dense,all_retrieved,6,1,0,5
+dev,Hybrid equal,8192,6,1,1,4
+dev,Hybrid equal,all_retrieved,6,0,1,5
+test,BM25,8192,14,1,1,12
+test,BM25,all_retrieved,14,2,1,11
+test,Qwen dense,8192,14,0,0,14
+test,Qwen dense,all_retrieved,14,0,0,14
+test,Hybrid equal,8192,14,2,2,10
+test,Hybrid equal,all_retrieved,14,1,1,12

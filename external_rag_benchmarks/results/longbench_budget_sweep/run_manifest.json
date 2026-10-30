@@ -1,0 +1,29 @@
+{
+  "config": {
+    "version": "top40-budget-followup-v1",
+    "top_k": 40,
+    "budgets": [
+      2048,
+      8192,
+      null
+    ],
+    "reader_prompt_limit": 32768,
+    "reader_max_new_tokens": 32,
+    "decoding": "greedy",
+    "sampling": "Reuse the same 6 development and 14 previously inspected test questions",
+    "interpretation": "Exploratory follow-up; no new untouched test set and no test-based configuration selection",
+    "uncapped_definition": "All top-40 retrieved chunks, not the full original source; prompt must fit the reader without truncation"
+  },
+  "reader_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "reader_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "torch": "2.7.0+cu128",
+  "predictions": 200,
+  "new_generation_runs": 200,
+  "prompt_truncations": 0,
+  "paid_api_calls": 0,
+  "maximum_prompt_tokens": 14047,
+  "model_capacity": 32768,
+  "interpretation": "Exploratory follow-up on the previously inspected question sample; all three budgets reported."
+}

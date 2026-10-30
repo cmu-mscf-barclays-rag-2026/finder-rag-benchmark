@@ -1,0 +1,6 @@
+{
+  "config": "54cfe50d057903ec77024b8d9ef92f68152c839fe3b6c65921d33aa7d810bccc",
+  "reader_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "contexts_sha256": "f2cf56bc0ec224c364c8c53e1f48e9c817c1e6b561209ef21d56655aac637253",
+  "prompt_protocol": "reference-data-single-letter-v1"
+}

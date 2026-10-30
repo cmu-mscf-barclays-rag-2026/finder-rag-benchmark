@@ -1,0 +1,54 @@
+{
+  "dataset_revisions": {
+    "fiqa": [
+      "BeIR/fiqa",
+      "979c07a7cb5ccc6ca009792241fa1250b98055dd"
+    ],
+    "qrels": [
+      "BeIR/fiqa-qrels",
+      "252958f2d646e22cab6d0c72dd3f0d5de6d0655a"
+    ],
+    "longbench": [
+      "zai-org/LongBench-v2",
+      "2b48e494f2c7a2f0af81aae178e05c7e1dde0fe9"
+    ]
+  },
+  "selection_rule": "SHA256 external-rag-pilot-v1 plus ID, fixed before scoring; full FiQA corpus",
+  "fiqa": {
+    "corpus": 57638,
+    "available_queries": {
+      "dev": 500,
+      "test": 648
+    },
+    "selected_queries": {
+      "dev": 50,
+      "test": 100
+    },
+    "multi_relevant_queries": {
+      "dev": 29,
+      "test": 71
+    }
+  },
+  "longbench": {
+    "official_rows": 503,
+    "domain_counts": {
+      "Long In-context Learning": 81,
+      "Single-Document QA": 175,
+      "Multi-Document QA": 125,
+      "Long-dialogue History Understanding": 39,
+      "Code Repository Understanding": 50,
+      "Long Structured Data Understanding": 33
+    },
+    "eligible_short_qa": 132,
+    "selected_queries": {
+      "dev": 6,
+      "test": 14
+    },
+    "warning": "New project pilot split; official train label is not a provided dev/test partition"
+  },
+  "files_sha256": {
+    "fiqa_corpus.jsonl.gz": "c7b683f525ddb557533539004a9a44ffb9c1c72f256fb5d9d26e643b52db1a80",
+    "fiqa_queries.json": "24a69a4014556476e9167489db9b46d0172e5d16d37a5af2ccc4e7db3ac05e3f",
+    "longbench_pilot.jsonl.gz": "0733d5af3d5f07c67081e9b572a53b709c45b89f5fdd126ad10f7a41b1015245"
+  }
+}

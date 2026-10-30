@@ -1,0 +1,36 @@
+{
+  "config_signature": "54cfe50d057903ec77024b8d9ef92f68152c839fe3b6c65921d33aa7d810bccc",
+  "config": {
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "embedding_revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "embedding_window": 512,
+    "batch_size": 24,
+    "cpu_threads": 4,
+    "bm25_k1": 1.5,
+    "bm25_b": 0.75,
+    "rrf_constant": 60,
+    "candidate_depth": 100,
+    "bm25_weight_grid": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "ks": [
+      1,
+      5,
+      10
+    ],
+    "longbench_chunk_tokens": 256,
+    "longbench_overlap": 32,
+    "longbench_top_k": 10,
+    "context_budget": 2048,
+    "reader_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "reader_max_new_tokens": 32,
+    "reader_prompt_limit": 8192,
+    "selection_note": "Fixed before running. FiQA tunes fusion on 50 dev queries. LongBench uses equal fusion with no tuning."
+  },
+  "setting": "Each item is searched only within its supplied context. Query contains question and choices; no gold answer.",
+  "code_sha256": "876c7d9e37b8128a1b8c8f145a6c215c70819bc89edff60b905f613c976beca0"
+}

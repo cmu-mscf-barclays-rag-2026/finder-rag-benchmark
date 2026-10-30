@@ -1,0 +1,25 @@
+{
+  "config": {
+    "version": "top40-budget-followup-v1",
+    "top_k": 40,
+    "budgets": [
+      2048,
+      8192,
+      null
+    ],
+    "reader_prompt_limit": 32768,
+    "reader_max_new_tokens": 32,
+    "decoding": "greedy",
+    "sampling": "Reuse the same 6 development and 14 previously inspected test questions",
+    "interpretation": "Exploratory follow-up; no new untouched test set and no test-based configuration selection",
+    "uncapped_definition": "All top-40 retrieved chunks, not the full original source; prompt must fit the reader without truncation"
+  },
+  "original_rankings_sha256": "f2cf56bc0ec224c364c8c53e1f48e9c817c1e6b561209ef21d56655aac637253",
+  "question_file_sha256": "0733d5af3d5f07c67081e9b572a53b709c45b89f5fdd126ad10f7a41b1015245",
+  "chunk_definition": {
+    "tokens": 256,
+    "overlap": 32
+  },
+  "retrieval_changed": false,
+  "note": "Use saved candidate ordering; only the delivered body budget changes at fixed top forty."
+}

@@ -1,0 +1,1298 @@
+{
+  "dev": [
+    {
+      "id": "1370",
+      "question": "Theory/Strategy for pricing by volume",
+      "qrels": {
+        "504599": 1
+      }
+    },
+    {
+      "id": "1931",
+      "question": "Switch from DINK to SIWK: How do people afford kids?",
+      "qrels": {
+        "36440": 1,
+        "129306": 1,
+        "110672": 1,
+        "274422": 1,
+        "138428": 1,
+        "269380": 1,
+        "439071": 1,
+        "492366": 1,
+        "530017": 1
+      }
+    },
+    {
+      "id": "2215",
+      "question": "How does a lender compute equity requirement for PMI?",
+      "qrels": {
+        "392911": 1,
+        "32576": 1,
+        "366215": 1
+      }
+    },
+    {
+      "id": "3153",
+      "question": "Does a US LLC need to file taxes if owned by a foreign citizen?",
+      "qrels": {
+        "205719": 1,
+        "328341": 1,
+        "197501": 1
+      }
+    },
+    {
+      "id": "5465",
+      "question": "How can I get the car refinanced under my name if my girlfriend signed for the loan?",
+      "qrels": {
+        "211451": 1,
+        "424125": 1,
+        "94317": 1
+      }
+    },
+    {
+      "id": "5028",
+      "question": "Is it wise to invest in bond fund when interest rates are low?",
+      "qrels": {
+        "506298": 1
+      }
+    },
+    {
+      "id": "4746",
+      "question": "Personal finance in EFU and NAFA",
+      "qrels": {
+        "216321": 1
+      }
+    },
+    {
+      "id": "2647",
+      "question": "Can the Philadelphia Center City District Tax be deducted on my Schedule-A?",
+      "qrels": {
+        "290862": 1
+      }
+    },
+    {
+      "id": "7458",
+      "question": "Does modifying an order cancel the old one and submit a new one",
+      "qrels": {
+        "191240": 1
+      }
+    },
+    {
+      "id": "2771",
+      "question": "Will credit card payment from abroad be suspicious as taxable income?",
+      "qrels": {
+        "445690": 1
+      }
+    },
+    {
+      "id": "5727",
+      "question": "Is there a term for the risk of investing in an asset with a positive but inferior return?",
+      "qrels": {
+        "27962": 1,
+        "141596": 1,
+        "305523": 1,
+        "158310": 1
+      }
+    },
+    {
+      "id": "6310",
+      "question": "How do I pick the right company for investing services?",
+      "qrels": {
+        "536990": 1
+      }
+    },
+    {
+      "id": "5263",
+      "question": "Better approach to close loans?",
+      "qrels": {
+        "31189": 1
+      }
+    },
+    {
+      "id": "5268",
+      "question": "Why real estate investments are compared via “cap rate”?",
+      "qrels": {
+        "500288": 1,
+        "156194": 1
+      }
+    },
+    {
+      "id": "10178",
+      "question": "Have my parents been bilked? If so, what to do?",
+      "qrels": {
+        "31664": 1
+      }
+    },
+    {
+      "id": "8541",
+      "question": "stock(paper) delivery to home",
+      "qrels": {
+        "184042": 1
+      }
+    },
+    {
+      "id": "6937",
+      "question": "Are there common stock price trends related to employee option plans?",
+      "qrels": {
+        "436536": 1,
+        "73321": 1,
+        "481339": 1,
+        "337049": 1
+      }
+    },
+    {
+      "id": "2182",
+      "question": "Property Trust - who or what is the Owner?",
+      "qrels": {
+        "566926": 1,
+        "539752": 1
+      }
+    },
+    {
+      "id": "10087",
+      "question": "What is a financial security?",
+      "qrels": {
+        "375368": 1
+      }
+    },
+    {
+      "id": "4442",
+      "question": "Investment Newbie - Options in India - For $10K - for 10 years",
+      "qrels": {
+        "46967": 1
+      }
+    },
+    {
+      "id": "7864",
+      "question": "One of my stocks dropped 40% in 2 days, how should I mentally approach this?",
+      "qrels": {
+        "102757": 1,
+        "13299": 1,
+        "594935": 1,
+        "470861": 1,
+        "524238": 1,
+        "191066": 1,
+        "450067": 1,
+        "69308": 1,
+        "351137": 1,
+        "212450": 1,
+        "432665": 1,
+        "245628": 1,
+        "564364": 1
+      }
+    },
+    {
+      "id": "8336",
+      "question": "Possible to purchase multiple securities on 1 transaction?",
+      "qrels": {
+        "161311": 1,
+        "88869": 1,
+        "81441": 1
+      }
+    },
+    {
+      "id": "2646",
+      "question": "In USA, what circumstances (if any) make it illegal for a homeless person to “rent” an address?",
+      "qrels": {
+        "121551": 1,
+        "32610": 1
+      }
+    },
+    {
+      "id": "10677",
+      "question": "I am a Canadian resident who wants to gift my Adult US child CAD$175K. What are the tax implications?",
+      "qrels": {
+        "309555": 1
+      }
+    },
+    {
+      "id": "1131",
+      "question": "Do I qualify for a personal 401-K Plan?",
+      "qrels": {
+        "367577": 1
+      }
+    },
+    {
+      "id": "6824",
+      "question": "Do I still need to pay capital gains taxes when I profit from a stock in a foreign currency?",
+      "qrels": {
+        "465106": 1,
+        "390252": 1
+      }
+    },
+    {
+      "id": "9600",
+      "question": "Treasury Bonds, and why has the NYSE 20+ Year Treasury Bond index (AXTWEN) gone up so much in the last year (2011)?",
+      "qrels": {
+        "307380": 1,
+        "169309": 1
+      }
+    },
+    {
+      "id": "7346",
+      "question": "How do Transfer Agents/Share Registrars get the names of beneficiary shareholders",
+      "qrels": {
+        "48893": 1
+      }
+    },
+    {
+      "id": "7169",
+      "question": "Options strategy - When stocks go opposite of your purchase?",
+      "qrels": {
+        "178105": 1,
+        "591229": 1,
+        "265744": 1,
+        "350712": 1
+      }
+    },
+    {
+      "id": "5388",
+      "question": "Wash sale rules in India (NSE/BSE)",
+      "qrels": {
+        "390864": 1,
+        "438419": 1
+      }
+    },
+    {
+      "id": "2940",
+      "question": "Why do UK banks require monthly “pay in” into current account?",
+      "qrels": {
+        "427086": 1,
+        "555995": 1
+      }
+    },
+    {
+      "id": "7176",
+      "question": "How does investing in commodities/futures vary from stocks?",
+      "qrels": {
+        "591757": 1
+      }
+    },
+    {
+      "id": "5381",
+      "question": "Question about large capital gain",
+      "qrels": {
+        "123053": 1
+      }
+    },
+    {
+      "id": "1906",
+      "question": "Taking out a loan to pay down a mortgage",
+      "qrels": {
+        "180390": 1,
+        "587682": 1
+      }
+    },
+    {
+      "id": "6850",
+      "question": "What is the Blue Line in these stock Charts?",
+      "qrels": {
+        "488285": 1,
+        "596355": 1
+      }
+    },
+    {
+      "id": "1864",
+      "question": "How can I diversify investments across currencies in ISA?",
+      "qrels": {
+        "196119": 1,
+        "372457": 1
+      }
+    },
+    {
+      "id": "727",
+      "question": "us citizen receiving bank transfer from foreign boyfriend",
+      "qrels": {
+        "29617": 1
+      }
+    },
+    {
+      "id": "9356",
+      "question": "How does leverage work?",
+      "qrels": {
+        "74369": 1,
+        "229026": 1
+      }
+    },
+    {
+      "id": "2437",
+      "question": "What sort of tax treatment does a charitable micro-lending loan incur?",
+      "qrels": {
+        "30406": 1,
+        "40229": 1
+      }
+    },
+    {
+      "id": "6744",
+      "question": "Buying non-qualified employee stock options that are going to expire?",
+      "qrels": {
+        "220147": 1
+      }
+    },
+    {
+      "id": "7294",
+      "question": "Direct access to the currency exchange market",
+      "qrels": {
+        "10726": 1
+      }
+    },
+    {
+      "id": "5147",
+      "question": "I'm 23, living at home, and still can't afford my own property. What could I do?",
+      "qrels": {
+        "595287": 1,
+        "326948": 1,
+        "384855": 1
+      }
+    },
+    {
+      "id": "2675",
+      "question": "How much share do the venture capitalists want if they invest in our website?",
+      "qrels": {
+        "521044": 1
+      }
+    },
+    {
+      "id": "3894",
+      "question": "Real Estate: Please review my recent investment (with numbers from recent purchase)",
+      "qrels": {
+        "426705": 1,
+        "78825": 1
+      }
+    },
+    {
+      "id": "5370",
+      "question": "How should my brother and I structure our real estate purchase?",
+      "qrels": {
+        "268078": 1,
+        "138679": 1,
+        "337286": 1
+      }
+    },
+    {
+      "id": "5726",
+      "question": "Figuring out an ideal balance to carry on credit cards [duplicate]",
+      "qrels": {
+        "248091": 1,
+        "232811": 1,
+        "574065": 1,
+        "268895": 1
+      }
+    },
+    {
+      "id": "2032",
+      "question": "Where can I find all public companies' information?",
+      "qrels": {
+        "420587": 1,
+        "92593": 1,
+        "348347": 1,
+        "84356": 1
+      }
+    },
+    {
+      "id": "9752",
+      "question": "How to record “short premium” in double-entry accounting?",
+      "qrels": {
+        "54354": 1,
+        "355450": 1
+      }
+    },
+    {
+      "id": "9334",
+      "question": "No trading data other than close for a stock on a given date",
+      "qrels": {
+        "127015": 1,
+        "378994": 1
+      }
+    },
+    {
+      "id": "5187",
+      "question": "Payroll taxes on exercised stock options",
+      "qrels": {
+        "363748": 1,
+        "203334": 1
+      }
+    }
+  ],
+  "test": [
+    {
+      "id": "2801",
+      "question": "If I deposit money as cash does it count as direct deposit?",
+      "qrels": {
+        "398856": 1,
+        "475541": 1
+      }
+    },
+    {
+      "id": "1306",
+      "question": "I made an investment with a company that contacted me, was it safe?",
+      "qrels": {
+        "594206": 1,
+        "484437": 1,
+        "204075": 1,
+        "167684": 1
+      }
+    },
+    {
+      "id": "5993",
+      "question": "Why would anyone want to pay off their debts in a way other than “highest interest” first?",
+      "qrels": {
+        "94373": 1,
+        "367375": 1,
+        "287571": 1,
+        "224918": 1,
+        "128574": 1,
+        "431212": 1,
+        "272866": 1,
+        "230215": 1,
+        "55084": 1,
+        "160193": 1,
+        "5827": 1,
+        "352638": 1,
+        "63690": 1,
+        "426120": 1,
+        "63501": 1
+      }
+    },
+    {
+      "id": "6611",
+      "question": "How does Vanguard determine the optimal asset allocation for their Target Retirement Funds?",
+      "qrels": {
+        "293679": 1,
+        "198764": 1
+      }
+    },
+    {
+      "id": "3594",
+      "question": "If I were to get into a life situation where I would not be able to make regular payments, do lenders typically provide options other than default?",
+      "qrels": {
+        "246882": 1,
+        "554171": 1,
+        "525247": 1,
+        "490294": 1
+      }
+    },
+    {
+      "id": "6683",
+      "question": "Who are the sellers for the new public stocks?",
+      "qrels": {
+        "592187": 1,
+        "77631": 1
+      }
+    },
+    {
+      "id": "6835",
+      "question": "Are bond ETF capital gains taxed similar to stock or stock funds if held for more than 1 year?",
+      "qrels": {
+        "149305": 1,
+        "102243": 1
+      }
+    },
+    {
+      "id": "5255",
+      "question": "Thrift Saving Plan (TSP) Share Price Charts",
+      "qrels": {
+        "75112": 1,
+        "330453": 1,
+        "412830": 1
+      }
+    },
+    {
+      "id": "104",
+      "question": "Investing/business with other people's money: How does it work?",
+      "qrels": {
+        "575869": 1,
+        "523158": 1
+      }
+    },
+    {
+      "id": "7145",
+      "question": "Are there “buy and hold” passively managed funds?",
+      "qrels": {
+        "81458": 1,
+        "17923": 1,
+        "116865": 1
+      }
+    },
+    {
+      "id": "1826",
+      "question": "Is the contribution towards Employment Insurance (EI) wasted if I never get fired, or are my premiums refunded?",
+      "qrels": {
+        "401731": 1,
+        "8057": 1,
+        "181787": 1,
+        "583788": 1
+      }
+    },
+    {
+      "id": "11088",
+      "question": "Am I required to have a lawyer create / oversee creation of my will?",
+      "qrels": {
+        "437100": 1
+      }
+    },
+    {
+      "id": "10808",
+      "question": "What are a few sites that make it easy to invest in high interest rate mutual funds?",
+      "qrels": {
+        "28291": 1,
+        "487052": 1,
+        "484599": 1
+      }
+    },
+    {
+      "id": "10482",
+      "question": "Rollover into bond fund to do dollar cost averaging [duplicate]",
+      "qrels": {
+        "549072": 1
+      }
+    },
+    {
+      "id": "9701",
+      "question": "How to bet against the London housing market?",
+      "qrels": {
+        "387141": 1,
+        "357739": 1
+      }
+    },
+    {
+      "id": "10994",
+      "question": "Net loss not distributed by mutual funds to their shareholders?",
+      "qrels": {
+        "496820": 1,
+        "212394": 1
+      }
+    },
+    {
+      "id": "90",
+      "question": "Filing personal with 1099s versus business s-corp?",
+      "qrels": {
+        "31793": 1
+      }
+    },
+    {
+      "id": "6867",
+      "question": "Will there always be somebody selling/buying in every stock?",
+      "qrels": {
+        "443804": 1,
+        "466143": 1,
+        "878": 1,
+        "540799": 1,
+        "502607": 1,
+        "445258": 1,
+        "538750": 1
+      }
+    },
+    {
+      "id": "3115",
+      "question": "How can I live outside of the rat race of American life with 300k?",
+      "qrels": {
+        "129364": 1,
+        "183869": 1,
+        "234950": 1,
+        "389028": 1,
+        "233562": 1,
+        "316794": 1
+      }
+    },
+    {
+      "id": "4777",
+      "question": "How to finance necessary repairs to our home in order to sell it?",
+      "qrels": {
+        "590710": 1
+      }
+    },
+    {
+      "id": "9174",
+      "question": "Which U.S. online discount broker is the best value for money?",
+      "qrels": {
+        "431652": 1,
+        "535317": 1,
+        "160218": 1,
+        "544576": 1,
+        "405217": 1
+      }
+    },
+    {
+      "id": "2051",
+      "question": "Where to find the 5 or 10 year returns for a mutual fund?",
+      "qrels": {
+        "558042": 1
+      }
+    },
+    {
+      "id": "3051",
+      "question": "What items are exempt from the VAT? [U.K.]",
+      "qrels": {
+        "232063": 1,
+        "591940": 1
+      }
+    },
+    {
+      "id": "8874",
+      "question": "When can you adjust for (and re-allow) a disallowed year-end (December) wash-sale loss?",
+      "qrels": {
+        "403025": 1
+      }
+    },
+    {
+      "id": "2676",
+      "question": "Tax question about selling a car",
+      "qrels": {
+        "55666": 1
+      }
+    },
+    {
+      "id": "3500",
+      "question": "Why invest in becoming a landlord?",
+      "qrels": {
+        "273187": 1,
+        "141935": 1,
+        "557478": 1,
+        "174019": 1,
+        "71424": 1,
+        "565409": 1
+      }
+    },
+    {
+      "id": "929",
+      "question": "Freelancer: Should I start a second bank account?",
+      "qrels": {
+        "367754": 1
+      }
+    },
+    {
+      "id": "3405",
+      "question": "Non Resident aliens - Question of standard vs itemized",
+      "qrels": {
+        "495467": 1
+      }
+    },
+    {
+      "id": "5534",
+      "question": "How does “taking over payments” work?",
+      "qrels": {
+        "423272": 1,
+        "421136": 1
+      }
+    },
+    {
+      "id": "3909",
+      "question": "How to rescue my money from negative interest?",
+      "qrels": {
+        "404352": 1,
+        "200690": 1,
+        "312248": 1,
+        "404356": 1,
+        "374400": 1,
+        "61586": 1,
+        "514003": 1,
+        "193459": 1,
+        "245616": 1,
+        "353028": 1
+      }
+    },
+    {
+      "id": "2695",
+      "question": "Buy a parking spot and rent it out, or invest savings in an interest-bearing account?",
+      "qrels": {
+        "305904": 1
+      }
+    },
+    {
+      "id": "7345",
+      "question": "What do these numbers mean? (futures)",
+      "qrels": {
+        "508821": 1,
+        "237645": 1,
+        "527080": 1
+      }
+    },
+    {
+      "id": "6199",
+      "question": "How can all these countries owe so much money?  Why & where did they borrow it from?",
+      "qrels": {
+        "414693": 1,
+        "584273": 1,
+        "239214": 1,
+        "169921": 1
+      }
+    },
+    {
+      "id": "6713",
+      "question": "Will my father still be eligible for SNAP if I claim him as my dependent?",
+      "qrels": {
+        "147853": 1,
+        "357571": 1
+      }
+    },
+    {
+      "id": "10674",
+      "question": "How to sell a stock in a crashing market?",
+      "qrels": {
+        "99857": 1,
+        "257241": 1,
+        "543589": 1,
+        "3095": 1
+      }
+    },
+    {
+      "id": "5653",
+      "question": "Steps and timing of the SEIS investment (in the UK)",
+      "qrels": {
+        "588247": 1
+      }
+    },
+    {
+      "id": "7734",
+      "question": "Can PE ratio of stocks be compared to other investments?",
+      "qrels": {
+        "226070": 1,
+        "433905": 1
+      }
+    },
+    {
+      "id": "9164",
+      "question": "Bonds vs equities: crash theory",
+      "qrels": {
+        "305274": 1,
+        "365298": 1,
+        "263390": 1
+      }
+    },
+    {
+      "id": "5906",
+      "question": "0% APR first 12 months on new credit card. Can I exceed that 30% rule of thumb and not hurt my credit score?",
+      "qrels": {
+        "409907": 1,
+        "15172": 1
+      }
+    },
+    {
+      "id": "6278",
+      "question": "What is the best way to help my dad consolidate his credit card debt at a lower rate?",
+      "qrels": {
+        "138511": 1,
+        "63698": 1
+      }
+    },
+    {
+      "id": "3530",
+      "question": "How to exclude stock from mutual fund",
+      "qrels": {
+        "189190": 1,
+        "184299": 1,
+        "239998": 1
+      }
+    },
+    {
+      "id": "3615",
+      "question": "My previous and current employers both use Fidelity for 401(k). Does it make sense to rollover?",
+      "qrels": {
+        "518379": 1,
+        "335991": 1
+      }
+    },
+    {
+      "id": "4084",
+      "question": "What industries soar when oil prices go up?",
+      "qrels": {
+        "250028": 1,
+        "308633": 1
+      }
+    },
+    {
+      "id": "4571",
+      "question": "HSBC Hong Kong's “Deposit Plus” Product: What is it, and what strategies to employ?",
+      "qrels": {
+        "496857": 1,
+        "282392": 1,
+        "213824": 1
+      }
+    },
+    {
+      "id": "6896",
+      "question": "Selling high, pay capital gains, re-purchase later",
+      "qrels": {
+        "251704": 1
+      }
+    },
+    {
+      "id": "6002",
+      "question": "15 year mortgage vs 30 year paid off in 15",
+      "qrels": {
+        "404605": 1,
+        "273501": 1,
+        "390642": 1,
+        "359862": 1,
+        "516848": 1,
+        "391819": 1,
+        "34389": 1,
+        "233472": 1,
+        "519346": 1,
+        "593434": 1,
+        "154181": 1
+      }
+    },
+    {
+      "id": "2964",
+      "question": "Unmarried Couple Splitting up with Joint Ownership of Home",
+      "qrels": {
+        "302409": 1,
+        "95116": 1
+      }
+    },
+    {
+      "id": "6862",
+      "question": "Canada discount stock brokers: Interactive Brokers vs. Questrade?",
+      "qrels": {
+        "386796": 1
+      }
+    },
+    {
+      "id": "5271",
+      "question": "Why are auto leases stubbornly strict about visa status and how to work around that?",
+      "qrels": {
+        "58599": 1,
+        "221439": 1,
+        "67663": 1
+      }
+    },
+    {
+      "id": "8475",
+      "question": "Why I cannot find a “Pure Cash” option in 401k investments?",
+      "qrels": {
+        "494655": 1,
+        "240562": 1,
+        "293320": 1,
+        "104793": 1,
+        "437427": 1,
+        "444107": 1,
+        "481728": 1
+      }
+    },
+    {
+      "id": "3148",
+      "question": "Can a car company refuse to give me a copy of my contract or balance details?",
+      "qrels": {
+        "178127": 1,
+        "584305": 1,
+        "438000": 1,
+        "92888": 1,
+        "172855": 1
+      }
+    },
+    {
+      "id": "8072",
+      "question": "What does it mean “sell on ask” , “sell on bid” in stocks?",
+      "qrels": {
+        "394244": 1,
+        "169062": 1,
+        "31465": 1
+      }
+    },
+    {
+      "id": "7880",
+      "question": "Are there index tracking funds that avoid the “buy high - sell low” problem?",
+      "qrels": {
+        "272790": 1,
+        "85319": 1
+      }
+    },
+    {
+      "id": "9548",
+      "question": "How do I research, analyze, and choose the right mutual fund for a roth ira?",
+      "qrels": {
+        "297290": 1
+      }
+    },
+    {
+      "id": "8456",
+      "question": "What typically happens to unvested stock during an acquisition?",
+      "qrels": {
+        "257853": 1,
+        "510875": 1,
+        "486333": 1
+      }
+    },
+    {
+      "id": "7068",
+      "question": "Making money through CFD",
+      "qrels": {
+        "61864": 1,
+        "10797": 1
+      }
+    },
+    {
+      "id": "4105",
+      "question": "As an investor what are side effects of Quantitative Easing in US and in EU?",
+      "qrels": {
+        "166412": 1,
+        "25096": 1
+      }
+    },
+    {
+      "id": "7377",
+      "question": "What type of returns Vanguard is quoting?",
+      "qrels": {
+        "579557": 1
+      }
+    },
+    {
+      "id": "2472",
+      "question": "How do I deal with a mistaken attempt to collect a debt from me that is owed by someone else?",
+      "qrels": {
+        "401125": 1,
+        "370334": 1,
+        "307315": 1
+      }
+    },
+    {
+      "id": "42",
+      "question": "What are the ins/outs of writing equipment purchases off as business expenses in a home based business?",
+      "qrels": {
+        "272709": 1,
+        "327263": 1,
+        "331981": 1
+      }
+    },
+    {
+      "id": "9735",
+      "question": "What are “equity assets”?",
+      "qrels": {
+        "392317": 1
+      }
+    },
+    {
+      "id": "3453",
+      "question": "How does spot-futures arbitrage work in the gold market?",
+      "qrels": {
+        "418626": 1,
+        "233635": 1
+      }
+    },
+    {
+      "id": "2416",
+      "question": "Why should a company go public?",
+      "qrels": {
+        "162612": 1,
+        "48569": 1,
+        "105129": 1,
+        "471247": 1
+      }
+    },
+    {
+      "id": "8005",
+      "question": "Difference between Vanguard sp500 UCITS and Vanguard sp500",
+      "qrels": {
+        "48800": 1
+      }
+    },
+    {
+      "id": "8040",
+      "question": "Best way to make most of savings with ISA and Offset mortgage",
+      "qrels": {
+        "523058": 1
+      }
+    },
+    {
+      "id": "9381",
+      "question": "Trade? Buy and hold? Or both?",
+      "qrels": {
+        "408123": 1,
+        "384983": 1
+      }
+    },
+    {
+      "id": "6009",
+      "question": "Why can low volume move a stock price drastically?",
+      "qrels": {
+        "228983": 1
+      }
+    },
+    {
+      "id": "7700",
+      "question": "Should I re-allocate my portfolio now or let it balance out over time?",
+      "qrels": {
+        "273761": 1,
+        "507468": 1,
+        "2653": 1,
+        "179328": 1
+      }
+    },
+    {
+      "id": "4415",
+      "question": "How much is inflation?",
+      "qrels": {
+        "238234": 1,
+        "147646": 1,
+        "414188": 1,
+        "67676": 1
+      }
+    },
+    {
+      "id": "5710",
+      "question": "Bucketing investments to track individual growths",
+      "qrels": {
+        "232311": 1
+      }
+    },
+    {
+      "id": "4037",
+      "question": "How separate individual expenses from family expenses in Gnucash?",
+      "qrels": {
+        "10275": 1,
+        "298099": 1
+      }
+    },
+    {
+      "id": "6420",
+      "question": "Does the bid/ask concept exist in dealer markets?",
+      "qrels": {
+        "565568": 1,
+        "127452": 1
+      }
+    },
+    {
+      "id": "4539",
+      "question": "How should I save money if the real interest rate (after inflation) is negative?",
+      "qrels": {
+        "370879": 1,
+        "275925": 1
+      }
+    },
+    {
+      "id": "8",
+      "question": "How to deposit a cheque issued to an associate in my business into my business account?",
+      "qrels": {
+        "566392": 1,
+        "65404": 1
+      }
+    },
+    {
+      "id": "7534",
+      "question": "Can you explain why it's better to invest now rather than waiting for the market to dip?",
+      "qrels": {
+        "175821": 1,
+        "89714": 1,
+        "358125": 1
+      }
+    },
+    {
+      "id": "7484",
+      "question": "Why sometimes payable date is BEFORE the ex-dividend date?",
+      "qrels": {
+        "444562": 1
+      }
+    },
+    {
+      "id": "9598",
+      "question": "How do index funds actually work?",
+      "qrels": {
+        "379311": 1
+      }
+    },
+    {
+      "id": "9979",
+      "question": "What is the best way to invest in gold as a hedge against inflation without having to hold physical gold?",
+      "qrels": {
+        "538237": 1,
+        "35633": 1,
+        "337243": 1,
+        "35369": 1
+      }
+    },
+    {
+      "id": "7141",
+      "question": "Do investors go long option contracts when they cannot cover the exercise of the options?",
+      "qrels": {
+        "255927": 1,
+        "132288": 1
+      }
+    },
+    {
+      "id": "9617",
+      "question": "What differentiates index funds and ETFs?",
+      "qrels": {
+        "408524": 1,
+        "364735": 1,
+        "314008": 1
+      }
+    },
+    {
+      "id": "5427",
+      "question": "How do auto-loan payments factor into taxes for cars that are solely used by dependent(s)?",
+      "qrels": {
+        "200603": 1,
+        "323284": 1
+      }
+    },
+    {
+      "id": "1469",
+      "question": "Why do some companies report how well their EBITDA performed even if their overall net profit did equally well?",
+      "qrels": {
+        "444589": 1
+      }
+    },
+    {
+      "id": "2400",
+      "question": "Will I be paid dividends if I own shares?",
+      "qrels": {
+        "456470": 1,
+        "1198": 1,
+        "564271": 1
+      }
+    },
+    {
+      "id": "15",
+      "question": "Can I send a money order from USPS as a business?",
+      "qrels": {
+        "325273": 1
+      }
+    },
+    {
+      "id": "5903",
+      "question": "Fees aside, what factors could account for performance differences between U.S. large-cap index ETFs?",
+      "qrels": {
+        "231863": 1
+      }
+    },
+    {
+      "id": "5402",
+      "question": "Is it impossible to get a home loan with a poor credit history after a divorce?",
+      "qrels": {
+        "491350": 1,
+        "227485": 1
+      }
+    },
+    {
+      "id": "5862",
+      "question": "Can I get a discount on merchandise by paying with cash instead of credit?",
+      "qrels": {
+        "130209": 1,
+        "269898": 1,
+        "170141": 1,
+        "562511": 1
+      }
+    },
+    {
+      "id": "8017",
+      "question": "Purchasing ETFs when (pretty much) everything else is maxed out",
+      "qrels": {
+        "97836": 1
+      }
+    },
+    {
+      "id": "8855",
+      "question": "How do i get into investing stocks [duplicate]",
+      "qrels": {
+        "208165": 1,
+        "474296": 1,
+        "312821": 1
+      }
+    },
+    {
+      "id": "9882",
+      "question": "Money-market or cash-type ETFs for foreigners with U.S brokerage account",
+      "qrels": {
+        "65702": 1
+      }
+    },
+    {
+      "id": "1670",
+      "question": "Investing in hemp producers in advance of possible legalization in Canada?",
+      "qrels": {
+        "290887": 1,
+        "393898": 1,
+        "493792": 1
+      }
+    },
+    {
+      "id": "4411",
+      "question": "How does the importance of a cash emergency fund change when you live in a country with nationalized healthcare?",
+      "qrels": {
+        "79903": 1,
+        "68239": 1,
+        "116545": 1
+      }
+    },
+    {
+      "id": "9403",
+      "question": "Abundance of Cash - What should I do?",
+      "qrels": {
+        "6666": 1,
+        "328086": 1,
+        "345199": 1
+      }
+    },
+    {
+      "id": "5125",
+      "question": "Regarding Australian CBS takeover of TEN",
+      "qrels": {
+        "318728": 1
+      }
+    },
+    {
+      "id": "9108",
+      "question": "Starting an investment portfolio with Rs 5,000/-",
+      "qrels": {
+        "272021": 1,
+        "472585": 1
+      }
+    },
+    {
+      "id": "2399",
+      "question": "Where do web sites get foreign exchange currency rate / quote information?",
+      "qrels": {
+        "343489": 1
+      }
+    },
+    {
+      "id": "2316",
+      "question": "What exchange rate does El Al use when converting final payment amount to shekels?",
+      "qrels": {
+        "482343": 1,
+        "348955": 1
+      }
+    },
+    {
+      "id": "3503",
+      "question": "Is there any instance where less leverage will get you a better return on a rental property?",
+      "qrels": {
+        "345294": 1,
+        "297764": 1,
+        "63091": 1,
+        "177563": 1,
+        "482077": 1,
+        "360621": 1,
+        "89509": 1
+      }
+    },
+    {
+      "id": "5511",
+      "question": "Pay off car loan entirely or leave $1 until the end of the loan period?",
+      "qrels": {
+        "169893": 1,
+        "107898": 1,
+        "529123": 1,
+        "560325": 1,
+        "478426": 1,
+        "383193": 1,
+        "114303": 1,
+        "278699": 1,
+        "12746": 1,
+        "51873": 1
+      }
+    },
+    {
+      "id": "8102",
+      "question": "When do I sell a stock that I hold as a long-term position?",
+      "qrels": {
+        "552707": 1,
+        "557877": 1,
+        "378173": 1,
+        "90294": 1
+      }
+    }
+  ]
+}

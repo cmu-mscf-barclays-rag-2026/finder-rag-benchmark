@@ -1,0 +1,10 @@
+{
+  "reader_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "torch": "2.7.0+cu128",
+  "decoding": "Greedy, maximum 32 new tokens, strict single-letter parsing; invalid output is incorrect",
+  "scope": "20-item local RAG pilot, not the full official LongBench v2 evaluation",
+  "paid_api_calls": 0
+}
