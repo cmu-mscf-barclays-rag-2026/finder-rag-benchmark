@@ -1,0 +1,150 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "embedding_max_seq_length": 256,
+  "normalized": true,
+  "vector_question_weight": 0.5,
+  "profiles": {
+    "focused160": {
+      "prompts": {
+        "fiqa": "Write one short hypothetical answer paragraph to help retrieve evidence about finance for the question below. Preserve the key financial issue and distinguish it from similar issues. Describe the relevant financial concept or mechanism in plain language. Do not invent company names, numerical returns, dates, regulations or facts about the questioner. Do not repeat the question or add headings. Aim for 70 to 100 words.\nQuestion: {q}\nHypothetical evidence paragraph:",
+        "longbench2": "Write one short hypothetical evidence paragraph to help retrieve information needed for the task below. Preserve the key entities, terminology and relationships in the task and distinguish it from similar tasks. Describe the type of passage or information that would support an answer. Do not invent names, numerical results, dates, quotations or facts. Do not repeat the question or add headings. Aim for 70 to 100 words.\nTask: {q}\nHypothetical evidence paragraph:"
+      },
+      "max_output_tokens": 160
+    }
+  },
+  "api": {
+    "reasoning_effort": "none",
+    "temperature": 0,
+    "store": false,
+    "retries": 0,
+    "concurrency": 6
+  },
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75,
+    "binary_query_counts": true
+  },
+  "rrf_k": 60,
+  "depth": 100,
+  "methods": [
+    "question_dense",
+    "bm25",
+    "standard_hybrid_d25",
+    "standard_hybrid_d50",
+    "focused160_pure_dense",
+    "focused160_mix_dense",
+    "focused160_pure_hybrid_d25",
+    "focused160_mix_hybrid_d25",
+    "focused160_mix_hybrid_d50"
+  ],
+  "paired_comparisons": [
+    [
+      "focused160_pure_dense",
+      "question_dense"
+    ],
+    [
+      "focused160_mix_dense",
+      "question_dense"
+    ],
+    [
+      "focused160_pure_hybrid_d25",
+      "standard_hybrid_d25"
+    ],
+    [
+      "focused160_mix_hybrid_d25",
+      "standard_hybrid_d25"
+    ],
+    [
+      "focused160_mix_hybrid_d50",
+      "standard_hybrid_d50"
+    ],
+    [
+      "focused160_mix_hybrid_d50",
+      "standard_hybrid_d25"
+    ]
+  ],
+  "holm_family": "12 comparisons: six per dataset",
+  "fiqa": {
+    "split": "test",
+    "n": 648,
+    "corpus_size": 57638,
+    "primary_metric": "nDCG@10",
+    "metrics": [
+      "Hit@5",
+      "Recall@5",
+      "MRR@5",
+      "nDCG@5",
+      "nDCG@10",
+      "Recall@100"
+    ],
+    "document_representation": "title + text, first 256 MiniLM tokens; BM25 uses full document"
+  },
+  "longbench2": {
+    "n": 503,
+    "scope": "custom top-5 RAG adaptation, not official leaderboard replication",
+    "primary_metric": "multiple-choice answer accuracy",
+    "context_scope": "each question own full context only",
+    "chunk_tokens": 224,
+    "chunk_overlap": 32,
+    "tokenizer": "sentence-transformers/all-MiniLM-L6-v2",
+    "rag_top_k": 5,
+    "retrieval_input": "question only, no choices or gold answer",
+    "hyde_input": "question only",
+    "reader_model": "gpt-5.4-2026-03-05",
+    "reader_prompt": "Please read the following retrieved text chunks and answer the question below.\n\n<text>\n{context}\n</text>\n\nWhat is the correct answer to this question: {question}\nChoices:\n(A) {choice_A}\n(B) {choice_B}\n(C) {choice_C}\n(D) {choice_D}\n\nFormat your response as follows: \"The correct answer is (insert answer here)\".",
+    "reader_max_output_tokens": 32,
+    "context_order": "retrieval rank",
+    "no_context_control": true,
+    "retrieval_relevance_labels": false,
+    "full_context_reader_evaluation": false
+  },
+  "cost_estimate_usd_per_million": {
+    "input": 2.5,
+    "output": 15.0
+  },
+  "budget_guard_usd": 30.0,
+  "dataset_sources": [
+    {
+      "name": "fiqa_corpus.parquet",
+      "repo": "BeIR/fiqa",
+      "revision": "979c07a7cb5ccc6ca009792241fa1250b98055dd",
+      "remote": "corpus/corpus-00000-of-00001.parquet",
+      "sha256": "b36bb07dab3bfad488190818828e749a52faf5ba391c1d51dac8b06064576f99",
+      "bytes": 27700817
+    },
+    {
+      "name": "fiqa_queries.parquet",
+      "repo": "BeIR/fiqa",
+      "revision": "979c07a7cb5ccc6ca009792241fa1250b98055dd",
+      "remote": "queries/queries-00000-of-00001.parquet",
+      "sha256": "e9b3863724ffd538d8efff19684ef8ae495bdbddd96b35e81bdc39e3e22860d6",
+      "bytes": 321680
+    },
+    {
+      "name": "fiqa_test.tsv",
+      "repo": "BeIR/fiqa-qrels",
+      "revision": "252958f2d646e22cab6d0c72dd3f0d5de6d0655a",
+      "remote": "test.tsv",
+      "sha256": "6adc2a640dcdd22bb8b3858f89107adef2a7c3db20a63550dfa7a0f71e379e44",
+      "bytes": 25256
+    },
+    {
+      "name": "longbench2.json",
+      "repo": "zai-org/LongBench-v2",
+      "revision": "2b48e494f2c7a2f0af81aae178e05c7e1dde0fe9",
+      "remote": "data.json",
+      "sha256": "15d61c22d92c96900b3c4948b6aeea218d3214b676a65df48e7b8555604c7fe2",
+      "bytes": 465490535
+    }
+  ],
+  "limits": [
+    "Focused prompt transferred with domain wording changes before test outcomes.",
+    "Original96 omitted because prior run had 94/100 length-capped outputs.",
+    "No tuning, train/dev use, or selection on these test sets.",
+    "Public benchmarks can overlap model pretraining; not contamination-free evidence.",
+    "FiQA and LongBench metrics are not comparable to each other or legal Hit@5.",
+    "MiniLM fixed from prior experiment; LongBench chunking is a new task adaptation."
+  ]
+}

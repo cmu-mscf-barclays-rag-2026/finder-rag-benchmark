@@ -1,0 +1,10 @@
+{
+  "validation": "passed",
+  "generated_passages": 200,
+  "ranked_methods": 14,
+  "metric_rows": 56,
+  "per_query_rows": 1400,
+  "planned_paired_tests": 12,
+  "cost_usd_estimate": 0.36456500000000003,
+  "note": "API and local decoding differ; prior question set reused; no final-answer evaluation."
+}

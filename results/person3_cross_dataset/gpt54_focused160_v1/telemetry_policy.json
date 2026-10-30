@@ -1,0 +1,11 @@
+{
+  "encoder_network_required": false,
+  "backend": "offline PyTorch",
+  "rejected_component_removed": true,
+  "onnxruntime_imported": false,
+  "HF_HUB_DISABLE_TELEMETRY": "1",
+  "DO_NOT_TRACK": "1",
+  "HF_HUB_OFFLINE": "1",
+  "TRANSFORMERS_OFFLINE": "1",
+  "reason": "Safety review rejected an unknown Microsoft telemetry connection. Encoding resumes without that runtime, entirely from local weights and tokenizer."
+}

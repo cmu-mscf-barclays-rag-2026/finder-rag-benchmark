@@ -1,0 +1,7 @@
+{
+  "n": 11,
+  "max_absolute_coordinate_difference": 1.2665987014770508e-07,
+  "minimum_cosine": 0.9999999403953552,
+  "torch_dtype": "float32",
+  "onnx_dtype": "float32"
+}

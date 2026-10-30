@@ -1,0 +1,30 @@
+{
+  "parts": [
+    {
+      "local_path": "/workspace/scratch/7a641eea2aec/exports/LongBench2_Encoder_Checkpoint_Part01.zip",
+      "purpose": "replace_library_file",
+      "status": "succeeded",
+      "file_id": "file_00000000176c820d922e10dd80d44e98",
+      "library_file_id": "libfile_d5a2a87ae6d48191904717410bb46781",
+      "file_name": "LongBench2_Encoder_Checkpoint_Part01.zip",
+      "local_metadata_applied": true,
+      "path": "/ml capstone/LongBench2_Encoder_Checkpoint_Part01.zip",
+      "current_version_number": 2,
+      "vectors": 100000
+    },
+    {
+      "local_path": "/workspace/scratch/7a641eea2aec/exports/LongBench2_Encoder_Checkpoint_Part02.zip",
+      "purpose": "create_library_file",
+      "status": "succeeded",
+      "file_id": "file_000000005208820dad1039c09199749c",
+      "library_file_id": "libfile_95d865050ae481919438c63db3f10bd0",
+      "file_name": "LongBench2_Encoder_Checkpoint_Part02.zip",
+      "local_metadata_applied": true,
+      "path": "/ml capstone/LongBench2_Encoder_Checkpoint_Part02.zip",
+      "current_version_number": 0,
+      "vectors": 24467
+    }
+  ],
+  "total_preserved_vectors": 124467,
+  "note": "Restore each ZIP with person3_cross_dataset/encoder_checkpoint.py --restore PATH. Model, float32 layout and SHA256 are included in each ZIP. No API credentials."
+}

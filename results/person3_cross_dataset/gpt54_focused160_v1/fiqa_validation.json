@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "queries": 648,
+  "corpus_documents": 57638,
+  "positive_judgments": 1706,
+  "recomputed_metric_rows": 45
+}

@@ -1,0 +1,3 @@
+profile,n,completed,incomplete,median_request_seconds,p95_request_seconds,mean_words,estimated_usd,input_tokens,output_tokens
+original96,100,6,94,3.060467590999963,5.182791366700076,75.5,0.165315,9156,9495
+focused160,100,100,0,3.2942408115000035,3.913491041349982,90.17,0.19925,14660,10840

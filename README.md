@@ -1,5 +1,12 @@
 # FinDER RAG Team Benchmark — Part C Hybrid Retrieval
 
+## Latest: GPT-5.4 HyDE across three datasets
+
+[**Main findings — charts and comparison tables**](main_findings.md) · [Legal](results/person3_openai_hyde/findings.md) · [FiQA + LongBench v2](results/person3_cross_dataset/gpt54_focused160_v1/findings.md)
+
+Legal improves on the reused development set; the improvement does not transfer consistently to FiQA or LongBench. All three evaluations are complete; the additional LongBench dense-rank audit is partial.
+
+
 ## Cheryl: recovered small-model HyDE observations
 
 [Result tables and provenance](results/person3_model_search/findings.md) · [Technical explanation](results/person3_model_search/technical_walkthrough.md)

@@ -1,0 +1,13 @@
+{
+  "backend": "PyTorch CPU float32 (offline)",
+  "version": "2.14.1+cpu",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "threads": 8,
+  "batch_size": 16,
+  "quantized": false,
+  "offline": true,
+  "hf_telemetry_disabled": true,
+  "onnxruntime_loaded": false,
+  "note": "Continues the same pinned float32 MiniLM model; earlier validated float32 caches are reused. Microsoft runtime is not imported by the offline encoder."
+}

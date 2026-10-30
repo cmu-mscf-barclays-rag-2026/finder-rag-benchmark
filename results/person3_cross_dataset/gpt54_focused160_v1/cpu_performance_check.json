@@ -1,0 +1,20 @@
+[
+  {
+    "threads": 2,
+    "seconds": 8.565036980999935,
+    "chunks_per_second": 11.208357910533199,
+    "max_coordinate_difference": 0.0
+  },
+  {
+    "threads": 4,
+    "seconds": 10.139616923000062,
+    "chunks_per_second": 9.467813303897083,
+    "max_coordinate_difference": 0.0
+  },
+  {
+    "threads": 8,
+    "seconds": 9.627501788000018,
+    "chunks_per_second": 9.971434138777001,
+    "max_coordinate_difference": 0.0
+  }
+]

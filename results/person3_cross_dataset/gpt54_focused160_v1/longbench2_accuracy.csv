@@ -1,0 +1,121 @@
+method,group,n,accuracy,group_by
+question_dense,all,503,0.44532803180914515,overall
+bm25,all,503,0.4671968190854871,overall
+standard_hybrid_d25,all,503,0.43538767395626243,overall
+standard_hybrid_d50,all,503,0.43538767395626243,overall
+focused160_pure_dense,all,503,0.415506958250497,overall
+focused160_mix_dense,all,503,0.41749502982107356,overall
+focused160_pure_hybrid_d25,all,503,0.44731610337972166,overall
+focused160_mix_hybrid_d25,all,503,0.44532803180914515,overall
+focused160_mix_hybrid_d50,all,503,0.44532803180914515,overall
+no_context,all,503,0.37773359840954274,overall
+question_dense,Long In-context Learning,81,0.3950617283950617,domain
+bm25,Long In-context Learning,81,0.48148148148148145,domain
+standard_hybrid_d25,Long In-context Learning,81,0.41975308641975306,domain
+standard_hybrid_d50,Long In-context Learning,81,0.4567901234567901,domain
+focused160_pure_dense,Long In-context Learning,81,0.4444444444444444,domain
+focused160_mix_dense,Long In-context Learning,81,0.3950617283950617,domain
+focused160_pure_hybrid_d25,Long In-context Learning,81,0.4691358024691358,domain
+focused160_mix_hybrid_d25,Long In-context Learning,81,0.48148148148148145,domain
+focused160_mix_hybrid_d50,Long In-context Learning,81,0.4691358024691358,domain
+no_context,Long In-context Learning,81,0.43209876543209874,domain
+question_dense,Single-Document QA,175,0.44,domain
+bm25,Single-Document QA,175,0.44571428571428573,domain
+standard_hybrid_d25,Single-Document QA,175,0.4228571428571429,domain
+standard_hybrid_d50,Single-Document QA,175,0.44,domain
+focused160_pure_dense,Single-Document QA,175,0.4057142857142857,domain
+focused160_mix_dense,Single-Document QA,175,0.3942857142857143,domain
+focused160_pure_hybrid_d25,Single-Document QA,175,0.41714285714285715,domain
+focused160_mix_hybrid_d25,Single-Document QA,175,0.41714285714285715,domain
+focused160_mix_hybrid_d50,Single-Document QA,175,0.44571428571428573,domain
+no_context,Single-Document QA,175,0.3657142857142857,domain
+question_dense,Multi-Document QA,125,0.424,domain
+bm25,Multi-Document QA,125,0.432,domain
+standard_hybrid_d25,Multi-Document QA,125,0.424,domain
+standard_hybrid_d50,Multi-Document QA,125,0.384,domain
+focused160_pure_dense,Multi-Document QA,125,0.4,domain
+focused160_mix_dense,Multi-Document QA,125,0.392,domain
+focused160_pure_hybrid_d25,Multi-Document QA,125,0.416,domain
+focused160_mix_hybrid_d25,Multi-Document QA,125,0.416,domain
+focused160_mix_hybrid_d50,Multi-Document QA,125,0.408,domain
+no_context,Multi-Document QA,125,0.384,domain
+question_dense,Long-dialogue History Understanding,39,0.46153846153846156,domain
+bm25,Long-dialogue History Understanding,39,0.358974358974359,domain
+standard_hybrid_d25,Long-dialogue History Understanding,39,0.358974358974359,domain
+standard_hybrid_d50,Long-dialogue History Understanding,39,0.3333333333333333,domain
+focused160_pure_dense,Long-dialogue History Understanding,39,0.28205128205128205,domain
+focused160_mix_dense,Long-dialogue History Understanding,39,0.4358974358974359,domain
+focused160_pure_hybrid_d25,Long-dialogue History Understanding,39,0.358974358974359,domain
+focused160_mix_hybrid_d25,Long-dialogue History Understanding,39,0.358974358974359,domain
+focused160_mix_hybrid_d50,Long-dialogue History Understanding,39,0.38461538461538464,domain
+no_context,Long-dialogue History Understanding,39,0.2564102564102564,domain
+question_dense,Code Repository Understanding,50,0.62,domain
+bm25,Code Repository Understanding,50,0.68,domain
+standard_hybrid_d25,Code Repository Understanding,50,0.6,domain
+standard_hybrid_d50,Code Repository Understanding,50,0.58,domain
+focused160_pure_dense,Code Repository Understanding,50,0.62,domain
+focused160_mix_dense,Code Repository Understanding,50,0.58,domain
+focused160_pure_hybrid_d25,Code Repository Understanding,50,0.68,domain
+focused160_mix_hybrid_d25,Code Repository Understanding,50,0.66,domain
+focused160_mix_hybrid_d50,Code Repository Understanding,50,0.56,domain
+no_context,Code Repository Understanding,50,0.54,domain
+question_dense,Long Structured Data Understanding,33,0.3939393939393939,domain
+bm25,Long Structured Data Understanding,33,0.48484848484848486,domain
+standard_hybrid_d25,Long Structured Data Understanding,33,0.42424242424242425,domain
+standard_hybrid_d50,Long Structured Data Understanding,33,0.45454545454545453,domain
+focused160_pure_dense,Long Structured Data Understanding,33,0.30303030303030304,domain
+focused160_mix_dense,Long Structured Data Understanding,33,0.42424242424242425,domain
+focused160_pure_hybrid_d25,Long Structured Data Understanding,33,0.42424242424242425,domain
+focused160_mix_hybrid_d25,Long Structured Data Understanding,33,0.3939393939393939,domain
+focused160_mix_hybrid_d50,Long Structured Data Understanding,33,0.42424242424242425,domain
+no_context,Long Structured Data Understanding,33,0.18181818181818182,domain
+question_dense,hard,311,0.42443729903536975,difficulty
+bm25,hard,311,0.44694533762057875,difficulty
+standard_hybrid_d25,hard,311,0.4115755627009646,difficulty
+standard_hybrid_d50,hard,311,0.4115755627009646,difficulty
+focused160_pure_dense,hard,311,0.3987138263665595,difficulty
+focused160_mix_dense,hard,311,0.3890675241157556,difficulty
+focused160_pure_hybrid_d25,hard,311,0.4180064308681672,difficulty
+focused160_mix_hybrid_d25,hard,311,0.42443729903536975,difficulty
+focused160_mix_hybrid_d50,hard,311,0.43086816720257237,difficulty
+no_context,hard,311,0.36977491961414793,difficulty
+question_dense,easy,192,0.4791666666666667,difficulty
+bm25,easy,192,0.5,difficulty
+standard_hybrid_d25,easy,192,0.4739583333333333,difficulty
+standard_hybrid_d50,easy,192,0.4739583333333333,difficulty
+focused160_pure_dense,easy,192,0.4427083333333333,difficulty
+focused160_mix_dense,easy,192,0.4635416666666667,difficulty
+focused160_pure_hybrid_d25,easy,192,0.4947916666666667,difficulty
+focused160_mix_hybrid_d25,easy,192,0.4791666666666667,difficulty
+focused160_mix_hybrid_d50,easy,192,0.46875,difficulty
+no_context,easy,192,0.390625,difficulty
+question_dense,long,108,0.5185185185185185,length
+bm25,long,108,0.5648148148148148,length
+standard_hybrid_d25,long,108,0.5185185185185185,length
+standard_hybrid_d50,long,108,0.5370370370370371,length
+focused160_pure_dense,long,108,0.5092592592592593,length
+focused160_mix_dense,long,108,0.5,length
+focused160_pure_hybrid_d25,long,108,0.5833333333333334,length
+focused160_mix_hybrid_d25,long,108,0.5370370370370371,length
+focused160_mix_hybrid_d50,long,108,0.5185185185185185,length
+no_context,long,108,0.42592592592592593,length
+question_dense,short,180,0.46111111111111114,length
+bm25,short,180,0.43333333333333335,length
+standard_hybrid_d25,short,180,0.43333333333333335,length
+standard_hybrid_d50,short,180,0.4166666666666667,length
+focused160_pure_dense,short,180,0.4166666666666667,length
+focused160_mix_dense,short,180,0.4222222222222222,length
+focused160_pure_hybrid_d25,short,180,0.42777777777777776,length
+focused160_mix_hybrid_d25,short,180,0.42777777777777776,length
+focused160_mix_hybrid_d50,short,180,0.42777777777777776,length
+no_context,short,180,0.37222222222222223,length
+question_dense,medium,215,0.3953488372093023,length
+bm25,medium,215,0.44651162790697674,length
+standard_hybrid_d25,medium,215,0.3953488372093023,length
+standard_hybrid_d50,medium,215,0.4,length
+focused160_pure_dense,medium,215,0.3674418604651163,length
+focused160_mix_dense,medium,215,0.37209302325581395,length
+focused160_pure_hybrid_d25,medium,215,0.3953488372093023,length
+focused160_mix_hybrid_d25,medium,215,0.413953488372093,length
+focused160_mix_hybrid_d50,medium,215,0.4232558139534884,length
+no_context,medium,215,0.3581395348837209,length

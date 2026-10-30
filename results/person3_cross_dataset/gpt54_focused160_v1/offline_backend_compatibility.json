@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "n": 32,
+  "max_absolute_coordinate_difference": 2.905726432800293e-07,
+  "minimum_cosine": 0.9999998807907104,
+  "onnxruntime_loaded": false,
+  "network_required": false
+}

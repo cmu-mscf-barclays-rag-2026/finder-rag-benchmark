@@ -1,0 +1,22 @@
+{
+  "known_successful_request_estimate_usd": 17.843339999999998,
+  "unresolved_attempts": 6,
+  "unresolved_upper_allowance_usd": 0.097505,
+  "checkpoint_recovery": {
+    "restored_retrieval_questions": 353,
+    "last_observed_retrieval_questions": 422,
+    "restored_successful_cost_usd": 13.1181775,
+    "last_observed_successful_cost_usd_approx": 15.3,
+    "lost_checkpoint_cost_allowance_usd": 3.0,
+    "note": "Environment loss removed unsaved work after the 353-question persistent snapshot. Cached successful outputs in that snapshot are reused. Some later reader outputs must be requested again. A $2.50 allowance for historical spending missing from this snapshot is included in the $30 budget guard; this allowance is an estimate, not verified usage or a billing statement. A second environment recovery restored 454 questions after an observed 460; an additional $0.50 allowance is included, for $3.00 total historical spending allowance.",
+    "additional_recovery_20261029": {
+      "restored_retrieval_questions": 454,
+      "last_observed_retrieval_questions": 460,
+      "restored_successful_cost_usd": 16.285715,
+      "last_observed_successful_cost_usd_approx": 16.5390175,
+      "additional_allowance_usd": 0.5
+    }
+  },
+  "conservative_total_upper_estimate_usd": 20.940845,
+  "billing_statement": false
+}

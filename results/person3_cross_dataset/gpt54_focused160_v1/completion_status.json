@@ -1,0 +1,12 @@
+{
+  "evaluation_status": "complete",
+  "longbench_questions": 503,
+  "longbench_logical_predictions": 5030,
+  "unique_reader_calls": 4686,
+  "result_validation": "passed",
+  "dense_audit_status": "partial_after_environment_cache_loss",
+  "dense_rankings_recomputed": 219,
+  "dense_rankings_total": 1509,
+  "rrf_rankings_recomputed": 2515,
+  "remaining_live_api_calls": 0
+}

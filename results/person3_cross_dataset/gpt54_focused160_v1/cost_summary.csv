@@ -1,0 +1,4 @@
+kind,calls,input_tokens,output_tokens,cost_usd_estimate
+hyde_fiqa,648,67598,69722,1.214825
+hyde_longbench2,503,72785,55796,1.0189025
+reader_longbench2,4686,5884349,59916,15.6096125

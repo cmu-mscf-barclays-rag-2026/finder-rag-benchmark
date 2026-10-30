@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "chunk_span_equivalence_characters": 170000,
+  "chunks": 289,
+  "multi_relevance_metric_check": {
+    "hit": 1.0,
+    "recall": 0.6666666666666666,
+    "precision": 0.6666666666666666,
+    "mrr": 1.0,
+    "ndcg": 0.7039180890341347
+  }
+}

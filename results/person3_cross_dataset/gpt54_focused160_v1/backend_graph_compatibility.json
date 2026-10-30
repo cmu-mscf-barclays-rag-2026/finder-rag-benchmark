@@ -1,0 +1,12 @@
+{
+  "n": 11,
+  "max_absolute_coordinate_difference": 1.2008240446448326e-07,
+  "minimum_cosine": 0.9999999403953552,
+  "graphs": [
+    "onnx/model.onnx",
+    "onnx/model_O2.onnx"
+  ],
+  "same_pinned_revision": true,
+  "precision": "float32",
+  "quantized": false
+}

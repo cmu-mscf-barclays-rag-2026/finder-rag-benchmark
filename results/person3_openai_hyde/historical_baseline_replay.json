@@ -1,0 +1,14 @@
+{
+  "question_dense": {
+    "identical_top100": true,
+    "same_top5_questions": 100
+  },
+  "bm25": {
+    "identical_top100": true,
+    "same_top5_questions": 100
+  },
+  "standard_hybrid_d25": {
+    "identical_top100": true,
+    "same_top5_questions": 100
+  }
+}

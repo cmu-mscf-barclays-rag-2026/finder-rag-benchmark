@@ -1,0 +1,18 @@
+{
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "torch": "2.14.1+cpu",
+    "openai": "3.39.0",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "transformers": "5.21.0",
+    "huggingface-hub": "2.3.0",
+    "pyarrow": "26.0.0",
+    "ijson": "3.6.0",
+    "httpx": "0.28.1",
+    "sentence-transformers": "6.2.0",
+    "onnxruntime": "not installed (historical backend only)"
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+}

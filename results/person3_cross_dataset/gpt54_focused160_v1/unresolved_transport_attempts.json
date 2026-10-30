@@ -1,0 +1,68 @@
+[
+  {
+    "key": "unresolved_transport::7ed34cb13dcbaac3da45831b5f33199a137f8dfc6108d0bdafc3b8af188c06d2::1",
+    "kind": "reader_longbench2",
+    "reserved_upper_usd": 0.017095,
+    "metadata": {
+      "error_type": "APIConnectionError",
+      "http_status": null,
+      "original_call_key": "reader::7ed34cb13dcbaac3da45831b5f33199a137f8dfc6108d0bdafc3b8af188c06d2",
+      "recovery": "Read-only models probe succeeded in refreshed worker; manually reissue missing logical call, preserve unknown cost allowance."
+    }
+  },
+  {
+    "key": "unresolved_transport::28196f923e6ade58f5f3edbec6ad8b7e3b94ec24523903a88488ec8b04676c85::1",
+    "kind": "reader_longbench2",
+    "reserved_upper_usd": 0.0168625,
+    "metadata": {
+      "error_type": "APIConnectionError",
+      "http_status": null,
+      "original_call_key": "reader::28196f923e6ade58f5f3edbec6ad8b7e3b94ec24523903a88488ec8b04676c85",
+      "recovery": "Read-only models probe succeeded in refreshed worker; manually reissue missing logical call, preserve unknown cost allowance."
+    }
+  },
+  {
+    "key": "unresolved_transport::c13e52917ee3d50f154d8510ad435e9d6565fae4aa73d03356115ce245986c33::1",
+    "kind": "reader_longbench2",
+    "reserved_upper_usd": 0.0155175,
+    "metadata": {
+      "error_type": "APIConnectionError",
+      "http_status": null,
+      "original_call_key": "reader::c13e52917ee3d50f154d8510ad435e9d6565fae4aa73d03356115ce245986c33",
+      "recovery": "Read-only models probe succeeded in refreshed worker; manually reissue missing logical call, preserve unknown cost allowance."
+    }
+  },
+  {
+    "key": "unresolved_transport::ddecfa18cf433770fa75677e7edeeec24861fa42dcfab47f1ecb20458de51065::1",
+    "kind": "reader_longbench2",
+    "reserved_upper_usd": 0.0155175,
+    "metadata": {
+      "error_type": "APIConnectionError",
+      "http_status": null,
+      "original_call_key": "reader::ddecfa18cf433770fa75677e7edeeec24861fa42dcfab47f1ecb20458de51065",
+      "recovery": "Read-only models probe succeeded in refreshed worker; manually reissue missing logical call, preserve unknown cost allowance."
+    }
+  },
+  {
+    "key": "unresolved_transport::2936365fdf7bc3d1e1f888094f39f5b5a99a54994a330167f79ae7f883042c4b::1",
+    "kind": "reader_longbench2",
+    "reserved_upper_usd": 0.0158775,
+    "metadata": {
+      "error_type": "APIConnectionError",
+      "http_status": null,
+      "original_call_key": "reader::2936365fdf7bc3d1e1f888094f39f5b5a99a54994a330167f79ae7f883042c4b",
+      "recovery": "Read-only models probe succeeded in refreshed worker; manually reissue missing logical call, preserve unknown cost allowance."
+    }
+  },
+  {
+    "key": "unresolved_transport::a27beb03678120da560d8c811e6df3fd9654bb636233a648ed03b87a66107bed::1",
+    "kind": "reader_longbench2",
+    "reserved_upper_usd": 0.016635,
+    "metadata": {
+      "error_type": "APIConnectionError",
+      "http_status": null,
+      "original_call_key": "reader::a27beb03678120da560d8c811e6df3fd9654bb636233a648ed03b87a66107bed",
+      "recovery": "Read-only models probe succeeded in refreshed worker; manually reissue missing logical call, preserve unknown cost allowance."
+    }
+  }
+]

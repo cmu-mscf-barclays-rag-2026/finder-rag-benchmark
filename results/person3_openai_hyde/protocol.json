@@ -1,0 +1,38 @@
+{
+  "model": "gpt-5.4-2026-03-05",
+  "organization": "org-ya6BfJ99A55qzohO1pvOUaXO",
+  "data_revision": "db0b31dc6d195ce9916897e1ac5e4e6209736c8a",
+  "data_hashes": {
+    "corpus.jsonl": "3a3565bc5429f6cead90548e81f87352b449927e4be1cdd804c28d766bb9c246",
+    "qa.jsonl": "e3b869a4e293d081ec5f5b39c2058c8d27b36f611aa9f8275eb1877a7c8b38b0"
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "embedding_max_seq_length": 256,
+  "embedding_device": "cpu",
+  "profiles": {
+    "original96": {
+      "max_output_tokens": 96,
+      "prompt": "Generate the type of legal passage that would contain the evidence needed to answer this question about Victorian criminal law. Question: {q} Legal passage:"
+    },
+    "focused160": {
+      "max_output_tokens": 160,
+      "prompt": "Write one short hypothetical textbook paragraph to help retrieve evidence about Victorian criminal law for the question below. Preserve the key legal issue and distinguish it from similar issues. Describe the relevant legal rule in plain language. Do not invent case names, statutory sections, dates, penalties or facts. Do not repeat the question or add headings. Aim for 70 to 100 words.\nQuestion: {q}\nHypothetical evidence paragraph:"
+    }
+  },
+  "reasoning_effort": "none",
+  "temperature": 0,
+  "store": false,
+  "api_retries": 0,
+  "vector_question_weight": 0.5,
+  "bm25_k1": 1.2,
+  "bm25_b": 0.75,
+  "rrf_k": 60,
+  "depth": 100,
+  "pricing_usd_per_million": {
+    "input": 2.5,
+    "output": 15.0
+  },
+  "scope": "Exploratory: the same previously inspected 100 questions; no final-answer evaluation",
+  "comparison_limits": "OpenAI tokenization/chat formatting/decoding differ from local generators; focused profile changes prompt and token cap together"
+}

@@ -1,0 +1,9 @@
+{
+  "README.md": "1f88d1d72db7a9ada44f21d20aabc522a15eb0e2b47594f081786771bb61ef74",
+  "download_data.py": "49dc8533e76c535b5f06ba30ca2900d0599e63834933e3fb26743bd5315f4b5e",
+  "encoder_checkpoint.py": "ca29821f7944fc0cc2bcc6f930d520cdd0fe0212005687e07b58c86d8d1d61ff",
+  "report.py": "2ed3e125412fc8a8a839aced35adb245d33a071440085a9b200f9a40f7443fbe",
+  "run.py": "d603addc9f09b0d2dce2a0e2ecd040085bd47e1a27c5cfdb1c261fd4b54194e1",
+  "setup_encoder.py": "a2e9f2e78184cd271bd8ec1aa50b9a2fd05269b85ffb88ea86ff87f2792796d6",
+  "validate.py": "5bc9f78c3403a30aa5b4619aa0dcedcaa780d156728905ce51c78226118eb793"
+}

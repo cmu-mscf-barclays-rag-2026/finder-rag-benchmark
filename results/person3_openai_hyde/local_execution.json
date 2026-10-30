@@ -1,0 +1,6 @@
+{
+  "execution": "local API, four concurrent requests, no automatic retries",
+  "timings": "concurrent per-request wall times, not isolated latency",
+  "cpu_embedding_threads": 2,
+  "secret_storage": "untracked local env; never included in outputs"
+}

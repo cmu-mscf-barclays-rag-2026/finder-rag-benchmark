@@ -1,0 +1,11 @@
+{
+  "backend": "ONNX Runtime CPU float32",
+  "version": "1.31.1",
+  "model_source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx/model_O2.onnx",
+  "onnx_sha256": "1de3905029190b398c7d300b530e320cf4b5e7d3dfb9af1429ebd73fd9a16faf",
+  "threads": 8,
+  "batch_size": 16,
+  "quantized": false,
+  "compatibility_check": "512 repeated 256-token passages; max absolute coordinate difference from PyTorch 5.55e-8; mean cosine 0.999999985",
+  "note": "Same pinned float32 weights: initial six contexts PyTorch; FiQA and initial LongBench encoding ONNX raw graph; subsequent contexts equivalent fused O2 graph (no GELU approximation), tested max coordinate delta 9.7e-8. No quantized or bfloat16 embeddings used."
+}
