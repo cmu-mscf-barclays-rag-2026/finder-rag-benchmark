@@ -1,0 +1,8 @@
+{
+  "dataset": ".cache/fiqa",
+  "split": "test",
+  "method": "BM25 k1=1.2 b=0.75",
+  "queries": 648,
+  "documents": 57638,
+  "relevance_note": "Multiple relevant documents can be alternative answers, not jointly required evidence."
+}

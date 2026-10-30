@@ -1,0 +1,48 @@
+{
+  "source_manifest_sha256": "a26f148eb364a2deda6b9619c6804d75848f02908c6b065e6d3e0fc3744b602d",
+  "measurement_tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+  "depths": [
+    10,
+    15,
+    20
+  ],
+  "budgets": [
+    4000,
+    6000,
+    8000
+  ],
+  "policies": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "mmr_lambdas": [
+    1.0,
+    0.7,
+    0.5
+  ],
+  "mmr_candidate_pool": 100,
+  "mmr_score": "lambda * query cosine - (1-lambda) * max selected passage cosine",
+  "status": "complete"
+}
