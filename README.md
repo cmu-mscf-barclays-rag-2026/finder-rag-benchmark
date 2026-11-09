@@ -1,5 +1,11 @@
 # FinDER RAG Team Benchmark — Part C Hybrid Retrieval
 
+## Latest: prompt styles and context budgets (9 November 2026)
+
+[**Weekly findings — tables, charts, and corrected statistical tests**](presentation/hyde_weekly_20261109/README.md)
+
+FiQA Short-prompt mixing improves nDCG@10 over question-only retrieval on 628 queries. Sparse-query gains vary by dataset; context-budget analysis distinguishes depth limits from token limits.
+
 ## Latest: GPT-5.4 HyDE across three datasets
 
 [**Main findings — charts and comparison tables**](main_findings.md) · [Legal](results/person3_openai_hyde/findings.md) · [FiQA + LongBench v2](results/person3_cross_dataset/gpt54_focused160_v1/findings.md)
