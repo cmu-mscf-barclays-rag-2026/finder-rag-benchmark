@@ -1,0 +1,219 @@
+{
+  "results/person3_fiqa_validation/frozen628_v1/protocol.json": {
+    "n": 628,
+    "excluded_development_n": 20,
+    "styles": {
+      "short_30_50": "Write one hypothetical evidence paragraph of 30 to 50 words to help retrieve passages for the question below about {domain}. Preserve the question's named entities, quantities, jurisdiction, constraints, and any comparison between alternatives. Do not add entities, conditions, assumptions, citations, or conclusions not supported by the question. Stay on the specific information needed; avoid generic background or broad advice. Do not answer with an invented factual result. No headings.\nQuestion: {q}\nHypothetical evidence paragraph:",
+      "answer_first_70_100": "Write one hypothetical evidence paragraph of 70 to 100 words relevant to the question about {domain}. Do not invent names, numerical values, dates, citations, or facts about the questioner. Output only the paragraph with no heading. Begin immediately with the central mechanism or decision criterion that addresses the question, then explain the relevant relationship. Avoid introductory background, generic advice, and unrelated considerations. When the question lacks facts needed for a definite result, state the governing condition rather than guessing a result.\nQuestion: {q}\nHypothetical evidence paragraph:"
+    },
+    "primary_metric": "ndcg@10",
+    "primary_comparisons": [
+      {
+        "candidate": "short_30_50_pure_dense",
+        "control": "focused160_pure_dense"
+      },
+      {
+        "candidate": "short_30_50_mix_dense",
+        "control": "focused160_mix_dense"
+      },
+      {
+        "candidate": "short_30_50_pure_dense",
+        "control": "question_dense"
+      },
+      {
+        "candidate": "short_30_50_mix_dense",
+        "control": "question_dense"
+      },
+      {
+        "candidate": "short_30_50_mix_hybrid_d50",
+        "control": "focused160_mix_hybrid_d50"
+      },
+      {
+        "candidate": "short_30_50_mix_hybrid_d50",
+        "control": "standard_hybrid_d50"
+      },
+      {
+        "candidate": "answer_first_70_100_pure_dense",
+        "control": "focused160_pure_dense"
+      },
+      {
+        "candidate": "answer_first_70_100_mix_dense",
+        "control": "focused160_mix_dense"
+      },
+      {
+        "candidate": "answer_first_70_100_pure_dense",
+        "control": "question_dense"
+      },
+      {
+        "candidate": "answer_first_70_100_mix_dense",
+        "control": "question_dense"
+      },
+      {
+        "candidate": "answer_first_70_100_mix_hybrid_d50",
+        "control": "focused160_mix_hybrid_d50"
+      },
+      {
+        "candidate": "answer_first_70_100_mix_hybrid_d50",
+        "control": "standard_hybrid_d50"
+      }
+    ],
+    "test": "two-sided paired sign-flip permutation; 100000 draws; seed 20261109; Holm over 12 primary comparisons",
+    "secondary": "Hit,Recall,precision,MRR,nDCG at k5/10/15/20/25 descriptive; no best-cutoff selection",
+    "model": "gpt-5.4-2026-03-05",
+    "max_output_tokens": 160,
+    "temperature": 0,
+    "reasoning": "none",
+    "tools": [],
+    "store": false,
+    "retries": 0,
+    "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+    "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "max_encoder_tokens": 256,
+    "question_mix_weight": 0.5,
+    "bm25_query": "original question",
+    "rrf_depth": 100,
+    "rrf_constant": 60,
+    "weights": [
+      0.25,
+      0.5
+    ],
+    "budget_guard_usd": 7,
+    "previous_spend_and_allowance": 0.4585525,
+    "prices_per_million": {
+      "input": 2.5,
+      "output": 15
+    },
+    "parallel_requests": 6,
+    "scope": "628 queries excluded from prompt-development subset; benchmark baselines previously inspected; not completely unseen data",
+    "stopping": "fixed sample; no interim significance checks or prompt changes"
+  },
+  "results/person3_fiqa_validation/frozen628_v1/validation.json": {
+    "passed": true,
+    "independent_metric_rows": 59660,
+    "independent_dense_rankings": 2512,
+    "independent_rrf_rankings": 3768,
+    "primary_tests": 12,
+    "draws_per_test": 100000,
+    "source_hashes_unchanged": true
+  },
+  "results/person3_offline_followup/step1_v1/protocol.json": {
+    "api_calls": 0,
+    "new_embeddings": 0,
+    "fiqa_n": 628,
+    "legal_n": 100,
+    "seed": 20261109,
+    "draws": 100000,
+    "families": {
+      "fiqa_depth": {
+        "n_tests": 180,
+        "metric": [
+          "hit",
+          "recall",
+          "ndcg"
+        ],
+        "ks": [
+          5,
+          10,
+          15,
+          20,
+          25
+        ],
+        "styles": [
+          "short_30_50",
+          "answer_first_70_100"
+        ],
+        "routes": [
+          "pure_dense",
+          "mix_dense",
+          "mix_hybrid_d50"
+        ],
+        "controls": "original focused same route and matched question-only dense/standard hybrid",
+        "inference": "secondary post-hoc; Holm across all180"
+      },
+      "fiqa_sparse": {
+        "n_tests": 20,
+        "metric": "ndcg@10",
+        "candidates": "short H and Q+H",
+        "controls": "Q and corresponding focused H/Q+H",
+        "routes": "BM25 only; fixed question dense and fixed short mixed dense at d25/d50",
+        "inference": "new fixed comparisons; Holm across20"
+      },
+      "legal_sparse": {
+        "n_tests": 10,
+        "metric": "hit@5",
+        "candidates": "focused H and Q+H",
+        "control": "Q",
+        "routes": "BM25 only; fixed question dense and fixed focused mixed dense at d25/d50",
+        "inference": "post-hoc on inspected full100; Holm across10, no independent confirmation claim"
+      }
+    },
+    "tests": {
+      "hit": "two-sided exact McNemar",
+      "recall_and_ndcg": "two-sided paired sign-flip, 100000 draws, plus-one correction"
+    },
+    "bm25": {
+      "k1": 1.2,
+      "b": 0.75,
+      "binary_query_terms": true,
+      "full_corpus": 57638
+    },
+    "rrf": {
+      "depth": 100,
+      "constant": 60,
+      "dense_weights": [
+        0.25,
+        0.5
+      ]
+    },
+    "scope": "separate families answer distinct questions; not global correction for all prior project experiments; no token-budget or answer-accuracy claim"
+  },
+  "results/person3_offline_followup/step1_v1/validation.json": {
+    "passed": true,
+    "independent_metric_rows": 78500,
+    "rrf_rankings": 12560,
+    "exact_mcnemar_verified": true,
+    "holm_all_families_verified": true,
+    "new_api_calls": 0
+  },
+  "results/person3_context_budget/fiqa628_v1/protocol.json": {
+    "scope": "FiQA628 excludes20 development queries; descriptive post-hoc depth-budget analysis",
+    "methods": [
+      "question_dense",
+      "focused160_mix_dense",
+      "short_30_50_mix_dense"
+    ],
+    "k": [
+      5,
+      10,
+      15,
+      20,
+      25
+    ],
+    "budgets": [
+      2000,
+      4000,
+      8000
+    ],
+    "token_unit": "pinned MiniLM WordPiece tokenizer, add_special_tokens=False; not OpenAI reader tokens",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "document_text": "full title + space + text; no encoder256 truncation at delivery",
+    "assembly": "rank-order concatenated token streams; consume each document fully until remaining budget insufficient, then retain only its prefix and stop; never skip a long document or add rank>k",
+    "overhead": "document text only; no question, prompt, separators, labels or special-token overhead; abstract budget accounting, not a reader prompt",
+    "metrics": "retrieved relevant count; completely delivered relevant count (conservative); any-prefix-touched relevant count (optimistic); full/touched Recall and Hit; all-judged-full; actual tokens; lexical repeated-token fraction",
+    "relevance_caveat": "document-level qrels only, no evidence spans; partial relevant document may or may not contain evidence; bounds refer to labeled-document availability, not true answer evidence",
+    "statistics": "descriptive only; no new significance claims or selected-best setting",
+    "api_calls": 0,
+    "new_embeddings": 0,
+    "reader_calls": 0
+  },
+  "results/person3_context_budget/fiqa628_v1/validation.json": {
+    "passed": true,
+    "queries": 628,
+    "metric_rows": 28260,
+    "unique_documents_tokenized": 14358,
+    "assembly_verified_by_independent_cumulative_lengths": true,
+    "monotonicity_checks": true,
+    "sources_unchanged": true,
+    "api_calls": 0
+  }
+}
