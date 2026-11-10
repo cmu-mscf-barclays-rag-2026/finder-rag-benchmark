@@ -586,45 +586,85 @@ Paired intervals resample gold-passage groups (10,000 resamples).
 
 ### Retrieval
 
-| Test nDCG@10 (Recall@1) | FinQA (909) | FinanceBench (120) | Mean ms (FinQA / FinanceBench) |
-|---|---:|---:|---:|
-| Improved graph (walk) | 0.708 (0.528) | 0.405 (0.233) | 46 / 113 |
-| **Improved graph, one step** | 0.725 (0.556) | 0.488 (0.325) | 12 / 8 |
-| Original graph | 0.598 (0.405) | 0.380 (0.108) | 54 / 149 |
-| *BM25 (team code)* | **0.759** (0.597) | 0.349 (0.175) | 0.6 / 0.2 |
-| *Dense MiniLM (team model)* | 0.374 (0.253) | **0.547** (0.342) | 5 / 6 |
+With one gold passage per question, each metric answers a different
+question. Recall@1 asks whether the top passage is the right one. Recall@5
+and @10 ask whether the gold reaches a typical RAG context. MRR@10 and
+nDCG@10 measure how high it ranks. Recall@100 is the ceiling a reranker or
+retry could reach.
 
-- **The improved graph beats the original on FinQA** (+0.110 nDCG@10,
-  interval [+0.091, +0.130]). On FinanceBench the two are within noise
-  (+0.025, [-0.023, +0.074]).
-- **Against BM25 it splits.** The graph trails on FinQA (-0.051,
-  [-0.072, -0.029]) and leads on FinanceBench (+0.056, [+0.001, +0.111]).
-- **Propagation hurts on financial text.** The one-step graph beats the full
-  walk on both sets: +0.017 on FinQA ([+0.009, +0.027]) and +0.083 on
-  FinanceBench ([+0.054, +0.115], 40 wins and 3 losses), at a quarter of the
-  latency or less. Development showed the same, so the agentic search below
-  starts from the one-step graph.
-- **Dense retrieval depends on passage length.** It is best on FinanceBench
-  and worst on FinQA, plausibly because FinQA passages (median 657 words) far
-  exceed MiniLM's 256-token input.
+**FinQA** (test, 909 questions)
+
+| Method | nDCG@10 | MRR@10 | Recall@1 | Recall@5 | Recall@10 | Recall@100 | Mean ms |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Improved graph (walk) | 0.708 | 0.647 | 0.528 | 0.813 | 0.900 | 0.998 | 47 |
+| **Improved graph, one step** | 0.725 | 0.668 | 0.556 | 0.826 | 0.907 | 0.998 | 11 |
+| Original graph | 0.598 | 0.530 | 0.405 | 0.701 | 0.812 | 0.993 | 55 |
+| *BM25 (team code)* | **0.759** | **0.707** | **0.597** | **0.851** | **0.920** | 0.998 | 0.6 |
+| *Dense MiniLM (team model)* | 0.374 | 0.331 | 0.253 | 0.428 | 0.509 | 0.814 | 7 |
+
+**FinanceBench** (test, 120 questions)
+
+| Method | nDCG@10 | MRR@10 | Recall@1 | Recall@5 | Recall@10 | Recall@100 | Mean ms |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Improved graph (walk) | 0.405 | 0.338 | 0.233 | 0.467 | 0.625 | 0.967 | 115 |
+| **Improved graph, one step** | 0.488 | 0.430 | 0.325 | 0.558 | 0.675 | 0.958 | 8 |
+| Original graph | 0.380 | 0.280 | 0.108 | 0.483 | 0.700 | 0.950 | 155 |
+| *BM25 (team code)* | 0.349 | 0.284 | 0.175 | 0.450 | 0.558 | 0.942 | 0.2 |
+| *Dense MiniLM (team model)* | **0.547** | **0.477** | **0.342** | **0.658** | **0.767** | **0.983** | 8 |
+
+Paired intervals for every metric are in `paired_intervals.csv`.
+
+- **The improved graph beats the original graph on FinQA on every metric**
+  (nDCG@10 +0.110, interval [+0.090, +0.130]; Recall@1 +0.123). **On
+  FinanceBench the result is mixed:** the improved graph is far better at
+  Recall@1 (+0.125, [+0.050, +0.202]), the original is better at Recall@10
+  (+0.075, [+0.025, +0.130]), and nDCG@10 is within noise.
+- **Against BM25 the result depends on the dataset and the graph mode.** On
+  FinQA the graph trails on every metric (walk: Recall@1 -0.069,
+  [-0.106, -0.033]; Recall@10 -0.020, [-0.038, -0.002]). On FinanceBench the
+  walk leads only on nDCG@10 (+0.056, [+0.001, +0.111]); its Recall@1/5/10
+  intervals include zero. The one-step graph beats BM25 on FinanceBench on
+  every metric: nDCG@10 +0.140 ([+0.080, +0.199]), Recall@1 +0.150
+  ([+0.059, +0.242]), Recall@5 +0.108 ([+0.034, +0.185]), and Recall@10
+  +0.117 ([+0.050, +0.187]).
+- **Propagation hurts on financial text, mostly at the top of the ranking.**
+  The one-step graph beats the full walk on both sets, at a quarter of the
+  latency or less. On FinQA the gain is at Recall@1 (+0.028, [+0.010, +0.046])
+  while Recall@5/10 are within noise. On FinanceBench every metric improves
+  (Recall@1 +0.092, Recall@5 +0.092, Recall@10 +0.050; all intervals exclude
+  zero). Development showed the same, so the agentic search below starts from
+  the one-step graph.
+- **The candidate lists are nearly complete.** Every lexical method has the
+  gold in its top 100 for 94-100% of questions, so the remaining errors are
+  ordering errors that a reranker or retry could fix.
+- **Dense retrieval depends on passage length.** It is best on every
+  FinanceBench metric and worst on every FinQA metric, plausibly because FinQA
+  passages (median 657 words) far exceed MiniLM's 256-token input.
 
 ### Across datasets
 
-Test nDCG@10 for every corpus the graph has been run on. Legal RAG Bench uses
+Test results for every corpus the graph has been run on. Legal RAG Bench uses
 the team protocol above; its BM25 and dense rows are Florence's legal_rag
 runs.
 
-| | Legal RAG Bench | FiQA | FinQA | FinanceBench |
+| nDCG@10 / Recall@10 / MRR@10 | Legal RAG Bench | FiQA | FinQA | FinanceBench |
 |---|---:|---:|---:|---:|
 | Test questions | 80 | 648 | 909 | 120 |
-| Improved graph (walk) | **0.331** | 0.132 | 0.708 | 0.405 |
-| Improved graph, one step | 0.318 | 0.161 | 0.725 | 0.488 |
-| Original graph | 0.157 | 0.116 | 0.598 | 0.380 |
-| *BM25* | 0.288 | 0.234 | **0.759** | 0.349 |
-| *Dense MiniLM* | 0.246 | **0.369** | 0.374 | **0.547** |
+| Improved graph (walk) | **0.331** / **0.438** / **0.298** | 0.132 / 0.183 / 0.161 | 0.708 / 0.900 / 0.647 | 0.405 / 0.625 / 0.338 |
+| Improved graph, one step | 0.318 / 0.425 / 0.285 | 0.161 / 0.219 / 0.198 | 0.725 / 0.907 / 0.668 | 0.488 / 0.675 / 0.430 |
+| Original graph | 0.157 / 0.275 / 0.122 | 0.116 / 0.168 / 0.132 | 0.598 / 0.812 / 0.530 | 0.380 / 0.700 / 0.280 |
+| *BM25* | 0.288 / 0.388 / 0.255 | 0.234 / 0.291 / 0.289 | **0.759** / **0.920** / **0.707** | 0.349 / 0.558 / 0.284 |
+| *Dense MiniLM* | 0.246 / 0.400 / 0.198 | **0.369** / **0.441** / **0.445** | 0.374 / 0.509 / 0.331 | **0.547** / **0.767** / **0.477** |
 | Passages / median words | 4,876 / 209 | 57,638 / 90 | 380 / 657 | 145 / 193 |
 | Passage-length variation (CV) | 0.55 | 0.97 | 0.36 | 0.79 |
 | Document structure | headings, section IDs | none | none | none (tables) |
+
+FiQA questions have 2.6 relevant passages on average, so its Recall@10 is the
+share of them found; elsewhere there is one gold passage and Recall@10 is
+the hit rate. The three metrics mostly agree, with two exceptions. On Legal
+RAG Bench, dense retrieval beats BM25 at Recall@10 but not at nDCG@10 or
+MRR@10. On FinanceBench, the original graph is second at Recall@10 but fourth
+at nDCG@10: it often has the gold in its top 10, but rarely first.
 
 - **The improvements hold everywhere.** The improved graph beats the
   original graph on all four corpora. Paired intervals exclude zero on FiQA
@@ -635,8 +675,9 @@ runs.
   it meaningful edges. On the three unstructured financial corpora, the
   one-step graph is better and much cheaper.
 - **The graph is not a general substitute for BM25 or dense retrieval.** It
-  beats BM25 on the legal corpus and on table-heavy FinanceBench, and trails
-  it on FiQA and FinQA. Dense retrieval wins on two of the four.
+  beats BM25 on the legal corpus and on table-heavy FinanceBench (on every
+  metric only in its one-step form), and trails it on FiQA and FinQA on every
+  metric. Dense retrieval wins on two of the four.
 
 ### Error analysis
 
@@ -677,30 +718,45 @@ second search or fusing both searches by reciprocal rank.
 - **Follow-up:** the LLM sees the question and the first search's top 3
   passages, then writes one search query for the passage that answers it.
 
-| Development nDCG@10, always retry | FinQA (229) | FinanceBench (30) | Pooled |
+| Development, always retry: nDCG@10 / Recall@1 / Recall@5 | FinQA (229) | FinanceBench (30) | Pooled nDCG@10 |
 |---|---:|---:|---:|
-| Single pass | 0.689 | 0.457 | 0.663 |
-| Keywords, second search | 0.667 | 0.433 | 0.640 |
-| Keywords, fused | 0.679 | 0.431 | 0.651 |
-| **Follow-up, second search (selected)** | 0.691 | 0.478 | **0.666** |
-| Follow-up, fused | 0.691 | 0.460 | 0.664 |
+| Single pass | 0.689 / 0.507 / 0.790 | 0.457 / 0.233 / 0.567 | 0.663 |
+| Keywords, second search | 0.667 / 0.467 / 0.777 | 0.433 / 0.200 / 0.500 | 0.640 |
+| Keywords, fused | 0.679 / 0.480 / 0.795 | 0.431 / 0.167 / 0.567 | 0.651 |
+| **Follow-up, second search (selected)** | 0.691 / 0.507 / 0.804 | 0.478 / 0.200 / 0.633 | **0.666** |
+| Follow-up, fused | 0.691 / 0.507 / 0.799 | 0.460 / 0.200 / 0.633 | 0.664 |
 
-Keyword expansion hurts on both sets. To limit API use, the test run uses
-only the selected design, as deployed: the LLM is called only for test
-questions below the threshold.
+Keyword expansion hurts on both sets, at Recall@1 most of all. To limit API
+use, the test run uses only the selected design, as deployed: the LLM is
+called only for test questions below the threshold.
 
-| Test, gated retry | nDCG@10 | Difference vs single pass | Retried | Tokens per query | USD per 1,000 queries | ~ms per query |
-|---|---:|---:|---:|---:|---:|---:|
-| FinQA | 0.725 -> 0.729 | +0.004 ([-0.000, +0.008]), 36 W / 18 L | 43% | 140 | 0.024 | 12 -> 329 |
-| FinanceBench | 0.488 -> **0.528** | **+0.040 ([+0.014, +0.067])**, 21 W / 6 L | 62% | 261 | 0.043 | 8 -> 438 |
+| Test: single pass -> gated retry | FinQA (909) | Difference [interval] | FinanceBench (120) | Difference [interval] |
+|---|---:|---:|---:|---:|
+| nDCG@10 | 0.725 -> 0.729 | +0.004 [-0.000, +0.008] | 0.488 -> **0.528** | **+0.040 [+0.014, +0.067]** |
+| MRR@10 | 0.668 -> 0.671 | +0.004 [-0.001, +0.008] | 0.430 -> 0.462 | +0.032 [+0.003, +0.062] |
+| Recall@1 | 0.556 -> 0.558 | +0.002 [-0.005, +0.010] | 0.325 -> 0.350 | +0.025 [-0.017, +0.068] |
+| Recall@5 | 0.826 -> 0.827 | +0.001 [-0.002, +0.005] | 0.558 -> **0.617** | **+0.058 [+0.016, +0.108]** |
+| Recall@10 | 0.907 -> 0.911 | +0.004 [-0.001, +0.011] | 0.675 -> **0.742** | **+0.067 [+0.025, +0.116]** |
+| Recall@100 | 0.998 -> 0.999 | | 0.958 -> 0.967 | |
+
+| Test cost of the gated retry | FinQA | FinanceBench |
+|---|---:|---:|
+| Questions retried | 43% | 62% |
+| LLM tokens per query (all questions) | 140 | 261 |
+| USD per 1,000 queries (gpt-4o-mini list price) | 0.024 | 0.043 |
+| Mean latency per query | 12 -> 329 ms | 8 -> 438 ms |
 
 - **The retry helps where questions are verbose.** FinanceBench questions
   carry long instructions ("Give a response to the question by relying on the
   details shown in the cash flow statement"). The follow-up condenses them
-  ("3M FY2018 capital expenditure cash flow statement"), and the gated
-  retry gains +0.040 nDCG@10.
+  ("3M FY2018 capital expenditure cash flow statement").
+- **Its gain is in getting the gold into the context, not to rank 1.** On
+  FinanceBench, Recall@5 rises +0.058 and Recall@10 +0.067 (both intervals
+  exclude zero), while Recall@1 is within noise. On development, Recall@1
+  even dropped while Recall@5 rose. For RAG with a top-5 context, the
+  Recall@5 gain is the one that reaches the answer generator.
 - **FinQA questions are already short and keyword-like.** The follow-up
-  mostly restates them, so the retry changes little (+0.004).
+  mostly restates them, so the retry changes no metric beyond noise.
 - **The cost is latency, not money.** At gpt-4o-mini list prices a retry
   costs about $0.02-0.04 per 1,000 queries, but it adds an LLM call and a
   second search, raising mean latency from about 10 ms to 330-440 ms. Latency
@@ -735,8 +791,8 @@ The first command needs no API. The agentic runs need `OPENAI_API_KEY` in
 [`llm_cache.jsonl`](results/finance_agentic/llm_cache.jsonl). Outputs:
 
 - [results/finance_graph/](results/finance_graph/): `metrics.csv` (both
-  splits), `per_query.csv` (with the error-analysis fields),
-  `paired_intervals.csv`, and `summary.json`.
+  splits; all metrics), `per_query.csv` (with the error-analysis fields),
+  `paired_intervals.csv` (nDCG@10, MRR@10, Recall@1/5/10), and `summary.json`.
 - [results/finance_agentic/](results/finance_agentic/): `dev_methods.csv`,
   `dev_budget_curves.csv` (gated vs random vs oracle retry shares),
   `dev_selection.json`, `test_methods.csv`, `test_paired_intervals.csv`,

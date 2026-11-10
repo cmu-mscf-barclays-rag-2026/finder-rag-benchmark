@@ -224,7 +224,7 @@ def evaluate(split: str, output_dir: Path, max_new_calls: int) -> None:
             reformulator, combine = designs[0]
             questions, ids = run["questions"], run["ids"]
             method = f"gated_{reformulator}_{combine}"
-            for metric in ("ndcg@10", "recall@1"):
+            for metric in ("ndcg@10", "mrr@10", "recall@1", "recall@5", "recall@10"):
                 deltas = [scored[method][q][metric] - scored["single_pass"][q][metric] for q in ids]
                 low, high = paired_bootstrap(deltas, [questions[q].group for q in ids])
                 intervals.append({"dataset": name, "comparison": f"{method} minus single_pass", "metric": metric,

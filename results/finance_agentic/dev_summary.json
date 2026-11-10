@@ -12,11 +12,11 @@
     "finqa": 1.5906930949068823,
     "financebench": 1.9324437224997673
   },
-  "new_llm_calls_this_run": 518,
+  "new_llm_calls_this_run": 0,
   "new_usage_this_run": {
-    "prompt_tokens": 108841,
-    "completion_tokens": 20494
+    "prompt_tokens": 0,
+    "completion_tokens": 0
   },
-  "new_cost_usd_this_run": 0.02862255,
+  "new_cost_usd_this_run": 0.0,
   "selected_design": "follow_up_mixed"
 }

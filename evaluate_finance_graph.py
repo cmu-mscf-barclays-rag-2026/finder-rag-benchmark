@@ -10,6 +10,8 @@ seed 42; one gold passage per question). Methods, all fixed configurations:
 - ``bm25``: the team's BM25 (team_bm25.py), BEIR/Anserini k1 = 0.9, b = 0.4.
 - ``dense_minilm``: all-MiniLM-L6-v2 cosine search.
 
+Paired intervals cover nDCG@10, MRR@10, and Recall@1/5/10.
+
 Error analysis per question (improved graph and BM25): gold rank (near miss
 = rank 2-10, far miss = not in the top 100), whether the question's years
 appear in the gold and in the top-ranked passage, the share of the question's
@@ -41,6 +43,7 @@ from team_bm25 import BM25Retriever
 DEPTH = 100
 DENSE_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 METRICS = ("ndcg@10", "mrr@10", "recall@1", "recall@5", "recall@10", "recall@100")
+INTERVAL_METRICS = ("ndcg@10", "mrr@10", "recall@1", "recall@5", "recall@10")
 _YEAR = re.compile(r"\b(?:19|20)\d{2}\b")
 
 
@@ -128,12 +131,13 @@ def evaluate_dataset(name: str) -> tuple[list[dict], list[dict], list[dict], dic
         for other in ("bm25", "improved_graph"):
             if method == other:
                 continue
-            deltas = [value[(method, q)]["ndcg@10"] - value[(other, q)]["ndcg@10"] for q in test_ids]
-            low, high = paired_bootstrap(deltas, [questions[q].group for q in test_ids])
-            intervals.append({"dataset": name, "comparison": f"{method} minus {other}", "metric": "ndcg@10",
-                              "difference": statistics.fmean(deltas), "wins": sum(d > 0 for d in deltas),
-                              "losses": sum(d < 0 for d in deltas),
-                              "bootstrap_95pct_low": low, "bootstrap_95pct_high": high})
+            for metric in INTERVAL_METRICS:
+                deltas = [value[(method, q)][metric] - value[(other, q)][metric] for q in test_ids]
+                low, high = paired_bootstrap(deltas, [questions[q].group for q in test_ids])
+                intervals.append({"dataset": name, "comparison": f"{method} minus {other}", "metric": metric,
+                                  "difference": statistics.fmean(deltas), "wins": sum(d > 0 for d in deltas),
+                                  "losses": sum(d < 0 for d in deltas),
+                                  "bootstrap_95pct_low": low, "bootstrap_95pct_high": high})
     lengths = [len(r["text"].split()) for r in corpus]
     info = {"dataset": DATASETS[name], "corpus_passages": len(corpus), "questions": len(questions),
             "dev": len(dev), "test": len(test),

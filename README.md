@@ -167,9 +167,9 @@ The results follow the team Legal RAG protocol (`legal_rag/` on
   graph propagation per query has no headroom.
 - **Financial retrieval (MTEB FinQA, FinanceBench):** the one-step graph beats
   the full walk on both, and beats BM25 on FinanceBench (nDCG@10 0.488 vs
-  0.349) but not on FinQA (0.725 vs 0.759). A gated gpt-4o-mini retry adds
-  +0.040 nDCG@10 on FinanceBench and +0.004 on FinQA, for about $0.02-0.04 per
-  1,000 queries.
+  0.349; Recall@5 0.558 vs 0.450) but not on FinQA (0.725 vs 0.759). A gated
+  gpt-4o-mini retry raises FinanceBench Recall@5 by +0.058 (nDCG@10 +0.040)
+  and leaves FinQA unchanged, for about $0.02-0.04 per 1,000 queries.
 
 The previous dense + graph experiment remains available as `dense_graph`;
 its original results are preserved separately.
