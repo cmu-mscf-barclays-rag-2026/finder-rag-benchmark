@@ -1,5 +1,11 @@
 # FinDER RAG Team Benchmark — Part C Hybrid Retrieval
 
+## Latest: Meeting 9 financial-report retrieval
+
+[**Main findings — tables, charts and reproducible code**](presentation/meeting9_findings_20261109/README.md)
+
+Focused HyDE + BM25 improves retrieval over BM25 and the same-weight Question Hybrid on 249 finance queries in exploratory paired tests. The update also covers document representation, bank filtering, Top-k and search costs. Final-answer accuracy remains unvalidated.
+
 ## Latest: prompt styles and context budgets (9 November 2026)
 
 [**Weekly findings — tables, charts, and corrected statistical tests**](presentation/hyde_weekly_20261109/README.md)

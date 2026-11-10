@@ -1,0 +1,11 @@
+{
+  "seed": 20261109,
+  "draws": 100000,
+  "batch": 1000,
+  "query_count": 249,
+  "family_size": 10,
+  "sign_matrix_stream_sha256": "eff7be5bc24b505c9b7fdae951a43ea8ff8ad398426f8db833e9454675705ce0",
+  "difference_csv_sha256": "e7c1b65d5df818a3944db5569ae500afacc674271d193ed90426a7f412fd0262",
+  "null": "Question-level sign exchangeability; source dependence unadjusted",
+  "bootstrap_or_other_pvalues": false
+}

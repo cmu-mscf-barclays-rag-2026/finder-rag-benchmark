@@ -1,0 +1,62 @@
+{
+  "status": "FAILED_RATER_CRITERION__HUMAN_VALIDATION_PENDING",
+  "usable_as_primary_answer_quality_results": false,
+  "predeclared_by_parent_before_v2_outcomes": true,
+  "no_further_paid_calls_or_tuning": true,
+  "candidate_isolation": {
+    "passed": true,
+    "logical_payloads": 80,
+    "unique_calls": 66
+  },
+  "no_context_rule": {
+    "passed": true,
+    "n": 20,
+    "raw_normalized_expected": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "guard_changed_rows": 0
+  },
+  "q178_abstention_rule": {
+    "passed": false,
+    "logical_n": 2,
+    "unique_judgments": 1,
+    "raw_normalized_expected": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "actual": [
+      {
+        "method": "question_bank_rrf_w050",
+        "answer_status": "answer",
+        "raw_normalized": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "reason": "Candidate correctly states the excerpts lack the requested 2024 percentages, so no sum can be established."
+      },
+      {
+        "method": "focusedmix_bank_rrf_w050",
+        "answer_status": "answer",
+        "raw_normalized": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "reason": "Candidate correctly states the excerpts lack the requested 2024 percentages, so no sum can be established."
+      }
+    ],
+    "failure": "Judge treats a correct insufficiency explanation as a complete answer to a numeric question; C/V/T violate the predeclared0/0/2/0 policy."
+  },
+  "human_reviewed": 0,
+  "human_review_status": "pending",
+  "raw_and_guard_scores_retained": true,
+  "v1_unchanged": true
+}

@@ -1,0 +1,1081 @@
+{
+  "inference": {
+    "source": "outputs/meeting9_followup_20261109/inference/protocol.json",
+    "source_sha256": "75288dbba5adfc70952a34f423931601964ea92219e2e3ebc1631803dbcd277d",
+    "record": {
+      "status": "Exploratory inference after repeated benchmark inspection; no new holdout/confirmation",
+      "only_new_retrieval_outcome": "Unfiltered fullpage Focusedmix RRF dense_weight0.50; compute309, verify initial60 against retained dev ranks",
+      "rrf": {
+        "one_based": true,
+        "k": 60,
+        "dense_weight": 0.5,
+        "branch_depth": 100,
+        "absent": 0,
+        "output": "union top100",
+        "ties": "ascending original corpus index",
+        "mix_question_weight": 0.5
+      },
+      "primary_exploratory_family": [
+        {
+          "id": "question_bank_rrf_w025_vs_bm25",
+          "method": "question_bank_rrf_w025",
+          "control": "bm25"
+        },
+        {
+          "id": "question_bank_rrf_w050_vs_bm25",
+          "method": "question_bank_rrf_w050",
+          "control": "bm25"
+        },
+        {
+          "id": "focusedmix_bank_rrf_w025_vs_bm25",
+          "method": "focusedmix_bank_rrf_w025",
+          "control": "bm25"
+        },
+        {
+          "id": "focusedmix_bank_rrf_w050_vs_bm25",
+          "method": "focusedmix_bank_rrf_w050",
+          "control": "bm25"
+        },
+        {
+          "id": "shortmix_bank_rrf_w025_vs_bm25",
+          "method": "shortmix_bank_rrf_w025",
+          "control": "bm25"
+        },
+        {
+          "id": "shortmix_bank_rrf_w050_vs_bm25",
+          "method": "shortmix_bank_rrf_w050",
+          "control": "bm25"
+        },
+        {
+          "id": "focusedmix_bank_rrf_w025_vs_question_same_weight",
+          "method": "focusedmix_bank_rrf_w025",
+          "control": "question_bank_rrf_w025"
+        },
+        {
+          "id": "focusedmix_bank_rrf_w050_vs_question_same_weight",
+          "method": "focusedmix_bank_rrf_w050",
+          "control": "question_bank_rrf_w050"
+        },
+        {
+          "id": "shortmix_bank_rrf_w025_vs_question_same_weight",
+          "method": "shortmix_bank_rrf_w025",
+          "control": "question_bank_rrf_w025"
+        },
+        {
+          "id": "shortmix_bank_rrf_w050_vs_question_same_weight",
+          "method": "shortmix_bank_rrf_w050",
+          "control": "question_bank_rrf_w050"
+        }
+      ],
+      "family_size": 10,
+      "cohort": "remaining249 only, all queries including fallback",
+      "endpoint": "Mean nDCG@10, original complete qrels and linear gains; original IDCG/Recall denominators",
+      "test": {
+        "kind": "Two-sided paired question-level sign-flip Monte Carlo",
+        "draws": 100000,
+        "seed": 20261109,
+        "batch": 1000,
+        "statistic": "Absolute sum of paired per-question nDCG differences",
+        "extreme": "abs(flipped_sum)>=abs(observed_sum)-1e-12",
+        "p": "(extreme_count+1)/(100000+1)",
+        "shared_signs": "Same deterministic sign vectors across10 comparisons in frozen query order"
+      },
+      "multiplicity": "Holm across exactly10 prelisted comparisons, stable family order for ties; no other p-values",
+      "effect_reporting": "Mean difference; wins/losses/ties at tolerance1e-12; raw and Holm10 p for every member",
+      "confidence_intervals": "None. Query-bootstrap CI omitted because six reports are shared and prior adaptive inspection is unaccounted for.",
+      "two_by_two": {
+        "cells": [
+          [
+            "no_bank_filter",
+            "question",
+            "question_unfiltered_rrf_w050"
+          ],
+          [
+            "no_bank_filter",
+            "focusedmix",
+            "focusedmix_unfiltered_rrf_w050"
+          ],
+          [
+            "bank_filter",
+            "question",
+            "question_bank_rrf_w050"
+          ],
+          [
+            "bank_filter",
+            "focusedmix",
+            "focusedmix_bank_rrf_w050"
+          ]
+        ],
+        "cohorts": [
+          "initial60",
+          "remaining249",
+          "full309"
+        ],
+        "interaction": "(filtered Focused-filtered question)-(unfiltered Focused-unfiltered question)",
+        "policy": "Descriptive only; no interaction p or transfer into Holm10"
+      },
+      "all_k_recheck": {
+        "k": [
+          5,
+          10,
+          15,
+          20,
+          25
+        ],
+        "metrics": [
+          "hit",
+          "recall",
+          "mrr",
+          "ndcg"
+        ],
+        "scope": "Recompute saved constrained10-method metrics and4 control cells from ranks; no retrieval rerun"
+      },
+      "source_sensitivity": {
+        "grouping": "275 single-source,34 multisource kept separate; also six single-bank groups",
+        "leave_one_report_out": "Exclude every query whose positive gold-source set contains that report, including multisource queries touching it; descriptive effects only",
+        "analyses": "The10 comparisons plus2x2 interaction; initial60/remaining249/full309; no additional p or CI"
+      },
+      "data_quality_sensitivity": "Keepq39 in main analysis; one fixed exclude-only-q39 descriptive sensitivity for all11 effects, no additional p or route changes",
+      "caveats": [
+        "Question-level sign-flip assumes sign exchangeability; shared-report dependence is not adjusted.",
+        "Holm10 covers only this finite family, not earlier experiments, selections or repeated inspection.",
+        "All cohorts/configurations were already inspected; small p-values do not create new confirmation.",
+        "Source omission is a stress test, not clustered independent evidence; OCR retrieval does not establish answer accuracy."
+      ],
+      "stop_rule": "One missing configuration and this finite inference family only; no new hypotheses/configurations after outcomes",
+      "resources": {
+        "api_calls": 0,
+        "new_embeddings": 0,
+        "new_generations": 0,
+        "paid_cost_usd": 0
+      },
+      "historical_manifest_sha256": "8e88c6c4edbfa5fe6a62fe489e474a76420c1b3a8a87317410d9efd260ffd3f7"
+    }
+  },
+  "prompt_ablation": {
+    "source": "outputs/meeting9_20261109/ablation/protocol.json",
+    "source_sha256": "788176c2995e92ee15241c300ab61593e3c3cba2c76c593c9642797f0c45f480",
+    "record": {
+      "experiment": "2x2 requested length x explicit constraint preservation",
+      "n_per_dataset": 20,
+      "model": "gpt-5.4-2026-03-05",
+      "settings": {
+        "temperature": 0,
+        "reasoning_effort": "none",
+        "max_output_tokens": 160,
+        "store": false,
+        "tools": [],
+        "sdk_retries": 0
+      },
+      "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+      "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "encoder_tokens": 256,
+      "backend": "offline CPU float32; masked mean pooling; L2 normalization",
+      "styles": {
+        "short_base": [
+          30,
+          50,
+          false
+        ],
+        "long_base": [
+          70,
+          100,
+          false
+        ],
+        "short_constraints": [
+          30,
+          50,
+          true
+        ],
+        "long_constraints": [
+          70,
+          100,
+          true
+        ]
+      },
+      "base_template": "Write one hypothetical evidence paragraph of {low} to {high} words to help retrieve passages for the question below about {domain}. Do not invent names, numerical values, dates, citations, or facts about the questioner. Output only the paragraph with no heading.{constraint}\nQuestion: {question}\nHypothetical evidence paragraph:",
+      "constraint_sentence": " Preserve all explicitly stated entities, quantities, time horizons, jurisdictions, negations, comparison criteria, and relationships; do not fill in unstated conditions.",
+      "mix_question_weight": 0.5,
+      "routes": [
+        "pure_dense",
+        "mix_dense"
+      ],
+      "top_k": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ],
+      "primary_metrics": {
+        "legal": "Hit@5",
+        "fiqa": "nDCG@10"
+      },
+      "primary_edges": [
+        [
+          "short_base",
+          "long_base",
+          "length_without_constraints"
+        ],
+        [
+          "short_constraints",
+          "long_constraints",
+          "length_with_constraints"
+        ],
+        [
+          "short_constraints",
+          "short_base",
+          "constraints_at_short_length"
+        ],
+        [
+          "long_constraints",
+          "long_base",
+          "constraints_at_long_length"
+        ]
+      ],
+      "holm_family": "12 two-sided tests = (4 edges + 2 averaged factorial main effects) x mixed50 only x 2 datasets",
+      "test_legal": "exact paired McNemar for binary edge effects; exact sign-flip for averaged effects",
+      "test_fiqa": "exact sign-flip randomization of nonzero paired differences (at most 2^20 permutations)",
+      "interpretation": "Exploratory reused 20-query samples; no post-hoc selection or additional generation. Manipulates requested length, not enforced actual length. Equal 160-token cap can censor long outputs; retain and report.",
+      "new_generations_expected": 160,
+      "new_api_calls_by_this_program": 0,
+      "baseline_files": {
+        "results/person3_openai_hyde/saved_rankings.npz": "8dca17daa7a2276aae1ef5ddd26db60fadefefe372d213657b3ecc9ec8293433",
+        "results/person3_cross_dataset/gpt54_focused160_v1/fiqa_rankings.npz": "e38b068c4e50ae85bcf43b67f1465e1ad393598b10a2dbdef80ae5ae000ada4b",
+        "results/person3_hyde_pilot/focused_weight_v1/selection.json": "f21d44e80d7e7f788376588f6f4bca0d549ea5389d10cc3a8ecef28b34110080"
+      },
+      "primary_route": "mix_dense",
+      "primary_average_effects": [
+        "short versus long, averaged over constraints",
+        "constraints versus base, averaged over length"
+      ],
+      "secondary_route": "pure_dense descriptive only"
+    }
+  },
+  "transfer_initial60": {
+    "source": "outputs/meeting9_20261109/transfer/protocol.json",
+    "source_sha256": "bea7bc63b70da3b7a23a1ae5106d3f5a25305ce4046afcfc87f1db198f78a812",
+    "record": {
+      "dataset": "vidore/vidore_v3_finance_en",
+      "dataset_revision": "7f432c176d82e27546501ad8064a713ac3071809",
+      "queries": 60,
+      "available_english_queries": 309,
+      "full_corpus_pages": 2942,
+      "document_representation": "provided OCR markdown, entirepage ranking unit; dense first256 MiniLM tokens; BM25 fullOCR",
+      "model": "gpt-5.4-2026-03-05",
+      "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+      "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "encoder_max_length": 256,
+      "encoder_device": "offline CPU float32",
+      "pooling": "attentionmask mean + L2",
+      "mix_question_weight": 0.5,
+      "generation_cap": 160,
+      "temperature": 0,
+      "reasoning": "none",
+      "store": false,
+      "tools": [],
+      "api_retries": 0,
+      "prompt_templates": {
+        "focused160": "Write one short hypothetical answer paragraph to help retrieve evidence about finance for the question below. Preserve the key financial issue and distinguish it from similar issues. Describe the relevant financial concept or mechanism in plain language. Do not invent company names, numerical returns, dates, regulations or facts about the questioner. Do not repeat the question or add headings. Aim for 70 to 100 words.\nQuestion: {q}\nHypothetical evidence paragraph:",
+        "short_30_50": "Write one hypothetical evidence paragraph of 30 to 50 words to help retrieve passages for the question below about {domain}. Preserve the question's named entities, quantities, jurisdiction, constraints, and any comparison between alternatives. Do not add entities, conditions, assumptions, citations, or conclusions not supported by the question. Stay on the specific information needed; avoid generic background or broad advice. Do not answer with an invented factual result. No headings.\nQuestion: {q}\nHypothetical evidence paragraph:"
+      },
+      "prompt_origin": "Exact previous FiQA focused160 and Short templates, frozen without adapting to outcomes",
+      "retrieval_scope": "all2942pages, never only positivepages",
+      "top_k": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ],
+      "primary_metric": "nDCG@10, linear graded gains score/log2(rank+1)",
+      "primary_comparisons": [
+        [
+          "short_30_50_mix_dense",
+          "question_dense"
+        ],
+        [
+          "focused160_mix_dense",
+          "question_dense"
+        ],
+        [
+          "short_30_50_mix_dense",
+          "focused160_mix_dense"
+        ],
+        [
+          "short_30_50_pure_dense",
+          "focused160_pure_dense"
+        ]
+      ],
+      "primary_test": "two-sided paired signflip,100000draws,seed20261109; Holm across4",
+      "secondary": "other methods/cutoffs/subgroups descriptive, no significance cherry-picking",
+      "bm25": {
+        "k1": 1.2,
+        "b": 0.75,
+        "query": "originalquestion",
+        "binary_query_counts": true
+      },
+      "tie_break": "stablecorpusindex",
+      "new_calls": 120,
+      "scope": "new dataset transfer of previously selected prompts; custom60-query text-only subset, not official MTEB leaderboard reproduction; no visualmodel comparison or finalanswer evaluation",
+      "data_leakage_control": "generator sees onlyquestion, never answers/sourcepages/qrels; promptparameters never tuned on theseoutcomes"
+    }
+  },
+  "transfer_remaining249": {
+    "source": "outputs/meeting9_20261109/transfer/remaining249/protocol.json",
+    "source_sha256": "ddd5bc24256a853e337fc991ccaecc046b0104802a0acbc652820166ea82a895",
+    "record": {
+      "dataset": "vidore/vidore_v3_finance_en",
+      "dataset_revision": "7f432c176d82e27546501ad8064a713ac3071809",
+      "queries": 249,
+      "available_english_queries": 309,
+      "full_corpus_pages": 2942,
+      "document_representation": "provided OCR markdown, entirepage ranking unit; dense first256 MiniLM tokens; BM25 fullOCR",
+      "model": "gpt-5.4-2026-03-05",
+      "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+      "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "encoder_max_length": 256,
+      "encoder_device": "offline CPU float32",
+      "pooling": "attentionmask mean + L2",
+      "mix_question_weight": 0.5,
+      "generation_cap": 160,
+      "temperature": 0,
+      "reasoning": "none",
+      "store": false,
+      "tools": [],
+      "api_retries": 0,
+      "prompt_templates": {
+        "focused160": "Write one short hypothetical answer paragraph to help retrieve evidence about finance for the question below. Preserve the key financial issue and distinguish it from similar issues. Describe the relevant financial concept or mechanism in plain language. Do not invent company names, numerical returns, dates, regulations or facts about the questioner. Do not repeat the question or add headings. Aim for 70 to 100 words.\nQuestion: {q}\nHypothetical evidence paragraph:",
+        "short_30_50": "Write one hypothetical evidence paragraph of 30 to 50 words to help retrieve passages for the question below about {domain}. Preserve the question's named entities, quantities, jurisdiction, constraints, and any comparison between alternatives. Do not add entities, conditions, assumptions, citations, or conclusions not supported by the question. Stay on the specific information needed; avoid generic background or broad advice. Do not answer with an invented factual result. No headings.\nQuestion: {q}\nHypothetical evidence paragraph:"
+      },
+      "prompt_origin": "Exact previous FiQA focused160 and Short templates, frozen without adapting to outcomes",
+      "retrieval_scope": "all2942pages, never only positivepages",
+      "top_k": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ],
+      "primary_metric": "nDCG@10, linear graded gains score/log2(rank+1)",
+      "primary_comparisons": [
+        [
+          "short_30_50_mix_dense",
+          "question_dense"
+        ],
+        [
+          "focused160_mix_dense",
+          "question_dense"
+        ],
+        [
+          "short_30_50_mix_dense",
+          "focused160_mix_dense"
+        ],
+        [
+          "short_30_50_pure_dense",
+          "focused160_pure_dense"
+        ]
+      ],
+      "primary_test": "two-sided paired signflip,100000draws,seed20261109; Holm across4",
+      "secondary": "other methods/cutoffs/subgroups descriptive, no significance cherry-picking",
+      "bm25": {
+        "k1": 1.2,
+        "b": 0.75,
+        "query": "originalquestion",
+        "binary_query_counts": true
+      },
+      "tie_break": "stablecorpusindex",
+      "new_calls": 498,
+      "scope": "new dataset transfer of previously selected prompts; custom249-query text-only subset, not official MTEB leaderboard reproduction; no visualmodel comparison or finalanswer evaluation",
+      "data_leakage_control": "generator sees onlyquestion, never answers/sourcepages/qrels; promptparameters never tuned on theseoutcomes"
+    }
+  },
+  "full_page": {
+    "source": "outputs/meeting9_20261109/fullpage/protocol.json",
+    "source_sha256": "333704b32eca9ed94ea38a3c8a877b938b9e3268585032b89dffc58ee56ffe37",
+    "record": {
+      "status": "Post-primary secondary descriptive representation control; never replaces frozen60/249 primary tests",
+      "trigger": "93.95% supplied OCR pages exceed the original256-token MiniLM page input allowance",
+      "dataset": "vidore/vidore_v3_finance_en",
+      "dataset_revision": "7f432c176d82e27546501ad8064a713ac3071809",
+      "queries": 309,
+      "stages": {
+        "initial60": 60,
+        "remaining249": 249
+      },
+      "corpus_pages": 2942,
+      "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+      "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "encoder_tokens": 256,
+      "encoder_backend": "offline CPU float32, masked mean pooling and L2 normalization",
+      "chunk_tokens": 224,
+      "overlap_tokens": 32,
+      "stride_tokens": 192,
+      "chunk_source": "existing person3_cross_dataset.run.chunks_for offset-preserving helper; no label-dependent choices",
+      "empty_page": "one empty chunk retained; do not remove corpus pages",
+      "document_representation": "all supplied page OCR, including every source token; no image encoder",
+      "page_score": "maximum cosine similarity over all chunks belonging to the page; stable page-index ties",
+      "query_representations": [
+        "question_dense",
+        "focused160_pure_dense",
+        "focused160_mix_dense",
+        "short_30_50_pure_dense",
+        "short_30_50_mix_dense"
+      ],
+      "mix_question_weight": 0.5,
+      "depth": 100,
+      "top_k": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ],
+      "bm25": "Reuse original-query full-OCR BM25 rankings unchanged",
+      "comparison": "Within each query representation, compare original first256 page representation versus full-page chunk maximum; fixed same query IDs and all2942pages",
+      "metric": "Hit, Recall, MRR, nDCG with linear graded relevance gains",
+      "inference": "All new results descriptive; zero new p-values; do not supersede original primary experiments",
+      "generation": "Reuse exact saved questions and original Focused/Short generation vectors. No new API calls.",
+      "limitations": [
+        "Page maximum introduces multiple opportunities for longer pages; this changes document representation, not the prompt alone.",
+        "Provided OCR can omit visual/table structure. This is text-only, not a visual-model evaluation.",
+        "Full309 summaries combine two frozen stages and are descriptive only.",
+        "Query vectors and generated paragraphs retain original MiniLM256-token truncation; document OCR coverage is the intervention."
+      ]
+    }
+  },
+  "bank_filter": {
+    "source": "finder-rag-benchmark/results/person3_meeting9_constraints/v1/protocol.json",
+    "source_sha256": "abd8d57ffd31618aff2a76acd4bfb3c9d45d3792b868bf5ca5569e284afe6487",
+    "record": {
+      "status": "One fixed exploratory metadata-constraint experiment on previously inspected ViDoRe Finance English309; not new heldout confirmation",
+      "development_diagnosis_only": "Initial60 source-mismatch diagnosis motivated the intervention; no filtered outcomes inspected before freeze",
+      "primary_descriptive_cohort": "All remaining249, including routed and fallback queries",
+      "secondary_cohorts": [
+        "initial60",
+        "full309",
+        "routed/fallback within each cohort"
+      ],
+      "primary_descriptive_endpoint": "Mean nDCG@10, linear graded relevance gains",
+      "methods": [
+        "bm25",
+        "question_dense",
+        "focused160_mix_dense",
+        "short_30_50_mix_dense"
+      ],
+      "same_mask_for_all_methods": true,
+      "aliases": {
+        "bank_of_america_2024": [
+          "Bank of America"
+        ],
+        "citigroup_2024": [
+          "Citigroup",
+          "Citi"
+        ],
+        "goldman_sachs_2024": [
+          "Goldman Sachs"
+        ],
+        "jpmorgan_chase_2024": [
+          "JPMorgan",
+          "JPMorgan Chase",
+          "JPMorganChase",
+          "J.P. Morgan"
+        ],
+        "morgan_stanley_2024": [
+          "Morgan Stanley"
+        ],
+        "wells_fargo_2024": [
+          "Wells Fargo"
+        ]
+      },
+      "matching": "Question literal only; Unicode NFKC; case-insensitive Unicode word boundaries; spaces/hyphens/periods normalized only inside a name",
+      "excluded_aliases": "No bare bank/Morgan/Chase/America or tickers C/MS/GS/JPM/BAC/WFC; no BofA or Citibank alias",
+      "multiple_matches": "Union of all explicitly matched companies",
+      "no_match": "Keep original full-corpus ranking",
+      "open_comparison_regex": "\\b(?:(?:other|another)\\s+banks?|peers?|competitors?|industry)\\b",
+      "open_comparison_scope": "Fallback only for exactly one distinct explicitly mentioned bank",
+      "negation_or_exclusion_regex": "\\b(?:not|no|except|excluding|exclude|without|other\\s+than|rather\\s+than|instead\\s+of)\\b",
+      "negation_or_exclusion_scope": "Conservatively fallback if marker occurs anywhere in a question with an alias",
+      "quoted_mention_regex": "\"[^\"\\n]*\"|“[^”\\n]*”|‘[^’\\n]*’|(?<!\\w)\\x27[^\\x27\\n]*\\x27(?!\\w)",
+      "quoted_mention_scope": "Fallback if a literal company alias overlaps a paired quoted span",
+      "year_filter": false,
+      "routing_forbidden_inputs": [
+        "query_id",
+        "query metadata",
+        "HyDE",
+        "answers",
+        "qrels",
+        "gold source",
+        "retrieval results"
+      ],
+      "dense_scores": "Exact retained float32 question/original50-50 mix vectors @ all14017 cached chunk vectors, then page maximum over all2942 pages",
+      "bm25_scores": "Existing helper BM25 same full-OCR index, k1=1.2,b=.75,binary query counts; retain full2942 scores, global corpus statistics unchanged",
+      "ranking": "Rank all allowed pages by original method score; stable ascending original corpus index ties; save top100. Never filter an old top100 list.",
+      "replay_gate": "All309 unfiltered top100 rankings for all4 methods must exactly reproduce retained results before filtered metrics",
+      "metric_denominators": "Always original unfiltered complete qrels, original IDCG and original count of positive labels; never restrict qrels to allowed pages",
+      "qrel_retention": "Separate post-freeze diagnostic of retained positive-page count and relevance-grade mass; never used for routing or tuning",
+      "secondary_metrics": {
+        "k": [
+          5,
+          10,
+          15,
+          20,
+          25
+        ],
+        "names": [
+          "hit",
+          "recall",
+          "mrr",
+          "ndcg"
+        ]
+      },
+      "contrasts": "For every method: filtered minus matched unfiltered. Within each condition: Focusedmix and Shortmix minus question dense. No winner selection.",
+      "inference": "All descriptive, no new p-values or significance search; cohorts previously inspected and annual-report sources shared",
+      "stop_rule": "Exactly this one rule set. Stop after results, including no improvement. No alias/guard change, tuning or expanded search based on outcomes.",
+      "resources": {
+        "api_calls": 0,
+        "new_embeddings": 0,
+        "new_generations": 0,
+        "new_models": 0,
+        "paid_cost_usd": 0
+      }
+    }
+  },
+  "constrained_hybrid": {
+    "source": "finder-rag-benchmark/results/person3_meeting9_constrained_hybrid/v1/protocol.json",
+    "source_sha256": "5ce626e7b410e0710f4689d6d9fa72be6d22e532739c96878bbe11f5ec6b1d6a",
+    "record": {
+      "status": "One fixed exploratory hybrid round on repeatedly inspected ViDoRe Finance English309; no new heldout confirmation",
+      "candidate_grid": [
+        {
+          "name": "question_bank_rrf_w025",
+          "dense": "question_dense",
+          "dense_weight": 0.25
+        },
+        {
+          "name": "question_bank_rrf_w050",
+          "dense": "question_dense",
+          "dense_weight": 0.5
+        },
+        {
+          "name": "focusedmix_bank_rrf_w025",
+          "dense": "focused160_mix_dense",
+          "dense_weight": 0.25
+        },
+        {
+          "name": "focusedmix_bank_rrf_w050",
+          "dense": "focused160_mix_dense",
+          "dense_weight": 0.5
+        },
+        {
+          "name": "shortmix_bank_rrf_w025",
+          "dense": "short_30_50_mix_dense",
+          "dense_weight": 0.25
+        },
+        {
+          "name": "shortmix_bank_rrf_w050",
+          "dense": "short_30_50_mix_dense",
+          "dense_weight": 0.5
+        }
+      ],
+      "reporting": "ALL6 settings, no development/winner selection, no weight/alias tuning, no new p-values",
+      "primary_descriptive_cohort": "All remaining249 including fallback; repeatedly inspected",
+      "secondary_descriptive_cohorts": [
+        "initial60",
+        "full309",
+        "routed/fallback within each cohort"
+      ],
+      "branches": "Three retained bank-constrained dense top100 lists, each fused with the SAME retained bank-constrained BM25 top100 list",
+      "mix_question_weight": 0.5,
+      "metadata_routes": "Exact preceding frozen309 question-only routes, unchanged",
+      "rrf": {
+        "k": 60,
+        "branch_depth": 100,
+        "output_depth": 100,
+        "rank": "one-based",
+        "score": "w_dense/(60+dense_rank)+(1-w_dense)/(60+bm25_rank)",
+        "absent": 0,
+        "pages": "union of branch top100 lists",
+        "ties": "ascending original corpus index"
+      },
+      "standalone_baselines": [
+        "bm25",
+        "question_dense",
+        "focused160_mix_dense",
+        "short_30_50_mix_dense"
+      ],
+      "baseline_policy": "Reuse preceding constrained ranks/metrics unchanged; no retrieval recomputation",
+      "primary_endpoint": "Mean nDCG@10 with linear graded gains",
+      "metrics": [
+        "hit",
+        "recall",
+        "mrr",
+        "ndcg"
+      ],
+      "k": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ],
+      "contrasts": "Each hybrid vs same-mask BM25 and matching dense; each HyDE hybrid also vs same-weight question hybrid; report every comparison descriptively",
+      "denominators": "Complete original qrels, original IDCG, original positive-page Recall denominator; never trim by route",
+      "limitations": [
+        "Top100 truncated-rank RRF, not full-score fusion.",
+        "Both cohorts repeatedly inspected; six shared annual-report sources.",
+        "Original bank constraint can exclude positive labels; no route changes.",
+        "OCR retrieval only, no final-answer reader or image encoder."
+      ],
+      "stop_rule": "Exactly these6 configurations; report and stop, including no improvement; no expanded search",
+      "resources": {
+        "api_calls": 0,
+        "new_embeddings": 0,
+        "new_generations": 0,
+        "new_models": 0,
+        "paid_cost_usd": 0
+      },
+      "original_routes_sha256": "ce023311eccbcd2c27e7e44431d4c6a4db70f8ccb801ccc4bdfdc24064acb8dd",
+      "original_selection_sha256": "139cfdfb8e99c961630cf00e6b786b6f0945a5f46b96c72493e0961e469a72bc"
+    }
+  },
+  "unfiltered_fusion": {
+    "source": "finder-rag-benchmark/results/person3_meeting9_refinement/v1/protocol.json",
+    "source_sha256": "fa4209b0046a74be057440231ac7f55e324f80a8c5d68d2c1e42dafa83b76445",
+    "record": {
+      "status": "Exploratory refinement of previously inspected ViDoRe Finance English309; not a new holdout or confirmation",
+      "frozen_before": "Any fused rankings or fused outcome metrics",
+      "queries": 309,
+      "corpus_pages": 2942,
+      "candidate_grid": [
+        {
+          "name": "question_rrf_w025",
+          "dense": "question_dense",
+          "dense_weight": 0.25
+        },
+        {
+          "name": "question_rrf_w050",
+          "dense": "question_dense",
+          "dense_weight": 0.5
+        },
+        {
+          "name": "focusedmix_rrf_w025",
+          "dense": "focused160_mix_dense",
+          "dense_weight": 0.25
+        },
+        {
+          "name": "focusedmix_rrf_w050",
+          "dense": "focused160_mix_dense",
+          "dense_weight": 0.5
+        }
+      ],
+      "development": "Original initial60 in retained selection order; already inspected",
+      "evaluation": "Original remaining249 and descriptive full309; both previously inspected",
+      "dense": "Retained full-OCR MiniLM chunk-max ranks: question or original Focused50/50 mix",
+      "sparse": "Retained original-question full-OCR BM25 ranks",
+      "rrf": {
+        "k": 60,
+        "per_branch_route_depth": 100,
+        "output_depth": 100,
+        "score": "w_dense/(60+1based_dense_rank)+(1-w_dense)/(60+1based_bm25_rank)",
+        "absent": "zero contribution outside retained branch top100",
+        "candidate_pages": "union of branch top100 pages",
+        "ties": "ascending original corpus page index"
+      },
+      "selection_rule": "Maximum development60 mean nDCG@10; ties within1e-12 prefer question, then smaller dense weight. Retain BM25 comparator even if selected fusion loses.",
+      "evaluation_rule": "Evaluate selected fusion, same-weight question hybrid, BM25 and both standalone dense baselines on249/309. No other unselected fusion is evaluated there; no reselection or expanded grid.",
+      "primary_descriptive_endpoint": "Mean question-level nDCG@10, linear graded gains",
+      "secondary_metrics": {
+        "names": [
+          "Hit",
+          "Recall",
+          "MRR",
+          "nDCG"
+        ],
+        "k": [
+          5,
+          10,
+          15,
+          20,
+          25
+        ]
+      },
+      "source_descriptives": "Group275 queries with all positive qrels in one bank by that bank. Keep34 multi-source queries in one separate group; never force assignment. Report descriptively without source-independence inference.",
+      "inference": "No p-values, confidence/confirmation claims, significance search, or new heldout claims; six annual-report sources are shared",
+      "rationale_before_fusion": "Development60 dense/BM25 mean Top10 overlap3.45 question/3.78 Focusedmix; dense adds relevant Top10 pages on20/24 queries and BM25 on25/25.",
+      "resources": {
+        "api_calls": 0,
+        "new_generations": 0,
+        "new_embeddings": 0,
+        "new_models": 0,
+        "paid_cost_usd": 0
+      },
+      "limitations": [
+        "Both cohorts were previously inspected; this split does not create a new holdout.",
+        "Truncated top100 route fusion, not full-score fusion.",
+        "Text OCR retrieval only; no image encoder or final-answer reader.",
+        "Focusedmix reuses previously paid generation; question hybrid needs no generation."
+      ]
+    }
+  },
+  "hnsw": {
+    "source": "outputs/meeting9_20261109/hnsw/protocol.json",
+    "source_sha256": "b0f2847d7cc04ca26d2ffa4c669b3c93849c2ab0a2154d4f0a7cc68dff76d89a",
+    "record": {
+      "dataset": "FiQA",
+      "n": 628,
+      "corpus": 57638,
+      "dim": 384,
+      "representations": [
+        "question_dense",
+        "short_mix50"
+      ],
+      "encoder": "MiniLM-L6-v2 pinned existing normalized float32 vectors",
+      "metric": "inner product",
+      "M": [
+        16,
+        32
+      ],
+      "efConstruction": 100,
+      "efSearch": [
+        32,
+        64,
+        128
+      ],
+      "k": 10,
+      "threads": 1,
+      "seed": 20261109,
+      "repeats": 3,
+      "timing": "Warm single-query search only; excludes embedding, disk, network, generation. Shared-machine timings.",
+      "memory": "Serialized index bytes including vectors; not peak RAM.",
+      "scope": "Descriptive offline efficiency; no prompt/model tuning",
+      "environment": {
+        "faiss": "1.15.1",
+        "numpy": "2.5.4",
+        "system": "macOS-26.6-arm64-arm-64bit"
+      },
+      "sources": {
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0000000.npy": "feb751b248d9bc60bb80de66b9dac344db5e49324cb4ee5c625de56823b4635d",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0000512.npy": "c0ab69f358ec7a0c7e6b2c1d71bff9ad9184e42b3a8ff09957215baf4e592560",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0001024.npy": "758b271646c63f5ba9ba30f4a7a4385cb0ab951cb0aa06d3fc16ae09a0c9571e",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0001536.npy": "25dc7b7543d82261c0d7b0d1700007b41dd24abc3e1808c57da1fa9923004c7c",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0002048.npy": "c6947b66648f28cf4e0e485b3ffa47ccdb9dc946a3701057b9f42487a9612e37",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0002560.npy": "80e85ce1c0866b96c3d64b8af2bd8adaa51f71221fb77b529d44d16148497526",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0003072.npy": "f0e064281ee538f28fd08ce4832567bd2f7a3a27ee549f7ca82d103bb4859a78",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0003584.npy": "1ad0c1dc6c22b93cdfd23ffbdcee90d06eb2df1fd680c396749b5aadf13dae72",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0004096.npy": "3dd0898160ca001f5991a713c46b3720a4109692e60eff3c48b87b4326cba5e4",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0004608.npy": "b63bc2b47398bb2cefaa2ac585e49e0c5b9b6525d3ad6a7fbaabde410e63b458",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0005120.npy": "9b010af8ef9c5c8b5ada8464d693ff1154887bf789ae8d93aaeed44379bcd368",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0005632.npy": "977f06d1bb28731800ece11bba8bdea6e7bb0c2f5e9575e6317daee4e23133f9",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0006144.npy": "71ee0f16a7dcb089aec4ef74a7518f2da9a4bc6f6ffc269c60e1e4f2a8948c18",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0006656.npy": "4b1b7b2d163cd2b9a2634d3b8dedc3a356b14ece80fe789250b9f8521d7f7bb0",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0007168.npy": "a4547ec2307226127e7efb258b899cc7ea73761620e27567be69d78c48f5e860",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0007680.npy": "78fc7421754b740899f6e9acdb800054f2038a99a3e97eaf192af4876dd46953",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0008192.npy": "4eb41147422a3054a93206d981b6017dd0d154237dd919328532a9f1c58a1d25",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0008704.npy": "a77525b4bd54e945f3ca5c913979d08b70f5f7627755b216d5ccdb243396800d",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0009216.npy": "58d23fe6f00367e22d18f1f11de0b83bb731c2c0fc1e5f68b341bc31b3fd966e",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0009728.npy": "cd38d20213cb2ff0f650136c7d856085b1449392684e61995c50a098e0ca2dfb",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0010240.npy": "4f32c985222f5981623cb23c6feb93aee4fead6b3791e27a2be09217c3f128a0",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0010752.npy": "11cac85982ac2cf27fbc16d500e83fd366f0d19e532d66d669de9b16f411bdb6",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0011264.npy": "a64bd9b7cd465d34d24bc2e134a6e5804cddf9692972a17d34ac8ee84dd38125",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0011776.npy": "46263ea0b3be2041dc3d9470f52bd9395cfc6714f1becbeeca16d8403a359776",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0012288.npy": "437068a2f24805bbf1c65ae25d8e8a57c7f18ddedbe0b4007ceac770147495b3",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0012800.npy": "72ebf4e2ed8dd517910780c0668cca2c1ceb4a6d0acd358feaa32bc28fea80e2",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0013312.npy": "f83c3f87d81348a5d15c06b67924f8a4dc11b79abcf63df9bb72fe539e9ab091",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0013824.npy": "02286896b70c6d65ea7f9e8c68d4bc92fa5a96375857b01ce8c9f82a5e952fd7",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0014336.npy": "dc7fca47e023039a2b4604b10a57a309cf8aeea7c8c9bb5b2300b0d8f7d2f055",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0014848.npy": "8113e65d3a31870bad1c7cd79804860e3552014b002864daf7769db889e593b3",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0015360.npy": "e6abc58af06dee77fd27a679cf228c9f5feddc9a4dc4732310e2467b5147ab25",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0015872.npy": "dd4505566780d11373575001d9adbbb59e4e82e491396cbd8b8dc3a3b84044a8",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0016384.npy": "e8926526e037eb793394501bc1678132264902d323cc967e08d3d5afeea2e67a",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0016896.npy": "77b336af4cc123037849ef40f0b1e96864559e6151a89ff0fe888c8d2a0fb4a7",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0017408.npy": "1bc23278d2ddd3f1f83afffbf5ac6ece1982ab07253986093604049fd6c26487",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0017920.npy": "61c3f6030de7fd186415c2bfebc92c8f83e9e4926eb80df39e65f8cef3182a6b",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0018432.npy": "b51c3cd8db840ba5d43547082a2d2d39d7346ba32dc13e4304d76a76ab97473a",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0018944.npy": "71de91c1053fd6d6b7645c9fe464d03ca8c61fbc5d551dbc0ae475eeac7473a1",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0019456.npy": "00836eb892091de7ddf5a616d3eca220dc6a4e3566f8404aca4aecb326f8efbb",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0019968.npy": "b6c1543391bb5cf986fca6ce796e9cb3999a7747bff85f7f62d45e74b4e145c6",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0020480.npy": "242c83c07ddae0ba1cb41cb17663224df3f328706cbc915d9a9bc2e173632906",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0020992.npy": "b13732c3860d7ffb7d6d19714a216d2dd648c361cb1b8e308d8578a7383a4fab",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0021504.npy": "6ef6a29df81647076e20153cb0d7d5f5054c121f99a6b4a8db10d44c77c60c8a",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0022016.npy": "e9abdf54d297d0f47c259d6e7e5f963885fec7b23f3a1c180ef97bbe0675f26e",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0022528.npy": "903c2f97782ddc715f1a431c54b696f248ada8ccac3cde3477110c28c95b313f",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0023040.npy": "0497bef6b60e2553b21b6643bbcdd100c7cada47598f24cc8e14975620e68393",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0023552.npy": "026413527b35a65d6ea190f5bcdaf709aa5006b8fd9077d23333e92712ebd9b1",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0024064.npy": "48873d25982cf0f50f79a8535dce074105545b345c7704ccf148afb943611e0a",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0024576.npy": "f5fcb974d177620ffef15aceae4799cc18dcb748ace14a4e346651ab70670f24",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0025088.npy": "806bfc1c12e8fa84592c72c24e93a07d6acca6fad241668d9c4615dd5e5b84a7",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0025600.npy": "ce2aef0f1a0840b558cf488d8619d0fe4ccadec78ce02067923d99d3350c056b",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0026112.npy": "108467cabd125c239fedf3c27c71cecff7a42e4dd42744eba5541e57fdfdef7b",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0026624.npy": "153e82bf652d1b60320b5c03fbc1dabbfdf4fd2f90f42c5443fba396000b1f8b",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0027136.npy": "262fdb7c6e00be0fc30b2e009941a726d13edf59844651944536d52f0907a43d",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0027648.npy": "19a44b90410d284dd47b29b37ce038849e76de307579d4d89f677820bdfbdc2d",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0028160.npy": "13c36dcded79b7c5b4881abbf6a06503f88d7561ff17f2401d0511d0fca19051",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0028672.npy": "3f69c68e416c2d64f174b97c26ec86742c86a8be294fa8798fa77248b38b0b8c",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0029184.npy": "bfa508262b0018bf03def16b1cbda2e5425bbfa24c138103af10ab3b50fef16d",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0029696.npy": "20f0384a7aed0ad3ef6a8b12c384bc8f5f82063e726910734ce321f814863a89",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0030208.npy": "f070adbd048706afc7f673345955d4c5f650cf064ef6b153c308d3f8bb2a583f",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0030720.npy": "0fd7600a2f56b7728ad40a1ca90ed05fae55d79de11a9251a285718718d7e905",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0031232.npy": "3c9c8b93da7ecf473fa198fe076c149997a11a273faf2801b7b480d7c0fcaba4",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0031744.npy": "dbb52917a8a59dcc3a1d86f636509b18abc8f2ecd3d7ae44a5bef69158377d70",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0032256.npy": "d065344cd55c471b5731d2688864e7b082970e9083e4d92bb3a4dddf7f308146",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0032768.npy": "ff27f0179e88bc7310f3ee6fb2a2f82603c79c66aa5d1b476ab6d15a21395d09",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0033280.npy": "58eade3b756e9d1bfd9fe32f2ed49771a9158c708ad3c5fadba890952ecbc780",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0033792.npy": "cd8862baa1b424a32c64ca243db6e37cad8efd3f9a152fde4f0c9c433ce3ce6e",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0034304.npy": "4273ea2a2926b4ee047f1b81103d5a02180b35d984fd7f9968758df17e90f1ec",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0034816.npy": "431f9448e939234b90a1b9c41c142d84d9aa615efae6cd00f4fd07805c7c82e6",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0035328.npy": "182ac7ad94f195fa2d89ba8e6436060adb0ec9ef30917e43ae66a42f0fce46b9",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0035840.npy": "d54c8d1524fc75ab71e54844ef01efb495a43a7be5f0131ba90aac37f93dd5fe",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0036352.npy": "7e629d5bcae5a65e7fd5d7f5999919b44101eaf13ca25ea5b076b9738edebd76",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0036864.npy": "74a1b6ad8bec77cecb0bdb3e7b42f5abb383108f2c2666fb61c21d1a10879e5f",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0037376.npy": "75a1b3849b45eddcf69cd350dff89f6c21ccce2deba21cf9e99d7961f90a2ee3",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0037888.npy": "875d2d98f61eeb4fbb01b9617fe1938489ae8a2aa80921efe6e3240151962b01",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0038400.npy": "352b155ad2d014f48944786d6477701955cde32382816eed5bfde9e2e16ec0bb",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0038912.npy": "cd88c6d3c0f44e02a4219702b20c8a42e06b5cb6a933642ebb1096cc0cbf2a10",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0039424.npy": "df7912184e9f87d14a6ab936be40c095a39f3bb6b896ac3dbe7bc49618895bc7",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0039936.npy": "449446525a4b8aa4a1dc20cb3048d9f0c04a6fec93393e084b66ca10991f514f",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0040448.npy": "e28d5050bd460fd2d725fb41463ca61024498d2790c0a3bed9a7c8e404ae3433",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0040960.npy": "ecaacfa05bc236ccd5c0b905ca0ffb0a6a79c3a8ad90d8cfe151e255db8bab6b",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0041472.npy": "64e6b90cbd027dc36e1827c14c180a60cfce94b6026fcc2beb679869fe95413b",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0041984.npy": "f5072621cffc63ff9cb71f25a3e7010d68edc0746292120a41a47b29de961d63",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0042496.npy": "1de2aad391f8e828175b346bb213c5b1d1a3bb6be8eaa09ac830cad32508d69b",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0043008.npy": "7d3c83b019e29a449f3c20d3bb677c14b87149ba343dfd01aa0ebad20d3152c5",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0043520.npy": "7480d9062d4d7c6f151290083aab8e5833161a81b5dd2dec8d17325dea37c7cf",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0044032.npy": "5195b12d32c85aca6292d8e2f84908ca8dedaa48820582e8bf44af80bffbcdc3",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0044544.npy": "d5e3a90096ed397587ec436ff596c5935c46d39566a6c61314b6782e066cf7e7",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0045056.npy": "4810ca5de962c162a92cf82df0f7660b73250183c5c0d1c10ba9f590985e878b",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0045568.npy": "6c2275ce1b3e499fe360e95f147f3d2a33eb89321f027e7bd33fdd6281301ad9",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0046080.npy": "76bf1826501fc934e574de99e2d1ad23f89de8cc3fe4ba8d9c4bb1209c2bd81f",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0046592.npy": "02c8864d5399ea568af31190b9874d688bec9f7307e1488857952e9b70e04ee0",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0047104.npy": "6ab6fba4c6940264cf715b44e7c31776ed455b25a055086d793e0bec75605e9f",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0047616.npy": "436489950e6f3a45e430686e494bed5131adcee16dbeece5d1e42228e07262ef",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0048128.npy": "a9ac55f61ca8dfe6097adffc92b046144e022acc9251180bb2224742b904cd7f",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0048640.npy": "a53b333a4e18f7689067e8b283109a704e8dde857f13ccba978e5d24737c93bc",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0049152.npy": "dc4d4357069f46aaabd936b50aaad2b878b01a5407e0a981d1c83b6c9a64a5ab",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0049664.npy": "686109870684c1bba218864ccf9e65f9e2eb951e051d54a050da1b41c6be7642",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0050176.npy": "00dafae6077bcdb6ad247833701b64645013fde5ec9b40d3dc6e9fd3e20d04be",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0050688.npy": "0ddd6855f94433ea33bd7117ea0cb05133f0f9d14c9ea60c9eae112eb16587b5",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0051200.npy": "96023a40f0c10a5c25bbd4c204f7f69f82caa39e3fa3eed639557aad4a2ef037",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0051712.npy": "bf46f68029507614c22c6adae05380a2ec2506ee2834f191c462f90e7a504cdb",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0052224.npy": "41c55a4c9e0497c5bbd9f894371a5208ecafef14c2622e1d27a3b8fd3f034da5",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0052736.npy": "02ac2bb74e66e1bffab70895e29a7e4a854cac7221a1f2f7a2a1772d719c85b1",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0053248.npy": "20d2e9d8fb9deb002a112b686c88188504844cea0f159cccf40000e365ed08bb",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0053760.npy": "c3bf418300fce00b38bd86708959b6af5c02db82d9a37ce52366fcbffe4957e4",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0054272.npy": "bdf71b63dfa150523c771e455297b4c2e948d0b063bf801fd7a4d0a7a3876745",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0054784.npy": "df3db37ece3cdfc4bcaf5c8fca46133f55d081ec38f1f5febbd21fb5e29e70fb",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0055296.npy": "09311875fea6c337d0d79f92fab225c73d8c910d18525df94acf7ae49ccabdf5",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0055808.npy": "dc0a1b3e180859d8e4baecdcfb641ca2d8951cd14317b7920c19d5d53795fc6d",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0056320.npy": "87a89f3fd6d7bd2630cbb62854fc2283c58bffed752a6da1bfeec8ed94afe4e8",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0056832.npy": "da6752fc5a4e3723e81e2625049de31234d912375f6f01061fd733080733d79a",
+        "data/external_benchmarks/pilot_cache_v1/fiqa_corpus/0057344.npy": "17dfed3d5ac69fa7c4a412e64c5e80ab66bfe51de6a0725b988359a3d767dbe8",
+        "results/person3_fiqa_validation/frozen628_v1/selection.json": "257e04e9241c3a24099db1ea49370f58f35afe9a075a3e24182092f964ac9c95",
+        "results/person3_cross_dataset/gpt54_focused160_v1/fiqa_query_embeddings.npz": "df20760d72da837e51d9f060090585fa5b70999441632a49dbb5661235b2b020"
+      }
+    }
+  },
+  "final_audit": {
+    "source": "outputs/meeting9_followup_20261109/audit/isolation_and_integration_audit.json",
+    "source_sha256": "b90f9c5d170950bbccbadbf7f314381586b76a493fecc4b73e176317a23a230c",
+    "record": {
+      "utc": "2026-11-10T01:52:01.142944+00:00",
+      "audit_script_sha256": "b7dd06d25de4bcaf283196b0399980aeb9fda1453b37a5c66a493e86d50445f4",
+      "engineering_checks_passed": true,
+      "all_requirements_met": false,
+      "scientific_answer_measurement_accepted": false,
+      "strict_q178_repair_acceptance_passed": false,
+      "audit_api_calls": 0,
+      "new_encoder_calls": 0,
+      "old_audit_or_profile_repeated": false,
+      "repair": {
+        "engineering_checks_passed": true,
+        "isolated_prompt_reconstructions": 80,
+        "unique_paid_judges": 66,
+        "new_reader_calls": 0,
+        "new_embeddings": 0,
+        "strict_q178_repair_acceptance_passed": false,
+        "q178_checks": [
+          {
+            "method": "question_bank_rrf_w050",
+            "guarded_CVGT": [
+              2.0,
+              2.0,
+              2.0,
+              2.0
+            ],
+            "raw_CVGT": [
+              2.0,
+              2.0,
+              2.0,
+              2.0
+            ],
+            "answer_status": "answer",
+            "judge_key": "07443f93ecfeefbadaec8e7f74ce696c6a019e4212fe3fd7f61b32501d0a5e35",
+            "reason": "Candidate correctly states the excerpts lack the requested 2024 percentages, so no sum can be established.",
+            "explanatory_8percent_in_own_P2214_prefix": true,
+            "accepted": false
+          },
+          {
+            "method": "focusedmix_bank_rrf_w050",
+            "guarded_CVGT": [
+              2.0,
+              2.0,
+              2.0,
+              2.0
+            ],
+            "raw_CVGT": [
+              2.0,
+              2.0,
+              2.0,
+              2.0
+            ],
+            "answer_status": "answer",
+            "judge_key": "07443f93ecfeefbadaec8e7f74ce696c6a019e4212fe3fd7f61b32501d0a5e35",
+            "reason": "Candidate correctly states the excerpts lack the requested 2024 percentages, so no sum can be established.",
+            "explanatory_8percent_in_own_P2214_prefix": true,
+            "accepted": false
+          }
+        ],
+        "no_context_guarded_0_0_2_0_cases": 20,
+        "raw_guard_changes": 0,
+        "quote_mechanical_failure_rows": 8,
+        "human_reviewed": 0,
+        "actual_isolated_judge_cost_usd": 0.3674825,
+        "cumulative_estimate_usd": 4.570655,
+        "raw_scores_preserved_and_every_guard_recomputed": true,
+        "pure_abstention_SHA_cases": 20,
+        "other_AI_abstention_did_not_receive_G_upgrade": true,
+        "pinned_pre_result_hashes_verified": {
+          "protocol.json": "38325fe5d191b3fbc4d8eb91ffd709c4ab6e51e9fb4b8cacd026f664f7fa4efc",
+          "pure_abstention_cases.json": "a2e3f8a1aa03422792717353abe8764f0ce7aaca103d308407cdc8971ab39d83",
+          "judge_calls.jsonl": "5e698ee37921ce74e969a1b240f4fc128b7647542c08e22cb8858e71da42b8c8",
+          "implementation_hashes.json": "9c185a40286a73f3ea10b053f84ffc164fe1c9d20a945320092c40e4034becb1"
+        },
+        "freeze_utc": "2026-11-10T01:44:12.661570+00:00",
+        "inference_limit": "Post-review AI-rater repair, not independent confirmation or semantic/human validation."
+      },
+      "integration": {
+        "static_integration_checks_passed": true,
+        "primary_reader_table_uses_AI_scores": false,
+        "primary_reader_mechanical_rows_independently_recomputed": 80,
+        "primary_reader_metric_is_answer_accuracy": false,
+        "all_requirements_met": false,
+        "task3_reliable_answer_quality_complete": false,
+        "both_AI_raters_rejected_and_human_pending": true,
+        "retrieval_tables_match_previously_independently_audited_inference": true,
+        "cost_table_checked_only_for_copy_consistency": true,
+        "reader_cost_join_independent_audit": "Another agent, not this auditor",
+        "semantic_and_adaptive_inference_caveats_preserved": true,
+        "root_output_hashes_verified": {
+          "README.md": "c6b29a686f72914c18b717972d6f2cc18f8871840824b7dabdbdf0904e928e17",
+          "overview.png": "0d3c5e39831a9b11efac4ce3f870b69c8d4187e8cac3b300100626d4d72d0d57",
+          "overview.pdf": "e57572f99b90fba256346c65a1ba977a11cb4a8f37e8f81646e52369a8d86c6c",
+          "retrieval249_filter_control.csv": "2eb301a82c1414e298a65ac2ad122cf90f8e6d616ba98c508eb511f8505796ce",
+          "retrieval249_complete_test_family.csv": "2f3f660d0ed4c99939486157786a4384f343ffa9b9f1000f477facad79f09f0e",
+          "reader20_mechanical_summary.csv": "d18645eb840ce5fb5386edb19dd0d584a41fe7d207eaca8345b010a455f34990",
+          "reader20_mechanical_per_query.csv": "c9db5bc6dceb519888ef1374d041b2454f907887edd27a8d1d5dd28aa9079fa8",
+          "retrieval249_cost_latency.csv": "3d1a2146806bf7494fa5bd7cd4363eab80732c10df3f136cd4650af7f2565e06",
+          "reader20_cost_latency.csv": "15f58ad3e9f7d42ce822faef64cdc5b7a3a4d17b3798c2b6201d8b19aaaccdac",
+          "reader20_quality_cost_latency_per_query.csv": "7832be3e409574b216c13aeaaea700fd5634bac499dffe0a188ac625c893edf7",
+          "api_budget.json": "d52dd1763d341ec4594cbbb745f6c766f89928bb8a72883d27ee8d1981b24ef6",
+          "historical_preservation.json": "ad8e91999008dcc8b03196e21e863cdae20c9470533c22a2c1c910ad71fc365a"
+        },
+        "overview_visual_review": {
+          "reviewed": true,
+          "sha256": "0d3c5e39831a9b11efac4ce3f870b69c8d4187e8cac3b300100626d4d72d0d57",
+          "result": "All visible labels match retained tables; right panel is 15/15/15/0 relevant-page-prefix counts, explicitly not evidence sufficiency; no AI accuracy panel or clipping."
+        }
+      },
+      "v1_high_failures_preserved": true,
+      "semantic_human_validation_status": "Not established; human review pending",
+      "high_severity_finding": "Frozen strict q178 repair acceptance failed. Preserve raw results and refer to human; do not revise prompts until passing."
+    }
+  },
+  "cost_audit": {
+    "source": "outputs/meeting9_followup_20261109/cost_audit/audit_summary.json",
+    "source_sha256": "fca24c47a28da9bf2f0a2b219a0d3756ac7cf020603b2056b1b91252d3576a16",
+    "record": {
+      "passed": true,
+      "audit_scope": "Independent source/usage/quality/arithmetic/reduction audit; no timing/model rerun",
+      "api_calls": 0,
+      "encoder_calls": 0,
+      "successful_call_records_reconciled": 778,
+      "quality_rows_reconciled": 927,
+      "retrieval_raw_rows": 2781,
+      "encoding_raw_rows": 1854,
+      "rebuilt_table_rows": 6,
+      "stage_summary_rows_verified": 36,
+      "generation_summary_rows_verified": 12,
+      "per_query_median_then_addition_then_quantiles_verified": true,
+      "original_cost_usage_and_concurrency_verified": true,
+      "quality_exact_source_verified": true,
+      "modeled_vs_measured_labels_verified": true,
+      "producer_files_unchanged": true,
+      "successful_call_cost_usd": 1.218915,
+      "timeout_reserve_usd": 0.018135,
+      "historical_cumulative_estimate_usd": 3.6595524999999998,
+      "reader_costs_excluded_from_component": true,
+      "notes": [
+        "encoding_summary.csv intentionally summarizes raw repeats (927 observations per kind), not the309 query-median distribution; use the main table/per-query profile for cohort latency.",
+        "There are96 missing-concurrency initial60 records and256 across all778 successful records including160 ablation calls; missing remains unknown.",
+        "Modeled uncached durations are per-query stage sums plus historical API duration, not measured E2E; quantiles are taken after summing.",
+        "Current model-content hashes match the producer record. Historical before/after metadata equality is supported by producer assertions; the old metadata snapshot was not retained for independent reconstruction.",
+        "No rerun was performed: clock validity, per-trial rank assertions and fresh encoder outputs are inspected via retained raw data/code, not independently reprofiled.",
+        "Sparse CSR/vocabulary byte totals remain producer measurements; dense file sizes and retained historical encoding duration were independently checked."
+      ],
+      "audit_code_sha256": "113908f610e18249ca0b9216b61200fa6fa50ee866db708f6a6bc05b81d9eed8"
+    }
+  },
+  "reader_cost_audit": {
+    "source": "outputs/meeting9_followup_20261109/integration_cost_audit/audit_summary.json",
+    "source_sha256": "b7bbe8692811ac807f73d82d887516170afee03ad4c0610fd4f1eadbfd66924e",
+    "record": {
+      "passed": true,
+      "api_calls": 0,
+      "profiling_runs": 0,
+      "cost_source_rows_checked": 927,
+      "reader_logical_answers": 80,
+      "unique_paid_reader_calls": 66,
+      "reader_queries": 20,
+      "reader_cohort_composition": {
+        "remaining249": 16,
+        "initial60": 4
+      },
+      "unique_reader_cost_estimate_usd": 0.2915475,
+      "logical_standalone_reader_cost_sum_usd": 0.3770525,
+      "integrated_comparison": {
+        "complete": true,
+        "passed": true,
+        "per_query_rows": 80,
+        "summary_rows": 4,
+        "input_hashes": {
+          "reader20_quality_cost_latency_per_query.csv": "7832be3e409574b216c13aeaaea700fd5634bac499dffe0a188ac625c893edf7",
+          "reader20_cost_latency.csv": "15f58ad3e9f7d42ce822faef64cdc5b7a3a4d17b3798c2b6201d8b19aaaccdac",
+          "reader20_cost_accounting.json": "c696edf1ecd6b65069d25081df0fd9866899cb0567b86251705a5958ef85273b"
+        }
+      },
+      "original_inputs_unchanged": true,
+      "source_hashes": {
+        "person3_meeting9_followup/build_report.py": "109751f026228c9994d65ed59633dfcd7ff5bad614714e1298eb9636fa100d6d",
+        "results/person3_meeting9_followup/evidence_v1/successful_api_outputs.json": "534b94a9623f6347ba6fdf3e7301c8f7888ac2b2387fbdd795db5d3f7404a1cc",
+        "results/person3_meeting9_followup/evidence_v1/reader_calls.jsonl": "0e354526c90ccc47e9c820dee08c8ae7ccf8d8a45b52c2bbc5746f32aa5e301b",
+        "results/person3_meeting9_followup/evidence_v1/selection.json": "d4010527d94b1ea85a10ba8ce1b813b6a974f9b4ff3aadb4b88ad5392fc891a9",
+        "results/person3_meeting9_followup/evidence_v1/api_checkpoint.sqlite": "d4b672dec2736622365a36165750e6d4245aa25c02a171fc5bb5a59cee8083ae",
+        "results/person3_meeting9_followup/costs_v1/per_query_quality_cost_latency.csv": "9d710bd4f36fffffb58d9414bd5239b89d807cc1416f10f5d0caa3b0f6cee97d",
+        "results/person3_meeting9_followup/costs_v1/retrieval_raw.csv": "c632d1fa98e21e9f5800caa96703dac877cf633f9bebe74c01c5c3b05aff89cf",
+        "results/person3_meeting9_followup/costs_v1/encoding_raw.csv": "c018a482f82f98c5d03f656055d2978b09ff62af57f0245d64c4d23017814081",
+        "results/person3_meeting9_followup/costs_v1/per_call.csv": "dbd249724d8c7ff1140d1747a17054a49d5ee64e83f716a31416b4a18ad1cb59",
+        "results/person3_meeting9_followup/costs_v1/protocol.json": "0a838f1381c9499271a5756f3e1a763002d1304c0fdff3e99a217b8b0249b2fc",
+        "results/person3_meeting9_transfer/vidore_finance_v1/successful_api_outputs.json": "2ee2e6e695c1afaa356d1211623d512b362b92250061da2d0bd880dad46d730e",
+        "results/person3_meeting9_transfer/vidore_finance_remaining249_v1/successful_api_outputs.json": "a3dfaae9f6e14032fe8250cfc1afa4ed0e902ff6db99329fa35ebaac60fb1583"
+      },
+      "audit_code_sha256": "0d0f14fabc2bce5b5ecee14f190b067e24ff0ec8738f1454827951c395f32521",
+      "limitations": [
+        "Same retained experiment prices 2.50/M input,15/M output; not current price or billing statement.",
+        "Standalone logical means must not be summed as experiment bills; 14 pairs shared a paid reader call.",
+        "Modeled latency sums each query historical generation, separate warm local median stages and reader duration before quantiles; not measured E2E.",
+        "Reader20 spans 4 initial60 and16 remaining249; these means are reader20-specific, not retrieval249 means.",
+        "Judge evaluation overhead excluded; historical Focused generation reused in deployment estimates, not charged anew to this experiment."
+      ]
+    }
+  }
+}

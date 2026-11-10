@@ -1,0 +1,36 @@
+{
+  "historical_prior_usd": 2.4225025,
+  "parts": [
+    {
+      "stage": "prior Meeting9 workflow",
+      "cost_plus_reserves_usd": 1.23705,
+      "states": {
+        "saved": 778,
+        "unknown_reserved_acknowledged": 4
+      }
+    },
+    {
+      "stage": "reader plus rejected joint-rater v1",
+      "cost_plus_reserves_usd": 0.54362,
+      "states": {
+        "saved": 86
+      }
+    },
+    {
+      "stage": "isolated judge repair v2",
+      "cost_plus_reserves_usd": 0.3674825,
+      "states": {
+        "saved": 66
+      }
+    }
+  ],
+  "cumulative_estimate_including_reserves_usd": 4.570655,
+  "guard_usd": 7,
+  "this_round_usd": 0.9111024999999999,
+  "cached_discount_ignored": true,
+  "billing_statement": false,
+  "prices_per_million": {
+    "input": 2.5,
+    "output": 15
+  }
+}

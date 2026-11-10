@@ -1,0 +1,5 @@
+method,n,relevant_page_prefix_present,reader_has_page_citation,all_cited_ids_in_own_delivered_context,starts_insufficient_evidence
+bm25,20,15,20,20,0
+question_bank_rrf_w050,20,15,20,20,2
+focusedmix_bank_rrf_w050,20,15,20,20,1
+no_context,20,0,0,0,20

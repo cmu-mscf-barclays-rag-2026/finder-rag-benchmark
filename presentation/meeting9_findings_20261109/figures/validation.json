@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "paired_questions": 249,
+  "fixed_family_size": 10,
+  "draws": 100000,
+  "seed": 20261109,
+  "sign_stream_sha256": "eff7be5bc24b505c9b7fdae951a43ea8ff8ad398426f8db833e9454675705ce0",
+  "reader_accuracy_claim": false,
+  "api_calls": 0,
+  "encoder_calls": 0
+}

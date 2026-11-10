@@ -1,0 +1,13 @@
+dataset,route,effect,candidate,control,metric,k,n,candidate_mean,control_mean,delta,wins,losses,ties,test,p_raw,p_holm12
+legal,mix_dense,length_without_constraints,short_base,long_base,hit,5,20,0.5,0.45,0.05,2,1,17,exact_McNemar,1.0,1.0
+legal,mix_dense,length_with_constraints,short_constraints,long_constraints,hit,5,20,0.4,0.35,0.05,2,1,17,exact_McNemar,1.0,1.0
+legal,mix_dense,constraints_at_short_length,short_constraints,short_base,hit,5,20,0.4,0.5,-0.1,0,2,18,exact_McNemar,0.5,1.0
+legal,mix_dense,constraints_at_long_length,long_constraints,long_base,hit,5,20,0.35,0.45,-0.1,0,2,18,exact_McNemar,0.5,1.0
+legal,mix_dense,average_length_effect,short_average,long_average,hit,5,20,0.45,0.4,0.05,3,1,16,exact_sign_flip,0.75,1.0
+legal,mix_dense,average_constraint_effect,constraints_average,base_average,hit,5,20,0.375,0.475,-0.1,0,3,17,exact_sign_flip,0.25,1.0
+fiqa,mix_dense,length_without_constraints,short_base,long_base,ndcg,10,20,0.46190540493062215,0.3976376828445406,0.06426772208608159,7,4,9,exact_sign_flip,0.0908203125,0.9990234375
+fiqa,mix_dense,length_with_constraints,short_constraints,long_constraints,ndcg,10,20,0.4208515641933047,0.4088127672775476,0.012038796915757068,8,4,8,exact_sign_flip,0.70361328125,1.0
+fiqa,mix_dense,constraints_at_short_length,short_constraints,short_base,ndcg,10,20,0.4208515641933047,0.46190540493062215,-0.04105384073731748,3,7,10,exact_sign_flip,0.3203125,1.0
+fiqa,mix_dense,constraints_at_long_length,long_constraints,long_base,ndcg,10,20,0.4088127672775476,0.3976376828445406,0.01117508443300701,7,6,7,exact_sign_flip,0.797607421875,1.0
+fiqa,mix_dense,average_length_effect,short_average,long_average,ndcg,10,20,0.44137848456196344,0.40322522506104413,0.038153259500919315,10,4,6,exact_sign_flip,0.0802001953125,0.96240234375
+fiqa,mix_dense,average_constraint_effect,constraints_average,base_average,ndcg,10,20,0.4148321657354262,0.42977154388758143,-0.014939378152155241,5,9,6,exact_sign_flip,0.54296875,1.0
