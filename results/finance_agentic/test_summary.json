@@ -1,0 +1,18 @@
+{
+  "split": "test",
+  "model": "gpt-4o-mini",
+  "designs": [
+    "follow_up_mixed"
+  ],
+  "first_search": "one-step graph",
+  "thresholds": {
+    "finqa": 1.5906930949068823,
+    "financebench": 1.9324437224997673
+  },
+  "new_llm_calls_this_run": 74,
+  "new_usage_this_run": {
+    "prompt_tokens": 30373,
+    "completion_tokens": 976
+  },
+  "new_cost_usd_this_run": 0.00514155
+}

@@ -1,0 +1,16 @@
+{
+  "reformulator": "follow_up",
+  "combine": "mixed",
+  "pooled_dev_always_ndcg@10": {
+    "keywords_mixed": 0.6401529435515264,
+    "keywords_rrf": 0.6505209859443759,
+    "follow_up_mixed": 0.6662304283294349,
+    "follow_up_rrf": 0.6640743534967671
+  },
+  "pooled_dev_single_pass_ndcg@10": 0.6625162178417863,
+  "thresholds": {
+    "finqa": 1.5906930949068823,
+    "financebench": 1.9324437224997673
+  },
+  "rule": "highest pooled development always-retry nDCG@10; thresholds = median dev peakedness"
+}

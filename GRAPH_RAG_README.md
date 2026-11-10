@@ -567,6 +567,181 @@ Length-normalized mention weights could be a promising fix for FiQA. They
 would be tuned on its 500-query validation split, without touching its test
 set; this is not done yet.
 
+## MTEB financial retrieval: cross-dataset analysis and selective agentic search
+
+These are this branch's own experiments (Yuchen). They use MTEB's two
+financial retrieval sets, each with one gold passage per question:
+
+- **FinQARetrieval** (`mteb/FinQARetrieval`): 380 earnings-report passages
+  (median 657 words), 1,138 questions, about 3 questions per gold passage.
+- **FinanceBenchRetrieval** (`mteb/FinanceBenchRetrieval`): 145 10-K pages,
+  mostly tables (median 193 words), 150 questions.
+
+Neither ships a development split. Following the team Legal RAG rule
+([`finance_data.py`](finance_data.py)), questions are grouped by gold passage,
+the groups are shuffled with seed 42, and development is filled to 20%: 229
+development and 909 test questions for FinQA, 30 and 120 for FinanceBench.
+Every choice below was made on development; test results are reported.
+Paired intervals resample gold-passage groups (10,000 resamples).
+
+### Retrieval
+
+| Test nDCG@10 (Recall@1) | FinQA (909) | FinanceBench (120) | Mean ms (FinQA / FinanceBench) |
+|---|---:|---:|---:|
+| Improved graph (walk) | 0.708 (0.528) | 0.405 (0.233) | 46 / 113 |
+| **Improved graph, one step** | 0.725 (0.556) | 0.488 (0.325) | 12 / 8 |
+| Original graph | 0.598 (0.405) | 0.380 (0.108) | 54 / 149 |
+| *BM25 (team code)* | **0.759** (0.597) | 0.349 (0.175) | 0.6 / 0.2 |
+| *Dense MiniLM (team model)* | 0.374 (0.253) | **0.547** (0.342) | 5 / 6 |
+
+- **The improved graph beats the original on FinQA** (+0.110 nDCG@10,
+  interval [+0.091, +0.130]). On FinanceBench the two are within noise
+  (+0.025, [-0.023, +0.074]).
+- **Against BM25 it splits.** The graph trails on FinQA (-0.051,
+  [-0.072, -0.029]) and leads on FinanceBench (+0.056, [+0.001, +0.111]).
+- **Propagation hurts on financial text.** The one-step graph beats the full
+  walk on both sets: +0.017 on FinQA ([+0.009, +0.027]) and +0.083 on
+  FinanceBench ([+0.054, +0.115], 40 wins and 3 losses), at a quarter of the
+  latency or less. Development showed the same, so the agentic search below
+  starts from the one-step graph.
+- **Dense retrieval depends on passage length.** It is best on FinanceBench
+  and worst on FinQA, plausibly because FinQA passages (median 657 words) far
+  exceed MiniLM's 256-token input.
+
+### Across datasets
+
+Test nDCG@10 for every corpus the graph has been run on. Legal RAG Bench uses
+the team protocol above; its BM25 and dense rows are Florence's legal_rag
+runs.
+
+| | Legal RAG Bench | FiQA | FinQA | FinanceBench |
+|---|---:|---:|---:|---:|
+| Test questions | 80 | 648 | 909 | 120 |
+| Improved graph (walk) | **0.331** | 0.132 | 0.708 | 0.405 |
+| Improved graph, one step | 0.318 | 0.161 | 0.725 | 0.488 |
+| Original graph | 0.157 | 0.116 | 0.598 | 0.380 |
+| *BM25* | 0.288 | 0.234 | **0.759** | 0.349 |
+| *Dense MiniLM* | 0.246 | **0.369** | 0.374 | **0.547** |
+| Passages / median words | 4,876 / 209 | 57,638 / 90 | 380 / 657 | 145 / 193 |
+| Passage-length variation (CV) | 0.55 | 0.97 | 0.36 | 0.79 |
+| Document structure | headings, section IDs | none | none | none (tables) |
+
+- **The improvements hold everywhere.** The improved graph beats the
+  original graph on all four corpora. Paired intervals exclude zero on FiQA
+  and FinQA (nDCG@10) and on Legal RAG Bench (Hit@5), but not on
+  FinanceBench.
+- **Propagation pays off only with document structure.** The walk beats the
+  one-step graph only on Legal RAG Bench, whose headings and section tree give
+  it meaningful edges. On the three unstructured financial corpora, the
+  one-step graph is better and much cheaper.
+- **The graph is not a general substitute for BM25 or dense retrieval.** It
+  beats BM25 on the legal corpus and on table-heavy FinanceBench, and trails
+  it on FiQA and FinQA. Dense retrieval wins on two of the four.
+
+### Error analysis
+
+From `per_query.csv`, test questions, improved graph:
+
+- **FinQA misses are near misses.** 53% of questions have the gold first,
+  37% at ranks 2-10, 10% at ranks 11-100, and none lower. On a miss, the
+  top passage covers as many question concepts as the gold (0.78 vs 0.77). It
+  is usually the same filing and topic but the wrong year: the gold contains
+  the question's years in 98% of misses, the top passage in only 74%.
+- **FinanceBench misses are vocabulary and length problems.** On a miss, the
+  gold contains only 30% of the question's concepts, because it is mostly
+  tables. The graph's top 10 are much longer than the gold (median 549 vs 200
+  words), the same length bias as on FiQA, and 34% of golds sit at ranks
+  11-100.
+
+### Selective one-retry agentic search (OpenAI)
+
+[`evaluate_finance_agentic.py`](evaluate_finance_agentic.py) wraps the one-step
+graph in the one-retry search of
+[`agentic_graph.py`](agentic_graph.py) and calls the OpenAI API
+(`gpt-4o-mini`, temperature 0) through the cached, call-capped client in
+[`openai_llm.py`](openai_llm.py). The key is read from `.env`.
+
+```text
+one-step graph search  ->  confidence = top score / mean of the top 20
+   ->  confident: return it (no LLM call)
+   ->  otherwise: one LLM reformulation, a second search seeded by
+       50% question + 50% reformulation, and return that ranking
+```
+
+The gate threshold is each set's median confidence over its development
+questions, which needs no labels. Four designs were compared on the pooled
+259 development questions: two reformulators, crossed with returning the
+second search or fusing both searches by reciprocal rank.
+
+- **Keywords:** the existing keyword-expansion prompt.
+- **Follow-up:** the LLM sees the question and the first search's top 3
+  passages, then writes one search query for the passage that answers it.
+
+| Development nDCG@10, always retry | FinQA (229) | FinanceBench (30) | Pooled |
+|---|---:|---:|---:|
+| Single pass | 0.689 | 0.457 | 0.663 |
+| Keywords, second search | 0.667 | 0.433 | 0.640 |
+| Keywords, fused | 0.679 | 0.431 | 0.651 |
+| **Follow-up, second search (selected)** | 0.691 | 0.478 | **0.666** |
+| Follow-up, fused | 0.691 | 0.460 | 0.664 |
+
+Keyword expansion hurts on both sets. To limit API use, the test run uses
+only the selected design, as deployed: the LLM is called only for test
+questions below the threshold.
+
+| Test, gated retry | nDCG@10 | Difference vs single pass | Retried | Tokens per query | USD per 1,000 queries | ~ms per query |
+|---|---:|---:|---:|---:|---:|---:|
+| FinQA | 0.725 -> 0.729 | +0.004 ([-0.000, +0.008]), 36 W / 18 L | 43% | 140 | 0.024 | 12 -> 329 |
+| FinanceBench | 0.488 -> **0.528** | **+0.040 ([+0.014, +0.067])**, 21 W / 6 L | 62% | 261 | 0.043 | 8 -> 438 |
+
+- **The retry helps where questions are verbose.** FinanceBench questions
+  carry long instructions ("Give a response to the question by relying on the
+  details shown in the cash flow statement"). The follow-up condenses them
+  ("3M FY2018 capital expenditure cash flow statement"), and the gated
+  retry gains +0.040 nDCG@10.
+- **FinQA questions are already short and keyword-like.** The follow-up
+  mostly restates them, so the retry changes little (+0.004).
+- **The cost is latency, not money.** At gpt-4o-mini list prices a retry
+  costs about $0.02-0.04 per 1,000 queries, but it adds an LLM call and a
+  second search, raising mean latency from about 10 ms to 330-440 ms. Latency
+  combines the measured step times; the pipeline was not timed end to end.
+- **Gating saves calls at little cost in quality.** It skips the LLM for
+  38-57% of test questions. On development the gated and always-retry
+  versions scored the same on FinQA; on FinanceBench's 30 questions, gating
+  was 0.009 lower.
+
+The whole financial evaluation used 985 cached API calls (261,000 prompt and
+27,000 completion tokens), about $0.06. All outputs are cached, so reruns
+make no new calls.
+
+### What could be tried next
+
+Three refinements follow from the error analysis and could be promising; none
+has been run:
+
+- Year-aware matching for FinQA's wrong-year near misses.
+- Length-normalized mention weights for FinanceBench's length bias.
+- Rule-based removal of instruction text, as a free alternative to the LLM
+  rewrite on verbose questions.
+
+```powershell
+.venv\Scripts\python.exe evaluate_finance_graph.py
+.venv\Scripts\python.exe evaluate_finance_agentic.py --split dev --max-new-calls 560
+.venv\Scripts\python.exe evaluate_finance_agentic.py --split test --max-new-calls 600
+```
+
+The first command needs no API. The agentic runs need `OPENAI_API_KEY` in
+`.env`, but only for prompts not already in
+[`llm_cache.jsonl`](results/finance_agentic/llm_cache.jsonl). Outputs:
+
+- [results/finance_graph/](results/finance_graph/): `metrics.csv` (both
+  splits), `per_query.csv` (with the error-analysis fields),
+  `paired_intervals.csv`, and `summary.json`.
+- [results/finance_agentic/](results/finance_agentic/): `dev_methods.csv`,
+  `dev_budget_curves.csv` (gated vs random vs oracle retry shares),
+  `dev_selection.json`, `test_methods.csv`, `test_paired_intervals.csv`,
+  traces, and summaries with API usage.
+
 ## Previous experiment
 
 The earlier dense-seeded graph remains available as `retrieval_mode="dense_graph"`

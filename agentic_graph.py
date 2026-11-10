@@ -23,10 +23,11 @@ from llm_graph import LLMExpandedGraphRetriever
 from standalone_graph import StandaloneExplanation, StandaloneGraphRetriever, StandaloneResult
 
 
-def peakedness(result: StandaloneResult) -> float:
-    """Top score over the mean of the returned scores (1 = flat, higher = one
-    passage stands out). A standard score-based query-performance predictor."""
-    scores = np.asarray([item.final_score for item in result.explanations])
+def peakedness(result: StandaloneResult, depth: int | None = None) -> float:
+    """Top score over the mean of the top ``depth`` scores (all returned when
+    None; 1 = flat, higher = one passage stands out). A standard score-based
+    query-performance predictor."""
+    scores = np.asarray([item.final_score for item in result.explanations[:depth]])
     return float(scores[0] / scores.mean()) if len(scores) and scores.mean() > 0 else 0.0
 
 
@@ -65,42 +66,74 @@ class AgenticResult:
     reformulation: str | None
 
 
+def rrf_fuse(first: StandaloneResult, second: StandaloneResult, k: int = 60
+               ) -> list[tuple[Document, StandaloneExplanation]]:
+    """Reciprocal-rank fusion of two walks; a passage keeps its second-walk trace."""
+    scores: dict[str, float] = {}
+    items: dict[str, tuple[Document, StandaloneExplanation]] = {}
+    for run in (first, second):
+        for document, item in zip(run.documents, run.explanations):
+            scores[item.node_id] = scores.get(item.node_id, 0.0) + 1 / (k + item.rank)
+            items[item.node_id] = (document, item)
+    return [items[node] for node in sorted(scores, key=lambda node: (-scores[node], node))]
+
+
 class OneRetryGraphRetriever:
-    """Graph search with at most one confidence-gated reformulated retry."""
+    """Graph search with at most one confidence-gated reformulated retry.
+
+    With ``with_evidence`` the reformulator also receives the first search's
+    result (for a follow-up query about what is still missing). ``combine``
+    is ``"mixed"`` (the second walk, seeded by question + reformulation) or
+    ``"rrf"`` (reciprocal-rank fusion of the first and second walks).
+    ``propagate=False`` runs both searches as one concept-to-passage step.
+    """
 
     def __init__(
         self,
         graph: StandaloneGraphRetriever,
-        reformulate: Callable[[str], str],
+        reformulate: Callable[..., str],
         *,
         threshold: float,
         query_weight: float = 0.5,
         depth: int = 20,
+        with_evidence: bool = False,
+        combine: str = "mixed",
+        propagate: bool = True,
     ) -> None:
         if threshold < 0 or depth < 1:
             raise ValueError("threshold must be non-negative and depth positive")
+        if combine not in {"mixed", "rrf"}:
+            raise ValueError("combine must be mixed or rrf")
         self.graph, self.threshold, self.depth = graph, threshold, depth
-        self.reformulate = reformulate
-        self.expanded = LLMExpandedGraphRetriever(graph, reformulate, query_weight=query_weight)
+        self.reformulate, self.with_evidence, self.combine = reformulate, with_evidence, combine
+        self.propagate = propagate
+        self.expanded = LLMExpandedGraphRetriever(graph, lambda q: "", query_weight=query_weight)
 
     def retrieve(self, query: str, *, top_k: int | None = None) -> AgenticResult:
         top_k = self.graph.top_k if top_k is None else top_k
         # Confidence is read from the same depth whatever top_k is requested.
-        first = self.graph.retrieve(query, top_k=max(top_k, self.depth))
-        confidence = peakedness(first) if first.explanations else 0.0
-        result, reformulation = first, None
+        first = self.graph.retrieve(query, propagate=self.propagate, top_k=max(top_k, self.depth))
+        confidence = peakedness(first, self.depth) if first.explanations else 0.0
+        pairs = list(zip(first.documents, first.explanations))
+        links, reformulation = first.query_links, None
         if confidence < self.threshold:
-            reformulation = self.reformulate(query)
-            result = self.graph.retrieve_from_links(
-                self.expanded.seed_links(query, reformulation), top_k=top_k
+            reformulation = (self.reformulate(query, first) if self.with_evidence
+                             else self.reformulate(query))
+            second = self.graph.retrieve_from_links(
+                self.expanded.seed_links(query, reformulation), propagate=self.propagate,
+                top_k=max(top_k, self.depth)
             )
+            links = second.query_links
+            pairs = (rrf_fuse(first, second) if self.combine == "rrf"
+                     else list(zip(second.documents, second.explanations)))
         retried = reformulation is not None
+        pairs = pairs[:top_k]
         return AgenticResult(
-            result.documents[:top_k],
-            [AgenticExplanation(item.rank, item.node_id, retried, confidence, self.threshold,
+            [document for document, _ in pairs],
+            [AgenticExplanation(rank, item.node_id, retried, confidence, self.threshold,
                                 reformulation, item)
-             for item in result.explanations[:top_k]],
-            result.query_links, confidence, retried, reformulation,
+             for rank, (_, item) in enumerate(pairs, start=1)],
+            links, confidence, retried, reformulation,
         )
 
     def invoke(self, query: str) -> list[Document]:

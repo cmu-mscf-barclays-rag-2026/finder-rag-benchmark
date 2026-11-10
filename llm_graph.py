@@ -103,6 +103,36 @@ class OllamaRelevanceScorer:
         return yes_probability(tokens[0].get("top_logprobs", [])) if tokens else 0.0
 
 
+class OpenAIRelevanceScorer:
+    """Score (question, passage) with one constrained OpenAI token and logprobs.
+
+    Needs a chat model that returns logprobs (e.g. gpt-4o-mini, gpt-4.1-mini);
+    reasoning models do not. The key is read from OPENAI_API_KEY.
+    """
+
+    URL = "https://api.openai.com/v1/chat/completions"
+
+    def __init__(self, model: str, api_key: str, timeout: float = 60.0) -> None:
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY is not set")
+        self.model, self.api_key, self.timeout = model, api_key, timeout
+
+    def __call__(self, question: str, document: Document) -> float:
+        body = json.dumps({
+            "model": self.model, "messages": rerank_messages(question, document),
+            "logprobs": True, "top_logprobs": 10,
+            "temperature": 0, "max_completion_tokens": 1,
+        }).encode("utf-8")
+        request = Request(self.URL, data=body, headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {self.api_key}",
+        })
+        with urlopen(request, timeout=self.timeout) as response:
+            payload = json.load(response)
+        content = ((payload.get("choices") or [{}])[0].get("logprobs") or {}).get("content") or []
+        return yes_probability(content[0].get("top_logprobs", [])) if content else 0.0
+
+
 class LLMExpandedGraphRetriever:
     """Seed the standalone graph walk with question + LLM-expansion concepts.
 

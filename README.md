@@ -35,6 +35,10 @@ and dataset downloads need internet access; inference runs on your computer.
 - `evaluate_fiqa_graph.py` - graph vs BM25 and dense on FiQA-2018 (BEIR) passage retrieval.
 - `evaluate_longbench_graph.py` - graph RAG end to end on LongBench v2 with the local LLM.
 - `team_bm25.py` - Florence's BM25, vendored unmodified for the outside benchmarks.
+- `finance_data.py` - MTEB FinQA and FinanceBench retrieval loaders, grouped dev/test split, metrics.
+- `evaluate_finance_graph.py` - graph vs BM25 and dense on the MTEB financial sets, with error analysis.
+- `evaluate_finance_agentic.py` - selective one-retry agentic search with OpenAI (cached, capped calls).
+- `openai_llm.py` - cached, call-capped OpenAI chat client with token and cost accounting.
 
 The benchmark answers are deliberately not indexed. Only FinDER's reference
 passages are searchable, avoiding answer leakage into the retrieval context.
@@ -161,6 +165,11 @@ The results follow the team Legal RAG protocol (`legal_rag/` on
   search is unconfident matches always-retry Recall@5 (0.450) with 42% of the
   LLM calls on held-out, but development does not confirm the gain. Routing
   graph propagation per query has no headroom.
+- **Financial retrieval (MTEB FinQA, FinanceBench):** the one-step graph beats
+  the full walk on both, and beats BM25 on FinanceBench (nDCG@10 0.488 vs
+  0.349) but not on FinQA (0.725 vs 0.759). A gated gpt-4o-mini retry adds
+  +0.040 nDCG@10 on FinanceBench and +0.004 on FinQA, for about $0.02-0.04 per
+  1,000 queries.
 
 The previous dense + graph experiment remains available as `dense_graph`;
 its original results are preserved separately.

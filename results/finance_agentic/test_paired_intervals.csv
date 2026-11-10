@@ -1,0 +1,5 @@
+dataset,comparison,metric,difference,wins,losses,bootstrap_95pct_low,bootstrap_95pct_high
+finqa,gated_follow_up_mixed minus single_pass,ndcg@10,0.00378315854141855,36,18,-6.181368511247332e-05,0.007853047120712203
+finqa,gated_follow_up_mixed minus single_pass,recall@1,0.0022002200220022,6,4,-0.004581901489117984,0.01
+financebench,gated_follow_up_mixed minus single_pass,ndcg@10,0.03987425796872309,21,6,0.013555190450997302,0.06707470841172886
+financebench,gated_follow_up_mixed minus single_pass,recall@1,0.025,5,2,-0.016666666666666666,0.06779661016949153

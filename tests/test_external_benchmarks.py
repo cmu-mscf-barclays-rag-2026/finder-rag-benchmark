@@ -33,3 +33,25 @@ def test_fiqa_metrics_handle_several_relevant_passages():
     assert values["ndcg@10"] == pytest.approx((1 / math.log2(3) + 1 / math.log2(5)) / ideal)
     assert values["mrr@10"] == 0.5
     assert values["recall@10"] == pytest.approx(2 / 3)
+
+
+def test_openai_client_respects_the_call_cap(tmp_path):
+    from openai_llm import BudgetExceeded, CachedOpenAIChat
+
+    llm = CachedOpenAIChat("gpt-4o-mini", tmp_path / "cache.jsonl", max_new_calls=0)
+    with pytest.raises(BudgetExceeded):
+        llm([{"role": "user", "content": "hi"}])
+
+
+def test_finance_split_keeps_gold_groups_together_and_scores_one_gold():
+    from finance_data import FinanceQuestion, metrics as finance_metrics, split_questions
+
+    questions = {f"q{i}": FinanceQuestion(f"q{i}", "text", frozenset({f"p{i // 3}"})) for i in range(30)}
+    dev, test = split_questions(questions)
+    assert dev and test and not dev & test and len(dev) >= 6
+    for group in {q.group for q in questions.values()}:
+        members = {qid for qid, q in questions.items() if q.group == group}
+        assert members <= dev or members <= test
+    values = finance_metrics(["x", "p0"], questions["q0"])
+    assert values["gold_rank"] == 2 and values["recall@1"] == 0.0 and values["mrr@10"] == 0.5
+    assert values["ndcg@10"] == pytest.approx(1 / math.log2(3))

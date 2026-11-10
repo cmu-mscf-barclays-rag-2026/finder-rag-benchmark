@@ -121,6 +121,47 @@ def test_graph_llm_mode_expands_reranks_and_never_constructs_embeddings(monkeypa
     assert sum("search phrases" in text for text in prompts) == 1  # one expansion call
 
 
+def test_openai_scorer_parses_logprobs_and_sends_bearer_key(monkeypatch):
+    import llm_graph
+
+    seen = {}
+    payload = {"choices": [{"logprobs": {"content": [{"top_logprobs": [
+        {"token": "Yes", "logprob": math.log(0.6)}, {"token": "No", "logprob": math.log(0.2)},
+    ]}]}}]}
+
+    class Response:
+        def __enter__(self): return self
+        def __exit__(self, *args): return False
+        def read(self, *args): return json.dumps(payload).encode()
+
+    def fake_urlopen(request, timeout):
+        seen["auth"] = request.get_header("Authorization")
+        seen["body"] = json.loads(request.data)
+        return Response()
+
+    monkeypatch.setattr(llm_graph, "urlopen", fake_urlopen)
+    scorer = llm_graph.OpenAIRelevanceScorer("gpt-4o-mini", "sk-test")
+    score = scorer("q", Document(page_content="p"))
+    assert score == pytest.approx(0.75)
+    assert seen["auth"] == "Bearer sk-test"
+    assert seen["body"]["max_completion_tokens"] == 1 and seen["body"]["logprobs"] is True
+    with pytest.raises(ValueError):
+        llm_graph.OpenAIRelevanceScorer("gpt-4o-mini", "")
+
+
+def test_openai_provider_requires_key_and_validates_setting(monkeypatch):
+    import rag
+
+    monkeypatch.setattr(rag, "load_dotenv", lambda: None)
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    settings = rag.RAGSettings(llm_provider="openai", chat_model="gpt-4o-mini")
+    assert not rag.check_llm(settings).ready
+    monkeypatch.setenv("OPENAI_API_KEY", "sk-test")
+    assert rag.check_llm(settings).ready
+    with pytest.raises(ValueError):
+        rag.RAGSettings(llm_provider="bogus")
+
+
 def test_team_protocol_text_only_documents_split_groups_and_bootstrap():
     from legal_protocol import paired_bootstrap, split_queries
     from legal_data import legal_records_to_documents

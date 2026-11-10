@@ -56,3 +56,20 @@ def test_confidence_signals():
     assert coverage(graph, result) == pytest.approx(1.0)  # top passage mentions both words
     with pytest.raises(ValueError):
         OneRetryGraphRetriever(graph, str, threshold=-1)
+
+
+def test_evidence_reformulation_and_rank_fusion():
+    graph = fixture_graph()
+    seen = []
+
+    def follow_up(question, first):
+        seen.append([item.node_id for item in first.explanations])
+        return "publicity"
+
+    agent = OneRetryGraphRetriever(graph, follow_up, threshold=1e9, with_evidence=True, combine="rrf")
+    result = agent.retrieve("news story")
+    assert result.retried and seen and seen[0][0] == "news"
+    ids = [item.node_id for item in result.explanations]
+    assert ids[0] == "news" and "publicity" in ids  # fusion keeps the first hit and adds the retry's
+    with pytest.raises(ValueError):
+        OneRetryGraphRetriever(graph, str, threshold=1, combine="max")

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from collections import defaultdict
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
@@ -10,6 +11,7 @@ from dataclasses import dataclass, field
 from typing import Any, Iterable, Sequence
 
 from datasets import load_dataset
+from dotenv import load_dotenv
 from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
@@ -17,12 +19,13 @@ from langchain_core.runnables import Runnable
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from graph_rag import InterpretableDocumentGraph, InterpretableGraphRetriever
 from llm_graph import (
     LLMExpandedGraphRetriever, LLMRerankedGraphRetriever, OllamaRelevanceScorer,
-    expansion_chain,
+    OpenAIRelevanceScorer, expansion_chain,
 )
 from standalone_graph import StandaloneGraphRetriever
 
@@ -42,6 +45,7 @@ class RAGSettings:
     top_k: int = 4
     chat_model: str = "llama3.2"
     ollama_base_url: str = "http://localhost:11434"
+    llm_provider: str = "ollama"  # "ollama" (local) or "openai" (OPENAI_API_KEY)
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     embedding_device: str = "cpu"
     retrieval_mode: str = "dense"
@@ -61,6 +65,8 @@ class RAGSettings:
             raise ValueError("top_k must be at least 1")
         if not self.chat_model.strip():
             raise ValueError("chat_model cannot be empty")
+        if self.llm_provider not in {"ollama", "openai"}:
+            raise ValueError("llm_provider must be ollama or openai")
         if not self.ollama_base_url.startswith(("http://", "https://")):
             raise ValueError("ollama_base_url must start with http:// or https://")
         if self.embedding_device not in {"cpu", "cuda", "mps"}:
@@ -128,6 +134,40 @@ def check_ollama(base_url: str, model: str, timeout: float = 3.0) -> OllamaStatu
         message=f"Ollama is ready with `{model}`.",
         installed_models=installed,
     )
+
+
+def openai_api_key() -> str:
+    """OPENAI_API_KEY from the environment, loading .env if present."""
+
+    load_dotenv()
+    return os.getenv("OPENAI_API_KEY", "").strip()
+
+
+def check_llm(settings: "RAGSettings") -> OllamaStatus:
+    """Readiness of the configured chat provider (Ollama server or OpenAI key)."""
+
+    if settings.llm_provider == "ollama":
+        return check_ollama(settings.ollama_base_url, settings.chat_model)
+    if not openai_api_key():
+        return OllamaStatus(
+            ready=False,
+            message="OPENAI_API_KEY is not set. Add it to .env or the environment.",
+        )
+    return OllamaStatus(ready=True, message=f"OpenAI is ready with `{settings.chat_model}`.")
+
+
+def make_chat_llm(settings: "RAGSettings") -> Runnable:
+    if settings.llm_provider == "openai":
+        return ChatOpenAI(model=settings.chat_model, api_key=openai_api_key(), temperature=0)
+    return ChatOllama(
+        model=settings.chat_model, base_url=settings.ollama_base_url, temperature=0
+    )
+
+
+def make_relevance_scorer(settings: "RAGSettings"):
+    if settings.llm_provider == "openai":
+        return OpenAIRelevanceScorer(settings.chat_model, openai_api_key())
+    return OllamaRelevanceScorer(settings.chat_model, settings.ollama_base_url)
 
 
 def load_finder_records(sample_size: int = 300, seed: int = 42) -> list[dict[str, Any]]:
@@ -320,9 +360,9 @@ def build_rag(
     graph_llm) or a vector-based baseline."""
 
     settings = settings or RAGSettings()
-    ollama_status = check_ollama(settings.ollama_base_url, settings.chat_model)
-    if not ollama_status.ready:
-        raise RuntimeError(ollama_status.message)
+    llm_status = check_llm(settings)
+    if not llm_status.ready:
+        raise RuntimeError(llm_status.message)
 
     loaded_records = list(records) if records is not None else load_finder_records(
         settings.sample_size, settings.seed
@@ -332,11 +372,7 @@ def build_rag(
         raise ValueError("No reference passages were found in the selected records.")
     chunks = split_documents(documents, settings.chunk_size, settings.chunk_overlap)
 
-    llm = ChatOllama(
-        model=settings.chat_model,
-        base_url=settings.ollama_base_url,
-        temperature=0,
-    )
+    llm = make_chat_llm(settings)
     stats = {
         "records": len(loaded_records),
         "references": len(documents),
@@ -360,7 +396,7 @@ def build_rag(
         )
         reranker = LLMRerankedGraphRetriever(
             standalone,
-            OllamaRelevanceScorer(settings.chat_model, settings.ollama_base_url),
+            make_relevance_scorer(settings),
             expanded=expanded, pool_depth=settings.llm_rerank_pool,
         )
         return FinDERGraphRAG(reranker, llm), stats

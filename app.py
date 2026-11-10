@@ -7,7 +7,7 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
-from rag import DATASET_URL, RAGSettings, build_rag, check_ollama
+from rag import DATASET_URL, RAGSettings, build_rag, check_llm
 
 
 load_dotenv()
@@ -25,8 +25,8 @@ def cached_rag(settings: RAGSettings):
 
 
 @st.cache_data(ttl=5, show_spinner=False)
-def cached_ollama_status(base_url: str, model: str):
-    return check_ollama(base_url, model)
+def cached_llm_status(settings: RAGSettings):
+    return check_llm(settings)
 
 
 def source_caption(metadata: dict) -> str:
@@ -87,13 +87,28 @@ with st.sidebar:
             "dense_graph": "Dense + graph (previous experiment)",
         }[value],
     )
-    chat_model = st.text_input(
-        "Ollama model", value=os.getenv("OLLAMA_MODEL", "llama3.2")
+    llm_provider = st.selectbox(
+        "LLM provider",
+        options=["ollama", "openai"],
+        format_func=lambda value: {
+            "ollama": "Ollama (local)",
+            "openai": "OpenAI (uses OPENAI_API_KEY)",
+        }[value],
     )
-    ollama_base_url = st.text_input(
-        "Ollama address",
-        value=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
-    )
+    if llm_provider == "openai":
+        chat_model = st.text_input(
+            "OpenAI model", value=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+            help="Must return token logprobs for graph_llm reranking (e.g. gpt-4o-mini, gpt-4.1-mini).",
+        )
+        ollama_base_url = "http://localhost:11434"
+    else:
+        chat_model = st.text_input(
+            "Ollama model", value=os.getenv("OLLAMA_MODEL", "llama3.2")
+        )
+        ollama_base_url = st.text_input(
+            "Ollama address",
+            value=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+        )
     embedding_model = st.text_input(
         "Hugging Face embedding model",
         value=os.getenv(
@@ -130,7 +145,8 @@ with st.sidebar:
 settings = RAGSettings(
     sample_size=sample_size,
     top_k=top_k,
-    chat_model=chat_model.strip() or "llama3.2",
+    chat_model=chat_model.strip() or ("gpt-4o-mini" if llm_provider == "openai" else "llama3.2"),
+    llm_provider=llm_provider,
     ollama_base_url=ollama_base_url.strip() or "http://localhost:11434",
     embedding_model=(
         embedding_model.strip() or "sentence-transformers/all-MiniLM-L6-v2"
@@ -140,15 +156,18 @@ settings = RAGSettings(
     graph_seed_k=graph_seed_k,
 )
 
-ollama_status = cached_ollama_status(settings.ollama_base_url, settings.chat_model)
+ollama_status = cached_llm_status(settings)
 if ollama_status.ready:
     st.sidebar.success(ollama_status.message)
 else:
     st.sidebar.warning(ollama_status.message)
-    st.info(
-        "Ollama must be running with the selected model before chatting. "
-        f"Install Ollama, open it, run `ollama pull {settings.chat_model}`, then reload."
-    )
+    if settings.llm_provider == "openai":
+        st.info("Set OPENAI_API_KEY in .env (or the environment), then reload.")
+    else:
+        st.info(
+            "Ollama must be running with the selected model before chatting. "
+            f"Install Ollama, open it, run `ollama pull {settings.chat_model}`, then reload."
+        )
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

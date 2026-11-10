@@ -1,0 +1,63 @@
+{
+  "datasets": {
+    "finqa": {
+      "dataset": "mteb/FinQARetrieval",
+      "corpus_passages": 380,
+      "questions": 1138,
+      "dev": 229,
+      "test": 909,
+      "questions_per_gold_passage": 2.9947368421052634,
+      "passage_words_median": 656.5,
+      "passage_words_cv": 0.3624677290810528,
+      "graph": {
+        "passage_nodes": 380,
+        "concept_nodes": 10774,
+        "section_nodes": 0,
+        "heading_nodes": 0,
+        "total_nodes": 11154,
+        "incidence_edges": 66146,
+        "heading_only_incidence_edges": 0,
+        "structural_edges": 0,
+        "directed_transition_edges": 132292
+      }
+    },
+    "financebench": {
+      "dataset": "mteb/FinanceBenchRetrieval",
+      "corpus_passages": 145,
+      "questions": 150,
+      "dev": 30,
+      "test": 120,
+      "questions_per_gold_passage": 1.0344827586206897,
+      "passage_words_median": 193,
+      "passage_words_cv": 0.7884746812978246,
+      "graph": {
+        "passage_nodes": 145,
+        "concept_nodes": 3241,
+        "section_nodes": 0,
+        "heading_nodes": 0,
+        "total_nodes": 3386,
+        "incidence_edges": 17602,
+        "heading_only_incidence_edges": 0,
+        "structural_edges": 0,
+        "directed_transition_edges": 35204
+      }
+    }
+  },
+  "split": "questions grouped by gold passage; seed 42; 20% development",
+  "bm25": "team_bm25.py (Florence, ce54a01), k1=0.9, b=0.4",
+  "dense": "sentence-transformers/all-MiniLM-L6-v2",
+  "graph_settings": {
+    "restart_probability": 0.35,
+    "structural_mass": 0.15,
+    "title_weight": 2.0,
+    "max_term_df_fraction": 0.75,
+    "tolerance": 1e-09,
+    "max_iterations": 100,
+    "heading_words": true,
+    "structure": "headings",
+    "query_links": "volume",
+    "word_forms": "plural",
+    "length_normalization": 0.0
+  },
+  "timing": "one CPU pass over all questions (4 BLAS threads), top-100, after 3 warm-ups"
+}
