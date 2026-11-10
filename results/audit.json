@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "pages": 2942,
+  "query_variants": 1854,
+  "metric_rows_checked": 22248,
+  "summary_rows_checked": 120,
+  "timing_rows_checked": 7416,
+  "checks": "Coverage, ranking IDs, qrels, per-query values, grouped means and timing arithmetic."
+}

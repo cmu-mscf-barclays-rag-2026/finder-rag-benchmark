@@ -1,0 +1,10 @@
+baseline,candidate,metric,mean_delta,wins,losses,ties,queries
+Qwen OCR,Qwen image,hit@5,0.0744336569579288,36,13,260,309
+Qwen OCR,Qwen image,recall@5,0.06584009226551833,82,52,175,309
+Qwen OCR,Qwen image,ndcg@10,0.06563995652623648,152,87,70,309
+Qwen OCR,Text + image RRF,hit@5,0.061488673139158574,23,4,282,309
+Qwen OCR,Text + image RRF,recall@5,0.04313047821712043,57,25,227,309
+Qwen OCR,Text + image RRF,ndcg@10,0.04848290470891935,138,75,96,309
+Qwen image,Text + image RRF,hit@5,-0.012944983818770227,11,15,283,309
+Qwen image,Text + image RRF,recall@5,-0.0227096140483979,40,46,223,309
+Qwen image,Text + image RRF,ndcg@10,-0.017157051817317134,106,110,93,309

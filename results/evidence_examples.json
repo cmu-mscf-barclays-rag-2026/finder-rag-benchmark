@@ -1,0 +1,733 @@
+{
+  "scope": "Two source-checked worked examples without independent human review or exhaustive alternative locations.",
+  "metric": "A fact is credited when its mapped source page is retrieved. This locates evidence in the source; it does not show whether an encoder or answer model read the text or image region. Publisher boxes are query/page-level.",
+  "examples": [
+    {
+      "query_id": 45,
+      "question": "Citigroup Services and Markets net income 2023",
+      "publisher_labeled_pages": {
+        "1119": 1,
+        "1141": 1,
+        "1175": 1
+      },
+      "facts": [
+        {
+          "fact": "Services 2023 net income was USD 4,635 million.",
+          "page_id": 1141,
+          "document": "citigroup_2024",
+          "page_index_in_doc": 18,
+          "ocr_start": 4949,
+          "ocr_end_exclusive": 4954,
+          "ocr_text": "4,635",
+          "publisher_query_page_regions": [
+            {
+              "annotator": 0,
+              "x1": 959,
+              "x2": 1049,
+              "y1": 445,
+              "y2": 484
+            },
+            {
+              "annotator": 0,
+              "x1": 47,
+              "x2": 254,
+              "y1": 99,
+              "y2": 173
+            },
+            {
+              "annotator": 0,
+              "x1": 74,
+              "x2": 1631,
+              "y1": 855,
+              "y2": 893
+            }
+          ]
+        },
+        {
+          "fact": "Markets 2023 net income was USD 3,871 million.",
+          "page_id": 1175,
+          "document": "citigroup_2024",
+          "page_index_in_doc": 21,
+          "ocr_start": 4813,
+          "ocr_end_exclusive": 4818,
+          "ocr_text": "3,871",
+          "publisher_query_page_regions": [
+            {
+              "annotator": 0,
+              "x1": 957,
+              "x2": 1048,
+              "y1": 505,
+              "y2": 542
+            },
+            {
+              "annotator": 0,
+              "x1": 63,
+              "x2": 232,
+              "y1": 117,
+              "y2": 183
+            },
+            {
+              "annotator": 0,
+              "x1": 56,
+              "x2": 1635,
+              "y1": 930,
+              "y2": 968
+            }
+          ]
+        }
+      ],
+      "retrieval": [
+        {
+          "method": "bm25_ocr",
+          "k": 1,
+          "page_hit": true,
+          "facts_with_located_page": 0,
+          "required_facts": 2,
+          "fact_page_coverage": 0.0,
+          "covered_facts": [],
+          "retrieved_pages": [
+            1119
+          ]
+        },
+        {
+          "method": "bm25_ocr",
+          "k": 5,
+          "page_hit": true,
+          "facts_with_located_page": 0,
+          "required_facts": 2,
+          "fact_page_coverage": 0.0,
+          "covered_facts": [],
+          "retrieved_pages": [
+            1119,
+            414,
+            1385,
+            2881,
+            2712
+          ]
+        },
+        {
+          "method": "bm25_ocr",
+          "k": 10,
+          "page_hit": true,
+          "facts_with_located_page": 2,
+          "required_facts": 2,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Services 2023 net income was USD 4,635 million.",
+            "Markets 2023 net income was USD 3,871 million."
+          ],
+          "retrieved_pages": [
+            1119,
+            414,
+            1385,
+            2881,
+            2712,
+            1141,
+            1175,
+            1718,
+            1130,
+            1132
+          ]
+        },
+        {
+          "method": "dense_ocr",
+          "k": 1,
+          "page_hit": true,
+          "facts_with_located_page": 0,
+          "required_facts": 2,
+          "fact_page_coverage": 0.0,
+          "covered_facts": [],
+          "retrieved_pages": [
+            1119
+          ]
+        },
+        {
+          "method": "dense_ocr",
+          "k": 5,
+          "page_hit": true,
+          "facts_with_located_page": 1,
+          "required_facts": 2,
+          "fact_page_coverage": 0.5,
+          "covered_facts": [
+            "Services 2023 net income was USD 4,635 million."
+          ],
+          "retrieved_pages": [
+            1119,
+            1141,
+            1128,
+            1099,
+            1062
+          ]
+        },
+        {
+          "method": "dense_ocr",
+          "k": 10,
+          "page_hit": true,
+          "facts_with_located_page": 1,
+          "required_facts": 2,
+          "fact_page_coverage": 0.5,
+          "covered_facts": [
+            "Services 2023 net income was USD 4,635 million."
+          ],
+          "retrieved_pages": [
+            1119,
+            1141,
+            1128,
+            1099,
+            1062,
+            1829,
+            1718,
+            1100,
+            1285,
+            1132
+          ]
+        },
+        {
+          "method": "dense_image",
+          "k": 1,
+          "page_hit": true,
+          "facts_with_located_page": 0,
+          "required_facts": 2,
+          "fact_page_coverage": 0.0,
+          "covered_facts": [],
+          "retrieved_pages": [
+            1119
+          ]
+        },
+        {
+          "method": "dense_image",
+          "k": 5,
+          "page_hit": true,
+          "facts_with_located_page": 2,
+          "required_facts": 2,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Services 2023 net income was USD 4,635 million.",
+            "Markets 2023 net income was USD 3,871 million."
+          ],
+          "retrieved_pages": [
+            1119,
+            1175,
+            1141,
+            1222,
+            1829
+          ]
+        },
+        {
+          "method": "dense_image",
+          "k": 10,
+          "page_hit": true,
+          "facts_with_located_page": 2,
+          "required_facts": 2,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Services 2023 net income was USD 4,635 million.",
+            "Markets 2023 net income was USD 3,871 million."
+          ],
+          "retrieved_pages": [
+            1119,
+            1175,
+            1141,
+            1222,
+            1829,
+            1131,
+            417,
+            414,
+            1062,
+            395
+          ]
+        },
+        {
+          "method": "rrf_ocr_image",
+          "k": 1,
+          "page_hit": true,
+          "facts_with_located_page": 0,
+          "required_facts": 2,
+          "fact_page_coverage": 0.0,
+          "covered_facts": [],
+          "retrieved_pages": [
+            1119
+          ]
+        },
+        {
+          "method": "rrf_ocr_image",
+          "k": 5,
+          "page_hit": true,
+          "facts_with_located_page": 1,
+          "required_facts": 2,
+          "fact_page_coverage": 0.5,
+          "covered_facts": [
+            "Services 2023 net income was USD 4,635 million."
+          ],
+          "retrieved_pages": [
+            1119,
+            1141,
+            1829,
+            1128,
+            1062
+          ]
+        },
+        {
+          "method": "rrf_ocr_image",
+          "k": 10,
+          "page_hit": true,
+          "facts_with_located_page": 2,
+          "required_facts": 2,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Services 2023 net income was USD 4,635 million.",
+            "Markets 2023 net income was USD 3,871 million."
+          ],
+          "retrieved_pages": [
+            1119,
+            1141,
+            1829,
+            1128,
+            1062,
+            1175,
+            1222,
+            1099,
+            417,
+            1100
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 111,
+      "question": "List all the subsidiaries registered in the Bahamas as per Exhibit 21.01 Citigroup’s 2024 subsidiary list.",
+      "publisher_labeled_pages": {
+        "1982": 1,
+        "1983": 1
+      },
+      "facts": [
+        {
+          "fact": "Citi Investments Bahamas Ltd.",
+          "page_id": 1982,
+          "document": "citigroup_2024",
+          "page_index_in_doc": 937,
+          "ocr_start": 2030,
+          "ocr_end_exclusive": 2059,
+          "ocr_text": "Citi Investments Bahamas Ltd.",
+          "publisher_query_page_regions": [
+            {
+              "annotator": 0,
+              "x1": 91,
+              "x2": 1449,
+              "y1": 179,
+              "y2": 473
+            },
+            {
+              "annotator": 0,
+              "x1": 385,
+              "x2": 1313,
+              "y1": 1372,
+              "y2": 1415
+            },
+            {
+              "annotator": 0,
+              "x1": 380,
+              "x2": 1321,
+              "y1": 1028,
+              "y2": 1094
+            }
+          ]
+        },
+        {
+          "fact": "Citi Overseas Holdings Bahamas Limited",
+          "page_id": 1982,
+          "document": "citigroup_2024",
+          "page_index_in_doc": 937,
+          "ocr_start": 2078,
+          "ocr_end_exclusive": 2116,
+          "ocr_text": "Citi Overseas Holdings Bahamas Limited",
+          "publisher_query_page_regions": [
+            {
+              "annotator": 0,
+              "x1": 91,
+              "x2": 1449,
+              "y1": 179,
+              "y2": 473
+            },
+            {
+              "annotator": 0,
+              "x1": 385,
+              "x2": 1313,
+              "y1": 1372,
+              "y2": 1415
+            },
+            {
+              "annotator": 0,
+              "x1": 380,
+              "x2": 1321,
+              "y1": 1028,
+              "y2": 1094
+            }
+          ]
+        },
+        {
+          "fact": "Citi Overseas Investments Bahamas Inc.",
+          "page_id": 1982,
+          "document": "citigroup_2024",
+          "page_index_in_doc": 937,
+          "ocr_start": 2683,
+          "ocr_end_exclusive": 2721,
+          "ocr_text": "Citi Overseas Investments Bahamas Inc.",
+          "publisher_query_page_regions": [
+            {
+              "annotator": 0,
+              "x1": 91,
+              "x2": 1449,
+              "y1": 179,
+              "y2": 473
+            },
+            {
+              "annotator": 0,
+              "x1": 385,
+              "x2": 1313,
+              "y1": 1372,
+              "y2": 1415
+            },
+            {
+              "annotator": 0,
+              "x1": 380,
+              "x2": 1321,
+              "y1": 1028,
+              "y2": 1094
+            }
+          ]
+        },
+        {
+          "fact": "Citigroup Global Markets Holdings Bahamas Limited",
+          "page_id": 1983,
+          "document": "citigroup_2024",
+          "page_index_in_doc": 938,
+          "ocr_start": 533,
+          "ocr_end_exclusive": 582,
+          "ocr_text": "Citigroup Global Markets Holdings Bahamas Limited",
+          "publisher_query_page_regions": [
+            {
+              "annotator": 0,
+              "x1": 330,
+              "x2": 1308,
+              "y1": 491,
+              "y2": 536
+            }
+          ]
+        }
+      ],
+      "retrieval": [
+        {
+          "method": "bm25_ocr",
+          "k": 1,
+          "page_hit": true,
+          "facts_with_located_page": 3,
+          "required_facts": 4,
+          "fact_page_coverage": 0.75,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc."
+          ],
+          "retrieved_pages": [
+            1982
+          ]
+        },
+        {
+          "method": "bm25_ocr",
+          "k": 5,
+          "page_hit": true,
+          "facts_with_located_page": 3,
+          "required_facts": 4,
+          "fact_page_coverage": 0.75,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc."
+          ],
+          "retrieved_pages": [
+            1982,
+            2558,
+            365,
+            1309,
+            1307
+          ]
+        },
+        {
+          "method": "bm25_ocr",
+          "k": 10,
+          "page_hit": true,
+          "facts_with_located_page": 4,
+          "required_facts": 4,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc.",
+            "Citigroup Global Markets Holdings Bahamas Limited"
+          ],
+          "retrieved_pages": [
+            1982,
+            2558,
+            365,
+            1309,
+            1307,
+            381,
+            1983,
+            1984,
+            609,
+            1986
+          ]
+        },
+        {
+          "method": "dense_ocr",
+          "k": 1,
+          "page_hit": true,
+          "facts_with_located_page": 3,
+          "required_facts": 4,
+          "fact_page_coverage": 0.75,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc."
+          ],
+          "retrieved_pages": [
+            1982
+          ]
+        },
+        {
+          "method": "dense_ocr",
+          "k": 5,
+          "page_hit": true,
+          "facts_with_located_page": 4,
+          "required_facts": 4,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc.",
+            "Citigroup Global Markets Holdings Bahamas Limited"
+          ],
+          "retrieved_pages": [
+            1982,
+            1983,
+            2857,
+            365,
+            1003
+          ]
+        },
+        {
+          "method": "dense_ocr",
+          "k": 10,
+          "page_hit": true,
+          "facts_with_located_page": 4,
+          "required_facts": 4,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc.",
+            "Citigroup Global Markets Holdings Bahamas Limited"
+          ],
+          "retrieved_pages": [
+            1982,
+            1983,
+            2857,
+            365,
+            1003,
+            1984,
+            2558,
+            1304,
+            1284,
+            1385
+          ]
+        },
+        {
+          "method": "dense_image",
+          "k": 1,
+          "page_hit": true,
+          "facts_with_located_page": 3,
+          "required_facts": 4,
+          "fact_page_coverage": 0.75,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc."
+          ],
+          "retrieved_pages": [
+            1982
+          ]
+        },
+        {
+          "method": "dense_image",
+          "k": 5,
+          "page_hit": true,
+          "facts_with_located_page": 4,
+          "required_facts": 4,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc.",
+            "Citigroup Global Markets Holdings Bahamas Limited"
+          ],
+          "retrieved_pages": [
+            1982,
+            1284,
+            1983,
+            2857,
+            1304
+          ]
+        },
+        {
+          "method": "dense_image",
+          "k": 10,
+          "page_hit": true,
+          "facts_with_located_page": 4,
+          "required_facts": 4,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc.",
+            "Citigroup Global Markets Holdings Bahamas Limited"
+          ],
+          "retrieved_pages": [
+            1982,
+            1284,
+            1983,
+            2857,
+            1304,
+            365,
+            2558,
+            1718,
+            1305,
+            1003
+          ]
+        },
+        {
+          "method": "rrf_ocr_image",
+          "k": 1,
+          "page_hit": true,
+          "facts_with_located_page": 3,
+          "required_facts": 4,
+          "fact_page_coverage": 0.75,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc."
+          ],
+          "retrieved_pages": [
+            1982
+          ]
+        },
+        {
+          "method": "rrf_ocr_image",
+          "k": 5,
+          "page_hit": true,
+          "facts_with_located_page": 4,
+          "required_facts": 4,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc.",
+            "Citigroup Global Markets Holdings Bahamas Limited"
+          ],
+          "retrieved_pages": [
+            1982,
+            1983,
+            2857,
+            365,
+            1284
+          ]
+        },
+        {
+          "method": "rrf_ocr_image",
+          "k": 10,
+          "page_hit": true,
+          "facts_with_located_page": 4,
+          "required_facts": 4,
+          "fact_page_coverage": 1.0,
+          "covered_facts": [
+            "Citi Investments Bahamas Ltd.",
+            "Citi Overseas Holdings Bahamas Limited",
+            "Citi Overseas Investments Bahamas Inc.",
+            "Citigroup Global Markets Holdings Bahamas Limited"
+          ],
+          "retrieved_pages": [
+            1982,
+            1983,
+            2857,
+            365,
+            1284,
+            1304,
+            2558,
+            1003,
+            1984,
+            1718
+          ]
+        }
+      ]
+    }
+  ],
+  "rank_shifts": [
+    {
+      "query_id": 104,
+      "question": "By how much were Citigroup's Other Real Estate Owner assets deducted from 2020 to 2024?",
+      "content_tags": [
+        "Table",
+        "Text"
+      ],
+      "ocr_ndcg_at_10": 1.0,
+      "image_ndcg_at_10": 0.0,
+      "image_minus_ocr_ndcg_at_10": -1.0,
+      "ocr_top_five": [
+        1985,
+        1718,
+        1101,
+        1108,
+        38
+      ],
+      "image_top_five": [
+        543,
+        1929,
+        557,
+        1718,
+        2020
+      ],
+      "publisher_labeled_pages": {
+        "1985": 2
+      }
+    },
+    {
+      "query_id": 254,
+      "question": "Did digital adoption increase for Bank of America in 2024?",
+      "content_tags": [
+        "Table",
+        "Text"
+      ],
+      "ocr_ndcg_at_10": 0.0,
+      "image_ndcg_at_10": 1.0,
+      "image_minus_ocr_ndcg_at_10": 1.0,
+      "ocr_top_five": [
+        2719,
+        413,
+        2721,
+        2638,
+        417
+      ],
+      "image_top_five": [
+        2875,
+        2849,
+        413,
+        2874,
+        2336
+      ],
+      "publisher_labeled_pages": {
+        "2875": 2
+      }
+    }
+  ],
+  "rank_shift_scope": "English queries with the largest observed nDCG changes in each direction."
+}
