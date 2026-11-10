@@ -11,6 +11,7 @@ Thumbs.db
 .cache/
 models/
 embeddings/
+week9_evidence/**/vectors.npz
 
 # Presentation CSV and Markdown files are intentionally committed so the team
 # can read the latest comparison without rerunning the models.

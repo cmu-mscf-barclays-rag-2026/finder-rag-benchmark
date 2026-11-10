@@ -1,0 +1,110 @@
+{
+  "dataset": {
+    "dataset": "vidore/vidore_v3_finance_en",
+    "revision": "7f432c176d82e27546501ad8064a713ac3071809",
+    "split": "test",
+    "transport": "datasets-server rows; checked x-revision on every response",
+    "representation": "publisher-provided OCR markdown; no image embeddings",
+    "counts": {
+      "corpus": 2942,
+      "queries": 1854,
+      "qrels": 8766,
+      "documents_metadata": 6
+    },
+    "sha256": {
+      "corpus.jsonl": "0b1faaf75cfb5e47287fee859dbfee21aff2af238312fe5537fc6a766a0c5839",
+      "documents_metadata.jsonl": "666f659d234cb413766158326db34c65672b9ef7bd360054f90e9adbf110924d",
+      "qrels.jsonl": "496cca0f3fc8410a701c109ee01af03ce1d221439b08bb391bb46f4d30b3806f",
+      "queries.jsonl": "945e53f7f6b47027d7cc38dac45845ddaae2be64053948b15ca06a6e19265517"
+    }
+  },
+  "queries": 309,
+  "pages": 2942,
+  "language": "english",
+  "retrieval": {
+    "method": "minilm",
+    "encoder": {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    },
+    "embedding_window": 256,
+    "pooling": "mean",
+    "query_instruction": null,
+    "note": "Different encoder window from Qwen; model plus configuration comparison.",
+    "build_seconds_including_model_load_or_cache": 219.07408516603755,
+    "query_encode_seconds": 0.5246498330379836,
+    "search": "exact normalized dot product, 1 BLAS thread",
+    "query_search_mean_ms": 0.25786593398923197,
+    "query_search_p95_ms": 0.26065019192174077,
+    "vector_bytes": 4518912,
+    "vector_shape": [
+      2942,
+      384
+    ]
+  },
+  "ks": [
+    5,
+    10,
+    20
+  ],
+  "budgets": [
+    2000,
+    4000,
+    6000,
+    8000
+  ],
+  "policies_before_after": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "candidate_depth": 100,
+  "packing": "whole unique pages, seed then nearest siblings; skip pages that do not fit; no backfill seeds",
+  "tokenizer": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+  },
+  "tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+  "annotations_sha256": "164bee43283d02b0bce1674e709bb64188054326f4bd29208ca976c21c7ee3b1",
+  "annotation_status_counts": {
+    "draft": 10,
+    "reviewed": 0
+  },
+  "evaluation_note": "Page qrels are relevance, not required facts. Draft fact coverage is exploratory only.",
+  "source_sha256": {
+    "__init__.py": "f9c1de521ce9d52673101b5eba686b482fd0dcdf4f53d3e52b280dea5ad7a9a5",
+    "evidence.py": "53f797aef78b213685544e723778f199c1901605fa4600e825f46170820715b7",
+    "report.py": "61288360391eda1bf9008204bf3da12db83b736e0b4205e226fab8cc4fa9bb83",
+    "run.py": "2ed9b38d6b023a53649dd736e09a64db1e87a24b4c31e0af6b89910fd4bb90ae",
+    "score_pilot.py": "5c0f380ab21ad86d1f98578bf9a31c6c825e5b3cfcfa50ca274556bbb531305f",
+    "vidore.py": "9de7743fcc1f43d92dc9608d7024ac2fb025fef8bf5a4a2f8eacf687daf9ea10"
+  },
+  "python": "3.12.5",
+  "device": "cpu",
+  "packages": {
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "transformers": "4.51.3",
+    "tokenizers": "0.21.4",
+    "sentence-transformers": "3.4.1"
+  },
+  "output_sha256": {
+    "fact_summary.csv": "90782a08685aa59e4fe1533b644972b25931a41b2be49845dab30b167d5ee1dc",
+    "facts.csv": "6ba5a6583e95729a3812e1195c99b8b383f857d2442ffaafc3a774e47813a64d",
+    "marginal.csv": "113b3f222cdd621598a40754008ae96c5d17bb9867a24bf31787b9fd1fc20831",
+    "minimum_budgets.csv": "9a7669eed1666f553985a59d2f628076c5b2eedbb1069ef578a8bd5e3affc222",
+    "per_query.csv": "1f8a56d5c848137b19bc09694381df3a2382c5b5233d7597ad970cfe10f30d4d",
+    "rankings.jsonl": "7ea2f21d479af96b398fef0c87820535ba41e9102a62565203a2771a65e61b5e",
+    "summary.csv": "4326790282c64916ce17fbbf900bd28833ba6024906dbb71cd844bf5f0c43b17",
+    "vectors.npz": "31080d04bd7a0f0ee484719cf0f062ed47f5a6230724468f0122690f83a3e208"
+  }
+}

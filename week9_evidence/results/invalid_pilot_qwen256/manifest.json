@@ -1,0 +1,26 @@
+{
+  "source_run": "week9_evidence/results/qwen256",
+  "source_manifest_sha256": "f1cb74c8376f6e3ef569e9ec8b3f9e58d5abf788fbd3a9a8aaa03e6c44dcb1ca",
+  "annotations_sha256": "164bee43283d02b0bce1674e709bb64188054326f4bd29208ca976c21c7ee3b1",
+  "n": 10,
+  "status": "exploratory_draft",
+  "method": "qwen256",
+  "note": "Known annotated fact coverage; not a validated answer-accuracy measurement.",
+  "source_sha256": {
+    "__init__.py": "f9c1de521ce9d52673101b5eba686b482fd0dcdf4f53d3e52b280dea5ad7a9a5",
+    "audit.py": "d81abdbe2ed1f3e8dea61d2f652ab86fb6aea2ac94595ede89fcf2f4e4463ea8",
+    "check_qwen.py": "1474bff2eb5334e062b740b0b8161bf9e97e2b3863a8ffbf80ff4a7ae44ba17d",
+    "evidence.py": "53f797aef78b213685544e723778f199c1901605fa4600e825f46170820715b7",
+    "report.py": "f96d391f18a0dee95ab87af9969b2fc4e34e1fdc32a3276ae9085b8958ed1451",
+    "review_packet.py": "823e27813ad145e1ace1ba937e0c1b7f8866a1eb81f9ef8357fa780fe4dcc541",
+    "run.py": "243b0b1cb309b07994bc5a77eedbb995459ab4128e07b08dd27b2668a471e275",
+    "score_pilot.py": "5c0f380ab21ad86d1f98578bf9a31c6c825e5b3cfcfa50ca274556bbb531305f",
+    "vidore.py": "9de7743fcc1f43d92dc9608d7024ac2fb025fef8bf5a4a2f8eacf687daf9ea10"
+  },
+  "output_sha256": {
+    "fact_summary.csv": "1609d688e34182786066760aff1f1cbf917b923b3564ab1b5e55c8541ef94f6a",
+    "facts.csv": "0575d82f77543ee23a10829ef2fbc81b933e3127886d8b26a2c3dd5e69660a4a",
+    "marginal.csv": "d365a4ea0d9980ea70a3f444b918cd34e789effe2bdbdd74489aff6491409ee1",
+    "minimum_budgets.csv": "3e437b1e63f82964c1e28dc31e5a44f48096e8852bd814d5b0e6232b02cc1a21"
+  }
+}

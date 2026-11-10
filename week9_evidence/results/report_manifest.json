@@ -1,0 +1,18 @@
+{
+  "methods": [
+    "bm25",
+    "minilm",
+    "qwen256"
+  ],
+  "source_manifests": {
+    "bm25": "bc6e448669962c50c6b1693275fdf9f010fd47f99ad9449b0388d6e0c11c4176",
+    "minilm": "19aa0ed00c0b98302cf54f049041572ce9d3607d16fe2cc318e9bd3f5d8d7439",
+    "qwen256": "e5fdc2537c71238bfe059eee7b4ec661501b4900ed569aedd9963d6cd0f59e98"
+  },
+  "pilot_manifests": {
+    "bm25": "f98b551c6562b4fe50ca5905ba17619f63dad74a0110a04d2d899175edb93ae0",
+    "minilm": "8749377779f13001d834e0bdc680c465d20acc830f536f94de73e4ad9b44b452",
+    "qwen256": "33b3f233a113a25ad9c0b5aa9f100924d5b8c8ec4dd311347ac1bea197d66b8d"
+  },
+  "report_source_sha256": "e29f4a44f56fb9c26448c53a9eae3db9b1b04facc9742bae9700e391b3f2ce4a"
+}

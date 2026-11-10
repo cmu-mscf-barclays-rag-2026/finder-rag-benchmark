@@ -1,0 +1,76 @@
+{
+  "dataset_revision": "7f432c176d82e27546501ad8064a713ac3071809",
+  "queries": 309,
+  "pages": 2942,
+  "reports": {
+    "jpmorgan_chase_2024": 437,
+    "goldman_sachs_2024": 614,
+    "citigroup_2024": 963,
+    "morgan_stanley_2024": 268,
+    "wells_fargo_2024": 355,
+    "bank_of_america_2024": 305
+  },
+  "empty_text_pages": [
+    "479",
+    "832",
+    "888",
+    "1320",
+    "1643",
+    "2002",
+    "2392",
+    "2532",
+    "2533",
+    "2535",
+    "2536",
+    "2538",
+    "2540",
+    "2542",
+    "2543",
+    "2545",
+    "2546",
+    "2548",
+    "2549"
+  ],
+  "positive_qrels_on_empty_text": [],
+  "minilm_document_input": {
+    "mean_tokens_including_special": 848.3004758667573,
+    "max_tokens_including_special": 2998,
+    "pages_truncated_at_256_including_special": 2764
+  },
+  "minilm_max_query_tokens_including_special": 54,
+  "query_types_multi_label": {
+    "boolean": 48,
+    "numerical": 101,
+    "compare-contrast": 52,
+    "open-ended": 54,
+    "enumerative": 33,
+    "extractive": 136,
+    "multi-hop": 24
+  },
+  "content_types_multi_label": {
+    "Table": 173,
+    "Text": 291,
+    "Chart": 20,
+    "N/A (If relevance score=0)": 3,
+    "Image": 1,
+    "Infographic": 4
+  },
+  "draft_queries": 10,
+  "draft_facts": 20,
+  "draft_support_pages_absent_from_qrels": [
+    {
+      "query_id": "13",
+      "page_id": "2551"
+    },
+    {
+      "query_id": "22",
+      "page_id": "2779"
+    },
+    {
+      "query_id": "22",
+      "page_id": "2782"
+    }
+  ],
+  "annotations_sha256": "164bee43283d02b0bce1674e709bb64188054326f4bd29208ca976c21c7ee3b1",
+  "source_sha256": "d81abdbe2ed1f3e8dea61d2f652ab86fb6aea2ac94595ede89fcf2f4e4463ea8"
+}

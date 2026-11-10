@@ -1,0 +1,18 @@
+method,query_id,question,case,k,budget,delivered_hit,delivered_recall,fact_recall,sufficient,status
+bm25,10,What is the relationship between Morgan Stanley's revenue growth and its expense efficiency ratio in 2024?,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.5,1.0,1,draft
+bm25,14,Summarize the main business segments of Goldman Sachs as reported in their 2024 Form 10-K,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.5,1.0,1,draft
+bm25,2,How does Citigroup manage its interest rate and foreign exchange risks in its banking book and what are the potential impacts on its financial metrics?,hit_without_all_annotated_facts,10,4000,1.0,0.5,0.3333333333333333,0,draft
+bm25,22,Bank of America preferred stock series ss vs tt redemption terms and dividend rates,hit_without_all_annotated_facts,10,4000,1.0,0.2,0.5,0,draft
+bm25,9,Bank of America preferred stock MM dividend rate,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.5,1.0,1,draft
+minilm,10,What is the relationship between Morgan Stanley's revenue growth and its expense efficiency ratio in 2024?,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.5,1.0,1,draft
+minilm,13,"How many quarterly blackout periods are there for executives, directors, and notified employees at Wells Fargo?",hit_without_all_annotated_facts,10,4000,1.0,1.0,0.0,0,draft
+minilm,14,Summarize the main business segments of Goldman Sachs as reported in their 2024 Form 10-K,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.25,1.0,1,draft
+minilm,2,How does Citigroup manage its interest rate and foreign exchange risks in its banking book and what are the potential impacts on its financial metrics?,hit_without_all_annotated_facts,10,4000,1.0,0.25,0.3333333333333333,0,draft
+minilm,22,Bank of America preferred stock series ss vs tt redemption terms and dividend rates,hit_without_all_annotated_facts,10,4000,1.0,0.4,0.25,0,draft
+minilm,24,What was the total net income of Bank of America in 2024?,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.2,1.0,1,draft
+minilm,9,Bank of America preferred stock MM dividend rate,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.5,1.0,1,draft
+qwen256,13,"How many quarterly blackout periods are there for executives, directors, and notified employees at Wells Fargo?",hit_without_all_annotated_facts,10,4000,1.0,1.0,0.0,0,draft
+qwen256,14,Summarize the main business segments of Goldman Sachs as reported in their 2024 Form 10-K,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.25,1.0,1,draft
+qwen256,22,Bank of America preferred stock series ss vs tt redemption terms and dividend rates,hit_without_all_annotated_facts,10,4000,1.0,0.4,0.25,0,draft
+qwen256,24,What was the total net income of Bank of America in 2024?,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.2,1.0,1,draft
+qwen256,9,Bank of America preferred stock MM dividend rate,sufficient_despite_incomplete_page_recall,10,4000,1.0,0.5,1.0,1,draft

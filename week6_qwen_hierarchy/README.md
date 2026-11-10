@@ -1,5 +1,10 @@
 # Week 6 — Florence Liu: Qwen hierarchy and context budgets
 
+**Later implementation finding:** Week 9 identified that this frozen encoder's
+manual token slicing drops Qwen's final special token when an input is truncated.
+Historical outputs below are retained, but truncated-window comparisons need
+an audit. New experiments use the [corrected Week 9 encoder](../week9_evidence/README.md#qwen-end-token-correction).
+
 **Question:** Does hierarchical retrieval improve with Qwen3-Embedding-0.6B,
 and can its benefit survive a realistic context budget?
 

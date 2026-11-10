@@ -1,0 +1,22 @@
+comparison_left_minus_right,metric,n,mean_difference,left_greater,right_greater,equal
+bm25: Top20 - Top10 at 6000,delivered_hit,309,0.0,0,0,309
+bm25: Top20 - Top10 at 6000,delivered_recall,309,0.0007011866235167208,2,0,307
+bm25: Top20 - Top10 at 6000,tokens,309,125.69902912621359,70,0,239
+bm25: Top10 siblings2/1 - Top20 at 6000,delivered_hit,309,-0.05501618122977346,9,26,274
+bm25: Top10 siblings2/1 - Top20 at 6000,delivered_recall,309,-0.061202776203227074,33,89,187
+bm25: Top10 siblings2/1 - Top20 at 6000,tokens,309,73.75728155339806,188,119,2
+minilm: Top20 - Top10 at 6000,delivered_hit,309,0.003236245954692557,1,0,308
+minilm: Top20 - Top10 at 6000,delivered_recall,309,0.0017080186983099606,3,0,306
+minilm: Top20 - Top10 at 6000,tokens,309,198.2588996763754,132,0,177
+minilm: Top10 siblings2/1 - Top20 at 6000,delivered_hit,309,-0.05501618122977346,13,30,266
+minilm: Top10 siblings2/1 - Top20 at 6000,delivered_recall,309,-0.007514076885338421,51,58,200
+minilm: Top10 siblings2/1 - Top20 at 6000,tokens,309,83.63754045307444,199,110,0
+qwen256: Top20 - Top10 at 6000,delivered_hit,309,0.003236245954692557,1,0,308
+qwen256: Top20 - Top10 at 6000,delivered_recall,309,0.004597524014999744,4,0,305
+qwen256: Top20 - Top10 at 6000,tokens,309,193.37540453074433,132,0,177
+qwen256: Top10 siblings2/1 - Top20 at 6000,delivered_hit,309,-0.05501618122977346,14,31,264
+qwen256: Top10 siblings2/1 - Top20 at 6000,delivered_recall,309,-0.03759181004664788,45,73,191
+qwen256: Top10 siblings2/1 - Top20 at 6000,tokens,309,68.98381877022653,194,115,0
+Qwen256 - MiniLM256 Top10 at 6000,delivered_hit,309,0.0970873786407767,49,19,241
+Qwen256 - MiniLM256 Top10 at 6000,delivered_recall,309,0.08580618576147447,93,38,178
+Qwen256 - MiniLM256 Top10 at 6000,tokens,309,34.614886731391586,161,148,0

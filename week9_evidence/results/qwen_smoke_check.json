@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "kind": "page",
+      "id": "10",
+      "cpu_vs_saved_cosine": 1.0000001192092896,
+      "max_absolute_difference": 2.7194619178771973e-07
+    },
+    {
+      "kind": "page",
+      "id": "2552",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 2.728775143623352e-07
+    },
+    {
+      "kind": "page",
+      "id": "2934",
+      "cpu_vs_saved_cosine": 0.9999999403953552,
+      "max_absolute_difference": 3.5390257835388184e-07
+    },
+    {
+      "kind": "query",
+      "id": "0",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 3.916211426258087e-07
+    },
+    {
+      "kind": "query",
+      "id": "13",
+      "cpu_vs_saved_cosine": 0.9999999403953552,
+      "max_absolute_difference": 3.6228448152542114e-07
+    },
+    {
+      "kind": "query",
+      "id": "24",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 5.951151251792908e-07
+    }
+  ],
+  "minimum_cosine": 0.9999999403953552,
+  "passed": true,
+  "scope": "Six independent CPU single-input encodings versus cached MPS batched vectors; not a full-corpus device equivalence proof.",
+  "vectors_sha256": "6ec661af84478a8898bf586c8d740c7838f28157c6b610f19a8da58e61771f24",
+  "source_sha256": "dc145770e1d67add85116884a8a9b9a44f6fc1e320a6c5335233afe027c22583"
+}

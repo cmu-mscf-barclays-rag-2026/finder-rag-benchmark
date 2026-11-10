@@ -1,0 +1,3 @@
+# Invalid diagnostic run — do not compare as model performance
+
+The inherited encoder manually sliced token lists and removed the final EOS token from truncated pages. Queries retained EOS. A six-input CPU check found page-vector cosine agreement as low as 0.186, while query vectors agreed to 1.0. `../invalid_qwen_cpu_check.json` records the diagnostic. The corrected Week 9 encoder uses tokenizer-managed truncation, asserts EOS retention and has a distinct cache identity. This run and its associated draft pilot are excluded from reported comparisons. The source snapshot is `../source_snapshot/run_before_eos_fix.py`.
