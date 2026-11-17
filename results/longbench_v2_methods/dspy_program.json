@@ -1,0 +1,40 @@
+{
+  "respond.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Answer the multiple-choice question about a long text, using the excerpts retrieved from it.",
+      "fields": [
+        {
+          "prefix": "Context:",
+          "description": "excerpts retrieved from the long text, in document order"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Choices:",
+          "description": "${choices}"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "A short plan for solving the task."
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.5.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

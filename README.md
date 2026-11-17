@@ -34,6 +34,7 @@ and dataset downloads need internet access; inference runs on your computer.
 - `evaluate_agentic_graph.py` - routing headroom, gated retry, and budget curves (cached LLM calls).
 - `evaluate_fiqa_graph.py` - graph vs BM25 and dense on FiQA-2018 (BEIR) passage retrieval.
 - `evaluate_longbench_graph.py` - graph RAG end to end on LongBench v2 with the local LLM.
+- `evaluate_longbench_methods.py` - LangChain MultiQueryRetriever and DSPy on LongBench v2 (gpt-4o-mini reader).
 - `team_bm25.py` - Florence's BM25, vendored unmodified for the outside benchmarks.
 - `finance_data.py` - MTEB FinQA and FinanceBench retrieval loaders, grouped dev/test split, metrics.
 - `evaluate_finance_graph.py` - graph vs BM25 and dense on the MTEB financial sets, with error analysis.
@@ -170,6 +171,11 @@ The results follow the team Legal RAG protocol (`legal_rag/` on
   0.349; Recall@5 0.558 vs 0.450) but not on FinQA (0.725 vs 0.759). A gated
   gpt-4o-mini retry raises FinanceBench Recall@5 by +0.058 (nDCG@10 +0.040)
   and leaves FinQA unchanged, for about $0.02-0.04 per 1,000 queries.
+- **LongBench v2 with gpt-4o-mini:** on 402 test questions, team BM25 reaches
+  0.356 accuracy. LangChain's MultiQueryRetriever over BM25 scores lower
+  (0.308; -0.047 [-0.085, -0.010]) because its rewrites drop the answer
+  choices. DSPy's chain of thought ties BM25 (0.346; -0.010 [-0.050, +0.030]),
+  and MIPROv2 found no better instruction. The graph scores 0.328.
 
 The previous dense + graph experiment remains available as `dense_graph`;
 its original results are preserved separately.

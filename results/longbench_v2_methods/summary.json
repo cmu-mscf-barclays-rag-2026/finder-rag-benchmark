@@ -1,0 +1,43 @@
+{
+  "dataset": "LongBench v2 (zai-org/LongBench-v2), 503 questions",
+  "split": {
+    "seed": 42,
+    "dev": 101,
+    "test": 402,
+    "dev_use": "DSPy's MIPROv2 only; every reported accuracy is on test"
+  },
+  "reader": "gpt-4o-mini",
+  "temperature": 0,
+  "chunk_words": 300,
+  "top_chunks": 8,
+  "budget_words": 2400,
+  "retrieval_query": "question + four choices",
+  "chance_on_test": {
+    "uniform": 0.25,
+    "majority_letter": 0.3009950248756219
+  },
+  "multiquery": {
+    "class": "langchain_classic.retrievers.multi_query.MultiQueryRetriever",
+    "prompt": "DEFAULT_QUERY_PROMPT",
+    "include_original": true,
+    "per_query_k": 8,
+    "budget_fusion": "reciprocal rank fusion, k=60, top 8",
+    "mean_generated_queries": 3.0223880597014925,
+    "mean_stock_union_chunks": 20.370646766169155
+  },
+  "mean_overlap_with_bm25_chunks": {
+    "graph": 5.067164179104478,
+    "multiquery": 4.447761194029851
+  },
+  "dspy": {
+    "optimizer": "MIPROv2(auto='light', max_bootstrapped_demos=0, max_labeled_demos=0, seed=42) on dev",
+    "default_instruction": "Answer the multiple-choice question about a long text, using the excerpts retrieved from it.",
+    "selected_instruction": "Answer the multiple-choice question about a long text, using the excerpts retrieved from it.",
+    "dev_accuracy_default_program": 0.3861,
+    "dev_accuracy_compiled_program": 0.3861,
+    "dev_note": "dev accuracy of the compiled program is optimistic: it was selected on 80 of these questions"
+  },
+  "new_llm_calls_this_run": 2838,
+  "spend_this_run_usd": 1.6748568000000001,
+  "protocol": "Fixed configurations; only DSPy's instruction was optimized, on dev. Official LongBench v2 0-shot prompt and answer extraction for the non-DSPy methods; temperature 0."
+}

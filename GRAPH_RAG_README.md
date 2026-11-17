@@ -557,6 +557,10 @@ minutes on the RTX 4060 laptop GPU. Outputs in
 `summary.json`, and `traces.jsonl` (chunks chosen by each retriever and the
 graph's top-3 paths).
 
+A rerun with gpt-4o-mini as the reader, which adds LangChain's
+MultiQueryRetriever and DSPy, is in
+[LongBench v2 with gpt-4o-mini](#longbench-v2-with-gpt-4o-mini-multiqueryretriever-and-dspy).
+
 ### What this says about the graph
 
 The Legal RAG Bench gains came from features that corpus has and these two
@@ -797,6 +801,103 @@ The first command needs no API. The agentic runs need `OPENAI_API_KEY` in
   `dev_budget_curves.csv` (gated vs random vs oracle retry shares),
   `dev_selection.json`, `test_methods.csv`, `test_paired_intervals.csv`,
   traces, and summaries with API usage.
+
+## LongBench v2 with gpt-4o-mini: MultiQueryRetriever and DSPy
+
+This section runs two off-the-shelf frameworks suggested by the team on
+LongBench v2: LangChain's
+[`MultiQueryRetriever`](https://reference.langchain.com/python/langchain-classic/retrievers/multi_query/MultiQueryRetriever)
+and [DSPy](https://dspy.ai/). The run is
+[`evaluate_longbench_methods.py`](evaluate_longbench_methods.py). The reader
+is `gpt-4o-mini`, because the local 3B model above was too weak to separate
+retrievers. Both frameworks sit on the team BM25, so each comparison shows
+what the framework adds.
+
+The protocol was fixed before running:
+
+- **Split:** the 503 questions are split once (seed 42). 101 dev questions
+  are used only by DSPy's optimizer; every number below is on the other 402.
+- **Shared setup:** the same 300-word chunks and 2,400-word evidence budget
+  as above. The retrieval query is the question plus its four choices. The
+  reader is gpt-4o-mini at temperature 0, with the official prompt and answer
+  extraction for every method except DSPy.
+- **MultiQueryRetriever** (`langchain-classic` 1.0.8): its default prompt
+  has the LLM write 3 versions of the question. `include_original=True` keeps
+  the original query, and the team BM25 returns its top 8 for each query. The
+  stock class returns the unique union, here 20.4 chunks on average. To keep
+  the budget equal, reciprocal rank fusion (k = 60) cuts the union to 8;
+  nothing else is changed.
+- **DSPy** (3.5.0): a module
+  `ChainOfThought(context, question, choices -> answer in {A, B, C, D})` over
+  the same BM25 top 8 as the BM25 row. MIPROv2 (`auto="light"`) optimizes its
+  instruction on dev. It is zero-shot, with no demonstrations, so test
+  prompts stay the size of BM25's.
+
+| Test (402 questions) | Accuracy | Easy (160) | Hard (242) | Short / medium / long | Unparsed | Minus BM25 [95% interval] | USD per 1,000 questions |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| No context | 0.266 | 0.294 | 0.248 | 0.232 / 0.297 / 0.261 | 4% | -0.090 [-0.144, -0.037] | 0.04 |
+| *BM25 top 8 (team code)* | **0.356** | 0.356 | **0.355** | **0.380** / 0.331 / **0.364** | 2% | | 0.74 |
+| Graph top 8 | 0.328 | 0.306 | 0.343 | 0.366 / 0.285 / 0.352 | 4% | -0.027 [-0.067, +0.010] | 0.82 |
+| MultiQueryRetriever over BM25 | 0.308 | 0.325 | 0.298 | 0.366 / 0.267 / 0.295 | 2% | **-0.047 [-0.085, -0.010]** | 0.84 |
+| DSPy ChainOfThought over BM25 | 0.346 | **0.400** | 0.310 | 0.352 / **0.343** / 0.341 | 0% | -0.010 [-0.050, +0.030] | 0.83 + 0.35 once |
+
+Intervals are paired bootstraps over questions (10,000 resamples). Guessing
+gives 0.25, and always answering the most common letter gives 0.301.
+
+- **With gpt-4o-mini, retrieval matters.** BM25 evidence beats no context
+  by 0.090, and every retrieval method clears the most-common-letter
+  baseline. With llama3.2, none did.
+- **MultiQueryRetriever hurts: -0.047, interval below zero.**
+  - The rewrites restate the question and drop the answer choices. They
+    contain on average 20% of the words that only the choices contribute
+    (median 11%).
+  - In fusion, three question-only queries outvote the original query, which
+    holds the choices. They replace 3.6 of BM25's 8 chunks on average.
+  - Where the rewrites replaced at least half of BM25's chunks (197
+    questions), accuracy fell by 0.086 [-0.147, -0.025]. Where 5-7 BM25
+    chunks survived (198 questions), the change was -0.010 [-0.056, +0.035].
+  - The default prompt is written for vector-database search of open
+    questions, not for multiple choice.
+- **DSPy ties BM25 (-0.010).**
+  - MIPROv2 proposed 6 instructions and none beat the default on dev (0.386
+    either way), so it kept the default. The test run is therefore DSPy's
+    stock chain-of-thought prompt: a plan of about 60 words, then the letter.
+  - It picks the same letter as the official prompt on 73% of questions, and
+    it always gives a parseable answer.
+  - Its domain effects cancel out. It gains +0.171 [+0.049, +0.317] on
+    Code Repository Understanding (41 questions) and loses -0.123
+    [-0.215, -0.031] on Long In-context Learning (65), such as translating
+    with a grammar book. Six domains were tested, so treat these splits as
+    leads, not findings.
+- **The graph again trails BM25** (-0.027), as with the local reader, though
+  here the interval includes zero.
+- **Cost:**
+  - The whole run made 2,838 API calls, for $1.67.
+  - Per 1,000 questions, the official prompt over BM25 costs $0.74.
+  - MultiQueryRetriever adds $0.09 for the rewrites. DSPy's chain of thought
+    adds $0.09 in output tokens.
+  - MIPROv2 is a one-off $0.35 (415 calls), which bought nothing here.
+
+A rewrite prompt that keeps the answer choices, or more weight for the
+original query in fusion, could be promising; neither has been run.
+
+```powershell
+.venv\Scripts\python.exe evaluate_longbench_methods.py --threads 16
+```
+
+The run needs `OPENAI_API_KEY` in `.env`, but only for prompts not already in
+[`llm_cache.jsonl`](results/longbench_v2_methods/llm_cache.jsonl). Reruns make
+no calls, and `--max-new-calls` (default 3,500) caps a run. From scratch it
+took about 10 minutes. Outputs are in
+[results/longbench_v2_methods/](results/longbench_v2_methods/):
+
+- `per_question.csv` and `accuracy.csv` (by difficulty, length, and domain,
+  with unparsed rates).
+- `paired_accuracy_intervals.csv` and `cost.csv`.
+- `summary.json`, which includes DSPy's dev scores and selected instruction.
+- `dspy_program.json` and `dspy_test_outputs.jsonl` (each plan and answer).
+- `traces.jsonl`: every method's chunks, the generated queries, and the
+  stock union size.
 
 ## Previous experiment
 
