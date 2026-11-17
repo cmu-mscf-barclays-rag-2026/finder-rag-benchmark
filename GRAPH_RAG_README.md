@@ -847,7 +847,9 @@ gives 0.25, and always answering the most common letter gives 0.301.
 - **With gpt-4o-mini, retrieval matters.** BM25 evidence beats no context
   by 0.090, and every retrieval method clears the most-common-letter
   baseline. With llama3.2, none did.
-- **MultiQueryRetriever hurts: -0.047, interval below zero.**
+- **MultiQueryRetriever hurts at this budget: -0.047, interval below zero.**
+  The [budget sweep](#evidence-budget-top-k) below shows this is specific
+  to 8 chunks; at 2, 4, and 16 chunks it ties BM25.
   - The rewrites restate the question and drop the answer choices. They
     contain on average 20% of the words that only the choices contribute
     (median 11%).
@@ -898,6 +900,68 @@ took about 10 minutes. Outputs are in
 - `dspy_program.json` and `dspy_test_outputs.jsonl` (each plan and answer).
 - `traces.jsonl`: every method's chunks, the generated queries, and the
   stock union size.
+
+### Evidence budget: top k
+
+[`evaluate_longbench_topk.py`](evaluate_longbench_topk.py) reruns all four
+retrieval methods with the top k = 2, 4, 8, or 16 chunks (600 to 4,800
+words). Everything else stays fixed, including DSPy's saved program. Each
+method's k is chosen on the 101 dev questions, with ties going to the smaller
+k. The test curve shows how much the budget matters.
+
+| Test accuracy (402) | k = 2 (600 words) | k = 4 (1,200) | k = 8 (2,400) | k = 16 (4,800) | k chosen on dev |
+|---|---:|---:|---:|---:|---:|
+| *BM25 (team code)* | 0.323 | 0.323 | **0.356** | 0.341 | 8 |
+| Graph | 0.321 | 0.323 | 0.328 | 0.336 | 8 |
+| MultiQueryRetriever over BM25 | 0.321 | 0.316 | 0.308 | 0.341 | 2 |
+| DSPy ChainOfThought over BM25 | 0.318 | 0.308 | 0.346 | **0.366** | 8 |
+| USD per 1,000 questions (BM25) | 0.22 | 0.40 | 0.74 | 1.43 | |
+
+| Minus BM25 at the same k [95% interval] | k = 2 | k = 4 | k = 8 | k = 16 |
+|---|---:|---:|---:|---:|
+| Graph | -0.002 [-0.040, +0.035] | +0.000 [-0.035, +0.035] | -0.027 [-0.067, +0.010] | -0.005 [-0.037, +0.027] |
+| MultiQueryRetriever | -0.002 [-0.045, +0.040] | -0.007 [-0.050, +0.035] | **-0.047 [-0.085, -0.010]** | +0.000 [-0.035, +0.035] |
+| DSPy | -0.005 [-0.042, +0.032] | -0.015 [-0.052, +0.022] | -0.010 [-0.050, +0.030] | +0.025 [-0.012, +0.062] |
+
+- **No method beats BM25 at any budget.** Only one of the 12 comparisons
+  has an interval excluding zero: MultiQueryRetriever at k = 8. At the other
+  budgets it ties BM25.
+  - With 12 comparisons, one such result could be chance, so treat its
+    k = 8 loss as fragile.
+  - Its rewrites do drop the answer choices, but that does not lower
+    accuracy consistently.
+  - At k = 16, it fuses 16 chunks per query into 16 and recovers to BM25's
+    level.
+- **The budget matters little between 600 and 4,800 words.**
+  - BM25 peaks at 2,400 words, on dev as well as test. Against that peak,
+    k = 2 is -0.032 [-0.077, +0.012] and k = 16 is -0.015 [-0.052, +0.022].
+  - Dev picks k = 8 for BM25, the graph, and DSPy. With 101 questions, dev
+    differences of a few points are within noise, so these choices are weak.
+- **DSPy's best test score (0.366, k = 16) was not chosen.** Dev preferred
+  k = 8 (0.386 against 0.347). At k = 16 it is +0.025 over BM25, and the
+  interval includes zero.
+- **The graph is flat (0.32-0.34)** and ties BM25 at k = 2, 4, and 16.
+- **Cost grows linearly with k.** Two chunks cost 30% of eight and lose
+  about 0.03 accuracy, which is within noise.
+- **One structured-data question exceeded the 128k-token window at k = 16.**
+  Its evidence was cut in the middle to 120,000 tokens, for all methods. No
+  evidence at k <= 8 came close; the largest k = 8 prompt was 89,000 tokens.
+
+The sweep made 6,056 new API calls ($4.41). It shares the earlier run's
+cache, so its k = 8 answers cost nothing extra. It took about 25 minutes,
+including a restart after the window error, which reused the cached calls.
+
+```powershell
+.venv\Scripts\python.exe evaluate_longbench_topk.py --threads 16
+```
+
+Outputs are in [results/longbench_v2_topk/](results/longbench_v2_topk/):
+
+- `curve.csv`: accuracy, unparsed rate, prompt tokens, and cost for every
+  split, method, and k.
+- `paired_accuracy_intervals.csv`, `per_question.csv`, and `retrieval.jsonl`
+  (each method's ranking).
+- `summary.json`: dev-selected k and the truncated evidence.
 
 ## Previous experiment
 

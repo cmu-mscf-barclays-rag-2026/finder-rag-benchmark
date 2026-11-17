@@ -109,3 +109,19 @@ def test_dspy_engine_sends_requests_through_the_cached_client():
     messages, label, max_tokens, temperature = chat.seen
     assert messages[-1] == {"role": "user", "content": "ping"} and label == "dspy"
     assert (max_tokens, temperature) == (50, 0.0)
+
+
+def test_graph_top_k_is_a_prefix_of_a_larger_top_k():
+    """The top-k sweep takes the first k of one top-16 graph retrieval."""
+    from langchain_core.documents import Document
+
+    from standalone_graph import StandaloneGraphRetriever
+
+    words = ["grammar", "mother", "river", "harbor", "ledger", "verb", "noun", "tide"]
+    documents = [Document(page_content=" ".join(words[i % 8: i % 8 + 3] * (i + 1)), metadata={
+        "chunk_id": f"c{i}", "row_id": "s", "reference_number": 1, "reference_chunk_number": i + 1})
+        for i in range(12)]
+    graph = StandaloneGraphRetriever(documents, top_k=8)
+    long = [e.node_id for e in graph.retrieve("grammar mother verb tide", top_k=8).explanations]
+    short = [e.node_id for e in graph.retrieve("grammar mother verb tide", top_k=3).explanations]
+    assert len(long) == 8 and short == long[:3]

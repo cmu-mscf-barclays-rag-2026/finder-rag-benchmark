@@ -1,0 +1,54 @@
+{
+  "k_values": [
+    2,
+    4,
+    8,
+    16
+  ],
+  "chunk_words": 300,
+  "reader": "gpt-4o-mini",
+  "temperature": 0,
+  "split": {
+    "dev": 101,
+    "test": 402
+  },
+  "dev_selected_k": {
+    "bm25": 8,
+    "graph": 8,
+    "multiquery": 2,
+    "dspy": 8
+  },
+  "selection_rule": "highest dev accuracy per method; ties go to the smaller k",
+  "test_accuracy_at_dev_selected_k": {
+    "bm25": 0.35572139303482586,
+    "graph": 0.3283582089552239,
+    "multiquery": 0.3208955223880597,
+    "dspy": 0.34577114427860695
+  },
+  "new_llm_calls_this_run": 3145,
+  "spend_this_run_usd": 2.3521061999999997,
+  "llm_cache": "results\\longbench_v2_methods\\llm_cache.jsonl",
+  "evidence_token_cap": 120000,
+  "evidence_truncated_to_fit_the_window": [
+    {
+      "id": "66f2a59d821e116aacb2a553",
+      "method": "bm25",
+      "k": 16
+    },
+    {
+      "id": "66f2a59d821e116aacb2a553",
+      "method": "graph",
+      "k": 16
+    },
+    {
+      "id": "66f2a59d821e116aacb2a553",
+      "method": "multiquery",
+      "k": 16
+    },
+    {
+      "id": "66f2a59d821e116aacb2a553",
+      "method": "dspy",
+      "k": 16
+    }
+  ]
+}
