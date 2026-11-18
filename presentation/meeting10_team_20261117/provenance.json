@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-17",
+  "source_sha256": {
+    "finder-rag-benchmark/presentation/meeting10_legal_20261117/PUBLICATION_MANIFEST.json": "10de03ab4c7a54e83dba938950d02571e757408050036683e400106538ef4b9a",
+    "finder-rag-benchmark/presentation/meeting10_legal_20261117/team_results_long.csv": "6c72cf568689693f919903ccbef4788bd4909cc6dad64bb80c4dd58caad2aac3",
+    "finder-rag-benchmark/presentation/meeting10_legal_20261117/reader_paired_tests.csv": "6ce8ae5cc2f7d98a95ebb5f55e2487ecd085ebe8b9bb835f253a55939fb3187f",
+    "work/meeting10_20261117/team_reference/SOURCE_RECEIPT.json": "6e623aa832097d2e17146e90ae8e5ccc692239c871b6ad43de1b470bde318f60",
+    "work/meeting10_20261117/team_reference/VERIFIED_LONG_BENCH_ROWS.json": "4f459847360b09f4a78a46482db04cec3b35e1c3718ad40644045ae69f06d871"
+  },
+  "longbench_repository": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark",
+  "longbench_branch": "yuchenlu",
+  "longbench_commit": "8738b543b8770a29acb5d82c481b1a67fe530140",
+  "source_receipt": "sources/longbench/SOURCE_RECEIPT.json",
+  "longbench_source_urls": {
+    "GRAPH_RAG_README.md": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/8738b543b8770a29acb5d82c481b1a67fe530140/GRAPH_RAG_README.md",
+    "evaluate_longbench_methods.py": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/8738b543b8770a29acb5d82c481b1a67fe530140/evaluate_longbench_methods.py",
+    "results/longbench_v2_methods/accuracy.csv": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/8738b543b8770a29acb5d82c481b1a67fe530140/results/longbench_v2_methods/accuracy.csv",
+    "results/longbench_v2_methods/cost.csv": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/8738b543b8770a29acb5d82c481b1a67fe530140/results/longbench_v2_methods/cost.csv",
+    "results/longbench_v2_methods/paired_accuracy_intervals.csv": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/8738b543b8770a29acb5d82c481b1a67fe530140/results/longbench_v2_methods/paired_accuracy_intervals.csv",
+    "results/longbench_v2_methods/summary.json": "https://github.com/cmu-mscf-barclays-rag-2026/finder-rag-benchmark/blob/8738b543b8770a29acb5d82c481b1a67fe530140/results/longbench_v2_methods/summary.json"
+  },
+  "legal_scope": "Independent local validation; see sibling Legal report",
+  "longbench_scope": "Read published CSV/JSON and checked Git blob hashes; did not rerun predictions or independently recalculate accuracy from per-question outputs.",
+  "primary_rows": 6,
+  "all_metric_rows": 43,
+  "metrics_comparable_across_datasets": false,
+  "pooled_mean_calculated": false,
+  "api_calls": 0,
+  "generator_sha256": "29ee2a6f40036930f36572de47a48e908b98a26d4b89fc789d3eeb04786099ec"
+}

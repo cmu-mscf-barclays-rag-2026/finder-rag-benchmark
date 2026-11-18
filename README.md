@@ -1,5 +1,11 @@
 # FinDER RAG Team Benchmark — Part C Hybrid Retrieval
 
+## Latest: Meeting 10 — MultiQueryRetriever and DSPy
+
+[**Main findings, tables and charts**](presentation/meeting10_legal_20261117/README.md) · [Code](person3_meeting10_legal/README.md) · [Legal + LongBench table](presentation/meeting10_team_20261117/README.md)
+
+Legal MultiQuery Hit@5 rises from 32.5% to 42.5% in an exploratory paired test. Answer improvements are not established after correction. Includes offline statistical reproduction.
+
 ## Latest: Meeting 9 financial-report retrieval
 
 [**Main findings — tables, charts and reproducible code**](presentation/meeting9_findings_20261109/README.md)

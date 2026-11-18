@@ -1,0 +1,17 @@
+{
+  "n": 80,
+  "metric": "Hit@5",
+  "candidate": "MultiQueryRetriever+BM25",
+  "control": "BM25",
+  "mean_delta": 0.1,
+  "wins": 9,
+  "losses": 1,
+  "ties": 70,
+  "p_exact_mcnemar": 0.021484375,
+  "paired_bootstrap95": [
+    0.025,
+    0.175
+  ],
+  "exploratory": true,
+  "global_historical_multiplicity_adjustment": false
+}

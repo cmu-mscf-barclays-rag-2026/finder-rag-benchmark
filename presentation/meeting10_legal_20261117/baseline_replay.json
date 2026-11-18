@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "exact_rank_checks": 100,
+  "depth": 100,
+  "full100_hit5": 0.31,
+  "api_calls": 0,
+  "source_hashes_unchanged": true
+}

@@ -1,0 +1,23 @@
+{
+  "model_requested": "gpt-4o-mini",
+  "upstream_model_counts": {
+    "gpt-4o-mini-2024-07-18": 497
+  },
+  "matched_query_generation_requests": 100,
+  "exact_prompt_matching": true,
+  "multiquery_generation_all100_usd": 0.0082404,
+  "multiquery_generation_test80_usd": 0.00651255,
+  "multiquery_generation_development20_usd": 0.00172785,
+  "multiquery_generation_test80_usd_per1000": 0.081406875,
+  "dspy_optimizer_new_call_setup_usd": 0.06466785,
+  "dspy_optimizer_unique_calls": 77,
+  "dspy_optimizer_logical_retained_setup_usd": 0.09754304999999999,
+  "total_new_call_estimate_usd": 0.2474853,
+  "unique_upstream_calls": 497,
+  "finish_reason_counts": {
+    "stop": 497
+  },
+  "cost_basis": "Saved usage at fixed prices; cached-input discount ignored. Not a billing statement.",
+  "method_cost_basis": "Modeled fresh test80 query generation plus reader calls, including exact-cache reuse at retained source cost; optimization/dev generation excluded.",
+  "latency_basis": "Saved API request durations and current proxy request wall time only; not measured end-to-end method latency."
+}

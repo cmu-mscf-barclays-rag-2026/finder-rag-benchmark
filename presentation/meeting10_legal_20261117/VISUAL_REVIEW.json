@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "reviewed_at_utc": "2026-11-18T02:15:13.201614+00:00",
+  "method": "Both generated PNGs opened and visually inspected at full displayed resolution.",
+  "checks": [
+    "No clipping or overlapping labels",
+    "Legends and value labels readable",
+    "Axes and captions identify metrics, sample and comparison scope",
+    "Reader plot does not claim legal accuracy or corrected significance"
+  ],
+  "figures": {
+    "retrieval_depth.png": "c8160c1ae5496fd570956cbe67ff3aa090cf526fed7888180e93d9887dabd4ba",
+    "reader_f1.png": "c6286046c38e56b153dd7a5c85039fa61a4aad3a9eb6db13bc614aecd58137d3"
+  }
+}

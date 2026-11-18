@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "status": "complete",
+  "verified_at_utc": "2026-11-18T02:12:57.900906+00:00",
+  "checks": {
+    "inputs": {
+      "frozen_hashes": true,
+      "original_corpus_and_qa_byte_hashes_preserved": true,
+      "train": 10,
+      "validation": 10,
+      "test": 80,
+      "gold_passages_disjoint": true,
+      "split_replayed": true
+    },
+    "baseline": {
+      "all100_top100_exact": true,
+      "full100_hit5": 0.31,
+      "new_hyde_q_to_h_experiment": false
+    },
+    "multiquery": {
+      "queries": 100,
+      "raw_generated_lines_preserved": true,
+      "per_route_bm25_recomputed": true,
+      "native_union_recomputed": true,
+      "per_k_rrf_rank_checks": 800,
+      "actual_generated_query_count": {
+        "3": 100
+      }
+    },
+    "optimizer": {
+      "dev_only": true,
+      "train": 10,
+      "validation": 10,
+      "zero_demonstrations": true,
+      "inference_inputs": [
+        "context",
+        "question"
+      ],
+      "compiled_artifacts_hash_checked": true,
+      "optimized_instructions": "You are a legal expert tasked with answering complex legal questions. Based on the provided legal context, accurately and concisely respond to the legal question while preserving all qualifications and exceptions. If the provided context does not support an answer, explicitly state that the evidence is insufficient and do not fabricate any case names, statutory provisions, or factual details."
+    },
+    "metrics": {
+      "retrieval_rows": 1600,
+      "reader_rows": 320,
+      "reader_contexts_repacked": true,
+      "dspy_evidence_identical_to_bm25": true,
+      "em_and_token_f1_recomputed": true,
+      "token_f1_is_lexical_proxy_not_legal_accuracy": true
+    },
+    "statistics": {
+      "exact_mcnemar": true,
+      "reader_signflip_draws": 100000,
+      "reader_holm_family": 3,
+      "seed": 42,
+      "paired_bootstrap_draws": 20000,
+      "all_recomputed": true
+    },
+    "api": {
+      "unique_attempts": 497,
+      "known_actual_cost_usd": 0.24748529999999985,
+      "unresolved_reserved_usd": 0.0,
+      "spend_plus_reserves_usd": 0.24748529999999985,
+      "cumulative_estimate_including_reserves_usd": 4.8181403000000005,
+      "cache_hits": 56,
+      "upstream_model_counts": {
+        "gpt-4o-mini-2024-07-18": 497
+      },
+      "finish_reason_counts": {
+        "stop": 497
+      },
+      "finish_reasons_by_created_stage": {
+        "multiquery_generation::stop": 100,
+        "dspy_optimizer_setup::stop": 77,
+        "bm25_reader::stop": 80,
+        "multiquery_reader::stop": 80,
+        "dspy_unoptimized::stop": 80,
+        "dspy_optimized::stop": 80
+      },
+      "reader_finish_reason_counts": {
+        "bm25_reader::stop": 80,
+        "multiquery_reader::stop": 80,
+        "dspy_unoptimized::stop": 80,
+        "dspy_optimized::stop": 80
+      },
+      "reader_truncated_outputs": [],
+      "request_response_line_parser_checked": true,
+      "reader_prompts_reconstructed_without_references": true,
+      "actual_reader_outputs_mapped_to_api_ledger": 320,
+      "prices_recomputed": true
+    }
+  },
+  "limitations": [
+    "All100 Legal questions were previously inspected; test80 isolates only this optimizer round.",
+    "Question-level inference does not adjust shared source dependence or all historical experiments.",
+    "Answer EM/token-F1 are lexical reference proxies, not validated legal correctness."
+  ],
+  "missing_or_incomplete": []
+}

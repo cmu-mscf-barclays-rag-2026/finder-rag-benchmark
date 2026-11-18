@@ -1,0 +1,74 @@
+{
+  "repository": "cmu-mscf-barclays-rag-2026/finder-rag-benchmark",
+  "branch": "yuchenlu",
+  "commit": "8738b543b8770a29acb5d82c481b1a67fe530140",
+  "readme_path": "GRAPH_RAG_README.md",
+  "readme_heading": "LongBench v2 with gpt-4o-mini: MultiQueryRetriever and DSPy",
+  "source_receipt": "SOURCE_RECEIPT.json",
+  "verification_scope": "Read published CSV/JSON and checked Git blob hashes; did not rerun predictions or independently recalculate accuracy from per-question outputs.",
+  "shared_settings": {
+    "split": {
+      "seed": 42,
+      "dev": 101,
+      "test": 402,
+      "dev_use": "DSPy's MIPROv2 only; every reported accuracy is on test"
+    },
+    "reader": "gpt-4o-mini",
+    "temperature": 0,
+    "chunk_words": 300,
+    "top_chunks": 8,
+    "budget_words": 2400,
+    "retrieval_query": "question + four choices"
+  },
+  "dspy_default_instruction_retained": true,
+  "rows": [
+    {
+      "dataset": "LongBench v2",
+      "method": "BM25 + official reader",
+      "test_n": 402,
+      "metric": "multiple_choice_answer_accuracy",
+      "score": 0.35572139303482586,
+      "matched_baseline_score": 0.35572139303482586,
+      "delta": 0.0,
+      "paired_bootstrap95": null,
+      "interval_draws": 10000,
+      "interval_adjustment": "unadjusted question bootstrap",
+      "test_inference_usd_per1000": 0.7425018656716418,
+      "one_time_setup_usd": 0.0
+    },
+    {
+      "dataset": "LongBench v2",
+      "method": "MultiQueryRetriever + BM25 + official reader",
+      "test_n": 402,
+      "metric": "multiple_choice_answer_accuracy",
+      "score": 0.30845771144278605,
+      "matched_baseline_score": 0.35572139303482586,
+      "delta": -0.0472636815920398,
+      "paired_bootstrap95": [
+        -0.0845771144278607,
+        -0.009950248756218905
+      ],
+      "interval_draws": 10000,
+      "interval_adjustment": "unadjusted question bootstrap",
+      "test_inference_usd_per1000": 0.8374175373134329,
+      "one_time_setup_usd": 0.0
+    },
+    {
+      "dataset": "LongBench v2",
+      "method": "BM25 + DSPy CoT, default instruction retained",
+      "test_n": 402,
+      "metric": "multiple_choice_answer_accuracy",
+      "score": 0.34577114427860695,
+      "matched_baseline_score": 0.35572139303482586,
+      "delta": -0.009950248756218905,
+      "paired_bootstrap95": [
+        -0.04975124378109453,
+        0.029850746268656716
+      ],
+      "interval_draws": 10000,
+      "interval_adjustment": "unadjusted question bootstrap",
+      "test_inference_usd_per1000": 0.8343074626865671,
+      "one_time_setup_usd": 0.35336894999999996
+    }
+  ]
+}

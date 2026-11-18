@@ -1,0 +1,37 @@
+{
+  "repository": "cmu-mscf-barclays-rag-2026/finder-rag-benchmark",
+  "branch": "yuchenlu",
+  "commit": "8738b543b8770a29acb5d82c481b1a67fe530140",
+  "files": {
+    "GRAPH_RAG_README.md": {
+      "github_blob_sha": "196b3accbc5fb35ca01a150a7b809a8f16e5a5a5",
+      "sha256": "f63cc85ce0f5e44dcd2069dee982836ff01cd6074c53e88a7a9ca5409233365d",
+      "bytes": 52059
+    },
+    "evaluate_longbench_methods.py": {
+      "github_blob_sha": "56971528a1bde2b01ca6f318ac704ff2c5f54bc1",
+      "sha256": "cbfd3de4741c8184d61451085f3df5a39127ea217c779087665e366c66e982d1",
+      "bytes": 24797
+    },
+    "results/longbench_v2_methods/accuracy.csv": {
+      "github_blob_sha": "02ecb43c2aacce225c578c0a843ebb652e65a009",
+      "sha256": "42f2cf653a030395ac4abe496422401a1b4b44d4fb0da477f16eaa6d06aceb8a",
+      "bytes": 2367
+    },
+    "results/longbench_v2_methods/cost.csv": {
+      "github_blob_sha": "d8bb4ac6c007c7a0a2e3c9dc1d2848243c514bed",
+      "sha256": "62e4b97da87590f3ce9cd1cc4b631bf7cb6d23c891c09e3d1959b84d7a9ae57e",
+      "bytes": 778
+    },
+    "results/longbench_v2_methods/paired_accuracy_intervals.csv": {
+      "github_blob_sha": "181140ddf66396800a427f36c2200abef7d57844",
+      "sha256": "a25f40b5782c34aa251cc581b1205e39bdfa7c1eff69f90ec8df3bf74342a3a3",
+      "bytes": 549
+    },
+    "results/longbench_v2_methods/summary.json": {
+      "github_blob_sha": "8c633406d0ca9a0d740122ac330cdcd3df0cbdf8",
+      "sha256": "45946db0919cb7274e2ce2c66e8a2120851f0732525913b5621b7196697d22ce",
+      "bytes": 1752
+    }
+  }
+}

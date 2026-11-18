@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-18T02:05:09.507451+00:00",
+  "hashes": {
+    "protocol.json": "c84f1df6fcf1b67028e49a0a7a364353a56cfb93b0a7972a7f7156eeee791ab4",
+    "selection.json": "32258d72c3340beb415aa5efc3328a57a7cf851019882d3d0b8ef852edeab042",
+    "framework_metadata.json": "86ce28ddd10adcce37603a57a80dde479ebef784011172451c60a3033de604d9",
+    "source_hashes.json": "717a0c711b0d5d16a66fe2d070d59c8f32814560910a54983fc31c4adbb36126",
+    "implementation_hashes.json": "54a46659619ef1540ba79f80c63ae4d02b45ad30e8af1e33b957959e3754abe3"
+  },
+  "outcomes_not_computed": true,
+  "prepaid_finalization": {
+    "reason": "API worker completed final mock reliability fix after initial prepare; no generated calls or new outcomes existed. Protocol, split and data unchanged.",
+    "model_generation_attempts": 0,
+    "changes": [
+      {
+        "path": "person3_meeting10_legal/api.py",
+        "before": "422e315207fffb5337da2a63378f444375899975eda6126f9a861a7efc3a50c2",
+        "after": "f3de7a031725371df11e71a54cd1258f164c85cd9c94d5ca835e85ef050e8205"
+      }
+    ]
+  }
+}

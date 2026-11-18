@@ -1,0 +1,8 @@
+component,calls,prompt_tokens,completion_tokens,usd,usd_per_test_question,note
+no_context answer,402,82859,8017,0.01723905,4.288320895522388e-05,"official prompt, test"
+bm25 answer,402,1951917,9497,0.29848575,0.0007425018656716418,"official prompt, test"
+graph answer,402,2164498,9679,0.33048210000000006,0.0008220947761194031,"official prompt, test"
+multiquery answer,402,1953380,9589,0.29876040000000004,0.0007431850746268657,"official prompt, test"
+multiquery rewrites,402,100695,37962,0.03788145,9.423246268656716e-05,"LangChain default prompt, 3 rewrites per question"
+dspy compile (MIPROv2 on dev),415,2194941,40213,0.35336894999999996,,one-off optimization cost
+dspy test,412,2083916,38007,0.33539159999999996,0.0008343074626865671,"ChainOfThought, compiled instruction"

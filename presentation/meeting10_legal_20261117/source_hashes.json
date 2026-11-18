@@ -1,0 +1,7 @@
+{
+  "data/legal_rag_bench/qa.jsonl": "e3b869a4e293d081ec5f5b39c2058c8d27b36f611aa9f8275eb1877a7c8b38b0",
+  "data/legal_rag_bench/corpus.jsonl": "3a3565bc5429f6cead90548e81f87352b449927e4be1cdd804c28d766bb9c246",
+  "results/person3_openai_hyde/saved_rankings.npz": "8dca17daa7a2276aae1ef5ddd26db60fadefefe372d213657b3ecc9ec8293433",
+  "results/person3_openai_hyde/evaluation_queries.csv": "8a96cd87d5469e9817f3385b54bd77ff7868311160d2ad32e7ce56ed0a50cfc8",
+  "results/person3_offline_followup/step1_v1/legal_sparse_tests.csv": "b8788898b4415924320c2c22edd81c17f5d286b81fbddd0d3ffe164efa4d316c"
+}

@@ -1,0 +1,5 @@
+method,test_n,reader_logical_fresh_usd,query_generation_test80_usd,modeled_fresh_test_inference_usd,test_inference_usd_per1000,reader_new_call_spend_usd,reader_unique_new_calls,successful_reader_http_requests
+bm25_reader,80,0.03987255,0.0,0.03987255,0.498406875,0.03987255,80,80
+multiquery_reader,80,0.0407985,0.00651255,0.04731105,0.591388125,0.0407985,80,80
+dspy_unoptimized,80,0.046636199999999996,0.0,0.046636199999999996,0.5829524999999999,0.046636199999999996,80,80
+dspy_optimized,80,0.0472698,0.0,0.0472698,0.5908725,0.0472698,80,80

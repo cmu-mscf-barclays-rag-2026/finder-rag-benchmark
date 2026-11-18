@@ -1,0 +1,92 @@
+{
+  "model": "gpt-4o-mini",
+  "prior_cumulative_estimate_usd": 4.570655,
+  "new_cost_and_reserves_usd": 0.2474853,
+  "known_actual_cost_usd": 0.2474853,
+  "unresolved_reserved_usd": 0,
+  "cumulative_estimate_including_reserves_usd": 4.8181403000000005,
+  "new_guard_usd": 1.0,
+  "cumulative_guard_usd": 7.0,
+  "unique_attempts": 497,
+  "max_unique_attempts": 600,
+  "cache_hits": 56,
+  "states": {
+    "saved": 497
+  },
+  "prices_per_million": {
+    "input": 0.15,
+    "output": 0.6
+  },
+  "cached_discount_ignored": true,
+  "billing_statement": false,
+  "automatic_upstream_retries": 0,
+  "by_stage": {
+    "bm25_reader": {
+      "actual_unique_attempts": 80,
+      "actual_new_spend_usd": 0.03987255,
+      "new_spend_plus_reserves_usd": 0.03987255,
+      "http_requests": 80,
+      "cache_hits": 0,
+      "logical_retained_cost_usd": 0.03987255,
+      "modeled_fresh_upstream_latency_seconds": 94.05829670559615,
+      "current_request_wall_seconds": 94.73111762432382,
+      "current_cache_hit_wall_seconds": 0
+    },
+    "dspy_optimized": {
+      "actual_unique_attempts": 80,
+      "actual_new_spend_usd": 0.0472698,
+      "new_spend_plus_reserves_usd": 0.0472698,
+      "http_requests": 80,
+      "cache_hits": 0,
+      "logical_retained_cost_usd": 0.0472698,
+      "modeled_fresh_upstream_latency_seconds": 180.21995604457334,
+      "current_request_wall_seconds": 181.18857045611367,
+      "current_cache_hit_wall_seconds": 0
+    },
+    "dspy_optimizer_setup": {
+      "actual_unique_attempts": 77,
+      "actual_new_spend_usd": 0.06466785,
+      "new_spend_plus_reserves_usd": 0.06466785,
+      "http_requests": 133,
+      "cache_hits": 56,
+      "logical_retained_cost_usd": 0.09754304999999999,
+      "modeled_fresh_upstream_latency_seconds": 297.09120066510513,
+      "current_request_wall_seconds": 179.50153004331514,
+      "current_cache_hit_wall_seconds": 0.26520949811674654
+    },
+    "dspy_unoptimized": {
+      "actual_unique_attempts": 80,
+      "actual_new_spend_usd": 0.046636199999999996,
+      "new_spend_plus_reserves_usd": 0.046636199999999996,
+      "http_requests": 80,
+      "cache_hits": 0,
+      "logical_retained_cost_usd": 0.046636199999999996,
+      "modeled_fresh_upstream_latency_seconds": 180.96160834026523,
+      "current_request_wall_seconds": 181.83452774444595,
+      "current_cache_hit_wall_seconds": 0
+    },
+    "multiquery_generation": {
+      "actual_unique_attempts": 100,
+      "actual_new_spend_usd": 0.0082404,
+      "new_spend_plus_reserves_usd": 0.0082404,
+      "http_requests": 100,
+      "cache_hits": 0,
+      "logical_retained_cost_usd": 0.0082404,
+      "modeled_fresh_upstream_latency_seconds": 167.59599195513874,
+      "current_request_wall_seconds": 167.94709812151268,
+      "current_cache_hit_wall_seconds": 0
+    },
+    "multiquery_reader": {
+      "actual_unique_attempts": 80,
+      "actual_new_spend_usd": 0.0407985,
+      "new_spend_plus_reserves_usd": 0.0407985,
+      "http_requests": 80,
+      "cache_hits": 0,
+      "logical_retained_cost_usd": 0.0407985,
+      "modeled_fresh_upstream_latency_seconds": 98.53513754182495,
+      "current_request_wall_seconds": 99.31791608105414,
+      "current_cache_hit_wall_seconds": 0
+    }
+  },
+  "latency_note": "Logical fresh latency reuses saved upstream durations per successful HTTP request; current wall includes local cache/proxy time. Not a measured end-to-end RAG benchmark."
+}

@@ -1,0 +1,67 @@
+{
+  "multiquery_default_prompt": "You are an AI language model assistant. Your task is\n    to generate 3 different versions of the given user\n    question to retrieve relevant documents from a vector  database.\n    By generating multiple perspectives on the user question,\n    your goal is to help the user overcome some of the limitations\n    of distance-based similarity search. Provide these alternative\n    questions separated by newlines. Original question: {question}",
+  "dspy_signature": [
+    {
+      "predictor": "predict",
+      "instructions": "Answer the legal question accurately and concisely using the supplied context.\n\nPreserve qualifications and exceptions. If the context does not support\nan answer, state that the supplied evidence is insufficient. Do not\ninvent case names, statutory provisions or factual details.",
+      "input_fields": [
+        "context",
+        "question"
+      ],
+      "output_fields": [
+        "reasoning",
+        "answer"
+      ],
+      "demonstration_count": 0
+    }
+  ],
+  "versions": {
+    "langchain-classic": "1.0.8",
+    "langchain-core": "1.8.2",
+    "langchain-openai": "1.8.1",
+    "dspy": "3.5.0"
+  },
+  "multiquery": {
+    "model": "gpt-4o-mini",
+    "temperature": 0,
+    "max_output_tokens": 256,
+    "max_retries": 0,
+    "default_prompt_template": "You are an AI language model assistant. Your task is\n    to generate 3 different versions of the given user\n    question to retrieve relevant documents from a vector  database.\n    By generating multiple perspectives on the user question,\n    your goal is to help the user overcome some of the limitations\n    of distance-based similarity search. Provide these alternative\n    questions separated by newlines. Original question: {question}",
+    "default_line_parser": "strip outer whitespace; split on newline; remove empty lines only",
+    "requested_rewrites": 3,
+    "include_original": true,
+    "native_output": "unique Document union; RRF performed separately by coordinator"
+  },
+  "dspy": {
+    "model": "gpt-4o-mini",
+    "api_family": "chat",
+    "temperature": 0,
+    "max_output_tokens": 512,
+    "num_retries": 0,
+    "dspy_response_cache": false,
+    "adapter": "DSPy 3.5 default XMLAdapter; native JSON fallback if output parsing fails",
+    "authoritative_cache": "coordinator local budget proxy",
+    "initial_signature": [
+      {
+        "predictor": "predict",
+        "instructions": "Answer the legal question accurately and concisely using the supplied context.\n\nPreserve qualifications and exceptions. If the context does not support\nan answer, state that the supplied evidence is insufficient. Do not\ninvent case names, statutory provisions or factual details.",
+        "input_fields": [
+          "context",
+          "question"
+        ],
+        "output_fields": [
+          "reasoning",
+          "answer"
+        ],
+        "demonstration_count": 0
+      }
+    ],
+    "optimizer": "MIPROv2",
+    "auto": "light",
+    "max_bootstrapped_demos": 0,
+    "max_labeled_demos": 0,
+    "seed": 42,
+    "num_threads": 2,
+    "max_errors": 1
+  }
+}
