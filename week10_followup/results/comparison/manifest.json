@@ -1,0 +1,41 @@
+{
+  "rows": 62,
+  "team_files": [],
+  "input_sha256": {
+    "week10_followup/results/context_grid/summary.csv": "88cba3b0fb6c5277c3f74660dbfdcbcc6fe138406f35e50be89ed48cc9c44693",
+    "week10_followup/results/finder_gpt200/dspy/evaluation_k10.json": "ffc6ce36316e3a5ec34cf4df2ee2abf07d17f226fb91066ecd6350db6e5bcb61",
+    "week10_followup/results/finder_gpt200/dspy/evaluation_k5.json": "a300bbef5adfc24711fbce698a62e2506cd4ad4455e3bce0cb86fd9cdac7a9aa",
+    "week10_followup/results/finder_gpt200/multiquery/evaluation_k10.json": "f9203b388702801abb53cddae0759dcf5be883a9e28c8776650829d2bde56539",
+    "week10_followup/results/finder_gpt200/multiquery/evaluation_k5.json": "310ea938149dff9b389449f551a8151a444ca506d30ef0e84a1ceab9a63a6caa",
+    "week10_followup/results/finder_gpt200/single_query/evaluation_k10.json": "76433949357c4fc01fef4efee2269ed2761583a30139dd8c11e5f09b6ae07819",
+    "week10_followup/results/finder_gpt200/single_query/evaluation_k5.json": "ee307a0d296b1b3cd05cec01186997548553a4667639df02b8da7a46e3030fef",
+    "week10_followup/results/finder_qwen200/dspy/evaluation_k10.json": "ed0714ee634f7b5be9201e79ff75e64f56bf548bcba9719b0d27aefc2a5308cb",
+    "week10_followup/results/finder_qwen200/dspy/evaluation_k5.json": "0f8d9b2561d7406124afd10c724dbef8cca6ed49d08617cf5b9cd835fd455a0e",
+    "week10_followup/results/finder_qwen200/multiquery/evaluation_k10.json": "ad379727bad7d83552f1aaffe7898fd3c3326e8c5983efcc4ae8f7c67e1c8814",
+    "week10_followup/results/finder_qwen200/multiquery/evaluation_k5.json": "76840b94bea02eb16e255c098e3be2feda07016d029217d29b5a1f5b8aefde85",
+    "week10_followup/results/fiqa_grid/summary.csv": "1cc481f3878defe30bb5e4fe1b64f376a57eb5d2d7bf780d90783b18e3a9030a",
+    "week10_followup/results/qwen_window_compare/qwen1024_summary.csv": "00155c7095684c501c8278aeb8b1d21791485d027076a1ae53c976f2cbc5422a"
+  },
+  "committed_team_source": {
+    "commit": "18bf882b612b5fa3c0d83a4b861603fd8b424446",
+    "blob_sha256": {
+      "presentation/meeting10_team_20261117/team_primary_comparison.csv": "92ab5ad44dfc68da4d96be21e09bb5889a3ca7d38cfb898ae470793437402f14",
+      "presentation/meeting10_team_20261117/team_all_metrics_long.csv": "51f48154ba2be92b207bd514a49abede04db1a77779035da9772022240606543"
+    }
+  },
+  "committed_vidore_source": {
+    "commit": "8df85985ea1ea3f3b7e7508d7390f2970f4dab6c",
+    "test_query_ids_sha256": "d8898cff3286c14ea26342fbbed9e3a7ab23fee99912c6ccfc5ccdcfc0c14509",
+    "blob_sha256": {
+      "vidore_query_expansion/results/summary.csv": "fdcc88cfcbb8e9c53e6ee463b933d3d0d38f75dbbd754a3172d6a3a2986fceca",
+      "vidore_query_expansion/results/splits.csv": "8eb0771e1b08442b8632a96f716199d1a330932a63cfff6d54d485bdd8ee562a",
+      "vidore_query_expansion/results/independent_audit.json": "e96569781299f5f4954066d70e7c0e65f9f2d6e53d91908921cde03002455703",
+      "vidore_query_expansion/results/selection.json": "cd7f180f8090f6189e3996424cf9f6cf63a11db1f7cf2ed24d78f8bb89826655"
+    }
+  },
+  "output_sha256": {
+    "comparison.csv": "91b2a0df3a3fca37e6d49806b069ee5e968492ea0c3ee347f9cfc7494d1733ef",
+    "team_method_comparison.csv": "5bb8f486e7aa1571f1219854e42ff7da09755ca5d9df16600f9fbf270ea783f9",
+    "team_vidore_query_expansion.csv": "88efbd3324b286d5b1e864e75ccd6bd22e19cc9230562c8312be37751fe99edb"
+  }
+}

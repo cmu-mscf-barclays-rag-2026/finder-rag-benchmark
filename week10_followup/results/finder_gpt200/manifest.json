@@ -1,0 +1,41 @@
+{
+  "dataset": "FinDER",
+  "bundle_fingerprint": "cd347ea68a094fbfe43d3e3c3a6396cad0e9e8d9cc564b699f7c20ffa103d559",
+  "corpus_scope": "pooled_reference_passages",
+  "corpus_passages": 5830,
+  "generator": "gpt-4o-mini",
+  "generator_revision": "gpt-4o-mini",
+  "retriever": "tuned BM25",
+  "k1": 1.6,
+  "b": 1.0,
+  "dev_query_ids_sha256": "1ae4c35821d9a3e4deb3179f50367a7429f261c8de05da5b8071366aee5bd831",
+  "test_query_ids_sha256": "d4a3ac2cad80899c15eeca03dbc5c2c03653c9d90e8516ec5cda77f36405d74f",
+  "dev_count": 16,
+  "test_count": 200,
+  "depth_per_query": 20,
+  "fusion": "equal-weight RRF with denominator 60+rank, stable ID ties",
+  "dspy_optimization_seconds": 4.390270709001925,
+  "dspy_optimization_usage": {
+    "model_calls": 3,
+    "input_tokens": 617,
+    "output_tokens": 144
+  },
+  "multiquery_usage": {
+    "model_calls": 200,
+    "input_tokens": 14314,
+    "output_tokens": 7292
+  },
+  "dspy_test_usage": {
+    "model_calls": 200,
+    "input_tokens": 71314,
+    "output_tokens": 9784
+  },
+  "packages": {
+    "langchain-classic": "1.0.8",
+    "langchain-core": "1.8.2",
+    "dspy": "3.5.0",
+    "transformers": "4.51.3",
+    "torch": "2.14.0"
+  },
+  "source_sha256": "6789a6be7311dd2e4a8f2aab230032c4be2a9a0aca7b2e5d9800204f8547ff31"
+}

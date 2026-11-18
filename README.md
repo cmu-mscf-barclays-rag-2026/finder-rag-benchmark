@@ -1,6 +1,7 @@
 # Florence Liu — Barclays research updates
 
-Start with the [Week 9 finance evidence-sufficiency prototype](week9_evidence/README.md)
+Start with the [Week 10 context and query-expansion follow-up](week10_followup/README.md)
+or the [Week 9 finance evidence-sufficiency prototype](week9_evidence/README.md)
 or the [Week 8 depth, sibling, MMR, and dataset experiments](week8_retrieval/README.md)
 or the [Week 7 Qwen tuning and context-budget results](week7_qwen_tuning/README.md)
 or the [Week 6 Qwen hierarchy experiment](week6_qwen_hierarchy/README.md)
@@ -16,13 +17,14 @@ or choose a week below. Each folder contains that week's findings, results and c
 | 7 — Qwen tuning and context budgets | Which BM25/Qwen weight and retrieval mode works best as the delivered context grows from 2,048 to 8,000 tokens? | Development selection favored Qwen dense child retrieval at 2k and 4k (test Hit@10: 44/80 and 53/80) and selected siblings at 6k and 8k (54/80 at both). Hybrid weights showed no held-out gain. | [Findings, curve, and reproduction](week7_qwen_tuning/README.md) |
 | 8 — Retrieval depth and new datasets | Do deeper Qwen retrieval, directional sibling expansion, or MMR improve delivered evidence? Can FiQA provide multi-relevance retrieval evaluation? | Qwen child Top-20 at 6k found 60/80 gold passages versus 53/80 at Top-10. MMR reduced overlap but lost evidence hits. FiQA's 648 test queries include 428 with multiple relevant answers. | [Protocol, results, and dataset adapters](week8_retrieval/README.md) |
 | 9 — Financial evidence sufficiency | Does retrieved context cover every required fact, and how efficiently? | ViDoRe finance evaluation on 309 English questions and 2,942 pages, plus a ten-question, twenty-fact draft pilot distinguishing alternative and complementary evidence. Human validation remains pending. | [Protocol and measured findings](week9_evidence/README.md) |
+| 10 — Context and query expansion | How do context budgets, Qwen input length, MultiQueryRetriever, and DSPy affect retrieval? | ViDoRe Qwen Top-10 delivered Hit at 6k rose from .673 to .773 when its document window grew from 256 to 1,024 tokens; FinDER query expansion is evaluated on a held-out test sample. | [Protocol and results](week10_followup/README.md) |
 
 These weeks use different experiments and evaluation settings. Week 3 uses
 FinDER; Weeks 4–8 use Legal RAG Bench, with Week 4 on a different question split. Scores
 should be compared within each week's controlled experiment, not across weeks.
 Week 8 also includes a separate FiQA retrieval baseline and a LongBench v2
 answer-evaluation adapter; their metrics are not comparable to Legal RAG Bench.
-Week 9 uses ViDoRe financial reports; its draft fact annotations are exploratory,
+Weeks 9–10 use ViDoRe financial reports; the draft fact annotations are exploratory,
 not a validated answer-sufficiency benchmark.
 Retrieval scores measure evidence inclusion, not the correctness of generated answers.
 

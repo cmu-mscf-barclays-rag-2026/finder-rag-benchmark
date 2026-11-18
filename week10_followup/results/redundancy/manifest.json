@@ -1,0 +1,14 @@
+{
+  "dataset_sha256": {
+    "corpus.jsonl": "0b1faaf75cfb5e47287fee859dbfee21aff2af238312fe5537fc6a766a0c5839",
+    "documents_metadata.jsonl": "666f659d234cb413766158326db34c65672b9ef7bd360054f90e9adbf110924d",
+    "qrels.jsonl": "496cca0f3fc8410a701c109ee01af03ce1d221439b08bb391bb46f4d30b3806f",
+    "queries.jsonl": "945e53f7f6b47027d7cc38dac45845ddaae2be64053948b15ca06a6e19265517"
+  },
+  "vectors_sha256": "eabf658b2186374e55e21f9f96e42548cecee09a76933dd8b231f065794f854e",
+  "rankings_sha256": "47f5626133924aebeb18df23c58f412a3fa6f988c16efdf6c56d498a782caeaf",
+  "grid_sha256": "b67be884b9e3afa94648f122f4cdaaee0b16e6a15b0e9d829aedaf693b1207ec",
+  "source_sha256": "98d340a01d0d2dcbe041c7209592b330400155e36a9bd75a05c6f0c31e070346",
+  "scope": "Qwen256 Top-10 delivered neighbors versus delivered seeds, cosine over first 256 Qwen tokens",
+  "rows": 1854
+}

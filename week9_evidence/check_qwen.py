@@ -13,20 +13,20 @@ from week9_evidence.qwen import FinanceQwenEncoder
 from week9_evidence.vidore import digest, load_dataset
 
 
-def smoke(dataset, vectors, device):
+def smoke(dataset, vectors, device, page_window=256):
     pages, queries, _, _ = load_dataset(dataset)
     args = SimpleNamespace(model_cache=ROOT / '.cache/models',
         embedding_cache=ROOT / '.cache/week9_embeddings', offline=True,
         device=device, dtype='float32', batch_size=8, batch_tokens=4096)
     encoder = FinanceQwenEncoder(QWEN, args)
     pids, qids = ['10', '2552', '2934'], ['0', '13', '24']
-    pv = encoder.encode([pages[c]['text'] for c in pids], 256, 'page')
+    pv = encoder.encode([pages[c]['text'] for c in pids], page_window, 'page')
     qv = encoder.encode([queries[q]['query'] for q in qids], 2048, 'query',
                         prompt=f'Instruct: {QWEN["query_instruction"]}\nQuery: ')
     np.savez_compressed(vectors, page_ids=np.array(pids), query_ids=np.array(qids), pages=pv, queries=qv)
 
 
-def check(dataset, vectors, output):
+def check(dataset, vectors, output, page_window=256):
     pages, queries, _, _ = load_dataset(dataset)
     saved = np.load(vectors)
     tokenizer = AutoTokenizer.from_pretrained(QWEN['model'], revision=QWEN['revision'],
@@ -44,7 +44,7 @@ def check(dataset, vectors, output):
                 continue  # The smoke file has three pages/queries; full runs have all six.
             text = pages[uid]['text'] if kind == 'page' else (
                 f'Instruct: {QWEN["query_instruction"]}\nQuery: ' + queries[uid]['query'])
-            batch = tokenizer(text, truncation=True, max_length=256 if kind == 'page' else 2048,
+            batch = tokenizer(text, truncation=True, max_length=page_window if kind == 'page' else 2048,
                               return_tensors='pt')
             with torch.inference_mode():
                 hidden = model(**batch, use_cache=False).last_hidden_state
@@ -56,6 +56,7 @@ def check(dataset, vectors, output):
         raise ValueError('Too few reference samples in saved vectors')
     minimum = min(r['cpu_vs_saved_cosine'] for r in checks)
     result = {'checks': checks, 'minimum_cosine': minimum, 'passed': minimum > 0.999,
+        'page_window': page_window,
         'scope': f'{len(checks)} independent CPU single-input encodings versus cached MPS batched vectors; not a full-corpus device equivalence proof.',
         'vectors_sha256': digest(vectors), 'source_sha256': digest(Path(__file__))}
     output.write_text(json.dumps(result, indent=2) + '\n')
@@ -71,7 +72,10 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--create-smoke', action='store_true')
     parser.add_argument('--device', default='mps', choices=['cpu', 'mps'])
+    parser.add_argument('--page-window', type=int, default=256)
     args = parser.parse_args()
+    if args.page_window < 256 or args.page_window > 4096:
+        parser.error('Page window must be in [256, 4096]')
     if args.create_smoke:
-        smoke(args.dataset, args.vectors, args.device)
-    check(args.dataset, args.vectors, args.output)
+        smoke(args.dataset, args.vectors, args.device, args.page_window)
+    check(args.dataset, args.vectors, args.output, args.page_window)

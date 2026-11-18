@@ -1,0 +1,5 @@
+# Install into the Week 9 environment; existing torch/transformers are reused.
+langchain-classic==1.0.8
+langchain-openai==1.8.1
+dspy==3.5.0
+openai==3.54.0

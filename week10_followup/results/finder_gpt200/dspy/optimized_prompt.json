@@ -1,0 +1,36 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "question": "ISRG revenue recognition SSP estimates for multi-element arrangements internal controls.",
+      "query_1": "ISRG revenue recognition multi-element arrangements SSP estimates internal controls",
+      "query_2": "ISRG internal controls for revenue recognition SSP estimates in multi-element arrangements"
+    },
+    {
+      "augmented": true,
+      "question": "Impact on profit vs. cybersecurity costs for CarMax, KMX.",
+      "query_1": "CarMax KMX profit impact due to cybersecurity costs analysis 2023",
+      "query_2": "CarMax KMX financial report cybersecurity expenses effect on profit 2023"
+    }
+  ],
+  "signature": {
+    "instructions": "Write two distinct financial evidence search queries. Preserve entities, dates, quantities and the requested relationship.",
+    "fields": [
+      {
+        "prefix": "Question:",
+        "description": "${question}"
+      },
+      {
+        "prefix": "Query 1:",
+        "description": "First standalone search query"
+      },
+      {
+        "prefix": "Query 2:",
+        "description": "Second standalone search query"
+      }
+    ]
+  },
+  "lm": null
+}

@@ -1,0 +1,17 @@
+{
+  "test_query_count": 200,
+  "bundle_fingerprint": "cd347ea68a094fbfe43d3e3c3a6396cad0e9e8d9cc564b699f7c20ffa103d559",
+  "test_query_ids_sha256": "d4a3ac2cad80899c15eeca03dbc5c2c03653c9d90e8516ec5cda77f36405d74f",
+  "historical_full_baseline_sha256": "78c317cf5ef9fac233f3d0eb84f4051320b83494a072c8755da5ce7d5cb046d8",
+  "source_manifest_sha256": {
+    "week10_followup/results/finder_gpt200/manifest.json": "9c941e110ba0cd364a23f8489c697da28910f135a73b3f547d44150988d45021",
+    "week10_followup/results/finder_qwen200/manifest.json": "803a0b137209ae355217f5a651e6ae8c155ebfd164aaf97b74534427a78292ba"
+  },
+  "source_sha256": "9903813730fc645f7db8f164759b11ffe686cb28e14c5e7068a513851c13cb90",
+  "bootstrap_seed": 42,
+  "bootstrap_draws": 10000,
+  "output_sha256": {
+    "summary.csv": "b3c346047dfa3820cd4a2b5f7e47e975cd3704afe4ea9e628e9bade73eae56a8",
+    "paired.csv": "4e778ad55f9b3ffc9f3e7b5e5222a53cbe0948651dfd123e95d967aae8323186"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "checks": [
+    {
+      "kind": "page",
+      "id": "10",
+      "cpu_vs_saved_cosine": 1.0000001192092896,
+      "max_absolute_difference": 4.954636096954346e-07
+    },
+    {
+      "kind": "page",
+      "id": "2552",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 2.4028122425079346e-07
+    },
+    {
+      "kind": "page",
+      "id": "2934",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 4.880130290985107e-07
+    },
+    {
+      "kind": "page",
+      "id": "275",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 2.384185791015625e-07
+    },
+    {
+      "kind": "page",
+      "id": "2193",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 3.390014171600342e-07
+    },
+    {
+      "kind": "page",
+      "id": "2766",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 2.9243528842926025e-07
+    },
+    {
+      "kind": "query",
+      "id": "0",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 3.916211426258087e-07
+    },
+    {
+      "kind": "query",
+      "id": "13",
+      "cpu_vs_saved_cosine": 0.9999999403953552,
+      "max_absolute_difference": 3.6228448152542114e-07
+    },
+    {
+      "kind": "query",
+      "id": "24",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 5.951151251792908e-07
+    },
+    {
+      "kind": "query",
+      "id": "55",
+      "cpu_vs_saved_cosine": 0.9999998807907104,
+      "max_absolute_difference": 3.2689422369003296e-07
+    },
+    {
+      "kind": "query",
+      "id": "10",
+      "cpu_vs_saved_cosine": 1.0,
+      "max_absolute_difference": 3.2712705433368683e-07
+    },
+    {
+      "kind": "query",
+      "id": "9",
+      "cpu_vs_saved_cosine": 0.9999998211860657,
+      "max_absolute_difference": 4.01865690946579e-07
+    }
+  ],
+  "minimum_cosine": 0.9999998211860657,
+  "passed": true,
+  "page_window": 1024,
+  "scope": "12 independent CPU single-input encodings versus cached MPS batched vectors; not a full-corpus device equivalence proof.",
+  "vectors_sha256": "b47945e6441269981498eaec436b4b0723d1f7e2a35be5c97e93b14b0b6512a2",
+  "source_sha256": "fd7609142951e8fdd462f6328231de5269cbbdfa16c29d476a5786f1f83e7250"
+}

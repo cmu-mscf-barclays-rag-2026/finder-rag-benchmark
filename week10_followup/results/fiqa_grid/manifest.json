@@ -1,0 +1,26 @@
+{
+  "dataset": "BEIR FiQA",
+  "split": "test",
+  "queries": 648,
+  "passages": 57638,
+  "ks": [
+    5,
+    8,
+    10,
+    20
+  ],
+  "budgets": [
+    6000,
+    10000,
+    12000
+  ],
+  "retrieval": "saved BM25 k1=1.2 b=0.75, top-20",
+  "ranking_sha256": "30e7a8f008492d7ac1c76926b9fd2ff7b9626973b22fd039624cb1a790de08b7",
+  "tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+  "source_sha256": "e25dde5004d5879a4620fab7ccbe285b53f75157698410c015655388cb780c11",
+  "output_sha256": {
+    "summary.csv": "1cc481f3878defe30bb5e4fe1b64f376a57eb5d2d7bf780d90783b18e3a9030a",
+    "per_query.csv": "08b4d27afc36830710dd4312f1a390a4bc14205542df520c408d6a3a7a70163a"
+  },
+  "relevance_note": "Relevant answers can be alternatives rather than jointly required facts."
+}

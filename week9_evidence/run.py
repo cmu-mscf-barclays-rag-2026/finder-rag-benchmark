@@ -107,7 +107,7 @@ def retrieve(method, pages, queries, args):
                         'across encoders need not cover identical characters.'}
     else:
         encoder = FinanceQwenEncoder(QWEN, args)
-        window = 4096 if method == 'qwen' else 256
+        window = args.qwen_window if method == 'qwen' else 256
         vectors = encoder.encode(texts, window, 'page')
         build_seconds = time.perf_counter() - started
         tick = time.perf_counter()
@@ -202,9 +202,13 @@ def main():
     parser.add_argument('--budgets', type=int, nargs='+', default=[2000, 4000, 6000, 8000])
     parser.add_argument('--device', choices=['cpu', 'mps'], default='cpu')
     parser.add_argument('--dtype', default='float32', choices=['float32'])
+    parser.add_argument('--qwen-window', type=int, default=4096,
+                        help='Document token window for --method qwen (default: 4096)')
     args = parser.parse_args()
     if any(x <= 0 for x in args.ks + args.budgets) or max(args.ks) > 100:
         parser.error('Use positive budgets and k in [1, 100]')
+    if args.qwen_window < 256 or args.qwen_window > 4096:
+        parser.error('Qwen document window must be in [256, 4096]')
     if args.output.exists() and any(args.output.iterdir()):
         parser.error('Output must be new or empty')
     pages, queries, qrels, dataset_manifest = load_dataset(args.dataset)

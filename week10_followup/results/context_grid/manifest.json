@@ -1,0 +1,52 @@
+{
+  "dataset_revision": "7f432c176d82e27546501ad8064a713ac3071809",
+  "dataset_sha256": {
+    "corpus.jsonl": "0b1faaf75cfb5e47287fee859dbfee21aff2af238312fe5537fc6a766a0c5839",
+    "documents_metadata.jsonl": "666f659d234cb413766158326db34c65672b9ef7bd360054f90e9adbf110924d",
+    "qrels.jsonl": "496cca0f3fc8410a701c109ee01af03ce1d221439b08bb391bb46f4d30b3806f",
+    "queries.jsonl": "945e53f7f6b47027d7cc38dac45845ddaae2be64053948b15ca06a6e19265517"
+  },
+  "ranking_sha256": {
+    "bm25": "c8677cdd565cb5a4f06e8eabe476c5555a940a9364c453a7fce633e2000587b5",
+    "minilm": "7ea2f21d479af96b398fef0c87820535ba41e9102a62565203a2771a65e61b5e",
+    "qwen256": "47f5626133924aebeb18df23c58f412a3fa6f988c16efdf6c56d498a782caeaf"
+  },
+  "tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+  "ks": [
+    5,
+    8,
+    10,
+    20
+  ],
+  "budgets": [
+    6000,
+    10000,
+    12000
+  ],
+  "policies_before_after": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "packing": "Week 9 whole-page skip-to-fit, physical PDF neighbors, no seed backfill",
+  "query_count": 309,
+  "source_code_sha256": "bfb615d5117d1005e4f6db8c27ba46603a9e3f6aa79ec028b2abbd0be930a529",
+  "output_sha256": {
+    "paired_neighbors.csv": "ba688f196c39496adac72c647db3bc58c59121d55181ca39fc67b3c3a5b9bd41",
+    "per_query.csv": "b67be884b9e3afa94648f122f4cdaaee0b16e6a15b0e9d829aedaf693b1207ec",
+    "summary.csv": "88cba3b0fb6c5277c3f74660dbfdcbcc6fe138406f35e50be89ed48cc9c44693"
+  }
+}

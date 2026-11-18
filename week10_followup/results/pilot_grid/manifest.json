@@ -1,0 +1,12 @@
+{
+  "dataset_revision": "7f432c176d82e27546501ad8064a713ac3071809",
+  "annotation_sha256": "164bee43283d02b0bce1674e709bb64188054326f4bd29208ca976c21c7ee3b1",
+  "grid_sha256": "b67be884b9e3afa94648f122f4cdaaee0b16e6a15b0e9d829aedaf693b1207ec",
+  "query_count": 10,
+  "annotation_status": "draft_unreviewed",
+  "source_sha256": "bc9f627746f18322b824cab7e02990c5b861129e252e070ddc8592785bd02f34",
+  "output_sha256": {
+    "summary.csv": "5538f2189696a7308a6c9886d9dfaccefdbdf4e2f9f5de9dcccfb2e589c71bbb",
+    "per_question.csv": "1daba898fc242e4b1667732a5c09fe8113d04335347c45f26a3054a5960bae5a"
+  }
+}

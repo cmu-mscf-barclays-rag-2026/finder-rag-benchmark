@@ -1,0 +1,20 @@
+{
+  "dataset_revision": "7f432c176d82e27546501ad8064a713ac3071809",
+  "queries": 309,
+  "pages": 2942,
+  "short_window": 256,
+  "long_window": 1024,
+  "same_query_embeddings_exact": true,
+  "short_ranking_sha256": "47f5626133924aebeb18df23c58f412a3fa6f988c16efdf6c56d498a782caeaf",
+  "long_ranking_sha256": "8d4ffffa88471245b380ff65c457ac653c1e9ec5ea561357fe45951386e89c5b",
+  "tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+  "cpu_check_sha256": "f4dc4f3e835536464ef9715a26f77271f731de84cfc9679ac8dd9da5872a0fde",
+  "source_sha256": "6806f3c2587132df3a5e48b177a33623607445d8a23251ceb2d793168ce342e7",
+  "output_sha256": {
+    "delivered_comparison.csv": "12567727288678ce30d36727c8d06b9a66ce6155bdedcae2d0e8b087b3bb0f2e",
+    "paired_delivered.csv": "ba848bd780bc43682699a9ebd04c855df68d7f8f2cdd4096f439839a76e78eae",
+    "qwen1024_per_query.csv": "cf48cfe32187cb50df9dd0d0b59e9c22eaef124ef66bd86363db4390515ba534",
+    "qwen1024_summary.csv": "00155c7095684c501c8278aeb8b1d21791485d027076a1ae53c976f2cbc5422a",
+    "ranked_comparison.csv": "aa879f1fc583438327150a70821ef049df83ef9965df1e7cced5f6e067cbaba0"
+  }
+}

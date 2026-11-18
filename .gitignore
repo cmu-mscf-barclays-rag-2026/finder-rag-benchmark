@@ -9,9 +9,12 @@ Thumbs.db
 
 # Model and embedding caches should never be committed.
 .cache/
+.env
+**/.env
 models/
 embeddings/
 week9_evidence/**/vectors.npz
+week10_followup/**/vectors.npz
 
 # Presentation CSV and Markdown files are intentionally committed so the team
 # can read the latest comparison without rerunning the models.
