@@ -1,0 +1,21 @@
+{
+  "pages": 2942,
+  "queries": 1854,
+  "relevance_groups": 299,
+  "split_counts": {
+    "train": {
+      "english": 31,
+      "all_variants": 186
+    },
+    "validation": {
+      "english": 31,
+      "all_variants": 186
+    },
+    "test": {
+      "english": 247,
+      "all_variants": 1482
+    }
+  },
+  "grouping": "Identical full relevance signatures conservatively group translations and some distinct queries.",
+  "historical_scope": "Optimizer-held-out test; these queries were previously examined in the earlier benchmark."
+}

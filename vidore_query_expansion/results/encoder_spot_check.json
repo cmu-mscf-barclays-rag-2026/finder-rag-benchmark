@@ -1,0 +1,10 @@
+{
+  "inputs": 12,
+  "fresh_batch_size": 12,
+  "minimum_cosine_agreement": 0.9999951720237732,
+  "original_questions_checked": 6,
+  "generated_alternatives_checked": 6,
+  "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "note": "Fresh mixed-length GPU batch versus saved original batch-1 and generated batch-16 vectors.",
+  "status": "passed"
+}

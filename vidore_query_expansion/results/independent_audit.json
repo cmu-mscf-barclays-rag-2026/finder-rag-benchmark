@@ -1,0 +1,11 @@
+{
+  "metric_rows_independently_checked": 118656,
+  "queries": 1854,
+  "headline_summary_rows_checked": 64,
+  "test_english_queries": 247,
+  "methods": 16,
+  "translation_group_split_overlap": 0,
+  "bootstrap_replicates": 2000,
+  "interval_note": "Descriptive pointwise paired intervals; no multiple-testing correction and no report-level resampling.",
+  "status": "passed"
+}

@@ -1,0 +1,28 @@
+{
+  "generate": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Generate five distinct alternative search queries based on the provided financial question. Ensure that the queries maintain critical elements such as company names, specific dates, financial units, and scope while utilizing varied phrasing. It is crucial to avoid fabricating any answers; instead, focus solely on rewording the original question. Each query must be concise and reflect the language of the original inquiry accurately.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Queries:",
+          "description": "${queries}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.5.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

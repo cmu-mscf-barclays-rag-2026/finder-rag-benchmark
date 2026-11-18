@@ -1,0 +1,337 @@
+[
+  {
+    "backend": "bm25",
+    "example_type": "largest_gain",
+    "query_id": 206,
+    "question": "What types of assets were acquired in loan satisfactions by JPMorgan Chase in 2024?",
+    "ndcg_at_10_change": 0.6845351232142712,
+    "original_top10": [
+      31,
+      33,
+      26,
+      418,
+      261,
+      144,
+      249,
+      165,
+      167,
+      248
+    ],
+    "expanded_top10": [
+      165,
+      261,
+      222,
+      31,
+      33,
+      259,
+      26,
+      418,
+      144,
+      249
+    ],
+    "judged_pages": {
+      "165": 1
+    },
+    "generated_queries": [
+      "Search for JPMorgan Chase loan satisfaction asset acquisitions 2024.",
+      "Investigate asset categories acquired through loan satisfactions by JPMorgan Chase in 2024.",
+      "Examine the nature of assets obtained via loan satisfactions by JPMorgan Chase during 2024.",
+      "Identify asset types involved in loan satisfactions by JPMorgan Chase for the year 2024.",
+      "Review JPMorgan Chase's 2024 loan satisfaction transactions for acquired asset classifications."
+    ]
+  },
+  {
+    "backend": "bm25",
+    "example_type": "largest_loss",
+    "query_id": 286,
+    "question": "What was the increase in the aggregate fair value of JPMorgan Chase's net derivative payables from 2023 to 2024?",
+    "ndcg_at_10_change": -0.6437928128919779,
+    "original_top10": [
+      134,
+      110,
+      111,
+      131,
+      130,
+      142,
+      102,
+      91,
+      251,
+      116
+    ],
+    "expanded_top10": [
+      110,
+      111,
+      142,
+      130,
+      116,
+      134,
+      43,
+      131,
+      102,
+      91
+    ],
+    "judged_pages": {
+      "134": 2
+    },
+    "generated_queries": [
+      "What is the change in the total fair value of JPMorgan Chase's net derivative liabilities between the fiscal years 2023 and 2024?",
+      "How much did the aggregate fair value of JPMorgan Chase's net derivative obligations rise from 2023 to 2024?",
+      "What was the variation in the fair value of JPMorgan Chase's net derivative payables for the years 2023 and 2024?",
+      "Can you provide the increase in the total fair value of JPMorgan Chase's net derivative positions from 2023 to 2024?",
+      "What is the difference in the aggregate fair value of JPMorgan Chase's net derivative payables for the reporting periods of 2023 and 2024?"
+    ]
+  },
+  {
+    "backend": "ocr",
+    "example_type": "largest_gain",
+    "query_id": 11,
+    "question": "How did the total impact of valuation adjustments for credit risk and own credit risk affect the derivatives portfolio of Bank of America in 2024?",
+    "ndcg_at_10_change": 0.31546487678572877,
+    "original_top10": [
+      2476,
+      2653,
+      114,
+      457,
+      1807,
+      454,
+      1262,
+      2651,
+      44,
+      1237
+    ],
+    "expanded_top10": [
+      2476,
+      2653,
+      114,
+      457,
+      1807,
+      454,
+      2651,
+      1242,
+      44,
+      1237
+    ],
+    "judged_pages": {
+      "1242": 2
+    },
+    "generated_queries": [
+      "Bank of America derivatives portfolio credit risk valuation adjustments 2024 impact",
+      "Effect of credit risk adjustments on Bank of America derivatives 2024",
+      "Valuation adjustments for own credit risk in Bank of America derivatives 2024",
+      "Impact of credit risk on Bank of America’s derivatives portfolio in 2024",
+      "Bank of America 2024 derivatives portfolio valuation adjustments analysis"
+    ]
+  },
+  {
+    "backend": "ocr",
+    "example_type": "largest_loss",
+    "query_id": 100,
+    "question": "Morgan Stanley total Average Management VaR in 2024.",
+    "ndcg_at_10_change": -0.5,
+    "original_top10": [
+      2239,
+      2193,
+      2215,
+      2240,
+      2211,
+      2214,
+      2126,
+      2209,
+      52,
+      2072
+    ],
+    "expanded_top10": [
+      2193,
+      2215,
+      2239,
+      2240,
+      2211,
+      2126,
+      2214,
+      2209,
+      2182,
+      2203
+    ],
+    "judged_pages": {
+      "2239": 2
+    },
+    "generated_queries": [
+      "Morgan Stanley average management value at risk 2024.",
+      "Morgan Stanley total VaR for management 2024.",
+      "Morgan Stanley overall management risk assessment 2024.",
+      "Morgan Stanley average risk exposure 2024.",
+      "Morgan Stanley total management risk metrics 2024."
+    ]
+  },
+  {
+    "backend": "image",
+    "example_type": "largest_gain",
+    "query_id": 104,
+    "question": "By how much were Citigroup's Other Real Estate Owner assets deducted from 2020 to 2024?",
+    "ndcg_at_10_change": 0.6309297535714575,
+    "original_top10": [
+      543,
+      1929,
+      557,
+      1718,
+      2020,
+      36,
+      1108,
+      1091,
+      1785,
+      2359
+    ],
+    "expanded_top10": [
+      1929,
+      1985,
+      543,
+      1108,
+      1718,
+      557,
+      1075,
+      2359,
+      1091,
+      1035
+    ],
+    "judged_pages": {
+      "1985": 2
+    },
+    "generated_queries": [
+      "Citigroup Other Real Estate Owned asset reduction from 2020 to 2024",
+      "Change in Citigroup's Other Real Estate Owned assets between 2020 and 2024",
+      "Citigroup OREO asset decrease from 2020 to 2024",
+      "Decline in Citigroup's Other Real Estate Owned assets from 2020 to 2024",
+      "Citigroup OREO assets difference from 2020 to 2024"
+    ]
+  },
+  {
+    "backend": "image",
+    "example_type": "largest_loss",
+    "query_id": 100,
+    "question": "Morgan Stanley total Average Management VaR in 2024.",
+    "ndcg_at_10_change": -0.5693234419266069,
+    "original_top10": [
+      2239,
+      2240,
+      53,
+      2237,
+      452,
+      1070,
+      1069,
+      2281,
+      2018,
+      2211
+    ],
+    "expanded_top10": [
+      2237,
+      2240,
+      452,
+      2239,
+      2281,
+      2241,
+      2242,
+      2203,
+      2224,
+      2018
+    ],
+    "judged_pages": {
+      "2239": 2
+    },
+    "generated_queries": [
+      "Morgan Stanley average management value at risk 2024.",
+      "Morgan Stanley total VaR for management 2024.",
+      "Morgan Stanley overall management risk assessment 2024.",
+      "Morgan Stanley average risk exposure 2024.",
+      "Morgan Stanley total management risk metrics 2024."
+    ]
+  },
+  {
+    "backend": "combined",
+    "example_type": "largest_gain",
+    "query_id": 234,
+    "question": "Could downward shocks, such as 200-bps cut, reduce Citigroup's NII by more than $3 billion?",
+    "ndcg_at_10_change": 0.5,
+    "original_top10": [
+      1056,
+      1619,
+      1059,
+      1608,
+      1058,
+      1596,
+      1057,
+      1752,
+      1089,
+      1541
+    ],
+    "expanded_top10": [
+      1059,
+      1056,
+      1058,
+      1057,
+      1619,
+      1718,
+      1608,
+      1596,
+      1497,
+      1752
+    ],
+    "judged_pages": {
+      "1059": 2
+    },
+    "generated_queries": [
+      "Can a 200-bps rate cut lead to a decline in Citigroup's net interest income exceeding $3 billion?",
+      "Will a downward adjustment of 200 basis points impact Citigroup's NII by over $3 billion?",
+      "How might a 200-bps decrease affect Citigroup's net interest earnings, potentially dropping it by more than $3 billion?",
+      "Could a 200-basis point reduction cause Citigroup's net interest income to fall by greater than $3 billion?",
+      "Is it possible for Citigroup's NII to decrease by over $3 billion due to a 200-bps interest rate cut?"
+    ]
+  },
+  {
+    "backend": "combined",
+    "example_type": "largest_loss",
+    "query_id": 227,
+    "question": "What percent loss of firmwide total capital defines a reportable operational risk event?",
+    "ndcg_at_10_change": -0.5694111640347341,
+    "original_top10": [
+      63,
+      852,
+      823,
+      720,
+      775,
+      984,
+      746,
+      466,
+      64,
+      2251
+    ],
+    "expanded_top10": [
+      63,
+      2251,
+      2071,
+      466,
+      984,
+      2891,
+      566,
+      2230,
+      2228,
+      1441
+    ],
+    "judged_pages": {
+      "720": 2,
+      "746": 2,
+      "775": 2,
+      "799": 2,
+      "823": 2,
+      "852": 2,
+      "923": 2,
+      "984": 2
+    },
+    "generated_queries": [
+      "What percentage decline in total capital qualifies as a reportable operational risk incident?",
+      "What is the capital loss threshold for reporting an operational risk event?",
+      "At what percentage loss of total capital is an operational risk event considered reportable?",
+      "What is the reportable operational risk event capital loss percentage?",
+      "How much total capital loss triggers a reportable operational risk event?"
+    ]
+  }
+]

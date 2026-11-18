@@ -1,0 +1,138 @@
+{
+  "baseline": {
+    "k1": 0.8,
+    "b": 0.75,
+    "ocr_weight": 0.25
+  },
+  "expansion": {
+    "bm25": {
+      "multiquery": {
+        "strategy": "mq_financial",
+        "backend": "bm25",
+        "count": 1,
+        "depth": 20,
+        "rrf_constant": 20,
+        "original_weight": 2.0,
+        "ndcg_at_10": 0.6543735144765861,
+        "recall_at_10": 0.6896103896103896
+      },
+      "dspy_initial": {
+        "strategy": "dspy_initial",
+        "backend": "bm25",
+        "count": 1,
+        "depth": 50,
+        "rrf_constant": 20,
+        "original_weight": 2.0,
+        "ndcg_at_10": 0.6515541732561965,
+        "recall_at_10": 0.6872154726993437
+      },
+      "dspy_optimized": {
+        "strategy": "dspy_seed_19",
+        "backend": "bm25",
+        "count": 3,
+        "depth": 50,
+        "rrf_constant": 20,
+        "original_weight": 0.0,
+        "ndcg_at_10": 0.6638509774471812,
+        "recall_at_10": 0.6834275939114649
+      }
+    },
+    "ocr": {
+      "multiquery": {
+        "strategy": "mq_general",
+        "backend": "ocr",
+        "count": 1,
+        "depth": 20,
+        "rrf_constant": 60,
+        "original_weight": 2.0,
+        "ndcg_at_10": 0.6225406645435779,
+        "recall_at_10": 0.681158357771261
+      },
+      "dspy_initial": {
+        "strategy": "dspy_initial",
+        "backend": "ocr",
+        "count": 1,
+        "depth": 20,
+        "rrf_constant": 60,
+        "original_weight": 2.0,
+        "ndcg_at_10": 0.6132328744633226,
+        "recall_at_10": 0.6620339338081274
+      },
+      "dspy_optimized": {
+        "strategy": "dspy_seed_19",
+        "backend": "ocr",
+        "count": 5,
+        "depth": 100,
+        "rrf_constant": 20,
+        "original_weight": 2.0,
+        "ndcg_at_10": 0.6309993722895613,
+        "recall_at_10": 0.6886992040217846
+      }
+    },
+    "image": {
+      "multiquery": {
+        "strategy": "mq_general",
+        "backend": "image",
+        "count": 5,
+        "depth": 50,
+        "rrf_constant": 60,
+        "original_weight": 2.0,
+        "ndcg_at_10": 0.7061006044847816,
+        "recall_at_10": 0.7145475492249685
+      },
+      "dspy_initial": {
+        "strategy": "dspy_initial",
+        "backend": "image",
+        "count": 1,
+        "depth": 50,
+        "rrf_constant": 20,
+        "original_weight": 0.5,
+        "ndcg_at_10": 0.7119712500611963,
+        "recall_at_10": 0.7207059069962296
+      },
+      "dspy_optimized": {
+        "strategy": "dspy_seed_19",
+        "backend": "image",
+        "count": 3,
+        "depth": 50,
+        "rrf_constant": 20,
+        "original_weight": 0.5,
+        "ndcg_at_10": 0.723152536730611,
+        "recall_at_10": 0.7247626029884094
+      }
+    },
+    "combined": {
+      "multiquery": {
+        "strategy": "mq_general",
+        "backend": "combined",
+        "count": 1,
+        "depth": 20,
+        "rrf_constant": 100,
+        "original_weight": 0.5,
+        "ndcg_at_10": 0.7311553326946395,
+        "recall_at_10": 0.7231741376902667
+      },
+      "dspy_initial": {
+        "strategy": "dspy_initial",
+        "backend": "combined",
+        "count": 1,
+        "depth": 20,
+        "rrf_constant": 60,
+        "original_weight": 2.0,
+        "ndcg_at_10": 0.7249907759329608,
+        "recall_at_10": 0.7366289624354141
+      },
+      "dspy_optimized": {
+        "strategy": "dspy_seed_19",
+        "backend": "combined",
+        "count": 3,
+        "depth": 100,
+        "rrf_constant": 20,
+        "original_weight": 0.5,
+        "ndcg_at_10": 0.731562293230778,
+        "recall_at_10": 0.7387795000698226
+      }
+    }
+  },
+  "protocol_sha256": "dfb91188c5983904fc3332a107f7dcda2d6cdcd312c305b1cbdec6e021bb9124"
+}

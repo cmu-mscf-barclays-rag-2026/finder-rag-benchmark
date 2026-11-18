@@ -1,0 +1,28 @@
+{
+  "generate": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Generate five distinct yet contextually relevant search queries based on the following financial question. Ensure that you maintain the key components such as company names, dates, financial terms, and any other necessary conditions while varying the language. Present all queries in the same language as the original question.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Queries:",
+          "description": "${queries}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.5.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}
