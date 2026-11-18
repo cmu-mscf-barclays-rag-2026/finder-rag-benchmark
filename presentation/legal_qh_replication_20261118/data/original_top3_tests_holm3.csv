@@ -1,0 +1,4 @@
+candidate,control,k,n,mean_delta,wins,losses,ties,p_raw,p_holm3
+bm25_focused160_h,bm25_q,3,100,0.13,23,10,67,0.03508203336969018,0.07016406673938036
+bm25_focused160_qh,bm25_q,3,100,0.13,18,5,77,0.010622024536132812,0.03186607360839844
+bm25_focused160_h,bm25_focused160_qh,3,100,0.0,6,6,88,1.0,1.0

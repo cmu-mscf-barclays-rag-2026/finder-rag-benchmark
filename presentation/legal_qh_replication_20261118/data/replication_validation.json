@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "fresh_responses": 100,
+  "new_response_ids": true,
+  "usage_and_costs_checked": true,
+  "old_rank_replays": 300,
+  "independent_new_rank_replays": 200,
+  "metric_rows": 1000,
+  "exact_tests": 8,
+  "identical_texts": 0,
+  "status_counts": {
+    "completed": 100
+  },
+  "new_cost_usd": 0.199505,
+  "cumulative_estimate_usd": 5.017645300000001,
+  "frozen_inputs_unchanged": true,
+  "model_api_calls_during_audit": 0
+}

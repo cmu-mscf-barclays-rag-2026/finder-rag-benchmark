@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "queries": 100,
+  "metric_rows": 600,
+  "complete_original_ranks_preserved": true,
+  "top5_baselines_and_paired_counts_reproduced": true,
+  "exact_tests_independently_checked": true,
+  "source_hashes_unchanged": true,
+  "api_calls": 0,
+  "paid_usd": 0
+}

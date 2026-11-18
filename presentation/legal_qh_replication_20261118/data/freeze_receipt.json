@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-18T03:28:50.426150+00:00",
+  "fresh_calls_not_started": true,
+  "hashes": {
+    "protocol.json": "cd90456bbc817a07a23f8ac348f6e26fc5c65e9fd170312b29a112ba8966941f",
+    "source_hashes.json": "26b4787a202589273fdb80c536a5a65698b80cb3bc014ea0ee224ab1b013759b",
+    "implementation_hashes.json": "f984d2303e12ea932e9398f6655398de84530850c06b51bef31676703a790a63",
+    "replay_validation.json": "eb6ea57a97c049c18dd98a87a8fa760fceab0c54f0e44abc0954b1d4947b4323"
+  },
+  "export_only_maintenance": {
+    "reason": "Added missing shutil import after numerical evaluation succeeded but export failed.",
+    "all_function_ASTs_unchanged": true,
+    "fresh_API_calls_before_fix": 100,
+    "numerical_output_hashes_before_fix": {
+      "per_query_metrics.csv": "76514fa1dcef48f3dc89b639bc161e7f77e5ddf272d2a40ef8e33c66d1d3afb1",
+      "summary.csv": "8f9e8611d4a5a568cfc4b17d27c533d9946502ce7fb3a76e612dcc42db1040fd",
+      "paired_tests.csv": "69a5a7c3d7523d1024076c3c7628f45bf8d9cfb2854ccbb2d109bfcd401bd7fa",
+      "generation_stability.csv": "881225cf2d7b5295be7fa916fda9eaa2d34643a00ce15eba393b635b566ed1f7"
+    },
+    "original_code": "initial_run_before_export_import_fix.py"
+  }
+}

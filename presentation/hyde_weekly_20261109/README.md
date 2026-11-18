@@ -25,6 +25,8 @@ Short pure HyDE improves over original pure HyDE (0.3555 vs 0.3133), but does no
 
 ## 2. Better dense queries do not guarantee better BM25 queries
 
+**18 November follow-up:** [Q/H mechanism, comparison with dense HyDE, and fresh-generation replication](../legal_qh_replication_20261118/README.md). The table below retains the original run; regenerated H and Q+H results are reported separately.
+
 Q = original question; H = generated hypothetical passage. Each within-dataset comparison holds the corpus and BM25 settings fixed.
 
 | Dataset / metric | BM25(Q) | BM25(H) | BM25(Q+H) |

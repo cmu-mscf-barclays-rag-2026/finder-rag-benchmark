@@ -1,0 +1,9 @@
+k,method,label,hit,q_baseline,p_raw,p_adjusted,family_size,significant,source_candidate,source_control,wins,losses
+5,old_h,Original H,0.5,0.31,0.0013187271542847157,0.011868544388562441,10,True,bm25_focused160_h,bm25_q,26,7
+5,old_qh,Original Q+H,0.49,0.31,0.0005335211753845215,0.005335211753845215,10,True,bm25_focused160_qh,bm25_q,22,4
+5,fresh_h,Regenerated H,0.47,0.31,0.00904118549078703,0.0632882984355092,8,False,fresh_h,q,25,9
+5,fresh_qh,Regenerated Q+H,0.5,0.31,0.000310748815536499,0.002485990524291992,8,True,fresh_qh,q,23,4
+3,old_h,Original H,0.42,0.29,0.03508203336969018,0.07016406673938036,3,False,bm25_focused160_h,bm25_q,23,10
+3,old_qh,Original Q+H,0.42,0.29,0.010622024536132812,0.03186607360839844,3,True,bm25_focused160_qh,bm25_q,18,5
+3,fresh_h,Regenerated H,0.38,0.29,0.13604594767093658,0.6802297383546829,8,False,fresh_h,q,19,10
+3,fresh_qh,Regenerated Q+H,0.42,0.29,0.01463329792022705,0.0877997875213623,8,False,fresh_qh,q,19,6

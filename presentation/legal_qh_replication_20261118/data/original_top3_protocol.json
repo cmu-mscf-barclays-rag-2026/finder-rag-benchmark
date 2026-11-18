@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-17",
+  "dataset": "Same previously inspected Legal100,4876 passages",
+  "endpoint": "Hit@3",
+  "methods": [
+    "bm25_q",
+    "bm25_focused160_h",
+    "bm25_focused160_qh"
+  ],
+  "pairs": [
+    [
+      "bm25_focused160_h",
+      "bm25_q"
+    ],
+    [
+      "bm25_focused160_qh",
+      "bm25_q"
+    ],
+    [
+      "bm25_focused160_h",
+      "bm25_focused160_qh"
+    ]
+  ],
+  "family_size": 3,
+  "test": "Two-sided exact paired McNemar; Holm across all three Top3 comparisons",
+  "secondary": "Top5 retained as descriptive historical reference; reproduce existing31/50/49 and paired counts",
+  "settings": "Reuse complete saved top100 lists and focused160 generations; no retrieval/model rerun",
+  "caveat": "Post-hoc exploratory smaller-k follow-up. Holm3 does not adjust earlier Holm10 or historical inspection.",
+  "resources": {
+    "api_calls": 0,
+    "new_generations": 0,
+    "new_embeddings": 0,
+    "paid_usd": 0
+  }
+}

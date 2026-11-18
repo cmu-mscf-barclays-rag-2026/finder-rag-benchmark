@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-17",
+  "purpose": "Fresh generation and full BM25 pipeline replication of previously inspected Legal100",
+  "queries": 100,
+  "corpus": 4876,
+  "model": "gpt-5.4-2026-03-05",
+  "api": "Responses",
+  "prompt": "Write one short hypothetical textbook paragraph to help retrieve evidence about Victorian criminal law for the question below. Preserve the key legal issue and distinguish it from similar issues. Describe the relevant legal rule in plain language. Do not invent case names, statutory sections, dates, penalties or facts. Do not repeat the question or add headings. Aim for 70 to 100 words.\nQuestion: {q}\nHypothetical evidence paragraph:",
+  "generation": {
+    "temperature": 0,
+    "reasoning_effort": "none",
+    "max_output_tokens": 160,
+    "store": false,
+    "tools": "none"
+  },
+  "bm25": "Unchanged full title+text corpus,k1=1.2,b=.75,binary query counts,stable corpus-index ties",
+  "replay_gate": "Recompute Q,oldH,oldQH top100 for all100 and require exact agreement before fresh API calls",
+  "top_k": [
+    3,
+    5
+  ],
+  "methods": [
+    "q",
+    "old_h",
+    "old_qh",
+    "fresh_h",
+    "fresh_qh"
+  ],
+  "pairs": [
+    {
+      "k": 3,
+      "candidate": "fresh_h",
+      "control": "q"
+    },
+    {
+      "k": 3,
+      "candidate": "fresh_qh",
+      "control": "q"
+    },
+    {
+      "k": 3,
+      "candidate": "fresh_h",
+      "control": "old_h"
+    },
+    {
+      "k": 3,
+      "candidate": "fresh_qh",
+      "control": "old_qh"
+    },
+    {
+      "k": 5,
+      "candidate": "fresh_h",
+      "control": "q"
+    },
+    {
+      "k": 5,
+      "candidate": "fresh_qh",
+      "control": "q"
+    },
+    {
+      "k": 5,
+      "candidate": "fresh_h",
+      "control": "old_h"
+    },
+    {
+      "k": 5,
+      "candidate": "fresh_qh",
+      "control": "old_qh"
+    }
+  ],
+  "inference": "Eight fixed exploratory exact McNemar comparisons, Holm8 across all eight; no other significance tests",
+  "preservation": "No original calls, generations or saved rankings overwritten",
+  "caveats": [
+    "One regenerated sample per question; temperature0 need not imply identical text.",
+    "Same previously inspected100 questions, not independent confirmation or a causal term-ablation test.",
+    "Question-level tests do not adjust shared source dependence or all historical comparisons.",
+    "A nonsignificant fresh-vs-old difference does not establish equivalence."
+  ],
+  "budget": {
+    "prior_usd": 4.8181403000000005,
+    "guard_usd": 7,
+    "new_guard_usd": 0.75,
+    "price_input_per_million": 2.5,
+    "price_output_per_million": 15,
+    "pricing_checked": "2026-11-17",
+    "source": "https://developers.openai.com/api/docs/models/gpt-5.4"
+  },
+  "freshness": "New Responses requests in an empty dedicated ledger; old generation cache is not used. Resume only reuses successful calls from this replication."
+}

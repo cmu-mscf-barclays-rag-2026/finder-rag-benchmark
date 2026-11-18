@@ -1,5 +1,11 @@
 # FinDER RAG Team Benchmark — Part C Hybrid Retrieval
 
+## Latest: Legal Q/H replication — 18 November 2026
+
+[**Mechanisms, HyDE comparison and p-value tables**](presentation/legal_qh_replication_20261118/README.md)
+
+Same 100 Legal questions: regenerated Q+H reaches 50% Hit@5 versus 31% for Q (Holm8 p=0.0025). Includes original/fresh Top-3 and Top-5 results, separate correction scopes and offline reproduction.
+
 ## Latest: Meeting 10 — MultiQueryRetriever and DSPy
 
 [**Main findings, tables and charts**](presentation/meeting10_legal_20261117/README.md) · [Code](person3_meeting10_legal/README.md) · [Legal + LongBench table](presentation/meeting10_team_20261117/README.md)

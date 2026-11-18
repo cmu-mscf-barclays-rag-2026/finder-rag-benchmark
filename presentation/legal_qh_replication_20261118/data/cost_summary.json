@@ -1,0 +1,10 @@
+{
+  "new_estimate_and_reserves_usd": 0.199505,
+  "prior_usd": 4.8181403000000005,
+  "cumulative_estimate_usd": 5.017645300000001,
+  "guard_usd": 7,
+  "states": {
+    "saved": 100
+  },
+  "billing_statement": false
+}

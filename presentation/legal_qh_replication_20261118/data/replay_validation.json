@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "exact_top100_rankings": 300,
+  "queries": 100,
+  "api_calls": 0
+}
