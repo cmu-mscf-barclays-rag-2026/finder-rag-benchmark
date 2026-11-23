@@ -1,0 +1,37 @@
+{
+  "model": "gpt-4o-mini-2024-07-18",
+  "prior_cumulative_estimate_usd": 5.017645300000001,
+  "new_cost_and_reserves_usd": 0.0084324,
+  "known_actual_cost_usd": 0.0084324,
+  "unresolved_reserved_usd": 0,
+  "cumulative_estimate_including_reserves_usd": 5.026077700000001,
+  "new_guard_usd": 0.25,
+  "cumulative_guard_usd": 7.0,
+  "unique_attempts": 100,
+  "max_unique_attempts": 100,
+  "cache_hits": 0,
+  "states": {
+    "saved": 100
+  },
+  "prices_per_million": {
+    "input": 0.15,
+    "output": 0.6
+  },
+  "cached_discount_ignored": true,
+  "billing_statement": false,
+  "automatic_upstream_retries": 0,
+  "by_stage": {
+    "legal_prompt_generation": {
+      "actual_unique_attempts": 100,
+      "actual_new_spend_usd": 0.0084324,
+      "new_spend_plus_reserves_usd": 0.0084324,
+      "http_requests": 100,
+      "cache_hits": 0,
+      "logical_retained_cost_usd": 0.0084324,
+      "modeled_fresh_upstream_latency_seconds": 159.8305444221478,
+      "current_request_wall_seconds": 160.17149637104012,
+      "current_cache_hit_wall_seconds": 0
+    }
+  },
+  "latency_note": "Logical fresh latency reuses saved upstream durations per successful HTTP request; current wall includes local cache/proxy time. Not a measured end-to-end RAG benchmark."
+}

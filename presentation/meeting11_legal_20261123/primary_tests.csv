@@ -1,0 +1,10 @@
+candidate,control,n,k,metric,mean_delta,wins,losses,ties,p_raw,p_holm9,significant_holm9
+default_bm25,question_bm25,80,5,hit,0.1,9,1,70,0.021484375,0.193359375,False
+legal_bm25,question_bm25,80,5,hit,0.1,9,1,70,0.021484375,0.193359375,False
+legal_bm25,default_bm25,80,5,hit,0.0,5,5,70,1.0,1.0,False
+default_dense,question_dense,80,5,hit,0.0375,7,4,69,0.548828125,1.0,False
+legal_dense,question_dense,80,5,hit,0.05,6,2,72,0.2890625,1.0,False
+legal_dense,default_dense,80,5,hit,0.0125,4,3,73,1.0,1.0,False
+default_hybrid,question_hybrid,80,5,hit,-0.0125,8,9,63,1.0,1.0,False
+legal_hybrid,question_hybrid,80,5,hit,0.0125,6,5,69,1.0,1.0,False
+legal_hybrid,default_hybrid,80,5,hit,0.025,8,6,66,0.79052734375,1.0,False

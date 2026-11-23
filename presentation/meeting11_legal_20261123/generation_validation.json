@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "outputs": 100,
+  "model": "gpt-4o-mini-2024-07-18",
+  "query_counts": {
+    "3": 100
+  },
+  "unique_response_ids": 100,
+  "reference_answers_in_prompts": false
+}

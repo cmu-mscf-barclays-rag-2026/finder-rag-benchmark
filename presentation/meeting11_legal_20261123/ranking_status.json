@@ -1,0 +1,8 @@
+{
+  "methods": 9,
+  "queries": 100,
+  "rows": 2700,
+  "historical_per_k_replays": 300,
+  "complete": true,
+  "api_calls_this_stage": 0
+}

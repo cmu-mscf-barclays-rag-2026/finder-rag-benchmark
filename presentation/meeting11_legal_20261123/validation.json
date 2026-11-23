@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "utc": "2026-11-23T17:30:50.827837+00:00",
+  "source_hashes_preserved": true,
+  "split_gold_disjoint": true,
+  "original_queries_reused": 100,
+  "new_legal_outputs": 100,
+  "rank_checks": {
+    "bm25": 800,
+    "dense": 800,
+    "hybrid": 800,
+    "final": 2700,
+    "fixed100": 1800
+  },
+  "metric_rows_checked": 2700,
+  "exact_primary_tests_checked": 9,
+  "holm_family": 9,
+  "delivery_rows_repacked": 8100,
+  "api_ledger_checked": true,
+  "new_api_estimate_usd": 0.008432400000000001,
+  "cumulative_estimate_usd": 5.026077700000001,
+  "minimum_grid_budget_suffices_for_all": false,
+  "max_context_tokens": 5010,
+  "api_calls_in_audit": 0
+}

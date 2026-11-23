@@ -1,0 +1,17 @@
+{
+  "development_questions": 20,
+  "repeats": 3,
+  "configurations": 9,
+  "samples": 540,
+  "k": 10,
+  "candidate_depth": 100,
+  "api_calls": 0,
+  "corpus_vector_cache": true,
+  "query_vector_cache": true,
+  "bm25_query_transform_included": true,
+  "score_sort_and_rrf_included": true,
+  "api_generation_excluded": true,
+  "encoder_inference_excluded": true,
+  "cpu_threads": 1,
+  "not_end_to_end": true
+}

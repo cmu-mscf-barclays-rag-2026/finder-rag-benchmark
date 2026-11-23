@@ -1,5 +1,11 @@
 # FinDER RAG Team Benchmark — Part C Hybrid Retrieval
 
+## Latest: Meeting 11 — Legal MultiQuery
+
+[**Main findings, tables and charts**](presentation/meeting11_legal_20261123/README.md) · [Code](person3_meeting11_legal/README.md)
+
+Matched BM25, dense and hybrid comparisons with default/legal prompts. No Hit@5 contrast passes Holm9; increasing context budget from 5k to 10k adds no labeled-passage hits.
+
 ## Latest: Legal Q/H replication — 18 November 2026
 
 [**Mechanisms, HyDE comparison and p-value tables**](presentation/legal_qh_replication_20261118/README.md)

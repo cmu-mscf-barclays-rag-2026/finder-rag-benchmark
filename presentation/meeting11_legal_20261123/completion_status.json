@@ -1,0 +1,34 @@
+{
+  "status": "complete",
+  "utc": "2026-11-23T19:19:18.716966+00:00",
+  "stages": {
+    "prepare_and_replay": "passed",
+    "cached_default_dense_hybrid": "complete",
+    "legal_prompt_generation": "100/100 saved",
+    "legal_prompt_dense_hybrid": "complete",
+    "primary_metrics_and_holm9": "passed",
+    "budget_grid": "8100/8100 records",
+    "warm_ranking_profile": "540/540 checked samples",
+    "independent_numerical_audit": "passed",
+    "export_replay": "passed",
+    "figure_visual_review": "3/3 PDF charts rendered and inspected"
+  },
+  "primary_questions": 80,
+  "descriptive_development_questions": 20,
+  "methods": 9,
+  "top_k": [
+    5,
+    8,
+    10
+  ],
+  "token_budgets": [
+    5000,
+    8000,
+    10000
+  ],
+  "new_api_cost_usd": 0.008432400000000001,
+  "cumulative_usd": 5.026077700000001,
+  "new_reader_calls": 0,
+  "all_primary_holm9_significant_count": 0,
+  "source_artifacts_preserved": true
+}

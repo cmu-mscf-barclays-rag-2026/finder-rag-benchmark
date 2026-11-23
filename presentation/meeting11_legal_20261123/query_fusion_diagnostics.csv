@@ -1,0 +1,7 @@
+prompt,backend,n,question_hit5,any_route_hit5,fused_hit5,found_but_lost_queries,mean_candidate_union
+default,bm25,80,0.325,0.5375,0.425,9,14.7625
+default,dense,80,0.3,0.45,0.3375,9,11.65
+default,hybrid,80,0.3625,0.6,0.35,20,12.6375
+legal,bm25,80,0.325,0.55,0.425,10,14.6125
+legal,dense,80,0.3,0.4625,0.35,9,11.1
+legal,hybrid,80,0.3625,0.5875,0.375,17,12.6875
