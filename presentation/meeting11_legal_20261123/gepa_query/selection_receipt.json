@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-24T15:54:47.369773+00:00",
+  "selected_instruction_sha256": "3052e663f0638a7969f80f30a60d6863b7d5fba4f3e6e518c916dc0b97bad456",
+  "compiled_program_sha256": "920a786496c2a31dfee8f3178cec1fb6a3042be38e00e13c72ba5e8472b119cc",
+  "task_cache_files_before_test": 146,
+  "development_only": true,
+  "test_questions_used_for_selection": 0,
+  "demonstrations_in_final_program": 0,
+  "changed_from_default": false,
+  "optimizer": "Native GEPA max_metric_calls200"
+}

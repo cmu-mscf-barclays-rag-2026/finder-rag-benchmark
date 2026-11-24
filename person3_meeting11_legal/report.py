@@ -209,6 +209,11 @@ Results remain exploratory on previously inspected questions, with shared-source
 
 [Validation](validation.json) · [Code and resume commands](CODE_README.md)
 '''
+    addition=output/'query_optimization_section.md'
+    if addition.exists():
+        text=text.replace('## 3. Context budget',addition.read_text()+'## 3. Context budget')
+        text=text.replace('**Main finding:** MultiQuery helps BM25 most. The legal prompt gives no consistent advantage; larger context budgets add no labeled-passage hits.','**Main finding:** MultiQuery helps BM25 most. The manual legal prompt gives no consistent advantage, and both automatic optimizers retain Default MultiQuery. Larger context budgets add no labeled-passage hits.')
+        text=text.replace('23 November 2026 | Cheryl | Meeting 11','23–24 November 2026 | Cheryl | Meeting 11')
     (output/'README.md').write_text(text)
     figures(output,output)
     if source!=output:shutil.copy2(Path(__file__),output/'reproduce.py')

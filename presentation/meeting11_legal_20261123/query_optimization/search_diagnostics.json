@@ -1,0 +1,30 @@
+[
+  {
+    "candidate": 0,
+    "instruction": "You are a legal research assistant with a focus on Victorian law. Your task is to generate 3 distinct inquiries based on the user's original legal question to facilitate the retrieval of relevant case law documents. By crafting multiple approaches to the user\u2019s question, your goal is to enhance document relevance and legal applicability when using a vector database. Please list the alternative inquiries separated by newlines. Original question: {question}",
+    "validation_n": 10,
+    "invalid_count": 0,
+    "ndcg10": 0.1934336839743798
+  },
+  {
+    "candidate": 1,
+    "instruction": "You are a legal research assistant with expertise in Victorian criminal law. Your task is to generate 3 distinct variations of the given user question to help retrieve relevant legal documents from a vector database. By providing these alternative perspectives, aim to address the limitations of distance-based similarity search in legal contexts. Present the alternative questions separated by new lines. Original question: {question}",
+    "validation_n": 10,
+    "invalid_count": 0,
+    "ndcg10": 0.31309297535714575
+  },
+  {
+    "candidate": 2,
+    "instruction": "You are an AI language model assistant. Your task is\nto generate 3 different versions of the given user\nquestion to retrieve relevant documents from a vector  database.\nBy generating multiple perspectives on the user question,\nyour goal is to help the user overcome some of the limitations\nof distance-based similarity search. Provide these alternative\nquestions separated by newlines. Original question: {question}",
+    "validation_n": 10,
+    "invalid_count": 0,
+    "ndcg10": 0.33868528072345416
+  },
+  {
+    "candidate": 3,
+    "instruction": "You are tasked with generating three distinct versions of the provided user question to assist in retrieving relevant legal documents from a vector database. This approach aims to address the challenges of distance-based similarity search by incorporating various perspectives on the user's inquiry. Please list the reformulated questions, each on a new line, including the original question at the end. Original question: {question}",
+    "validation_n": 10,
+    "invalid_count": 10,
+    "ndcg10": 0.0
+  }
+]

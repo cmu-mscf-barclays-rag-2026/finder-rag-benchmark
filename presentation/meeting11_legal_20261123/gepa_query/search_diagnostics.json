@@ -1,0 +1,184 @@
+[
+  {
+    "candidate": 0,
+    "instruction": "As an AI language model assistant, your task is to generate 3 distinct versions of the provided user question that aim to retrieve relevant legal documents from a vector database. Your generated questions should maintain the original meaning while exploring different angles or phrasing to enhance the effectiveness of distance-based similarity search. Ensure that the alternative questions address the core legal issue and consider relevant jurisdictional aspects, providing complementary perspectives that would aid in document retrieval. Present these alternative questions separated by newlines. Original question: {question}",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 1,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct and contextually relevant versions of the user's question aimed at enhancing the retrieval of documents from a vector database. Focus on rephrasing the original question in a way that preserves the original intent while using different wording. Ensure clarity and relevance in each alternative question. They should serve to broaden the scope of information that can be retrieved, thereby overcoming potential limitations of distance-based similarity searches. Provide the alternative questions in separate lines. Original question: {question}.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 2,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct and relevant variations of the user's question to improve document retrieval from a vector database. The goal is to offer diverse ways to form the inquiry while preserving the original intent. Ensure that each alternate question remains clear, relevant, and focused on the subject matter. Present these alternative questions on separate lines. Original question: {question}.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 3,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct and relevant versions of the user's legal question to enhance the retrieval of documents from a vector database. The objective is to facilitate a broader range of perspectives on the user's inquiry, thereby countering potential limitations of distance-based similarity search. Each alternative question should encapsulate the same legal intent and factual context of the original question while maintaining clarity and relevance to the topic. Provide these alternative questions in separate lines without repetitive phrasing. Original question: {question}.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 4,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct and relevant versions of the user's question to enhance retrieval of documents from a vector database. The objective is to facilitate a broader range of perspectives on the user's inquiry, thereby countering potential limitations of distance-based similarity search. Ensure that the alternative questions encapsulate the original intent of the user's question while being phrased differently. Make sure your rephrasing maintains the legal context and nuances in cases involving criminal law. Provide these alternative questions in separate lines, maintaining clarity and relevance to the topic. Original question: {question}.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 5,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct and relevant versions of the user's question to enhance retrieval of documents from a vector database. The objective is to facilitate a broader range of perspectives on the user's inquiry, thereby countering potential limitations of distance-based similarity search. Ensure that the alternative questions encapsulate the original intent of the user's question while being phrased differently. Provide these alternative questions in separate lines, maintaining clarity and relevance to the topic. Original question: {question}.",
+    "validation_n": 10,
+    "invalid_count": 1,
+    "ndcg10": 0.16759176335524295
+  },
+  {
+    "candidate": 6,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct and relevant versions of the user's question to enhance the retrieval of documents from a vector database. The goal is to capture a wider array of interpretations and details related to the user's inquiry, thus overcoming potential limitations of distance-based similarity search. These alternative questions must convey the original intent clearly while being phrased differently. Ensure that the variations capture key elements such as legal, emotional, and contextual specifics in the questions. Provide these alternative questions in separate lines for clarity and relevance. Original question: {question}.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 7,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct and relevant versions of the user's question to enhance the retrieval of documents from a vector database. The goal is to provide a broader range of perspectives on the user's inquiry, countering potential limitations of distance-based similarity search. Each alternative question should carefully preserve the original intent of the user's question while being phrased differently. Ensure clarity and relevance to the topic in each version. The alternate questions should be formatted as separate lines. Please consider the context and legal nuances of the questions, if applicable, and provide complementary search queries that reflect the essential information needed.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 8,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct and relevant versions of the user's question to improve document retrieval from a vector database. The aim is to provide varying perspectives on the user's inquiry, enhancing the effectiveness of distance-based similarity searches. Each alternative question should maintain the original intent of the user's question while being restated in different ways. Clearly articulate that the questions should encapsulate key legal concepts, technical terms, and case references that are pertinent to the original question, especially relating to the specifics of Victorian law or applicable legal standards. Format the alternative questions in separate lines, ensuring clarity and relevance to the topic. Original question: {question}.",
+    "validation_n": 10,
+    "invalid_count": 0,
+    "ndcg10": 0.3
+  },
+  {
+    "candidate": 9,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct variations of the provided user question that preserve the original intent while incorporating different phrasing and perspectives. This is to help retrieve relevant documents from a vector database by overcoming limitations of distance-based similarity searches. Ensure that each variation maintains the essence of the original question but explores different angles or aspects of the inquiry. Provide these alternative questions separated by newlines. Original question: {question}.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 10,
+    "instruction": "As an AI language model assistant, your task is to generate three distinct versions of the given user question, aimed at retrieving relevant documents from a vector database. These alternative perspectives should maintain the original question's information need while offering complementary approaches to enhance distance-based similarity search. Ensure the queries reflect different legal terminologies or angles related to the core issue of the original question. Provide the generated questions separated by newlines. Original question: {question}",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 11,
+    "instruction": "As an AI language model, your task is to generate three distinct and relevant rephrased versions of the user's question to improve the retrieval of documents from a vector database. Each alternative question should maintain the original intent and topic of the user's question while being articulated differently to address potential limitations of distance-based similarity search. Make sure that the rephrased questions reflect various perspectives and are clear and coherent. Present these alternative questions on separate lines. Original question: {question}.",
+    "validation_n": 10,
+    "invalid_count": 1,
+    "ndcg10": 0.26309297535714576
+  },
+  {
+    "candidate": 12,
+    "instruction": "As an AI language model, your task is to generate three distinct versions of the given user question. These alternative questions should reflect multiple perspectives to enhance the chances of retrieving relevant documents from a vector database and counteract limitations of distance-based similarity searches. Ensure that the essence of the original legal question is maintained, while offering complementary and diverse angles that may yield different search results. Each variation should provide clarity and specificity related to legal concepts, terminology, and precedents relevant to the query. Provide these alternative questions separated by newlines, starting with: Original question: {question}",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 13,
+    "instruction": "You are an AI language model assistant tasked with generating 3 distinct versions of a provided user question to retrieve relevant documents from a vector database. Your goal is to present multiple perspectives on the user question to help users navigate the limitations of distance-based similarity search effectively. Each rephrased question should maintain the original intent but be articulated differently to widen the search scope. Ensure that the alternative questions are provided clearly and separated by newlines. Original question: {question}",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 14,
+    "instruction": "You are an AI language model assistant tasked with generating 3 distinct versions of the provided user question to enhance the ability to retrieve relevant documents from a vector database. Your goal is to present alternative questions that maintain the original information need while offering complementary perspectives. Each question should be formulated to address potential nuances in wording or context that may help overcome limitations in distance-based similarity searches. Ensure each alternative is separated by newlines. Original question: {question}.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 15,
+    "instruction": "You are an AI language model assistant. Your task is\nto generate 3 different versions of the given user\nquestion to retrieve relevant documents from a vector  database.\nBy generating multiple perspectives on the user question,\nyour goal is to help the user overcome some of the limitations\nof distance-based similarity search. Provide these alternative\nquestions separated by newlines. Original question: {question}",
+    "validation_n": 10,
+    "invalid_count": 0,
+    "ndcg10": 0.33868528072345416
+  },
+  {
+    "candidate": 16,
+    "instruction": "You are an AI language model assistant. Your task is to generate 3 different versions of the given user question to retrieve relevant documents from a vector database. Each alternative question should reflect a different legal perspective or nuance related to the original question, maintaining the core information need while allowing for diverse search strategies. Provide these alternative questions separated by newlines. Original question: {question}",
+    "validation_n": 10,
+    "invalid_count": 0,
+    "ndcg10": 0.2
+  },
+  {
+    "candidate": 17,
+    "instruction": "You are an AI language model assistant. Your task is to generate 3 different versions of the given user question to retrieve relevant documents from a vector database. Each version should maintain the core focus of the original question while presenting it from different angles to enhance search effectiveness. Consider the context, implications, and potential nuances of the question. Provide these alternative questions separated by newlines. Original question: {question}",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 18,
+    "instruction": "You are an AI language model assistant. Your task is to generate 3 different versions of the given user question to retrieve relevant documents from a vector database. Each version should maintain the original information need while presenting a different angle or perspective to enhance search effectiveness. Make sure that the rewritten questions explore related legal principles, implications, or contexts while preserving critical details. Provide these alternative questions separated by newlines. Original question: {question}",
+    "validation_n": 10,
+    "invalid_count": 0,
+    "ndcg10": 0.2430676558073393
+  },
+  {
+    "candidate": 19,
+    "instruction": "You are an AI language model assistant. Your task is to generate 3 different versions of the given user question to retrieve relevant documents from a vector database. The alternative questions should maintain the original meaning but approach the question from different angles to aid in overcoming limitations of distance-based similarity search. Ensure to preserve the original information need and provide complementary search questions. Provide these alternative questions separated by newlines. Original question: {question}",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 20,
+    "instruction": "Your objective is to generate three distinct rephrasings of the provided user question to aid in retrieving relevant documents from a vector database. Each rephrased question should maintain the original intent and information of the user's question while presenting it from different angles. This approach helps to alleviate the limitations typically encountered in distance-based similarity searches. Ensure that the rephrased questions are separated by newlines. Original question: {question}",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 21,
+    "instruction": "Your task is to generate 3 alternative phrasing versions of the user-provided question that aim to retrieve relevant documents from a vector database. Ensure that each version maintains the original query's intent while varying the structure and wording to capture different aspects of the question. This approach will enhance the effectiveness of distance-based similarity search. Provide these alternative questions, each on a new line. Original question: {question} Be careful to avoid duplicate rewrites and ensure that the essential information need is preserved.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 22,
+    "instruction": "Your task is to generate 3 different versions of the provided user question that maintain the original intent while varying the wording and structure. This is aimed at enhancing the effectiveness of distance-based similarity search in retrieving relevant documents from a vector database. Ensure that the alternative questions capture the core elements of the original question but present them in a fresh way. Provide these alternative questions separated by newlines. Original question: {question} Make sure to consider different angles or nuances of the question to broaden the search's scope.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 23,
+    "instruction": "Your task is to generate 3 distinct and relevant variations of the user-provided question to assist in retrieving pertinent documents from a vector database. Ensure that these variations maintain the original intent and key details of the question while presenting alternative phrasing or perspectives. These variations should optimize the search process by providing complementary questions that address potential nuances in the original query. Separate each variation with newlines. Original question: {question}",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 24,
+    "instruction": "Your task is to generate three alternative phrasing versions of a given user question to enhance query diversity for retrieving relevant documents from a vector database. Ensure the generated questions maintain the core legal context and nuances of the original query, while presenting different angles or perspectives. Format each alternative question on a new line for clarity. Original question: {question}",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  },
+  {
+    "candidate": 25,
+    "instruction": "Your task is to generate three different phrased versions of the provided user question to help retrieve relevant documents from a vector database effectively. When creating these alternative questions, ensure that you preserve the original information need and consider various angles or aspects of the user's inquiry to enhance search relevancy. Present the alternative questions clearly, each separated by new lines. Original question: {question}.",
+    "validation_n": 0,
+    "invalid_count": 0,
+    "ndcg10": null
+  }
+]

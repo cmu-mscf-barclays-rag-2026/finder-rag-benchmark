@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "utc": "2026-11-24T15:38:25.498426+00:00",
+  "selected_before_test": true,
+  "optimization_train": 10,
+  "optimization_validation": 10,
+  "test": 80,
+  "task_inputs_question_only": true,
+  "query_adapter_ignores_demos": true,
+  "final_demonstrations": 0,
+  "default_request_bytes_preserved": true,
+  "instruction_changed": false,
+  "independent_rank_checks": {
+    "bm25_routes": 400,
+    "dense_routes": 400,
+    "hybrid_routes": 400,
+    "final_rankings": 900
+  },
+  "unchanged_control_rows": 2700,
+  "new_metric_rows": 900,
+  "permutation_tests_replayed": 6,
+  "draws": 100000,
+  "holm_family": 6,
+  "successful_upstream_requests": 47,
+  "new_estimated_usd": 0.007140899999999998,
+  "total_usage_tokens": 30890,
+  "cumulative_estimate_usd": 5.0332186000000005,
+  "invalid_final_queries": 0,
+  "source_hashes_preserved": true,
+  "no_reader_calls": true,
+  "api_calls_during_audit": 0
+}
