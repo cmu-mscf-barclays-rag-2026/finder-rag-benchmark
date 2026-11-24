@@ -8,6 +8,34 @@ Same 80 evaluation questions, 20 development questions and 4,876 passages; uncha
 
 ## 1. Retrieval results
 
+### Query: how is the search question prepared?
+
+| Query | What it does |
+| --- | --- |
+| Original question | Searches with the user's question only. |
+| Default MultiQuery | Uses a general GPT prompt to generate three alternative questions, then retains the original: four query routes. |
+| Legal MultiQuery | Generates three alternatives while preserving stated legal facts, jurisdiction, procedural stage and exceptions, without inventing details; also retains the original. |
+
+MultiQuery generates **search questions**, not HyDE hypothetical passages or final answers.
+
+### Backend: how are passages matched?
+
+| Backend | Matching mechanism |
+| --- | --- |
+| BM25 | Ranks real passages by lexical matching with the query. |
+| Dense | Encodes each query with fixed MiniLM and ranks real-passage vectors by cosine similarity. |
+| Hybrid | Runs BM25 and dense for the same query, then combines their rankings with reciprocal rank fusion (RRF). |
+
+RRF combines **rank positions**, rather than directly adding lexical and cosine scores.
+
+### How the three groups of rows work
+
+- **BM25 rows:** Original question → one BM25 ranking → Top-k. For either MultiQuery prompt: four queries → four BM25 rankings → equal-weight RRF60 → Top-k.
+- **Dense rows:** Original question → one query vector → one dense ranking → Top-k. For either MultiQuery prompt: four queries → four separate vectors and rankings → equal-weight RRF60 → Top-k. **The four query vectors are not averaged.**
+- **Hybrid rows:** Each query → BM25 Top-100 + dense Top-100 → equal-weight RRF60 → one hybrid Top-100. Original-question retrieval takes its Top-k directly. Either MultiQuery prompt produces four hybrid lists, followed by another equal-weight RRF60 → final Top-k.
+
+For MultiQuery's final fusion, each query list is first cut to k. Fusion is run separately for k=5, 8 and 10; the columns are not simple truncations of one final ranking.
+
 | Backend | Query | Hit@5 | Hit@8 | Hit@10 |
 | --- | --- | --- | --- | --- |
 | BM25 | Original question | 32.50% | 35.00% | 37.50% |

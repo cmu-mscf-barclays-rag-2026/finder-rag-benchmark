@@ -9,11 +9,11 @@
     "README.md": "959b49c74dcb00c84da02c9dfc044ba37a20dc4950648c215ab865d0ec46ab28",
     "person3_meeting11_legal/README.md": "e340fd4037c36ff2117bb831107a3042a9cfd7fa6751efb921ae3dfdcb484b5c",
     "person3_meeting11_legal/profile.py": "d72c67f8ecd5233e15871ff9b661f06f3aafd361de4164666a3b9ed4a680f236",
-    "person3_meeting11_legal/report.py": "1965fe5026adef59d9719d9ff8377af13477b95f84f1aa62a24c654d63cad6e9",
+    "person3_meeting11_legal/report.py": "53863dec08db181ca1eda508530f5a7255661c3d196de3443807bb78f4a49307",
     "person3_meeting11_legal/run.py": "6702e875765a76a5560ba779bfb0be02b640d1753850eda65ca27794293085df",
     "person3_meeting11_legal/verify.py": "7b9041eba7358a66c68937ce684b2178efadbcb82010b2fb39a1dccffbce8907",
     "presentation/meeting11_legal_20261123/CODE_README.md": "e340fd4037c36ff2117bb831107a3042a9cfd7fa6751efb921ae3dfdcb484b5c",
-    "presentation/meeting11_legal_20261123/README.md": "aadebf186b5c462fe172a22cce6b9679afe7d1e00aa23e3643047fe496e2b575",
+    "presentation/meeting11_legal_20261123/README.md": "f9d44d4bb365a22ad27b45312071cba9b58d0e1b507aa871a45c56d68b8c441d",
     "presentation/meeting11_legal_20261123/backend_comparison.pdf": "32e788759693d8774f4581c2d6578b39350ea89c0255e66841d06e025fc674d7",
     "presentation/meeting11_legal_20261123/backend_comparison.png": "e72b75a7224492c24d8294f725e47d32125aef1f7d3d03dd020e5a86a93e829d",
     "presentation/meeting11_legal_20261123/completion_status.json": "3b6c94b231c3a09709cea3f649c91bc52321cb7ac946fcdf9ed2120ae1b165e8",
@@ -37,7 +37,7 @@
     "presentation/meeting11_legal_20261123/ranking_latency_samples.csv": "c62b3c0fe179a8e361b0091597309d63ec7f262b7225471732acf0080d0dbd52",
     "presentation/meeting11_legal_20261123/ranking_latency_summary.csv": "59c100a3b18a7de3dbdb2a23e5a7773e0da1919e8d35fa95a2f684d6ac99d482",
     "presentation/meeting11_legal_20261123/ranking_status.json": "7471956cfd21641d0eb47c24d831140bbb3852f2a1dffaba6fb4ce19536ee50c",
-    "presentation/meeting11_legal_20261123/reproduce.py": "1965fe5026adef59d9719d9ff8377af13477b95f84f1aa62a24c654d63cad6e9",
+    "presentation/meeting11_legal_20261123/reproduce.py": "53863dec08db181ca1eda508530f5a7255661c3d196de3443807bb78f4a49307",
     "presentation/meeting11_legal_20261123/retrieval_depth.pdf": "f4f899dc7fee8e772b0f07d2bfae02ffbef66088154c52b99ee0113174abc0a7",
     "presentation/meeting11_legal_20261123/retrieval_depth.png": "599db59f63b8da2c08686e209353bfedc9cb1fee081537f7a43f5ffdd069ccd1",
     "presentation/meeting11_legal_20261123/retrieval_per_query.csv": "6ee5e3d7a23b9e14eb42a5d2b9cd893b84b57a5d362f942d3f34586b9d574cc3",
@@ -46,5 +46,6 @@
     "presentation/meeting11_legal_20261123/source_hashes.json": "2ed64b01cbf68129eba6b3c04cdb3a38d05d7b771393707a5d13bd85b07ab545",
     "presentation/meeting11_legal_20261123/tokenizer.json": "c21542c6c5f0649278e9bc21e998c3c52eba1ab01903dfa805859c3ee2bb6f45",
     "presentation/meeting11_legal_20261123/validation.json": "fd4565af8d99f3a8207993cc907e635604fc89fd3234e352faedef82cac8b152"
-  }
+  },
+  "documentation_update": "24 November 2026: English query/backend tables and three pipeline flows; no experiment changes."
 }
