@@ -125,3 +125,21 @@ def test_graph_top_k_is_a_prefix_of_a_larger_top_k():
     long = [e.node_id for e in graph.retrieve("grammar mother verb tide", top_k=8).explanations]
     short = [e.node_id for e in graph.retrieve("grammar mother verb tide", top_k=3).explanations]
     assert len(long) == 8 and short == long[:3]
+
+
+def test_fusion_rules_match_hand_computed_rankings():
+    from evaluate_longbench_dense_fusion import fuse, normalize
+
+    sparse = [("a", 10.0), ("b", 1.0), ("c", 0.9)]
+    dense = [("c", 1.0), ("b", 0.99), ("a", 0.0)]
+    # RRF: a and c tie (1/61 + 1/63) ahead of b (2/62); the tie goes to the earlier first appearance.
+    assert fuse([sparse, dense], "rrf", top_n=3) == ["a", "c", "b"]
+    # Min-max CombSUM: b = 0.011 + 0.99 = 1.001 beats a = c = 1.
+    assert fuse([sparse, dense], "combsum_minmax", top_n=3) == ["b", "a", "c"]
+    assert normalize([3.0, 1.0, 2.0], "zmuv") == pytest.approx([1.2247, -1.2247, 0.0], abs=1e-4)
+
+    one, two = [("a", 3.0), ("b", 2.0), ("c", 1.0)], [("b", 0.9), ("d", 0.5)]
+    for rule in ("rrf", "combsum_minmax", "combmnz_minmax", "combmnz_zmuv", "isr", "bordafuse"):
+        assert fuse([one, two], rule, top_n=4)[0] == "b"   # b is the only document in both runs
+    # BordaFuse: pool of 4; a = 4 + 1.5, d = 1 + 3, c = 2 + 1.5 -> a, d, c after b.
+    assert fuse([one, two], "bordafuse", top_n=4) == ["b", "a", "d", "c"]

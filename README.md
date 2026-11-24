@@ -36,6 +36,7 @@ and dataset downloads need internet access; inference runs on your computer.
 - `evaluate_longbench_graph.py` - graph RAG end to end on LongBench v2 with the local LLM.
 - `evaluate_longbench_methods.py` - LangChain MultiQueryRetriever and DSPy on LongBench v2 (gpt-4o-mini reader).
 - `evaluate_longbench_topk.py` - evidence-budget sweep (top 2/4/8/16 chunks) for those LongBench v2 methods.
+- `evaluate_longbench_dense_fusion.py` - dense (MiniLM) reference, dense-based MultiQuery/DSPy, and BM25/graph + dense rank fusion on LongBench v2.
 - `team_bm25.py` - Florence's BM25, vendored unmodified for the outside benchmarks.
 - `finance_data.py` - MTEB FinQA and FinanceBench retrieval loaders, grouped dev/test split, metrics.
 - `evaluate_finance_graph.py` - graph vs BM25 and dense on the MTEB financial sets, with error analysis.
@@ -179,6 +180,14 @@ The results follow the team Legal RAG protocol (`legal_rag/` on
   A sweep over 2, 4, 8, and 16 chunks finds no budget where any method beats
   BM25. MultiQueryRetriever's loss appears only at 8 chunks, and accuracy
   varies little with the budget (0.32-0.37).
+- **Dense reference and rank fusion (LongBench v2):**
+  - The team's dense MiniLM is weaker than BM25 here (0.303 vs 0.356).
+  - Fusing BM25 and dense scores 0.333-0.343 under RRF or any of five rules
+    from França et al. (2025). That is above dense but never above BM25,
+    and the rule hardly matters.
+  - Graph + dense RRF reaches 0.348, +0.045 [+0.010, +0.080] over dense.
+  - MultiQueryRetriever over dense ties dense, and DSPy over dense is
+    +0.020.
 
 The previous dense + graph experiment remains available as `dense_graph`;
 its original results are preserved separately.

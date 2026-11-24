@@ -963,6 +963,113 @@ Outputs are in [results/longbench_v2_topk/](results/longbench_v2_topk/):
   (each method's ranking).
 - `summary.json`: dev-selected k and the truncated evidence.
 
+### Dense reference and rank fusion
+
+This follows three suggestions from the team:
+
+1. Compare against dense retrieval instead of BM25.
+2. Put MultiQueryRetriever and DSPy on a dense base.
+3. Fuse sparse and dense rankings with reciprocal rank fusion and other
+   rules. The rules come from França et al. (2025),
+   ["Ranking-based Fusion Algorithms for Extreme Multi-label Text Classification"](https://arxiv.org/abs/2507.03761).
+   That paper fuses BM25 with a dense retriever and finds CombMNZ on
+   z-score (ZMUV) normalized scores best.
+
+The run is
+[`evaluate_longbench_dense_fusion.py`](evaluate_longbench_dense_fusion.py).
+The protocol is unchanged: 8 chunks (2,400 words), the official prompt, and
+gpt-4o-mini.
+
+- **Dense:** all-MiniLM-L6-v2 cosine search, the team's dense model. It
+  reads the first 256 word pieces of each chunk.
+- **Fusion:** over each retriever's top 64 (the paper's pool size), top 8
+  kept. The rules:
+  - RRF (k = 60).
+  - CombSUM and CombMNZ on min-max scores.
+  - CombMNZ on z-scores.
+  - ISR (inverse square rank) and BordaFuse.
+
+  A chunk missing from one ranking adds 0 to the score-based rules. The rule
+  to report is chosen on dev.
+
+| Test (402 questions) | Accuracy | Dev (101) | Minus dense [95% interval] | Minus BM25 [95% interval] | USD per 1,000 |
+|---|---:|---:|---:|---:|---:|
+| No context | 0.266 | 0.277 | -0.037 [-0.090, +0.017] | -0.090 [-0.144, -0.037] | 0.04 |
+| *Dense, MiniLM (team model)* | 0.303 | 0.208 | | -0.052 [-0.100, -0.007] | 0.78 |
+| *BM25 (team code)* | **0.356** | 0.327 | +0.052 [+0.007, +0.100] | | 0.74 |
+| Graph | 0.328 | 0.307 | +0.025 [-0.020, +0.067] | -0.027 [-0.067, +0.010] | 0.82 |
+| MultiQueryRetriever over dense | 0.306 | 0.188 | +0.002 [-0.037, +0.042] | -0.050 [-0.097, -0.002] | 0.79 + 0.09 |
+| MultiQueryRetriever over BM25 | 0.308 | 0.248 | +0.005 [-0.037, +0.047] | -0.047 [-0.085, -0.010] | 0.74 + 0.09 |
+| DSPy over dense | 0.323 | 0.267 | +0.020 [-0.020, +0.060] | -0.032 [-0.080, +0.015] | 0.86 |
+| DSPy over BM25 | 0.346 | 0.386 | +0.042 [-0.007, +0.092] | -0.010 [-0.050, +0.030] | 0.83 |
+| BM25 + dense, RRF (chosen on dev) | 0.336 | 0.277 | +0.032 [-0.007, +0.072] | -0.020 [-0.065, +0.022] | 0.75 |
+| BM25 + dense, CombSUM (min-max) | 0.343 | 0.267 | +0.040 [+0.002, +0.077] | -0.012 [-0.052, +0.027] | 0.77 |
+| BM25 + dense, CombMNZ (min-max) | 0.336 | 0.257 | +0.032 [-0.005, +0.070] | -0.020 [-0.062, +0.022] | 0.78 |
+| BM25 + dense, CombMNZ (z-score; paper's best) | 0.333 | 0.277 | +0.030 [-0.005, +0.067] | -0.022 [-0.062, +0.017] | 0.78 |
+| BM25 + dense, ISR | 0.333 | 0.248 | +0.030 [-0.007, +0.067] | -0.022 [-0.062, +0.017] | 0.78 |
+| BM25 + dense, BordaFuse | 0.343 | 0.267 | +0.040 [+0.000, +0.080] | -0.012 [-0.057, +0.032] | 0.76 |
+| Graph + dense, RRF | 0.348 | 0.238 | **+0.045 [+0.010, +0.080]** | -0.007 [-0.052, +0.037] | 0.81 |
+
+The "+ 0.09" is the cost of the LLM rewrites.
+
+- **Dense is the weakest retriever here.**
+  - On test it is 0.052 below BM25, an interval that excludes zero. It is
+    not clearly better than no context, and on dev it scores below it.
+  - It shares only 2.2 of its 8 chunks with BM25.
+  - Likely causes: MiniLM reads only the first 256 word pieces of each chunk
+    and of the long question-plus-choices query. LongBench questions also
+    turn on exact names, numbers, and code identifiers, which lexical
+    matching catches.
+- **Fusion closes most of dense's gap, but never passes BM25.**
+  - The six BM25 + dense rules score 0.333-0.343, which is 0.030-0.040 above
+    dense alone.
+  - Every rule is still 0.012-0.022 below BM25 alone. At this budget, dense
+    adds nothing that BM25 is missing.
+- **The fusion rule hardly matters.**
+  - The rules span 0.010 on test, well inside noise.
+  - Dev chose RRF. It tied there with the paper's CombMNZ on z-scores
+    (0.277), and the tie went to the simpler rule.
+  - Against dense, CombSUM's and BordaFuse's intervals only just reach zero.
+    With 14 comparisons against dense, borderline intervals like these are
+    weak evidence.
+- **Graph + dense is the best fusion: 0.348.**
+  - That is +0.045 over dense, an interval that excludes zero, and -0.007
+    against BM25.
+  - The graph complements dense at least as well as BM25 does (BM25 + dense
+    RRF: 0.336), though the two fusions are within noise of each other.
+- **MultiQueryRetriever over dense changes nothing (+0.002).**
+  - Its rewrites still drop the answer choices.
+  - The dense query, truncated question plus choices, was not using the
+    choices well either. Its evidence keeps 5.3 of dense's 8 chunks.
+- **DSPy over dense gains a little (+0.020) over the official prompt**,
+  within noise, as it tied over BM25.
+- **Cost:**
+  - The retriever barely changes the LLM cost ($0.74-0.86 per 1,000
+    questions).
+  - Embedding all 178,887 chunks happened inside a 6.5-minute retrieval pass
+    on the RTX 4060 laptop GPU.
+  - The run made 5,010 new API calls ($3.83).
+
+A stronger embedding model that reads whole chunks could be promising for
+the dense side; it has not been run.
+
+```powershell
+.venv\Scripts\python.exe evaluate_longbench_dense_fusion.py --threads 16
+```
+
+It uses the GPU when PyTorch has CUDA (here `torch 2.14.0+cu130`). On the CPU
+build, embedding the chunks takes about 50 minutes. Embeddings are cached in
+`~/.cache/finder-rag-baseline/longbench_minilm/`, and LLM answers share the
+earlier cache. Outputs are in
+[results/longbench_v2_dense_fusion/](results/longbench_v2_dense_fusion/):
+
+- `accuracy.csv` (dev and test; test by difficulty, length, and domain).
+- `paired_accuracy_intervals.csv` (every method minus dense and minus BM25).
+- `cost.csv` and `per_question.csv`.
+- `retrieval.jsonl`: each retriever's top 64 with scores, and every fused
+  ranking.
+- `summary.json`.
+
 ## Previous experiment
 
 The earlier dense-seeded graph remains available as `retrieval_mode="dense_graph"`

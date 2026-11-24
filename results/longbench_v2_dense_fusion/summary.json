@@ -1,0 +1,66 @@
+{
+  "dense_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dense_max_word_pieces": 256,
+  "fusion_pool_per_retriever": 64,
+  "rrf_k": 60,
+  "fusion_rules": [
+    "rrf",
+    "combsum_minmax",
+    "combmnz_minmax",
+    "combmnz_zmuv",
+    "isr",
+    "bordafuse"
+  ],
+  "split": {
+    "dev": 101,
+    "test": 402
+  },
+  "top_chunks": 8,
+  "reader": "gpt-4o-mini",
+  "dev_selected_fusion_rule": "rrf",
+  "dev_accuracy": {
+    "no_context": 0.27722772277227725,
+    "bm25": 0.32673267326732675,
+    "graph": 0.3069306930693069,
+    "multiquery_bm25": 0.24752475247524752,
+    "dense": 0.2079207920792079,
+    "multiquery_dense": 0.18811881188118812,
+    "hybrid_rrf": 0.27722772277227725,
+    "hybrid_combsum_minmax": 0.26732673267326734,
+    "hybrid_combmnz_minmax": 0.25742574257425743,
+    "hybrid_combmnz_zmuv": 0.27722772277227725,
+    "hybrid_isr": 0.24752475247524752,
+    "hybrid_bordafuse": 0.26732673267326734,
+    "graph_dense_rrf": 0.2376237623762376,
+    "dspy_bm25": 0.38613861386138615,
+    "dspy_dense": 0.26732673267326734
+  },
+  "test_accuracy": {
+    "no_context": 0.26616915422885573,
+    "bm25": 0.35572139303482586,
+    "graph": 0.3283582089552239,
+    "multiquery_bm25": 0.30845771144278605,
+    "dense": 0.3034825870646766,
+    "multiquery_dense": 0.30597014925373134,
+    "hybrid_rrf": 0.3358208955223881,
+    "hybrid_combsum_minmax": 0.34328358208955223,
+    "hybrid_combmnz_minmax": 0.3358208955223881,
+    "hybrid_combmnz_zmuv": 0.3333333333333333,
+    "hybrid_isr": 0.3333333333333333,
+    "hybrid_bordafuse": 0.34328358208955223,
+    "graph_dense_rrf": 0.3482587064676617,
+    "dspy_bm25": 0.34577114427860695,
+    "dspy_dense": 0.32338308457711445
+  },
+  "mean_overlap_of_8_chunks": {
+    "dense vs bm25": 2.1865671641791047,
+    "dense vs graph": 2.236318407960199,
+    "multiquery_dense vs dense": 5.27363184079602,
+    "hybrid_rrf vs dense": 4.395522388059701,
+    "hybrid_rrf vs bm25": 4.218905472636816
+  },
+  "mean_dense_seconds_per_question": 0.5169208300199034,
+  "new_llm_calls_this_run": 5010,
+  "spend_this_run_usd": 3.8293423499999997,
+  "reference": "Franca et al. 2025, arXiv:2507.03761 (fusion rules and normalizations)"
+}
