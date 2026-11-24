@@ -1,0 +1,12 @@
+{
+  "query": "Original English question",
+  "splits": "Same ViDoRe validation and optimizer-held-out test as the prior experiment",
+  "candidate_depth_per_modality": 100,
+  "rrf_constant": 60,
+  "previous_ocr_weight": 0.25,
+  "normalization": "Population z-score within each retrieved top-100 list",
+  "combmnz_convention": "Sum signed z-scores and multiply by number of lists containing the page",
+  "missing_candidate": "No score contribution and no appearance count",
+  "score_ties": "Ascending page ID",
+  "prior_top_20_rankings_reproduced": 834
+}

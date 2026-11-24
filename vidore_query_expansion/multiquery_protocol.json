@@ -1,0 +1,58 @@
+{
+  "splits": "Same English validation and optimizer-held-out test as the prior experiment",
+  "query_sets": "Prior fixed LangChain MultiQuery rewrites, original question, and depths",
+  "selected_baseline": {
+    "k1": 0.8,
+    "b": 0.75,
+    "ocr_weight": 0.25
+  },
+  "selected_multiquery_configs": {
+    "bm25": {
+      "strategy": "mq_financial",
+      "backend": "bm25",
+      "count": 1,
+      "depth": 20,
+      "rrf_constant": 20,
+      "original_weight": 2.0,
+      "ndcg_at_10": 0.6543735144765861,
+      "recall_at_10": 0.6896103896103896
+    },
+    "ocr": {
+      "strategy": "mq_general",
+      "backend": "ocr",
+      "count": 1,
+      "depth": 20,
+      "rrf_constant": 60,
+      "original_weight": 2.0,
+      "ndcg_at_10": 0.6225406645435779,
+      "recall_at_10": 0.681158357771261
+    },
+    "image": {
+      "strategy": "mq_general",
+      "backend": "image",
+      "count": 5,
+      "depth": 50,
+      "rrf_constant": 60,
+      "original_weight": 2.0,
+      "ndcg_at_10": 0.7061006044847816,
+      "recall_at_10": 0.7145475492249685
+    },
+    "combined": {
+      "strategy": "mq_general",
+      "backend": "combined",
+      "count": 1,
+      "depth": 20,
+      "rrf_constant": 100,
+      "original_weight": 0.5,
+      "ndcg_at_10": 0.7311553326946395,
+      "recall_at_10": 0.7231741376902667
+    }
+  },
+  "combined_backend_first_stage": "Prior 25% OCR / 75% image RRF, constant 60, depth 100",
+  "normalization": "Population z-score within each input list at the selected candidate depth",
+  "weighted_combmnz": "Sum signed z-scores weighted by the prior query weights, times list appearances",
+  "equal_weight_control": "Standard CombMNZ against an equal-weight RRF control",
+  "missing_candidate": "No score contribution and no appearance count",
+  "score_ties": "Ascending page ID",
+  "prior_multiquery_top_20_rankings_reproduced": 1112
+}
