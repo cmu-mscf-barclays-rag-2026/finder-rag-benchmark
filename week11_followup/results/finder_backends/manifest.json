@@ -1,0 +1,39 @@
+{
+  "bundle_fingerprint": "cd347ea68a094fbfe43d3e3c3a6396cad0e9e8d9cc564b699f7c20ffa103d559",
+  "test_query_ids_sha256": "d4a3ac2cad80899c15eeca03dbc5c2c03653c9d90e8516ec5cda77f36405d74f",
+  "test_count": 200,
+  "corpus_count": 5830,
+  "source_manifest_sha256": "9c941e110ba0cd364a23f8489c697da28910f135a73b3f547d44150988d45021",
+  "source_traces_sha256": "4f37a09e1127615c9d741d977992d686fb530a7ffbb24bdff6473e25d22a581f",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "model_path": "/Users/apple/Downloads/finder-rag-benchmark/.cache/models/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "depth_per_formulation": 20,
+  "ks": [
+    5,
+    8,
+    10
+  ],
+  "query_fusion": "equal-weight RRF k=60",
+  "backend_fusion": "weighted RRF k=60",
+  "hybrid_dense_weight": 0.25,
+  "fusion_order": "queries within backend, then backends",
+  "timings": {
+    "build_seconds": 85.39058195904363,
+    "query_batch_seconds": 1.180942540988326,
+    "formulation_count": 600,
+    "embedding_dimension": 384,
+    "max_seq_length": 256,
+    "device": "cpu"
+  },
+  "python": "3.12.5",
+  "sentence_transformers_version": "3.4.1",
+  "source_code_sha256": "e18c7f07f1f39be67eb53c726b4ee2eff7c5eae6468010bcb7bf562e446ff64e",
+  "outputs_sha256": {
+    "summary.csv": "cac87f33e89fd98f112874322e29dea6e6006421643f699bf68ddb073e3e20ba",
+    "paired.csv": "5b83ff11a39a95b330c4f01a585fb2a86f987e0bdad2ee8aafa3dd88d270168c",
+    "candidate_diagnostics.csv": "27c0d464b851fad153effa42fcc207b580408256f66c1944f5b1ff21f2402a62",
+    "findings.md": "f450d10e31450d649328c46db38f6f1e53f9cf2d2bfb877020a8bc6abffea8cb",
+    "rankings.jsonl": "1476282dbf764f0808227fa49e8d4065582ed779fc3744838ca620801f9768f0"
+  }
+}

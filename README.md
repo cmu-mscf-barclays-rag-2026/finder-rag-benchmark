@@ -1,6 +1,7 @@
 # Florence Liu — Barclays research updates
 
-Start with the [Week 10 context and query-expansion follow-up](week10_followup/README.md)
+Start with the [Week 11 FinDER backend comparison](week11_followup/README.md)
+or the [Week 10 context and query-expansion follow-up](week10_followup/README.md)
 or the [Week 9 finance evidence-sufficiency prototype](week9_evidence/README.md)
 or the [Week 8 depth, sibling, MMR, and dataset experiments](week8_retrieval/README.md)
 or the [Week 7 Qwen tuning and context-budget results](week7_qwen_tuning/README.md)
@@ -18,6 +19,7 @@ or choose a week below. Each folder contains that week's findings, results and c
 | 8 — Retrieval depth and new datasets | Do deeper Qwen retrieval, directional sibling expansion, or MMR improve delivered evidence? Can FiQA provide multi-relevance retrieval evaluation? | Qwen child Top-20 at 6k found 60/80 gold passages versus 53/80 at Top-10. MMR reduced overlap but lost evidence hits. FiQA's 648 test queries include 428 with multiple relevant answers. | [Protocol, results, and dataset adapters](week8_retrieval/README.md) |
 | 9 — Financial evidence sufficiency | Does retrieved context cover every required fact, and how efficiently? | ViDoRe finance evaluation on 309 English questions and 2,942 pages, plus a ten-question, twenty-fact draft pilot distinguishing alternative and complementary evidence. Human validation remains pending. | [Protocol and measured findings](week9_evidence/README.md) |
 | 10 — Context and query expansion | How do context budgets, Qwen input length, MultiQueryRetriever, and DSPy affect retrieval? | ViDoRe Qwen Top-10 delivered Hit at 6k rose from .673 to .773 when its document window grew from 256 to 1,024 tokens; FinDER query expansion is evaluated on a held-out test sample. | [Protocol and results](week10_followup/README.md) |
+| 11 — FinDER backend comparison | Does MultiQuery help dense or hybrid retrieval under matched conditions, and where do remaining misses arise? | On 200 held-out questions, BM25 MultiQuery reached 38.0% Hit@10; MiniLM dense MultiQuery reached 26.5% and the preset hybrid reached 38.5%. Deeper BM25 candidate retrieval found more judged references but reduced fused Top-10 hits. | [Results and error analysis](week11_followup/README.md) |
 
 These weeks use different experiments and evaluation settings. Week 3 uses
 FinDER; Weeks 4–8 use Legal RAG Bench, with Week 4 on a different question split. Scores
@@ -25,7 +27,8 @@ should be compared within each week's controlled experiment, not across weeks.
 Week 8 also includes a separate FiQA retrieval baseline and a LongBench v2
 answer-evaluation adapter; their metrics are not comparable to Legal RAG Bench.
 Weeks 9–10 use ViDoRe financial reports; the draft fact annotations are exploratory,
-not a validated answer-sufficiency benchmark.
+not a validated answer-sufficiency benchmark. Weeks 10–11 also include FinDER
+retrieval pilots on 200 held-out questions from its pooled reference-passage corpus.
 Retrieval scores measure evidence inclusion, not the correctness of generated answers.
 
 For implementation details, each week's summary links to its reproduction guide.
